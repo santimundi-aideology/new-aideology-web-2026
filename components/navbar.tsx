@@ -33,12 +33,19 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg py-2 text-charcoal" : "bg-transparent py-4 text-white"
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center" onClick={handleNavigation}>
-          <Image src="/aideology-logo.png" alt="AIdeology Logo" width={160} height={40} className="h-10 w-auto" />
+          <Image 
+            src={isScrolled ? "/aideology.webp" : "/aideology-white.webp"}
+            alt="AIdeology Logo" 
+            width={200} 
+            height={50} 
+            className="h-12 md:h-14 w-auto transition-all duration-300" 
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

@@ -13,28 +13,28 @@ export default function GlobalPresenceSection() {
       id: "london",
       name: "London",
       timezone: "Europe/London",
-      coords: { x: 47, y: 30 },
+      coords: { x: 49.8, y: 25 },
       description: "Our London office serves as our European headquarters, providing comprehensive AI solutions.",
     },
     {
       id: "madrid",
       name: "Madrid",
       timezone: "Europe/Madrid",
-      coords: { x: 48, y: 37 },
+      coords: { x: 47.5, y: 35 },
       description: "The Madrid hub focuses on AI infrastructure and works closely with our Barcelona team.",
     },
     {
       id: "barcelona",
       name: "Barcelona",
       timezone: "Europe/Madrid",
-      coords: { x: 50, y: 35 },
+      coords: { x: 50.8, y: 37 },
       description: "Our Barcelona office specializes in 3D AI solutions and serves clients throughout Southern Europe.",
     },
     {
       id: "riyadh",
       name: "Riyadh",
       timezone: "Asia/Riyadh",
-      coords: { x: 62, y: 42 },
+      coords: { x: 65, y: 45 },
       description:
         "The Riyadh hub specializes in AI infrastructure for government and enterprise clients in Saudi Arabia.",
     },
@@ -42,21 +42,21 @@ export default function GlobalPresenceSection() {
       id: "doha",
       name: "Doha",
       timezone: "Asia/Qatar",
-      coords: { x: 65, y: 45 },
+      coords: { x: 68, y: 47 },
       description: "Our Doha office provides AI consulting and infrastructure services throughout Qatar.",
     },
     {
       id: "abu-dhabi",
       name: "Abu Dhabi",
       timezone: "Asia/Dubai",
-      coords: { x: 67, y: 47 },
+      coords: { x: 71, y: 48 },
       description: "The Abu Dhabi hub serves clients across the Emirates with cutting-edge AI solutions.",
     },
     {
       id: "dubai",
       name: "Dubai",
       timezone: "Asia/Dubai",
-      coords: { x: 68, y: 48 },
+      coords: { x: 72, y: 49 },
       description: "Our Dubai hub serves as our headquarters and main operations center for the Middle East region.",
     },
   ]
@@ -104,10 +104,10 @@ export default function GlobalPresenceSection() {
             <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-accent-green/10 bg-[#f4f4f4]">
               {/* World Map Image - focusing on Europe and Middle East */}
               <Image
-                src="/world-map-europe-middle-east.png"
+                src="/world-map.webp"
                 alt="AIdeology Global Presence Map"
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
                 onError={(e) => {
                   // Fallback to a placeholder if the specific map image doesn't load
@@ -115,35 +115,6 @@ export default function GlobalPresenceSection() {
                     "/placeholder.svg?height=600&width=1000&query=World map showing Europe and Middle East"
                 }}
               />
-
-              {/* Location Markers */}
-              {locations.map((location) => (
-                <div
-                  key={location.id}
-                  className="absolute w-4 h-4 md:w-6 md:h-6 rounded-full bg-accent-green animate-pulse shadow-lg border-2 border-white"
-                  style={{
-                    left: `${location.coords.x}%`,
-                    top: `${location.coords.y}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                  title={location.name}
-                />
-              ))}
-
-              {/* Location Labels for larger screens */}
-              {locations.map((location) => (
-                <div
-                  key={`label-${location.id}`}
-                  className="absolute hidden lg:block text-xs font-semibold bg-white/90 px-2 py-1 rounded shadow-sm border border-accent-green/20"
-                  style={{
-                    left: `${location.coords.x}%`,
-                    top: `${location.coords.y + 5}%`,
-                    transform: "translate(-50%, 0)",
-                  }}
-                >
-                  {location.name}
-                </div>
-              ))}
             </div>
           </div>
 
