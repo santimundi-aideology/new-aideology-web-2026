@@ -1,0 +1,40 @@
+/* Leaflet styles */
+.leaflet-container {
+  font-family: var(--font-inter);
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.leaflet-popup-content {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  padding: 0.25rem;
+}
+
+.leaflet-popup-tip {
+  background-color: white;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.leaflet-control-zoom a {
+  border-radius: 0.25rem !important;
+  color: #333333 !important;
+}
+
+.leaflet-control-zoom-in {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-control-attribution {
+  font-size: 0.7rem !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
