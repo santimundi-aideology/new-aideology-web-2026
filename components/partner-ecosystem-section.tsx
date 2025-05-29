@@ -6,9 +6,13 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 
 export default function PartnerEcosystemSection() {
-  const [activeCategory, setActiveCategory] = useState("infra-ai")
+  const [activeCategory, setActiveCategory] = useState("all")
 
   const partnerCategories = [
+    {
+      id: "all",
+      name: "All Partners",
+    },
     {
       id: "infra-ai",
       name: "Infra AI",
@@ -21,81 +25,63 @@ export default function PartnerEcosystemSection() {
       id: "3d-ai",
       name: "3D AI",
     },
-    {
-      id: "cross-category",
-      name: "Cross-Category",
-    },
   ]
 
   const partners = [
-    // 3D AI Partners
-    { name: "Epic Games", logo: "/partners/epic-games-logo.png", category: "3d-ai" },
-    { name: "Unreal Engine", logo: "/partners/unreal-engine-logo.png", category: "3d-ai" },
-    { name: "Autodesk", logo: "/partners/autodesk-logo.png", category: "3d-ai" },
-    { name: "Meta", logo: "/partners/meta-logo.png", category: "3d-ai" },
-    { name: "Unity", logo: "/partners/unity-logo.png", category: "3d-ai" },
+    // 3D AI Partners (Top circle)
+    { name: "Meta", logo: "/partner-logos/meta-logo.webp", category: "3d-ai", categories: ["3d-ai"] },
+    { name: "Autodesk", logo: "/partner-logos/autodesk-logo.webp", category: "3d-ai", categories: ["3d-ai"] },
+    { name: "Unity", logo: "/partner-logos/unity-logo.webp", category: "3d-ai", categories: ["3d-ai"] },
+    { name: "Unreal Engine", logo: "/partner-logos/unreal-logo.webp", category: "3d-ai", categories: ["3d-ai"] },
 
-    // Infra AI Partners
-    { name: "Lenovo", logo: "/lenovo-logo.png", category: "infra-ai", isLenovo: true },
-    { name: "Hewlett Packard Enterprise", logo: "/hpe-logo.png", category: "infra-ai", isHPE: true },
-    { name: "Dell", logo: "/placeholder-n02xb.png", category: "infra-ai" },
-    { name: "Supermicro", logo: "/supermicro-logo.png", category: "infra-ai", isSupermicro: true },
-    { name: "NVIDIA", logo: "/partners/nvidia-logo.png", category: "infra-ai" },
-    { name: "NetApp", logo: "/partners/netapp-logo.png", category: "infra-ai" },
-    { name: "DDN", logo: "/partners/ddn-logo.png", category: "infra-ai" },
-    { name: "WEKA", logo: "/partners/weka-logo.png", category: "infra-ai" },
-    { name: "VAST", logo: "/partners/vast-logo.png", category: "infra-ai" },
+    // Infra AI Partners (Left circle)
+    { name: "Supermicro", logo: "/partner-logos/supermicro-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "Hewlett Packard Enterprise", logo: "/partner-logos/hpe-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "Dell", logo: "/partner-logos/dell-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "Lenovo", logo: "/partner-logos/lenovo-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "NetApp", logo: "/partner-logos/netapp-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "Cerebras", logo: "/partner-logos/cerebras-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "DDN", logo: "/partner-logos/ddn-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "WEKA", logo: "/partner-logos/weka-logo.webp", category: "infra-ai", categories: ["infra-ai"] },
+    { name: "VAST", logo: "/partner-logos/vast_logo.webp", category: "infra-ai", categories: ["infra-ai"] },
 
-    // Gen AI Partners
-    { name: "NVIDIA NEMO", logo: "/partners/nvidia-nemo-logo.png", category: "gen-ai" },
-    { name: "OpenAI", logo: "/partners/openai-logo.png", category: "gen-ai" },
-    { name: "Google", logo: "/partners/google-logo.png", category: "gen-ai" },
-    { name: "Anthropic", logo: "/partners/anthropic-logo.png", category: "gen-ai" },
-    { name: "Hugging Face", logo: "/partners/hugging-face-logo.png", category: "gen-ai" },
+    // Gen AI Partners (Right circle)
+    { name: "OpenAI", logo: "/partner-logos/openai-logo.webp", category: "gen-ai", categories: ["gen-ai"] },
+    { name: "Google", logo: "/partner-logos/google-logo.webp", category: "gen-ai", categories: ["gen-ai"] },
+    { name: "Hugging Face", logo: "/partner-logos/huggingface-logo.webp", category: "gen-ai", categories: ["gen-ai"] },
 
-    // Cross-Category Partners
-    {
-      name: "Atenea Suite",
-      logo: "/partners/atenea-suite-logo.png",
-      category: "cross-category",
-      categories: ["3d-ai", "infra-ai"],
-    },
-    {
-      name: "NVIDIA Omniverse",
-      logo: "/partners/nvidia-omniverse-logo.png",
-      category: "cross-category",
-      categories: ["3d-ai", "infra-ai", "gen-ai"],
-    },
-    {
-      name: "Run:ai",
-      logo: "/partners/runai-logo.png",
-      category: "cross-category",
-      categories: ["infra-ai", "gen-ai"],
-    },
-    { name: "Maind", logo: "/partners/maind-logo.png", category: "cross-category", categories: ["infra-ai", "gen-ai"] },
-    {
-      name: "Weights & Biases",
-      logo: "/partners/wandb-logo.png",
-      category: "cross-category",
-      categories: ["infra-ai", "gen-ai"],
-    },
+    // Cross-Category Partners - 3D AI & Infra AI overlap (Top-Left intersection)
+    { name: "TheCliff", logo: "/partner-logos/thecliff-logo.webp", category: "cross-category", categories: ["3d-ai", "infra-ai"] },
+
+    // Cross-Category Partners - 3D AI & Gen AI overlap (Top-Right intersection)
+    { name: "NVIDIA Omniverse", logo: "/partner-logos/omniverse-logo.webp", category: "cross-category", categories: ["3d-ai", "gen-ai"] },
+
+    // Cross-Category Partners - Infra AI & Gen AI overlap (Bottom intersection)
+    { name: "Run:ai", logo: "/partner-logos/runai-logo.webp", category: "cross-category", categories: ["infra-ai", "gen-ai"] },
+    { name: "Weights & Biases", logo: "/partner-logos/wandb-logo.webp", category: "cross-category", categories: ["infra-ai", "gen-ai"] },
+
+    // Center Partners - All three categories overlap
+    { name: "Maind", logo: "/partner-logos/maind-logo.webp", category: "cross-category", categories: ["3d-ai", "infra-ai", "gen-ai"] },
+    { name: "NVIDIA", logo: "/partner-logos/nvidia-logo.webp", category: "cross-category", categories: ["3d-ai", "infra-ai", "gen-ai"] },
+    { name: "NVIDIA NEMO", logo: "/partner-logos/nemo-logo.webp", category: "cross-category", categories: ["infra-ai", "gen-ai"] },
   ]
 
-  const filteredPartners = partners.filter(
-    (partner) =>
-      partner.category === activeCategory || (partner.categories && partner.categories.includes(activeCategory)),
-  )
+  const filteredPartners = activeCategory === "all" 
+    ? partners 
+    : partners.filter((partner) =>
+        partner.category === activeCategory || (partner.categories && partner.categories.includes(activeCategory))
+      )
 
   return (
     <section id="partners" className="py-20 bg-[#f4f4f4]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Partner Ecosystem</h2>
-          <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">Strategic partnerships with industry leaders</p>
+          <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">Strategic partnerships with industry leaders across AI infrastructure, generative AI, and 3D technologies</p>
         </div>
 
         {/* Partner Categories Tabs */}
-        <Tabs defaultValue="infra-ai" className="mb-12" onValueChange={setActiveCategory}>
+        <Tabs defaultValue="all" className="mb-12" onValueChange={setActiveCategory}>
           <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full max-w-3xl mx-auto bg-white/80">
             {partnerCategories.map((category) => (
               <TabsTrigger
@@ -110,23 +96,54 @@ export default function PartnerEcosystemSection() {
         </Tabs>
 
         {/* Partner Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 justify-items-center">
           {filteredPartners.map((partner, index) => (
             <Card
               key={index}
-              className="bg-white border border-accent-green/10 rounded-md p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-md transition-all w-full h-32"
+              className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg transition-all w-full h-32 group"
             >
-              <Image
-                src={partner.logo || "/placeholder.svg"}
-                alt={`${partner.name} logo`}
-                width={160}
-                height={80}
-                className={`w-auto object-contain opacity-90 hover:opacity-100 transition-opacity ${
-                  partner.isSupermicro || partner.isLenovo || partner.isHPE ? "h-16" : "h-12"
-                }`}
-              />
+              <div className="relative w-full h-full flex items-center justify-center">
+                <Image
+                  src={partner.logo || "/placeholder.svg"}
+                  alt={`${partner.name} logo`}
+                  width={140}
+                  height={70}
+                  className="w-auto max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity filter grayscale-[20%] group-hover:grayscale-0"
+                />
+                {/* Category badges for cross-category partners */}
+                {partner.categories && partner.categories.length > 1 && (
+                  <div className="absolute -top-2 -right-2 flex flex-wrap gap-1">
+                    {partner.categories.map((cat, i) => (
+                      <div
+                        key={i}
+                        className={`w-2 h-2 rounded-full ${
+                          cat === "3d-ai" ? "bg-blue-500" :
+                          cat === "infra-ai" ? "bg-green-500" :
+                          cat === "gen-ai" ? "bg-purple-500" : "bg-gray-400"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             </Card>
           ))}
+        </div>
+
+        {/* Legend for category indicators */}
+        <div className="flex justify-center mt-8 space-x-6 text-sm text-charcoal/70">
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+            <span>3D AI</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <span>Infra AI</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+            <span>Gen AI</span>
+          </div>
         </div>
       </div>
     </section>
