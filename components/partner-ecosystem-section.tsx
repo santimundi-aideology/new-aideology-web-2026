@@ -36,10 +36,10 @@ export default function PartnerEcosystemSection() {
     { name: "Unity", logo: "/partners/unity-logo.png", category: "3d-ai" },
 
     // Infra AI Partners
-    { name: "Hewlett Packard Enterprise", logo: "/partners/hpe-logo.png", category: "infra-ai" },
-    { name: "Lenovo", logo: "/lenovo-logo.png", category: "infra-ai" },
+    { name: "Lenovo", logo: "/lenovo-logo.png", category: "infra-ai", isLenovo: true },
+    { name: "Hewlett Packard Enterprise", logo: "/hpe-logo.png", category: "infra-ai", isHPE: true },
     { name: "Dell", logo: "/placeholder-n02xb.png", category: "infra-ai" },
-    { name: "Supermicro", logo: "/supermicro-logo.png", category: "infra-ai" },
+    { name: "Supermicro", logo: "/supermicro-logo.png", category: "infra-ai", isSupermicro: true },
     { name: "NVIDIA", logo: "/partners/nvidia-logo.png", category: "infra-ai" },
     { name: "NetApp", logo: "/partners/netapp-logo.png", category: "infra-ai" },
     { name: "DDN", logo: "/partners/ddn-logo.png", category: "infra-ai" },
@@ -121,7 +121,9 @@ export default function PartnerEcosystemSection() {
                 alt={`${partner.name} logo`}
                 width={160}
                 height={80}
-                className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                className={`w-auto object-contain opacity-90 hover:opacity-100 transition-opacity ${
+                  partner.isSupermicro || partner.isLenovo || partner.isHPE ? "h-16" : "h-12"
+                }`}
               />
             </Card>
           ))}
