@@ -13,17 +13,17 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/placeholder-c8ilc.png"
+                src="/aideology-white.webp"
                 alt="AIdeology Logo"
-                width={160}
-                height={40}
-                className="h-10 w-auto"
+                width={180}
+                height={45}
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-white/80 mb-6">Elite AI Infrastructure & 3D AI Solutions Provider</p>
             <div className="flex space-x-4">
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/aideology/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-accent-green transition-colors"

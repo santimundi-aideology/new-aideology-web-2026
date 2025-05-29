@@ -11,9 +11,15 @@ const MissionQuoteSection = () => {
           {/* Mission */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Our Mission</h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Our mission is to simplify and transform ideas into rational systems-engineering AI solutions.
-            </p>
+            <div className="relative">
+              {/* Glowing background for mission text */}
+              <div className="absolute inset-0 bg-accent-green/10 blur-2xl rounded-full"></div>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-white max-w-4xl mx-auto relative z-10 font-montserrat"
+                 style={{
+                 }}>
+                Our mission is to simplify and transform ideas into rational systems-engineering AI solutions.
+              </p>
+            </div>
           </div>
 
           {/* Quote */}
