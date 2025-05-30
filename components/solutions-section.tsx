@@ -36,25 +36,35 @@ export default function SolutionsSection() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px'
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0')
-          setVisibleCards(prev => [...prev, cardIndex])
+          setVisibleCards(prev => {
+            if (!prev.includes(cardIndex)) {
+              return [...prev, cardIndex];
+            }
+            return prev;
+          });
         }
       })
     }, observerOptions)
 
     // Observe cards after component mounts
-    setTimeout(() => {
-      const cards = document.querySelectorAll('[data-card-index]')
-      cards.forEach(card => observer.observe(card))
-    }, 100)
+    const cards = document.querySelectorAll('[data-card-index]')
+    cards.forEach(card => {
+      if (card) observer.observe(card)
+    })
 
-    return () => observer.disconnect()
+    return () => {
+      cards.forEach(card => {
+        if (card) observer.unobserve(card);
+      });
+      observer.disconnect();
+    }
   }, [])
 
   return (
@@ -62,7 +72,7 @@ export default function SolutionsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Solutions</h2>
-          <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Comprehensive AI solutions tailored to your business needs
           </p>
         </div>
@@ -74,11 +84,7 @@ export default function SolutionsSection() {
               data-card-index={index}
               className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer
                 relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50
-                ${visibleCards.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
               `}
-              style={{
-                transitionDelay: `${index * 150}ms`
-              }}
             >
               <CardHeader>
                 <div className="mb-4">{solution.icon}</div>
@@ -87,18 +93,17 @@ export default function SolutionsSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-charcoal/70 text-base mb-4">
+                <CardDescription className="text-gray-500 text-base mb-4">
                   {solution.description}
                 </CardDescription>
                 
-                {/* Key Features */}
                 <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-charcoal/80 mb-2">Key Features:</h4>
+                  <h4 className="text-sm font-semibold text-gray-500 mb-2">Key Features:</h4>
                   <ul className="space-y-1">
                     {solution.details.map((detail, detailIndex) => (
                       <li 
                         key={detailIndex}
-                        className="flex items-center text-sm text-charcoal/70"
+                        className="flex items-center text-sm text-gray-600"
                       >
                         <div className="w-1.5 h-1.5 bg-accent-green rounded-full mr-2"></div>
                         {detail}

@@ -39,10 +39,10 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 bg-charcoal text-white overflow-hidden">
-      {/* Floating Particles - Client Side Only */}
-      {mounted && (
+      {/* Floating Particles Removed */}
+      {/* {mounted && (
         <div className="absolute inset-0 z-0">
-          {Array.from({ length: 50 }, (_, i) => (
+          {Array.from({ length: 25 }, (_, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-accent-green/30 rounded-full animate-float"
@@ -55,19 +55,23 @@ export default function HeroSection() {
             />
           ))}
         </div>
-      )}
+      )} */}
 
-      {/* YouTube Video Background */}
+      {/* Local Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-charcoal/70 z-10"></div>
         <div className="absolute inset-0 z-0">
-          <iframe
-            src="https://www.youtube.com/embed/DFKdU6AIseI?autoplay=1&mute=1&loop=1&playlist=DFKdU6AIseI&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&iv_load_policy=3&enablejsapi=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            className="absolute w-[300%] h-[300%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ border: "none" }}
-            title="AI Infrastructure Background"
-          ></iframe>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
+            style={{ width: "100vw", height: "100vh" }}
+          >
+            <source src="/homepage-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         {/* Fallback image if video doesn't load */}
         <img

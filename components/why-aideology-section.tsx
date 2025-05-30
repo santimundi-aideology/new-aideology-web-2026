@@ -26,7 +26,7 @@ export default function WhyAIdeologySection() {
           {/* Left Column - Text */}
           <div className="animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-charcoal">Why AIdeology</h2>
-            <div className="space-y-4 text-charcoal/80">
+            <div className="space-y-4 text-gray-600">
               <p className="text-lg">
                 As an <span className="text-electric-green font-semibold">NVIDIA Elite Solution Provider</span> with
                 certified architects, we bring unparalleled expertise to your AI infrastructure needs.

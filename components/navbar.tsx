@@ -5,10 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { ChevronDown } from "lucide-react"
 import { usePathname } from "next/navigation"
-import ThemeToggle from "./theme-toggle"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -50,7 +47,6 @@ export default function Navbar() {
     setIsMobileMenuOpen(false)
     
     if (sectionId && pathname === "/") {
-      // Smooth scroll to section on same page
       const element = document.getElementById(sectionId)
       if (element) {
         element.scrollIntoView({ 
@@ -72,7 +68,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
+        isScrolled ? "bg-white/90 shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -106,7 +102,6 @@ export default function Navbar() {
               )}
             </Link>
           ))}
-          <ThemeToggle />
           <Button 
             asChild 
             className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
@@ -123,9 +118,9 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
+            <X className={`h-6 w-6 ${isScrolled ? "text-charcoal" : "text-white"}`} />
           ) : (
-            <Menu className="h-6 w-6" />
+            <Menu className={`h-6 w-6 ${isScrolled ? "text-charcoal" : "text-white"}`} />
           )}
         </button>
       </div>

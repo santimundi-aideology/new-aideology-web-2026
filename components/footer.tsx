@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Linkedin, Mail, Phone, MapPin, Twitter, Instagram, Youtube } from "lucide-react"
+import { Linkedin, Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -12,24 +12,6 @@ export default function Footer() {
       label: "LinkedIn",
       color: "hover:text-blue-400 hover:bg-blue-400/10"
     },
-    {
-      href: "https://twitter.com/aideology",
-      icon: Twitter,
-      label: "Twitter",
-      color: "hover:text-sky-400 hover:bg-sky-400/10"
-    },
-    {
-      href: "https://instagram.com/aideology",
-      icon: Instagram,
-      label: "Instagram",
-      color: "hover:text-pink-400 hover:bg-pink-400/10"
-    },
-    {
-      href: "https://youtube.com/@aideology",
-      icon: Youtube,
-      label: "YouTube",
-      color: "hover:text-red-400 hover:bg-red-400/10"
-    }
   ]
 
   return (
@@ -75,7 +57,7 @@ export default function Footer() {
 
           {/* Middle Column - Quick Links */}
           <div className="animate-fade-in-up" style={{animationDelay: '200ms'}}>
-            <h3 className="text-xl font-bold mb-6">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-6 text-white">Quick Links</h3>
             <nav className="grid grid-cols-1 gap-3">
               <Link href="/" className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group">
                 <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
@@ -102,20 +84,25 @@ export default function Footer() {
 
           {/* Right Column - Contact Details */}
           <div className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
-            <h3 className="text-xl font-bold mb-6">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-6 text-white">Contact Us</h3>
             <div className="space-y-4">
-              <div className="flex items-start group cursor-pointer hover:bg-white/5 p-2 rounded transition-colors duration-300">
+              <a href="tel:+971509637367" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
                 <Phone className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                 <p className="text-white/70 group-hover:text-white transition-colors duration-300">+971 50 963 7367</p>
-              </div>
-              <div className="flex items-start group cursor-pointer hover:bg-white/5 p-2 rounded transition-colors duration-300">
-                <Mail className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+              </a>
+              <a href="mailto:aideology@aideology.ai" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
+                <Mail className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0" />
                 <p className="text-white/70 group-hover:text-white transition-colors duration-300">aideology@aideology.ai</p>
-              </div>
-              <div className="flex items-start group cursor-pointer hover:bg-white/5 p-2 rounded transition-colors duration-300">
-                <MapPin className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+              </a>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=AIdeology+Dubai+Silicon+Oasis"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300"
+              >
+                <MapPin className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0" />
                 <p className="text-white/70 group-hover:text-white transition-colors duration-300">101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE</p>
-              </div>
+              </a>
             </div>
           </div>
         </div>

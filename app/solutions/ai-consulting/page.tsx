@@ -6,6 +6,33 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Lightbulb, BrainCircuit, GitBranch, BarChart, Users, CheckCircle, ArrowRight } from "lucide-react"
 
+// Full global partners list (will be pasted in full)
+const allPartners = [
+    { name: "Meta", logo: "/partner-logos/meta-logo.webp", category: "3d-ai", categories: ["3d-ai"], website: "https://about.meta.com/" },
+    { name: "Autodesk", logo: "/partner-logos/autodesk-logo.webp", category: "3d-ai", categories: ["3d-ai"], website: "https://www.autodesk.com/" },
+    { name: "Unity", logo: "/partner-logos/unity-logo.webp", category: "3d-ai", categories: ["3d-ai"], website: "https://unity.com/" },
+    { name: "Unreal Engine", logo: "/partner-logos/unreal-logo.webp", category: "3d-ai", categories: ["3d-ai"], website: "https://www.unrealengine.com/" },
+    { name: "Supermicro", logo: "/partner-logos/supermicro-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.supermicro.com/" },
+    { name: "Hewlett Packard Enterprise", logo: "/partner-logos/hpe-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.hpe.com/" },
+    { name: "Dell", logo: "/partner-logos/dell-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.dell.com/" },
+    { name: "Lenovo", logo: "/partner-logos/lenovo-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.lenovo.com/" },
+    { name: "NetApp", logo: "/partner-logos/netapp-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.netapp.com/" },
+    { name: "Cerebras", logo: "/partner-logos/cerebras-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.cerebras.net/" },
+    { name: "DDN", logo: "/partner-logos/ddn-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.ddn.com/" },
+    { name: "WEKA", logo: "/partner-logos/weka-logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.weka.io/" },
+    { name: "VAST", logo: "/partner-logos/vast_logo.webp", category: "infra-ai", categories: ["infra-ai"], website: "https://www.vastdata.com/" },
+    { name: "OpenAI", logo: "/partner-logos/openai-logo.webp", category: "gen-ai", categories: ["gen-ai"], website: "https://openai.com/" },
+    { name: "Google", logo: "/partner-logos/google-logo.webp", category: "gen-ai", categories: ["gen-ai"], website: "https://ai.google/" },
+    { name: "Hugging Face", logo: "/partner-logos/huggingface-logo.webp", category: "gen-ai", categories: ["gen-ai"], website: "https://huggingface.co/" },
+    { name: "TheCliff", logo: "/partner-logos/thecliff-logo.webp", category: "cross-category", categories: ["3d-ai", "infra-ai"], website: "https://the-cliff.com/" },
+    { name: "NVIDIA Omniverse", logo: "/partner-logos/omniverse-logo.webp", category: "cross-category", categories: ["3d-ai", "gen-ai"], website: "https://www.nvidia.com/en-us/omniverse/" },
+    { name: "Run:ai", logo: "/partner-logos/runai-logo.webp", category: "cross-category", categories: ["infra-ai", "gen-ai"], website: "https://www.run.ai/" },
+    { name: "Weights & Biases", logo: "/partner-logos/wandb-logo.webp", category: "cross-category", categories: ["infra-ai", "gen-ai"], website: "https://wandb.ai/" },
+    { name: "Maind", logo: "/partner-logos/maind-logo.webp", category: "cross-category", categories: ["3d-ai", "infra-ai", "gen-ai"], website: "https://maind.pro/" },
+    { name: "NVIDIA", logo: "/partner-logos/nvidia-logo.webp", category: "cross-category", categories: ["3d-ai", "infra-ai", "gen-ai"], website: "https://www.nvidia.com/" },
+    { name: "NVIDIA NEMO", logo: "/partner-logos/nemo-logo.webp", category: "cross-category", categories: ["infra-ai", "gen-ai"], website: "https://www.nvidia.com/en-us/ai-data-science/generative-ai/nemo-framework/" },
+  ];
+
 export default function AIConsultingPage() {
   const services = [
     {
@@ -31,17 +58,9 @@ export default function AIConsultingPage() {
     },
   ]
 
-  const partnersGenAI = [
-    { name: "NVIDIA NEMO", logo: "/partners/nvidia-nemo-logo.png" },
-    { name: "OpenAI", logo: "/partners/openai-logo.png" },
-    { name: "Google", logo: "/partners/google-logo.png" },
-    { name: "Anthropic", logo: "/partners/anthropic-logo.png" },
-    { name: "Hugging Face", logo: "/partners/hugging-face-logo.png" },
-    { name: "NVIDIA Omniverse", logo: "/partners/nvidia-omniverse-logo.png" },
-    { name: "Run:ai", logo: "/partners/runai-logo.png" },
-    { name: "Maind", logo: "/partners/maind-logo.png" },
-    { name: "Weights & Biases", logo: "/partners/wandb-logo.png" },
-  ]
+  const relevantPartners = allPartners.filter(partner => 
+    partner.categories.includes("gen-ai") || partner.categories.includes("infra-ai")
+  );
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
@@ -117,24 +136,30 @@ export default function AIConsultingPage() {
       {/* Partners Section */}
       <section className="py-20 bg-[#f4f4f4]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Generative AI Partners</h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-            {partnersGenAI.map((partner, index) => (
-              <Card
-                key={index}
-                className="bg-white border border-accent-green/10 rounded-md p-6 flex items-center justify-center hover:border-accent-green/30 transition-colors w-full h-32"
-              >
-                <Image
-                  src={partner.logo || "/placeholder.svg"}
-                  alt={`${partner.name} logo`}
-                  width={160}
-                  height={80}
-                  className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </Card>
-            ))}
-          </div>
+          <h2 className="text-3xl font-bold mb-12 text-center">Our Key Technology Partners</h2>
+          {relevantPartners.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+              {relevantPartners.map((partner, index) => (
+                <Card
+                  key={index}
+                  className="bg-white border border-accent-green/10 rounded-md p-6 flex items-center justify-center hover:border-accent-green/30 transition-colors w-full h-32"
+                  data-delay={`${index * 100}`}
+                >
+                  <Link href={partner.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={160}
+                      height={80}
+                      className="h-16 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </Link>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500">No relevant partners to display at this time.</p>
+          )}
         </div>
       </section>
 

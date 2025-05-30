@@ -97,7 +97,7 @@ export default function GlobalPresenceSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Global Presence</h2>
-          <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Strategically located hubs to serve clients worldwide
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function GlobalPresenceSection() {
             {locations.map((location, index) => (
               <Card 
                 key={location.id} 
-                className="border border-accent-green/20 hover-lift hover:border-accent-green/40 hover:shadow-lg transition-all duration-300 animate-fade-in-up"
+                className="bg-white border border-accent-green/20 hover-lift hover:border-accent-green/40 hover:shadow-lg transition-all duration-300 animate-fade-in-up"
                 style={{
                   animationDelay: `${400 + index * 100}ms`,
                   animationFillMode: 'both'
@@ -154,13 +154,13 @@ export default function GlobalPresenceSection() {
                 <CardContent className="p-4 text-center">
                   <div className="flex items-center justify-center mb-2">
                     <Clock className="h-4 w-4 text-accent-green mr-2 transition-transform duration-300 group-hover:rotate-12" />
-                    <h3 className="font-bold text-sm transition-colors duration-300 hover:text-accent-green">{location.name}</h3>
+                    <h3 className="font-bold text-sm text-charcoal transition-colors duration-300 hover:text-accent-green">{location.name}</h3>
                   </div>
-                  <div className="text-xl md:text-2xl font-mono font-bold text-white transition-all duration-300 hover:scale-110">
+                  <div className="text-xl md:text-2xl font-mono font-bold text-charcoal transition-all duration-300 hover:scale-110">
                     {!timesLoaded ? (
                       <div className="animate-pulse bg-gray-200 h-8 rounded"></div>
                     ) : (
-                      <span className="text-white">
+                      <span className="text-charcoal">
                         {currentTimes[location.id] || "00:00:00"}
                       </span>
                     )}
