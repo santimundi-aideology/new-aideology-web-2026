@@ -9,6 +9,365 @@ import Footer from "@/components/footer"
 // This would typically come from a database or CMS
 const getCaseStudyBySlug = (slug: string) => {
   // Sample case study data for VFX studio
+  if (slug === "g42-ai-cloud-infrastructure") {
+    return {
+      title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+      industry: "AI Infrastructure",
+      company: "G42",
+      logo: "/customers/g42-logo.png",
+      heroImage: "/customers/g42-infrastructure-case-study.png",
+      challenge:
+        "G42's Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+      challengeDetails:
+        "G42's Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+      solution:
+        "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
+      solutionDetails:
+        "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
+      implementation:
+        "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
+      results: [
+        "5 Scalable DGX SuperPOD units deployed",
+        "159+ NVIDIA DGX H100 systems implemented",
+        "Massive scale AI cloud infrastructure operational",
+        "Enhanced AI capabilities across the region",
+      ],
+      resultsDetails:
+        "The impact of the new AI infrastructure was immediate and significant:\n\n- **Rendering Performance**: Average render times decreased by 60%, with some complex scenes seeing even greater improvements.\n\n- **Cost Efficiency**: Despite the increased performance, overall infrastructure costs decreased by 40% due to better resource utilization and the hybrid cloud approach.\n\n- **Capacity**: The studio was able to take on 3x more projects simultaneously without adding additional staff.\n\n- **Artist Productivity**: Artists could now get feedback on their work in minutes rather than hours, enabling more iterations and higher quality output.\n\n- **Competitive Advantage**: Faster turnaround times and higher quality work led to increased client satisfaction and new business opportunities.\n\n- **Energy Efficiency**: The new infrastructure consumed 35% less power per frame rendered, aligning with the studio's sustainability goals.",
+      testimonial: {
+        quote:
+          "The partnership with AIdeology enabled us to rapidly deploy enterprise-grade AI infrastructure at scale. The DGX SuperPOD implementation has significantly enhanced our ability to serve AI workloads across diverse industries.",
+        author: "Talal Al Kaissi",
+        position: "CEO",
+        company: "Core42 (G42)",
+        image: "/customers/testimonials/talal-al-kaissi.png",
+      },
+      metrics: [
+        {
+          label: "Rendering Time Reduction",
+          value: "60%",
+          icon: <Clock className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Cost Savings",
+          value: "40%",
+          icon: <DollarSign className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Capacity Increase",
+          value: "3x",
+          icon: <BarChart className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Energy Efficiency Improvement",
+          value: "35%",
+          icon: <Zap className="h-6 w-6 text-accent-green" />,
+        },
+      ],
+      relatedCaseStudies: [
+        {
+          id: "2",
+          title: "Architectural Firm Enhances Visualization with 3D AI",
+          industry: "Architecture & Design",
+          image: "/customers/architecture-firm-case-study.png",
+          slug: "architectural-visualization",
+        },
+        {
+          id: "4",
+          title: "Media Production Studio Implements Virtual Production Pipeline",
+          industry: "Media & Entertainment",
+          image: "/customers/virtual-production-case-study.png",
+          slug: "virtual-production",
+        },
+      ],
+    }
+  }
+  if (slug === "tonomus-neom-cognitive-cloud") {
+    return {
+      title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
+      industry: "AI Infrastructure",
+      company: "NEOM",
+      logo: "/customers/neom-logo.png",
+      heroImage: "/placeholder.svg?height=500&width=1200",
+      challenge:
+        "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
+      challengeDetails:
+        "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
+      solution:
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM’s regional data facilities.",
+      solutionDetails:
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM’s regional data facilities.",
+      implementation:
+        "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
+      results: [
+        "[ ___ PFLOPS / ___ TFLOPS ] aggregate AI compute online in < [ X ] weeks",
+        "Cut model-training time for [ geospatial maps / traffic predictors / … ] by [ __ ]%",
+        "Supports smart-city analytics for [ __ ] million sensors & resident digital twins",
+        "Enabled Tonomus to launch its cognitive-cloud service [ __ ] months ahead of schedule, attracting [ __ ] new enterprise tenants",
+      ],
+      resultsDetails:
+        "The impact of the new AI infrastructure was immediate and significant:\n\n- **Rendering Performance**: Average render times decreased by 60%, with some complex scenes seeing even greater improvements.\n\n- **Cost Efficiency**: Despite the increased performance, overall infrastructure costs decreased by 40% due to better resource utilization and the hybrid cloud approach.\n\n- **Capacity**: The studio was able to take on 3x more projects simultaneously without adding additional staff.\n\n- **Artist Productivity**: Artists could now get feedback on their work in minutes rather than hours, enabling more iterations and higher quality output.\n\n- **Competitive Advantage**: Faster turnaround times and higher quality work led to increased client satisfaction and new business opportunities.\n\n- **Energy Efficiency**: The new infrastructure consumed 35% less power per frame rendered, aligning with the studio's sustainability goals.",
+      testimonial: {
+        quote: "AIdeology delivered a secure, role-based AI finance agent that:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      metrics: [
+        {
+          label: "Rendering Time Reduction",
+          value: "60%",
+          icon: <Clock className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Cost Savings",
+          value: "40%",
+          icon: <DollarSign className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Capacity Increase",
+          value: "3x",
+          icon: <BarChart className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Energy Efficiency Improvement",
+          value: "35%",
+          icon: <Zap className="h-6 w-6 text-accent-green" />,
+        },
+      ],
+      relatedCaseStudies: [
+        {
+          id: "1",
+          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          industry: "AI Infrastructure",
+          image: "/customers/g42-infrastructure-case-study.png",
+          slug: "g42-ai-cloud-infrastructure",
+        },
+        {
+          id: "2",
+          title: "Architectural Firm Enhances Visualization with 3D AI",
+          industry: "Architecture & Design",
+          image: "/customers/architecture-firm-case-study.png",
+          slug: "architectural-visualization",
+        },
+      ],
+    }
+  }
+  if (slug === "broadcom-vmware-crm-automation") {
+    return {
+      title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
+      industry: "AI Consulting",
+      company: "Broadcom",
+      logo: "/customers/broadcom-logo.png",
+      heroImage: "/placeholder.svg?height=500&width=1200",
+      challenge:
+        "Broadcom’s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a “hockey-stick” surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+      challengeDetails:
+        "Broadcom’s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a “hockey-stick” surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+      solution: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
+      solutionDetails: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
+      implementation:
+        "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
+      results: [
+        "100 000+ invoices/year processed fully autonomously via Salesforce integration",
+        "12 000 quotes cleared in 24 h vs. 3 months—a 90-day cycle shrunk to one day",
+        "Workforce re-allocation: 120 FTE ➜ 5 FTE, freeing 115 people for higher-value tasks",
+        "97.5 % data accuracy and near-zero manual rework",
+        "1 200 % ROI in the first year, driven by labour savings and faster revenue recognition",
+      ],
+      resultsDetails:
+        "The impact of the new AI infrastructure was immediate and significant:\n\n- **Rendering Performance**: Average render times decreased by 60%, with some complex scenes seeing even greater improvements.\n\n- **Cost Efficiency**: Despite the increased performance, overall infrastructure costs decreased by 40% due to better resource utilization and the hybrid cloud approach.\n\n- **Capacity**: The studio was able to take on 3x more projects simultaneously without adding additional staff.\n\n- **Artist Productivity**: Artists could now get feedback on their work in minutes rather than hours, enabling more iterations and higher quality output.\n\n- **Competitive Advantage**: Faster turnaround times and higher quality work led to increased client satisfaction and new business opportunities.\n\n- **Energy Efficiency**: The new infrastructure consumed 35% less power per frame rendered, aligning with the studio's sustainability goals.",
+      testimonial: {
+        quote: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      metrics: [
+        {
+          label: "Rendering Time Reduction",
+          value: "60%",
+          icon: <Clock className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Cost Savings",
+          value: "40%",
+          icon: <DollarSign className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Capacity Increase",
+          value: "3x",
+          icon: <BarChart className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Energy Efficiency Improvement",
+          value: "35%",
+          icon: <Zap className="h-6 w-6 text-accent-green" />,
+        },
+      ],
+      relatedCaseStudies: [
+        {
+          id: "1",
+          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          industry: "AI Infrastructure",
+          image: "/customers/g42-infrastructure-case-study.png",
+          slug: "g42-ai-cloud-infrastructure",
+        },
+        {
+          id: "2",
+          title: "Architectural Firm Enhances Visualization with 3D AI",
+          industry: "Architecture & Design",
+          image: "/customers/architecture-firm-case-study.png",
+          slug: "architectural-visualization",
+        },
+      ],
+    }
+  }
+  if (slug === "midis-group-generative-ai-finance") {
+    return {
+      title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
+      industry: "AI Consulting",
+      company: "Midis Group",
+      logo: "/customers/mindware-logo.png",
+      heroImage: "/placeholder.svg?height=500&width=1200",
+      challenge:
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group’s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+      challengeDetails:
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group’s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+      solution: "AIdeology delivered a secure, role-based AI finance agent that:",
+      solutionDetails: "AIdeology delivered a secure, role-based AI finance agent that:",
+      implementation:
+        "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
+      results: [
+        "Days-long consolidation cycles cut to minutes, freeing controllers for analysis rather than data wrangling",
+        "Data-entry errors virtually eliminated thanks to automated validation and lineage tracking",
+        "Self-service forecasting enables finance leaders to test scenarios live during executive reviews",
+        "Rapid adoption across subsidiaries—the chat UI required < 1 hour of training for most users",
+        "Positioned Midis Group to scale seamlessly as new entities and reporting requirements are added",
+      ],
+      resultsDetails:
+        "The impact of the new AI infrastructure was immediate and significant:\n\n- **Rendering Performance**: Average render times decreased by 60%, with some complex scenes seeing even greater improvements.\n\n- **Cost Efficiency**: Despite the increased performance, overall infrastructure costs decreased by 40% due to better resource utilization and the hybrid cloud approach.\n\n- **Capacity**: The studio was able to take on 3x more projects simultaneously without adding additional staff.\n\n- **Artist Productivity**: Artists could now get feedback on their work in minutes rather than hours, enabling more iterations and higher quality output.\n\n- **Competitive Advantage**: Faster turnaround times and higher quality work led to increased client satisfaction and new business opportunities.\n\n- **Energy Efficiency**: The new infrastructure consumed 35% less power per frame rendered, aligning with the studio's sustainability goals.",
+      testimonial: {
+        quote: "AIdeology delivered a secure, role-based AI finance agent that:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      metrics: [
+        {
+          label: "Rendering Time Reduction",
+          value: "60%",
+          icon: <Clock className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Cost Savings",
+          value: "40%",
+          icon: <DollarSign className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Capacity Increase",
+          value: "3x",
+          icon: <BarChart className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Energy Efficiency Improvement",
+          value: "35%",
+          icon: <Zap className="h-6 w-6 text-accent-green" />,
+        },
+      ],
+      relatedCaseStudies: [
+        {
+          id: "1",
+          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          industry: "AI Infrastructure",
+          image: "/customers/g42-infrastructure-case-study.png",
+          slug: "g42-ai-cloud-infrastructure",
+        },
+        {
+          id: "2",
+          title: "Architectural Firm Enhances Visualization with 3D AI",
+          industry: "Architecture & Design",
+          image: "/customers/architecture-firm-case-study.png",
+          slug: "architectural-visualization",
+        },
+      ],
+    }
+  }
+  if (slug === "k-tuin-istyle-digital-twin") {
+    return {
+      title: "iStyle & K-Tuin – Digital-Twin Retail Analytics for 130+ Apple Stores",
+      industry: "AI Consulting",
+      company: "Midis Group",
+      logo: "/customers/mindware-logo.png",
+      heroImage: "/placeholder.svg?height=500&width=1200",
+      challenge:
+        "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
+      challengeDetails:
+        "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
+      solution: "AIdeology built a complete “store digital-twin” platform:",
+      solutionDetails: "AIdeology built a complete “store digital-twin” platform:",
+      implementation:
+        "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
+      results: [
+        "Enterprise roll-out ready for all 130+ stores, giving corporate and field teams a single source of behavioural truth.",
+        "Model accuracy boosted thanks to the synthetic-image corpus—allowing reliable detection of complex, low-frequency events (e.g., abandoned check-outs).",
+        "Operational uplift: managers can dynamically redeploy staff to cut wait times, optimise merchandising based on real engagement hotspots and measure the ROI of in-store campaigns in hours instead of weeks.",
+        "Privacy & compliance by design, meeting GDPR and internal Midis Group policies without intrusive cameras or manual tagging.",
+      ],
+      resultsDetails:
+        "The impact of the new AI infrastructure was immediate and significant:\n\n- **Rendering Performance**: Average render times decreased by 60%, with some complex scenes seeing even greater improvements.\n\n- **Cost Efficiency**: Despite the increased performance, overall infrastructure costs decreased by 40% due to better resource utilization and the hybrid cloud approach.\n\n- **Capacity**: The studio was able to take on 3x more projects simultaneously without adding additional staff.\n\n- **Artist Productivity**: Artists could now get feedback on their work in minutes rather than hours, enabling more iterations and higher quality output.\n\n- **Competitive Advantage**: Faster turnaround times and higher quality work led to increased client satisfaction and new business opportunities.\n\n- **Energy Efficiency**: The new infrastructure consumed 35% less power per frame rendered, aligning with the studio's sustainability goals.",
+      testimonial: {
+        quote: "AIdeology built a complete “store digital-twin” platform:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      metrics: [
+        {
+          label: "Rendering Time Reduction",
+          value: "60%",
+          icon: <Clock className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Cost Savings",
+          value: "40%",
+          icon: <DollarSign className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Capacity Increase",
+          value: "3x",
+          icon: <BarChart className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Energy Efficiency Improvement",
+          value: "35%",
+          icon: <Zap className="h-6 w-6 text-accent-green" />,
+        },
+      ],
+      relatedCaseStudies: [
+        {
+          id: "1",
+          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          industry: "AI Infrastructure",
+          image: "/customers/g42-infrastructure-case-study.png",
+          slug: "g42-ai-cloud-infrastructure",
+        },
+        {
+          id: "2",
+          title: "Architectural Firm Enhances Visualization with 3D AI",
+          industry: "Architecture & Design",
+          image: "/customers/architecture-firm-case-study.png",
+          slug: "architectural-visualization",
+        },
+      ],
+    }
+  }
+
+  // Sample case study data for VFX studio
   return {
     title: "VFX Studio Accelerates Rendering with AI Infrastructure",
     industry: "Media & Entertainment",

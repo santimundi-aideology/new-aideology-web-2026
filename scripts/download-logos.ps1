@@ -60,4 +60,4 @@ Write-Host "Note: Some logos may need manual cleaning for transparent background
 Write-Host "Logos not found automatically (please add manually):" -ForegroundColor Yellow
 Write-Host "- Unreal Engine" -ForegroundColor Red
 Write-Host "- Google Gemini" -ForegroundColor Red
-Write-Host "- Some storage/networking vendors" -ForegroundColor Red 
+Write-Host "- Some storage/networking vendors" -ForegroundColor Red

@@ -84,4 +84,4 @@ export default function NewsletterSignupSection() {
       </div>
     </section>
   );
-} 
+}

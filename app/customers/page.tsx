@@ -60,6 +60,105 @@ export default function CustomersPage() {
     },
     {
       id: "2",
+      title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
+      industry: "AI Infrastructure",
+      challenge:
+        "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
+      solution:
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM’s regional data facilities.",
+      results: [
+        "[ ___ PFLOPS / ___ TFLOPS ] aggregate AI compute online in < [ X ] weeks",
+        "Cut model-training time for [ geospatial maps / traffic predictors / … ] by [ __ ]%",
+        "Supports smart-city analytics for [ __ ] million sensors & resident digital twins",
+        "Enabled Tonomus to launch its cognitive-cloud service [ __ ] months ahead of schedule, attracting [ __ ] new enterprise tenants",
+      ],
+      image: "/customers/tonomus-case-study.png",
+      logo: "/customers/neom-logo.png",
+      testimonial: {
+        quote: "AIdeology delivered a secure, role-based AI finance agent that:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      slug: "tonomus-neom-cognitive-cloud",
+    },
+    {
+      id: "3",
+      title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
+      industry: "AI Consulting",
+      challenge:
+        "Broadcom’s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a “hockey-stick” surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+      solution: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
+      results: [
+        "100 000+ invoices/year processed fully autonomously via Salesforce integration",
+        "12 000 quotes cleared in 24 h vs. 3 months—a 90-day cycle shrunk to one day",
+        "Workforce re-allocation: 120 FTE ➜ 5 FTE, freeing 115 people for higher-value tasks",
+        "97.5 % data accuracy and near-zero manual rework",
+        "1 200 % ROI in the first year, driven by labour savings and faster revenue recognition",
+      ],
+      image: "/customers/broadcom-case-study.png",
+      logo: "/customers/broadcom-logo.png",
+      testimonial: {
+        quote: "AIdeology delivered a secure, role-based AI finance agent that:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      slug: "broadcom-vmware-crm-automation",
+    },
+    {
+      id: "4",
+      title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
+      industry: "AI Consulting",
+      challenge:
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group’s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+      solution: "AIdeology delivered a secure, role-based AI finance agent that:",
+      results: [
+        "Days-long consolidation cycles cut to minutes, freeing controllers for analysis rather than data wrangling",
+        "Data-entry errors virtually eliminated thanks to automated validation and lineage tracking",
+        "Self-service forecasting enables finance leaders to test scenarios live during executive reviews",
+        "Rapid adoption across subsidiaries—the chat UI required < 1 hour of training for most users",
+        "Positioned Midis Group to scale seamlessly as new entities and reporting requirements are added",
+      ],
+      image: "/customers/midis-group-case-study.png",
+      logo: "/customers/mindware-logo.png",
+      testimonial: {
+        quote: "AIdeology delivered a secure, role-based AI finance agent that:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      slug: "midis-group-generative-ai-finance",
+    },
+    {
+      id: "5",
+      title: "iStyle & K-Tuin – Digital-Twin Retail Analytics for 130+ Apple Stores",
+      industry: "AI Consulting",
+      challenge:
+        "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
+      solution: "AIdeology built a complete “store digital-twin” platform:",
+      results: [
+        "Enterprise roll-out ready for all 130+ stores, giving corporate and field teams a single source of behavioural truth.",
+        "Model accuracy boosted thanks to the synthetic-image corpus—allowing reliable detection of complex, low-frequency events (e.g., abandoned check-outs).",
+        "Operational uplift: managers can dynamically redeploy staff to cut wait times, optimise merchandising based on real engagement hotspots and measure the ROI of in-store campaigns in hours instead of weeks.",
+        "Privacy & compliance by design, meeting GDPR and internal Midis Group policies without intrusive cameras or manual tagging.",
+      ],
+      image: "/customers/k-tuin-istyle-case-study.png",
+      logo: "/customers/mindware-logo.png",
+      testimonial: {
+        quote: "AIdeology built a complete “store digital-twin” platform:",
+        author: "Robert Thompson",
+        position: "Grid Operations Manager",
+        company: "PowerGrid Solutions",
+        image: "/customers/testimonials/robert-thompson.png",
+      },
+      slug: "k-tuin-istyle-digital-twin",
+    },
+    {
+      id: "6",
       title: "Architectural Firm Enhances Visualization with 3D AI",
       industry: "3D AI",
       challenge:
@@ -85,7 +184,7 @@ export default function CustomersPage() {
       slug: "architectural-visualization",
     },
     {
-      id: "3",
+      id: "7",
       title: "Manufacturing Company Optimizes Production with AI Agents",
       industry: "AI Consulting",
       challenge:
@@ -111,7 +210,7 @@ export default function CustomersPage() {
       slug: "manufacturing-optimization",
     },
     {
-      id: "4",
+      id: "8",
       title: "Media Production Studio Implements Virtual Production Pipeline",
       industry: "3D AI",
       challenge:
@@ -137,7 +236,7 @@ export default function CustomersPage() {
       slug: "virtual-production",
     },
     {
-      id: "5",
+      id: "9",
       title: "Healthcare Provider Enhances Diagnostics with AI",
       industry: "AI Consulting",
       challenge:
@@ -163,7 +262,7 @@ export default function CustomersPage() {
       slug: "healthcare-diagnostics",
     },
     {
-      id: "6",
+      id: "10",
       title: "Energy Company Optimizes Grid Management with Digital Twins",
       industry: "Physical AI",
       challenge:
@@ -298,7 +397,7 @@ export default function CustomersPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Success Stories by GTM</h2>
 
           <Tabs defaultValue={gtmCategories[0]} className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full max-w-4xl mx-auto mb-8">
+            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full max-w-4xl mx-auto mb-8 justify-center">
               {gtmCategories.map((category) => (
                 <TabsTrigger
                   key={category}
