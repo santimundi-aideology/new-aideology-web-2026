@@ -40,7 +40,11 @@ export default function LatestNewsSection() {
           {newsItems.map((item, index) => (
             <Card
               key={index}
-              className="bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift h-full flex flex-col"
+              className="bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift h-full flex flex-col animate-fade-in-up"
+              style={{
+                animationDelay: `${200 + index * 150}ms`,
+                animationFillMode: 'both'
+              }}
             >
               <CardHeader>
                 <CardTitle className="text-xl">{item.title}</CardTitle>
@@ -65,7 +69,7 @@ export default function LatestNewsSection() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 animate-fade-in-up" style={{animationDelay: '650ms', animationFillMode: 'both'}}>
           <Link
             href="/news"
             className="text-electric-green hover:text-electric-green/80 text-lg flex items-center justify-center group font-medium"

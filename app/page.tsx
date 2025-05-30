@@ -7,6 +7,7 @@ import CustomerLogosSection from "@/components/customer-logos-section"
 import PartnerEcosystemSection from "@/components/partner-ecosystem-section"
 import MissionQuoteSection from "@/components/mission-quote-section"
 import LatestNewsSection from "@/components/latest-news-section"
+import NewsletterSignup from "@/components/newsletter-signup"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -21,6 +22,14 @@ export default function Home() {
       <PartnerEcosystemSection />
       <MissionQuoteSection />
       <LatestNewsSection />
+      
+      {/* Newsletter Signup Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-md">
+          <NewsletterSignup />
+        </div>
+      </section>
+      
       <Footer />
     </main>
   )

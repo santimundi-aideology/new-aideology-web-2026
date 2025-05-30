@@ -69,26 +69,32 @@ export default function PartnerEcosystemSection() {
 
   const filteredPartners = activeCategory === "all" 
     ? partners 
-    : partners.filter((partner) =>
-        partner.category === activeCategory || (partner.categories && partner.categories.includes(activeCategory))
+    : partners.filter((partner) => 
+        partner.category === activeCategory || 
+        (partner.categories && partner.categories.includes(activeCategory))
       )
+
+  // Handle tab change
+  const handleCategoryChange = (newCategory: string) => {
+    setActiveCategory(newCategory)
+  }
 
   return (
     <section id="partners" className="py-20 bg-[#f4f4f4]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Partner Ecosystem</h2>
           <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">Strategic partnerships with industry leaders across AI infrastructure, generative AI, and 3D technologies</p>
         </div>
 
         {/* Partner Categories Tabs */}
-        <Tabs defaultValue="all" className="mb-12" onValueChange={setActiveCategory}>
-          <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full max-w-3xl mx-auto bg-white/80">
+        <Tabs value={activeCategory} defaultValue="all" className="mb-12" onValueChange={handleCategoryChange}>
+          <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full max-w-3xl mx-auto bg-white/80 transition-all duration-300">
             {partnerCategories.map((category) => (
               <TabsTrigger
                 key={category.id}
                 value={category.id}
-                className="text-sm md:text-base data-[state=active]:bg-accent-green data-[state=active]:text-charcoal"
+                className="text-sm md:text-base data-[state=active]:bg-accent-green data-[state=active]:text-charcoal transition-all duration-300 hover:bg-accent-green/20"
               >
                 {category.name}
               </TabsTrigger>
@@ -98,55 +104,63 @@ export default function PartnerEcosystemSection() {
 
         {/* Partner Logos Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 justify-items-center">
-          {filteredPartners.map((partner, index) => (
-            <Card
-              key={index}
-              className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg transition-all w-full h-32 group"
-            >
-              <Link
-                href={partner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-full h-full flex items-center justify-center"
-              >
-                <Image
-                  src={partner.logo || "/placeholder.svg"}
-                  alt={`${partner.name} logo`}
-                  width={140}
-                  height={70}
-                  className="w-auto max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity filter grayscale-[20%] group-hover:grayscale-0"
-                />
-                {/* Category badges for cross-category partners */}
-                {partner.categories && partner.categories.length > 1 && (
-                  <div className="absolute -top-2 -right-2 flex flex-wrap gap-1">
-                    {partner.categories.map((cat, i) => (
-                      <div
-                        key={i}
-                        className={`w-2 h-2 rounded-full ${
-                          cat === "3d-ai" ? "bg-blue-500" :
-                          cat === "infra-ai" ? "bg-green-500" :
-                          cat === "gen-ai" ? "bg-purple-500" : "bg-gray-400"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                )}
-              </Link>
-            </Card>
-          ))}
+          {filteredPartners.length > 0 ? (
+            filteredPartners.map((partner, index) => {
+              return (
+                <Card
+                  key={`${partner.name}-${activeCategory}`}
+                  className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group"
+                >
+                  <Link
+                    href={partner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-full h-full flex items-center justify-center"
+                  >
+                    <Image
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={`${partner.name} logo`}
+                      width={140}
+                      height={70}
+                      className="w-auto max-w-full max-h-full object-contain transition-all duration-300 group-hover:scale-110"
+                    />
+                    {/* Category badges for cross-category partners */}
+                    {partner.categories && partner.categories.length > 1 && (
+                      <div className="absolute -top-2 -right-2 flex flex-wrap gap-1">
+                        {partner.categories.map((cat, i) => (
+                          <div
+                            key={i}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 group-hover:scale-125 ${
+                              cat === "3d-ai" ? "bg-blue-500" :
+                              cat === "infra-ai" ? "bg-green-500" :
+                              cat === "gen-ai" ? "bg-purple-500" : "bg-gray-400"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </Link>
+                </Card>
+              )
+            })
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-charcoal/50">No partners found for this category.</p>
+            </div>
+          )}
         </div>
 
         {/* Legend for category indicators */}
-        <div className="flex justify-center mt-8 space-x-6 text-sm text-charcoal/70">
-          <div className="flex items-center space-x-2">
+        <div className="flex justify-center mt-8 space-x-6 text-sm text-charcoal/70 animate-fade-in-up" style={{animationDelay: '400ms'}}>
+          <div className="flex items-center space-x-2 transition-all duration-300 hover:scale-105">
             <div className="w-3 h-3 rounded-full bg-blue-500"></div>
             <span>3D AI</span>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 transition-all duration-300 hover:scale-105">
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
             <span>Infra AI</span>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 transition-all duration-300 hover:scale-105">
             <div className="w-3 h-3 rounded-full bg-purple-500"></div>
             <span>Gen AI</span>
           </div>

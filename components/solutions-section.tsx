@@ -1,39 +1,66 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Server, CuboidIcon as Cube, Lightbulb, ArrowRight, BotIcon as Robot } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Server, Zap, Users, ArrowRight } from "lucide-react"
 
 export default function SolutionsSection() {
+  const [visibleCards, setVisibleCards] = useState<number[]>([])
+
   const solutions = [
     {
       title: "AI Infrastructure",
-      icon: <Server className="h-12 w-12 text-accent-green" />,
-      description: "From GPU clusters to storage fabrics, turnkey HPC-AI stacks tailored to workload.",
+      description: "High-performance computing solutions designed for AI workloads and machine learning operations.",
+      icon: <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />,
       link: "/solutions/ai-infrastructure",
+      details: ["GPU Clusters", "Storage Fabrics", "HPC-AI Stacks"]
     },
     {
       title: "3D AI",
-      icon: <Cube className="h-12 w-12 text-accent-green" />,
-      description: "End-to-end metaverse & digital-twins implementation, rendering to simulation.",
+      description: "End-to-end metaverse and digital twins implementation with cutting-edge rendering technologies.",
+      icon: <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />,
       link: "/solutions/3d-ai",
+      details: ["Digital Twins", "Metaverse Solutions", "3D Rendering"]
     },
     {
       title: "AI Consulting",
-      icon: <Lightbulb className="h-12 w-12 text-accent-green" />,
-      description: "Model integration, MLOps pipelines, and business-case acceleration.",
+      description: "Strategic AI guidance and implementation support to accelerate your artificial intelligence initiatives.",
+      icon: <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />,
       link: "/solutions/ai-consulting",
-    },
-    {
-      title: "Physical AI",
-      icon: <Robot className="h-12 w-12 text-accent-green" />,
-      description: "Robotics, automation, and embodied AI solutions for real-world applications.",
-      link: "/solutions/physical-ai",
+      details: ["Strategy Planning", "Model Integration", "MLOps Implementation"]
     },
   ]
+
+  // Progressive disclosure with intersection observer
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0')
+          setVisibleCards(prev => [...prev, cardIndex])
+        }
+      })
+    }, observerOptions)
+
+    // Observe cards after component mounts
+    setTimeout(() => {
+      const cards = document.querySelectorAll('[data-card-index]')
+      cards.forEach(card => observer.observe(card))
+    }, 100)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section id="solutions" className="py-20 relative bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Solutions</h2>
           <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">
             Comprehensive AI solutions tailored to your business needs
@@ -42,18 +69,48 @@ export default function SolutionsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Card key={index} className="bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift">
+            <Card 
+              key={index} 
+              data-card-index={index}
+              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer
+                relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50
+                ${visibleCards.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+              `}
+              style={{
+                transitionDelay: `${index * 150}ms`
+              }}
+            >
               <CardHeader>
                 <div className="mb-4">{solution.icon}</div>
-                <CardTitle className="text-2xl">{solution.title}</CardTitle>
+                <CardTitle className="text-2xl group-hover:text-accent-green transition-colors duration-300">
+                  {solution.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-charcoal/70 text-base">{solution.description}</CardDescription>
+                <CardDescription className="text-charcoal/70 text-base mb-4">
+                  {solution.description}
+                </CardDescription>
+                
+                {/* Key Features */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-charcoal/80 mb-2">Key Features:</h4>
+                  <ul className="space-y-1">
+                    {solution.details.map((detail, detailIndex) => (
+                      <li 
+                        key={detailIndex}
+                        className="flex items-center text-sm text-charcoal/70"
+                      >
+                        <div className="w-1.5 h-1.5 bg-accent-green rounded-full mr-2"></div>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </CardContent>
               <CardFooter>
                 <Link
                   href={solution.link}
-                  className="text-electric-green hover:text-electric-green/80 flex items-center group font-medium"
+                  className="text-electric-green hover:text-electric-green/80 flex items-center group font-medium w-full justify-center bg-accent-green/10 hover:bg-accent-green/20 px-4 py-2 rounded transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-accent-green" />

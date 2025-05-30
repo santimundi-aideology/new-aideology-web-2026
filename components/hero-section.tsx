@@ -1,13 +1,63 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Download, PhoneCall } from "lucide-react"
 
 export default function HeroSection() {
+  const [scrollY, setScrollY] = useState(0)
+  const [currentText, setCurrentText] = useState("")
+  const [isTyping, setIsTyping] = useState(true)
+  const [mounted, setMounted] = useState(false)
+  
+  const fullText = "One-stop-shop for Artificial Intelligence solutions"
+
+  // Ensure client-side only rendering for particles
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Typewriter effect
+  useEffect(() => {
+    if (isTyping && currentText.length < fullText.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText(fullText.slice(0, currentText.length + 1))
+      }, 100)
+      return () => clearTimeout(timeout)
+    } else if (currentText.length === fullText.length) {
+      setIsTyping(false)
+    }
+  }, [currentText, isTyping, fullText])
+
   return (
-    <section className="relative min-h-screen flex items-center pt-16 bg-charcoal text-white">
-      {/* YouTube Video Background with Dark Overlay */}
+    <section className="relative min-h-screen flex items-center pt-16 bg-charcoal text-white overflow-hidden">
+      {/* Floating Particles - Client Side Only */}
+      {mounted && (
+        <div className="absolute inset-0 z-0">
+          {Array.from({ length: 50 }, (_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-accent-green/30 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 20}s`,
+                animationDuration: `${15 + Math.random() * 10}s`
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* YouTube Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-charcoal/70 z-10"></div>
         <div className="absolute inset-0 z-0">
@@ -31,18 +81,19 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-20 container mx-auto px-4">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-            One-stop-shop for Artificial Intelligence solutions
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white min-h-[1.2em]">
+            {currentText}
+            {isTyping && <span className="animate-pulse">|</span>}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90">
+          <p className="text-xl md:text-2xl mb-8 text-white/90 animate-fade-in-up">
             Simplify and transform ideas into rational systems engineering artificial intelligence solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-              <Link href="#contact">
-                <PhoneCall className="mr-2 h-5 w-5" />
+            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90 animate-pulse-subtle group">
+              <Link href="#contact" className="flex items-center">
+                <PhoneCall className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 Book a discovery call
               </Link>
             </Button>
@@ -50,10 +101,10 @@ export default function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 bg-charcoal/50 font-medium"
+              className="border-white text-white hover:bg-white/10 bg-charcoal/50 font-medium group"
             >
-              <Link href="#download">
-                <Download className="mr-2 h-5 w-5" />
+              <Link href="#download" className="flex items-center">
+                <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 Download one-pager
               </Link>
             </Button>

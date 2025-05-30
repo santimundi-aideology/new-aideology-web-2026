@@ -4,6 +4,7 @@ import { Inter, Montserrat } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import ScrollToTop from "@/components/scroll-to-top"
+import ScrollAnimations from "@/components/scroll-animations"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${montserrat.variable} font-sans bg-[#f4f4f4] text-charcoal`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <ScrollToTop />
+          <ScrollAnimations />
           {children}
         </ThemeProvider>
       </body>

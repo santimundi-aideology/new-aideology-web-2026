@@ -7,37 +7,76 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
+import { usePathname } from "next/navigation"
+import ThemeToggle from "./theme-toggle"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
+  const pathname = usePathname()
 
+  // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
+      setIsScrolled(window.scrollY > 50)
+      
+      // Active section detection for homepage
+      if (pathname === "/") {
+        const sections = ["hero", "solutions", "why-aideology", "global-presence", "customers", "partners", "mission", "news"]
+        const scrollPosition = window.scrollY + 100
+
+        for (const section of sections) {
+          const element = document.getElementById(section === "hero" ? "" : section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            const elementTop = window.scrollY + rect.top
+            const elementBottom = elementTop + element.offsetHeight
+
+            if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+              setActiveSection(section)
+              break
+            }
+          }
+        }
       }
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [pathname])
 
-  // Function to handle navigation and close mobile menu
-  const handleNavigation = () => {
-    setIsMenuOpen(false)
+  const handleNavigation = (href: string, sectionId?: string) => {
+    setIsMobileMenuOpen(false)
+    
+    if (sectionId && pathname === "/") {
+      // Smooth scroll to section on same page
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: "smooth",
+          block: "start"
+        })
+      }
+    }
   }
+
+  const navItems = [
+    { href: "/", label: "Home", sectionId: "" },
+    { href: "/#solutions", label: "Solutions", sectionId: "solutions" },
+    { href: "/#partners", label: "Partners", sectionId: "partners" },
+    { href: "/#customers", label: "Customers", sectionId: "customers" },
+    { href: "/#news", label: "News", sectionId: "news" },
+  ]
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
         isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center" onClick={handleNavigation}>
+        <Link href="/" className="flex items-center" onClick={() => handleNavigation("/")}>
           <Image 
             src={isScrolled ? "/aideology.webp" : "/aideology-white.webp"}
             alt="AIdeology Logo" 
@@ -50,123 +89,69 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link
-            href="/"
-            className={`${isScrolled ? "text-charcoal" : "text-white"} hover:text-accent-green transition-colors`}
-          >
-            Home
-          </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              className={`${isScrolled ? "text-charcoal" : "text-white"} hover:text-accent-green transition-colors flex items-center`}
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => handleNavigation(item.href, item.sectionId)}
+              className={`relative transition-all duration-300 hover:text-accent-green ${
+                isScrolled ? "text-charcoal" : "text-white"
+              } ${
+                activeSection === item.sectionId ? "text-accent-green font-semibold" : ""
+              }`}
             >
-              Solutions <ChevronDown className="ml-1 h-4 w-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem asChild>
-                <Link href="/solutions/ai-infrastructure">AI Infrastructure</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/solutions/3d-ai">3D AI</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/solutions/ai-consulting">AI Consulting</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/solutions/physical-ai">Physical AI</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Link
-            href="/customers"
-            className={`${isScrolled ? "text-charcoal" : "text-white"} hover:text-accent-green transition-colors`}
+              {item.label}
+              {activeSection === item.sectionId && (
+                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-green animate-scale-in" />
+              )}
+            </Link>
+          ))}
+          <ThemeToggle />
+          <Button 
+            asChild 
+            className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
           >
-            Customers
-          </Link>
-          <Link
-            href="/news"
-            className={`${isScrolled ? "text-charcoal" : "text-white"} hover:text-accent-green transition-colors`}
-          >
-            News
-          </Link>
-          <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-            <Link href="#contact">Contact</Link>
+            <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
+              Contact Us
+            </Link>
           </Button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden ${isScrolled ? "text-charcoal" : "text-white"}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="md:hidden p-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md text-charcoal">
-          <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link
-              href="/"
-              className="text-charcoal hover:text-accent-green transition-colors py-2"
-              onClick={handleNavigation}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-accent-green/20">
+          <nav className="container mx-auto px-4 py-4 space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => handleNavigation(item.href, item.sectionId)}
+                className={`block py-2 transition-colors hover:text-accent-green ${
+                  activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Button 
+              asChild 
+              className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90"
             >
-              Home
-            </Link>
-            <div className="flex flex-col">
-              <span className="text-charcoal hover:text-accent-green transition-colors py-2 font-medium">
-                Solutions
-              </span>
-              <div className="pl-4 flex flex-col space-y-2 mt-2">
-                <Link
-                  href="/solutions/ai-infrastructure"
-                  className="text-charcoal/80 hover:text-accent-green transition-colors py-1"
-                  onClick={handleNavigation}
-                >
-                  AI Infrastructure
-                </Link>
-                <Link
-                  href="/solutions/3d-ai"
-                  className="text-charcoal/80 hover:text-accent-green transition-colors py-1"
-                  onClick={handleNavigation}
-                >
-                  3D AI
-                </Link>
-                <Link
-                  href="/solutions/ai-consulting"
-                  className="text-charcoal/80 hover:text-accent-green transition-colors py-1"
-                  onClick={handleNavigation}
-                >
-                  AI Consulting
-                </Link>
-                <Link
-                  href="/solutions/physical-ai"
-                  className="text-charcoal/80 hover:text-accent-green transition-colors py-1"
-                  onClick={handleNavigation}
-                >
-                  Physical AI
-                </Link>
-              </div>
-            </div>
-            <Link
-              href="/customers"
-              className="text-charcoal hover:text-accent-green transition-colors py-2"
-              onClick={handleNavigation}
-            >
-              Customers
-            </Link>
-            <Link
-              href="/news"
-              className="text-charcoal hover:text-accent-green transition-colors py-2"
-              onClick={handleNavigation}
-            >
-              News
-            </Link>
-            <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
-              <Link href="#contact" onClick={handleNavigation}>
-                Contact
+              <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
+                Contact Us
               </Link>
             </Button>
           </nav>

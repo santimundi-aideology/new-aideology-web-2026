@@ -24,7 +24,7 @@ export default function WhyAIdeologySection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text */}
-          <div>
+          <div className="animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-charcoal">Why AIdeology</h2>
             <div className="space-y-4 text-charcoal/80">
               <p className="text-lg">
@@ -45,7 +45,14 @@ export default function WhyAIdeologySection() {
           {/* Right Column - KPIs */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {kpis.map((kpi, index) => (
-              <Card key={index} className={`${kpi.color} border text-charcoal`}>
+              <Card 
+                key={index} 
+                className={`${kpi.color} border text-charcoal hover-lift transition-all duration-300 hover:scale-105 animate-fade-in-up`}
+                style={{
+                  animationDelay: `${200 + index * 150}ms`,
+                  animationFillMode: 'both'
+                }}
+              >
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl md:text-4xl font-bold mb-2 text-electric-green">{kpi.value}</div>
                   <div className="text-charcoal/80">{kpi.label}</div>
