@@ -72,7 +72,7 @@ export default function ThreeDimensionalAIPage() {
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
-      <Navbar />
+      <Navbar forceDarkLogo={true} />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative">
@@ -249,16 +249,16 @@ export default function ThreeDimensionalAIPage() {
               {relevantPartners.map((partner, index) => (
                 <Card
                   key={index}
-                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-6 flex items-center justify-center hover:border-accent-green/30 transition-colors w-full h-32"
+                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-6 flex items-center justify-center w-full h-32 group transition-all duration-300 hover:border-accent-green/50 hover:shadow-lg hover:scale-105"
                   data-delay={`${index * 100}`}
                 >
                   <Link href={partner.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
-                      width={160} // Adjusted for consistency
-                      height={80}  // Adjusted for consistency
-                      className="h-16 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300" // Example styling, adjust as needed
+                      width={160}
+                      height={80}
+                      className="h-16 w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
                     />
                   </Link>
                 </Card>

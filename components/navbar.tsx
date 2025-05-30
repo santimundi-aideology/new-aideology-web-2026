@@ -7,7 +7,11 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
-export default function Navbar() {
+interface NavbarProps {
+  forceDarkLogo?: boolean;
+}
+
+export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
@@ -74,7 +78,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center" onClick={() => handleNavigation("/")}>
           <Image 
-            src={isScrolled ? "/aideology.webp" : "/aideology-white.webp"}
+            src={isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
             alt="AIdeology Logo" 
             width={200} 
             height={50} 
@@ -91,7 +95,7 @@ export default function Navbar() {
               href={item.href}
               onClick={() => handleNavigation(item.href, item.sectionId)}
               className={`relative transition-all duration-300 hover:text-accent-green ${
-                isScrolled ? "text-charcoal" : "text-white"
+                isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
               } ${
                 activeSection === item.sectionId ? "text-accent-green font-semibold" : ""
               }`}
@@ -118,9 +122,9 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={`h-6 w-6 ${isScrolled ? "text-charcoal" : "text-white"}`} />
+            <X className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           ) : (
-            <Menu className={`h-6 w-6 ${isScrolled ? "text-charcoal" : "text-white"}`} />
+            <Menu className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           )}
         </button>
       </div>

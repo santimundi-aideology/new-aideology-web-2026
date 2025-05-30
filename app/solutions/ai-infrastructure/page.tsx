@@ -71,7 +71,7 @@ export default function AIInfrastructurePage() {
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
-      <Navbar />
+      <Navbar forceDarkLogo={true} />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative">
@@ -83,12 +83,12 @@ export default function AIInfrastructurePage() {
                 From GPU clusters to storage fabrics, we design and deploy turnkey HPC-AI stacks tailored to your
                 specific workloads and requirements.
               </p>
-              <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+              <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green hover:scale-105 hover:shadow-lg transition-all duration-300">
                 <Link href="#contact">Schedule a consultation</Link>
               </Button>
             </div>
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg">
-              <Image src="/ai-server-room-gpus.png" alt="AI Infrastructure" fill className="object-cover" />
+              <Image src="/data-center.webp" alt="AI Infrastructure" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function AIInfrastructurePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border border-accent-green/20 hover-lift">
+              <Card key={index} className="border border-accent-green/20 hover-lift hover:scale-105 hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
@@ -145,7 +145,7 @@ export default function AIInfrastructurePage() {
               {relevantPartners.map((partner, index) => (
                 <Card
                   key={index}
-                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-6 flex items-center justify-center hover:border-accent-green/30 transition-colors w-full h-32"
+                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-6 flex items-center justify-center w-full h-32 group transition-all duration-300 hover:border-accent-green/50 hover:shadow-lg hover:scale-105"
                   data-delay={`${index * 100}`}
                 >
                   <Link href={partner.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
@@ -154,7 +154,7 @@ export default function AIInfrastructurePage() {
                       alt={`${partner.name} logo`}
                       width={160}
                       height={80}
-                      className="h-16 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                      className="h-16 w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
                     />
                   </Link>
                 </Card>
@@ -188,7 +188,7 @@ export default function AIInfrastructurePage() {
                   <span className="text-accent-green mr-2">✓</span> Custom scheduler for optimal resource allocation
                 </li>
               </ul>
-              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild variant="outline" className="bg-slate-200 text-charcoal border-slate-300 hover:bg-slate-300 hover:text-charcoal hover:scale-105 hover:shadow-lg transition-all duration-300">
                 <Link href="#case-studies">View more case studies</Link>
               </Button>
             </div>
@@ -206,7 +206,7 @@ export default function AIInfrastructurePage() {
           <p className="text-xl mb-8 max-w-2xl mx-auto text-charcoal/80">
             Let's discuss how our tailored infrastructure solutions can accelerate your AI initiatives.
           </p>
-          <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+          <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green hover:scale-105 hover:shadow-lg transition-all duration-300">
             <Link href="#contact">Book a discovery call</Link>
           </Button>
         </div>
