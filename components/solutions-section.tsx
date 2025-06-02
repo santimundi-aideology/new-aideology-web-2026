@@ -15,8 +15,15 @@ export default function SolutionsSection() {
       icon: (
         <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/solutions/ai-infrastructure",
-      details: ["GPU Clusters", "Storage Fabrics", "HPC-AI Stacks"],
+      link: "/services/ai-infrastructure",
+      subpages: [
+        { name: "Networking", path: "/services/ai-infrastructure/networking" },
+        { name: "AI Data Platform", path: "/services/ai-infrastructure/ai-data-platform" },
+        { name: "MLOps", path: "/services/ai-infrastructure/mlops" },
+        { name: "Accelerated Computing", path: "/services/ai-infrastructure/accelerated-computing" },
+        { name: "Virtualization", path: "/services/ai-infrastructure/virtualization" },
+        { name: "Sustainable Computing", path: "/services/ai-infrastructure/sustainable-computing" },
+      ],
     },
     {
       title: "3D AI",
@@ -24,8 +31,13 @@ export default function SolutionsSection() {
       icon: (
         <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/solutions/3d-ai",
-      details: ["Digital Twins", "Metaverse Solutions", "3D Rendering"],
+      link: "/services/3d-ai",
+      subpages: [
+        { name: "Design Visualization", path: "/services/3d-ai/design-visualization" },
+        { name: "Robotic Simulation", path: "/services/3d-ai/robotic-simulation" },
+        { name: "Extended Reality", path: "/services/3d-ai/extended-reality" },
+        { name: "Digital Twins", path: "/services/3d-ai/digital-twins" },
+      ],
     },
     {
       title: "AI Consulting",
@@ -34,8 +46,14 @@ export default function SolutionsSection() {
       icon: (
         <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/solutions/ai-consulting",
-      details: ["Strategy Planning", "Model Integration", "MLOps Implementation"],
+      link: "/services/ai-consulting",
+      subpages: [
+        { name: "Conversational AI", path: "/services/ai-consulting/conversational-ai" },
+        { name: "Generative AI", path: "/services/ai-consulting/generative-ai" },
+        { name: "AI Agents", path: "/services/ai-consulting/ai-agents" },
+        { name: "AI Data Platform", path: "/services/ai-consulting/ai-data-platform" },
+        { name: "Machine Learning", path: "/services/ai-consulting/machine-learning" },
+      ],
     },
   ]
 
@@ -90,8 +108,8 @@ export default function SolutionsSection() {
               key={index}
               data-card-index={index}
               className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer
-                relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50
-              `}
+            relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50
+          `}
             >
               <CardHeader>
                 <div className="mb-4">{solution.icon}</div>
@@ -103,12 +121,17 @@ export default function SolutionsSection() {
                 <CardDescription className="text-gray-500 text-base mb-4">{solution.description}</CardDescription>
 
                 <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-500 mb-2">Key Features:</h4>
+                  <h4 className="text-sm font-semibold text-gray-500 mb-2">Explore Solutions:</h4>
                   <ul className="space-y-1">
-                    {solution.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-center text-sm text-gray-600">
+                    {solution.subpages.map((subpage, subpageIndex) => (
+                      <li key={subpageIndex} className="flex items-center text-sm">
                         <div className="w-1.5 h-1.5 bg-accent-green rounded-full mr-2"></div>
-                        {detail}
+                        <Link
+                          href={subpage.path}
+                          className="text-gray-600 hover:text-accent-green transition-colors duration-200"
+                        >
+                          {subpage.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
