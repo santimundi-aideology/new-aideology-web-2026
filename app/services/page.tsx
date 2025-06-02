@@ -254,7 +254,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
+      <section className="pt-16 pb-16 bg-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">Our Services</h1>
           <p className="text-xl text-charcoal/70 max-w-3xl">
