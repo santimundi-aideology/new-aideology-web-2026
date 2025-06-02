@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Montserrat } from "next/font/google"
 import "./globals.css"
-import ScrollToTop from "@/components/scroll-to-top"
+// import ScrollToTop from "@/components/scroll-to-top" // Commented out
 import ScrollAnimations from "@/components/scroll-animations"
 
 const inter = Inter({
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${montserrat.variable} font-sans bg-[#f4f4f4] text-charcoal`}>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */ /* Commented out */}
         <ScrollAnimations />
         {children}
       </body>

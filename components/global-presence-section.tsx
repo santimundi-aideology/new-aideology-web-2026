@@ -96,7 +96,7 @@ export default function GlobalPresenceSection() {
     <section id="global-presence" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Global Presence</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Presence</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Strategically located hubs to serve clients worldwide
           </p>

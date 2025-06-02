@@ -317,3 +317,20 @@ html {
 .solution-card:hover .card-back {
   transform: rotateY(0deg);
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body {
+  /* bg-background and text-foreground will now always refer to the light theme defaults */
+  /* Explicit default body background is set in layout.tsx */
+  @apply text-foreground;
+}

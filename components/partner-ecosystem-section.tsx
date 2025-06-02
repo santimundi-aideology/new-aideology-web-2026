@@ -46,7 +46,7 @@ export default function PartnerEcosystemSection() {
     { name: "Maind", logo: "/partner-logos/maind-logo.webp", categories: ["3d-ai", "infra-ai", "gen-ai"], website: "https://maind.pro/" },
     { name: "NVIDIA", logo: "/partner-logos/nvidia-logo.webp", categories: ["3d-ai", "infra-ai", "gen-ai"], website: "https://www.nvidia.com/" },
     { name: "NVIDIA NEMO", logo: "/partner-logos/nemo-logo.webp", categories: ["infra-ai", "gen-ai"], website: "https://www.nvidia.com/en-us/ai-data-science/generative-ai/nemo-framework/" },
-  ]
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   const filteredPartners = activeCategory === "all" 
     ? partners 
@@ -88,7 +88,8 @@ export default function PartnerEcosystemSection() {
             filteredPartners.map((partner, index) => (
               <div // Styled div acting as a Card
                 key={`${partner.name}-${activeCategory}-${index}-card`}
-                className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group"
+                className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <Link
                   href={partner.website}

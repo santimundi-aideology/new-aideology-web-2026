@@ -4,7 +4,7 @@ export default function WhyAIdeologySection() {
   const kpis = [
     {
       value: "+2,000",
-      label: "NVIDIA GPUs implemented",
+      label: "NVIDIA Servers implemented",
       color: "bg-accent-green/10 border-accent-green/30",
     },
     {
