@@ -12,23 +12,30 @@ export default function SolutionsSection() {
     {
       title: "AI Infrastructure",
       description: "High-performance computing solutions designed for AI workloads and machine learning operations.",
-      icon: <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />,
+      icon: (
+        <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
       link: "/solutions/ai-infrastructure",
-      details: ["GPU Clusters", "Storage Fabrics", "HPC-AI Stacks"]
+      details: ["GPU Clusters", "Storage Fabrics", "HPC-AI Stacks"],
     },
     {
       title: "3D AI",
       description: "End-to-end metaverse and digital twins implementation with cutting-edge rendering technologies.",
-      icon: <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />,
+      icon: (
+        <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
       link: "/solutions/3d-ai",
-      details: ["Digital Twins", "Metaverse Solutions", "3D Rendering"]
+      details: ["Digital Twins", "Metaverse Solutions", "3D Rendering"],
     },
     {
       title: "AI Consulting",
-      description: "Strategic AI guidance and implementation support to accelerate your artificial intelligence initiatives.",
-      icon: <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />,
+      description:
+        "Strategic AI guidance and implementation support to accelerate your artificial intelligence initiatives.",
+      icon: (
+        <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
       link: "/solutions/ai-consulting",
-      details: ["Strategy Planning", "Model Integration", "MLOps Implementation"]
+      details: ["Strategy Planning", "Model Integration", "MLOps Implementation"],
     },
   ]
 
@@ -36,34 +43,34 @@ export default function SolutionsSection() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
-      rootMargin: '0px'
+      rootMargin: "0px",
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0')
-          setVisibleCards(prev => {
+          const cardIndex = Number.parseInt(entry.target.getAttribute("data-card-index") || "0")
+          setVisibleCards((prev) => {
             if (!prev.includes(cardIndex)) {
-              return [...prev, cardIndex];
+              return [...prev, cardIndex]
             }
-            return prev;
-          });
+            return prev
+          })
         }
       })
     }, observerOptions)
 
     // Observe cards after component mounts
-    const cards = document.querySelectorAll('[data-card-index]')
-    cards.forEach(card => {
+    const cards = document.querySelectorAll("[data-card-index]")
+    cards.forEach((card) => {
       if (card) observer.observe(card)
     })
 
     return () => {
-      cards.forEach(card => {
-        if (card) observer.unobserve(card);
-      });
-      observer.disconnect();
+      cards.forEach((card) => {
+        if (card) observer.unobserve(card)
+      })
+      observer.disconnect()
     }
   }, [])
 
@@ -79,8 +86,8 @@ export default function SolutionsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               data-card-index={index}
               className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer
                 relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50
@@ -93,18 +100,13 @@ export default function SolutionsSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-gray-500 text-base mb-4">
-                  {solution.description}
-                </CardDescription>
-                
+                <CardDescription className="text-gray-500 text-base mb-4">{solution.description}</CardDescription>
+
                 <div className="mb-4">
                   <h4 className="text-sm font-semibold text-gray-500 mb-2">Key Features:</h4>
                   <ul className="space-y-1">
                     {solution.details.map((detail, detailIndex) => (
-                      <li 
-                        key={detailIndex}
-                        className="flex items-center text-sm text-gray-600"
-                      >
+                      <li key={detailIndex} className="flex items-center text-sm text-gray-600">
                         <div className="w-1.5 h-1.5 bg-accent-green rounded-full mr-2"></div>
                         {detail}
                       </li>

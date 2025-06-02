@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 interface NavbarProps {
-  forceDarkLogo?: boolean;
+  forceDarkLogo?: boolean
 }
 
 export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
@@ -21,10 +21,19 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
+
       // Active section detection for homepage
       if (pathname === "/") {
-        const sections = ["hero", "solutions", "why-aideology", "global-presence", "customers", "partners", "mission", "news"]
+        const sections = [
+          "hero",
+          "solutions",
+          "why-aideology",
+          "global-presence",
+          "customers",
+          "partners",
+          "mission",
+          "news",
+        ]
         const scrollPosition = window.scrollY + 100
 
         for (const section of sections) {
@@ -47,37 +56,29 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
-  const handleNavigation = (href: string | { pathname: string; hash: string }, sectionId?: string) => {
+  const handleNavigation = (href: string, sectionId?: string) => {
     setIsMobileMenuOpen(false)
-    
-    const targetPath = typeof href === 'string' ? href : href.pathname;
-    const targetHash = typeof href === 'string' ? (href.startsWith('/#') ? href.substring(2) : undefined) : href.hash;
 
-    if (targetHash && targetPath === "/") {
+    if (href.startsWith("/#") && pathname === "/") {
       // If already on the homepage and there's a hash, scroll to section
-      if (pathname === "/") {
-        const element = document.getElementById(targetHash)
-        if (element) {
-          element.scrollIntoView({ 
-            behavior: "smooth",
-            block: "start"
-          })
-        }
-      } else {
-        // If on a different page, Next.js Link component will handle navigation to homepage + hash
-        // We don't need to do anything special here for scrolling, as Link will navigate first
+      const targetHash = href.substring(2)
+      const element = document.getElementById(targetHash)
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
       }
     }
-    // For other cases, Next.js Link handles navigation.
-    // If it's a simple string href like "/" or "#contact", Link handles it.
+    // For other cases, Next.js Link handles navigation
   }
 
   const navItems = [
     { href: "/", label: "Home", sectionId: "" },
-    { href: { pathname: '/', hash: 'solutions' }, label: "Solutions", sectionId: "solutions" },
-    { href: { pathname: '/', hash: 'partners' }, label: "Partners", sectionId: "partners" },
-    { href: { pathname: '/', hash: 'customers' }, label: "Customers", sectionId: "customers" },
-    { href: { pathname: '/', hash: 'news' }, label: "News", sectionId: "news" },
+    { href: "/#solutions", label: "Solutions", sectionId: "solutions" },
+    { href: "/#partners", label: "Partners", sectionId: "partners" },
+    { href: "/#customers", label: "Customers", sectionId: "customers" },
+    { href: "/#news", label: "News", sectionId: "news" },
   ]
 
   return (
@@ -88,12 +89,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center" onClick={() => handleNavigation("/")}>
-          <Image 
+          <Image
             src={isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
-            alt="AIdeology Logo" 
-            width={200} 
-            height={50} 
-            className="h-12 md:h-14 w-auto transition-all duration-300" 
+            alt="AIdeology Logo"
+            width={200}
+            height={50}
+            className="h-12 md:h-14 w-auto transition-all duration-300"
             priority
           />
         </Link>
@@ -103,13 +104,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              href={typeof item.href === 'string' ? item.href : { pathname: item.href.pathname, hash: item.href.hash }}
+              href={item.href}
               onClick={() => handleNavigation(item.href, item.sectionId)}
               className={`relative transition-all duration-300 hover:text-accent-green ${
                 isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
-              } ${
-                activeSection === item.sectionId ? "text-accent-green font-semibold" : ""
-              }`}
+              } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
             >
               {item.label}
               {activeSection === item.sectionId && (
@@ -117,8 +116,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               )}
             </Link>
           ))}
-          <Button 
-            asChild 
+          <Button
+            asChild
             className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
           >
             <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
@@ -128,10 +127,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
+        <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? (
             <X className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           ) : (
@@ -147,7 +143,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
             {navItems.map((item) => (
               <Link
                 key={item.label}
-                href={typeof item.href === 'string' ? item.href : { pathname: item.href.pathname, hash: item.href.hash }}
+                href={item.href}
                 onClick={() => handleNavigation(item.href, item.sectionId)}
                 className={`block py-2 transition-colors hover:text-accent-green ${
                   activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
@@ -156,10 +152,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 {item.label}
               </Link>
             ))}
-            <Button 
-              asChild 
-              className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90"
-            >
+            <Button asChild className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90">
               <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
                 Contact Us
               </Link>
