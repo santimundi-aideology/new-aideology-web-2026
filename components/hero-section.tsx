@@ -95,7 +95,7 @@ export default function HeroSection() {
             Simplify and transform ideas into rational systems engineering artificial intelligence solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90 animate-pulse-subtle group">
+            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 animate-pulse-subtle group">
               <Link href="#contact" className="flex items-center">
                 <PhoneCall className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 Book a discovery call
@@ -105,7 +105,7 @@ export default function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 bg-charcoal/50 font-medium group"
+              className="border-white text-white hover:bg-white/10 bg-charcoal/50 font-medium group transition-all duration-300 hover:scale-105"
             >
               <Link href="#download" className="flex items-center">
                 <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

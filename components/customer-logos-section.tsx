@@ -9,15 +9,22 @@ import { ArrowRight } from "lucide-react"
 export default function CustomerLogosSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  // Customer logos - Real customers only
+  // Customer logos - Real customers only, sorted alphabetically
   const customers = [
-    { name: "G42", logo: "/customer-logos/g42-logo.webp" },
+    { name: "Broadcom", logo: "/customer-logos/broadcom-logo.webp" },
+    { name: "Core42", logo: "/customer-logos/core42-logo.png" },
     { name: "HCT", logo: "/customer-logos/hct-logo.webp" },
     { name: "KAUST", logo: "/customer-logos/kaust-logo.webp" },
     { name: "Nakheel", logo: "/customer-logos/nakheel-logo.webp" },
     { name: "NEOM", logo: "/customer-logos/neom-logo.webp" },
-    { name: "Beacon Red", logo: "/customer-logos/beacon-red-logo.webp" },
-  ]
+    { name: "VMware", logo: "/customer-logos/vmware-logo.webp" },
+    { name: "Ooredoo", logo: "/customer-logos/ooredo-logo.webp" },
+    { name: "Midis Group", logo: "/customer-logos/midis-logo.webp" },
+    { name: "Rihal", logo: "/customer-logos/rihal-logo.webp" },
+    { name: "SEC", logo: "/customer-logos/sec-logo.webp" },
+    { name: "Oman Data Park", logo: "/customer-logos/oman-data-park-logo.webp" },
+    { name: "Mindware", logo: "/customer-logos/mindware-logo.webp" },
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   useEffect(() => {
     const scrollElement = scrollRef.current
@@ -67,12 +74,12 @@ export default function CustomerLogosSection() {
 
           {/* Scrolling logos container */}
           <div className="overflow-hidden">
-            <div ref={scrollRef} className="flex items-center space-x-12 py-6" style={{ width: "fit-content" }}>
+            <div ref={scrollRef} className="flex items-center gap-x-12 py-6" style={{ width: "fit-content" }}>
               {/* Double the logos for infinite scroll effect */}
               {[...customers, ...customers].map((customer, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 p-4 bg-white rounded-lg border border-gray-200 hover:border-accent-green/50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="flex-shrink-0 p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 hover:border-accent-green/50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <Image
                     src={customer.logo || "/placeholder.svg"}
@@ -88,7 +95,7 @@ export default function CustomerLogosSection() {
         </div>
 
         <div className="text-center mt-10 animate-fade-in-up" style={{animationDelay: '400ms'}}>
-          <Button asChild variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105 px-6 py-3">
+          <Button asChild variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 px-6 py-3">
             <Link href="/customers" className="flex items-center">
               View customer success stories
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

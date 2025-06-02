@@ -8,8 +8,17 @@ import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 interface NavbarProps {
-  forceDarkLogo?: boolean;
+  forceDarkLogo?: boolean
 }
+
+// Define navItems outside the component for stability and to be used by useEffect
+const navItems = [
+  { href: "/", label: "Home", sectionId: "hero" }, // Ensure an element with id="hero" (or similar, like the first main section) exists
+  { href: { pathname: '/', hash: '#solutions' }, label: "Solutions", sectionId: "solutions" },
+  { href: { pathname: '/', hash: '#partners' }, label: "Partners", sectionId: "partners" },
+  { href: { pathname: '/', hash: '#customers' }, label: "Customers", sectionId: "customers" },
+  { href: { pathname: '/', hash: '#news' }, label: "News", sectionId: "news" },
+]
 
 export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -17,81 +26,73 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
 
-  // Handle scroll effects for navbar appearance and active section highlighting
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
-      if (pathname === "/") {
-        const sections = [
-          { href: "/", label: "Home", sectionId: "hero" },
-          { href: { pathname: '/', hash: '#solutions' }, label: "Solutions", sectionId: "solutions" },
-          { href: { pathname: '/', hash: '#partners' }, label: "Partners", sectionId: "partners" },
-          { href: { pathname: '/', hash: '#customers' }, label: "Customers", sectionId: "customers" },
-          { href: { pathname: '/', hash: '#news' }, label: "News", sectionId: "news" },
-        ]
-          .map(item => typeof item.href !== 'string' && item.href.pathname === "/" && item.href.hash ? item.href.hash : null)
-          .filter(Boolean) as string[];
-        
-        const scrollPosition = window.scrollY + (window.innerHeight / 3); // Adjust detection point
 
-        let currentActiveSection = "";
-        for (const sectionId of sections) {
-          const element = document.getElementById(sectionId.substring(1)); // remove # from hash
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            const elementTop = window.scrollY + rect.top;
-            const elementBottom = elementTop + element.offsetHeight;
+      if (pathname === "/") {
+        let currentActiveSection = ""
+        // Adjust scrollPosition to be slightly lower than viewport top for better detection
+        const scrollPosition = window.scrollY + window.innerHeight * 0.33
+
+        for (const item of navItems) {
+          const elementId = item.sectionId
+          if (!elementId) continue
+
+          const element = document.getElementById(elementId)
+
+          if (element) { // HTMLElement allows offsetHeight
+            const rect = element.getBoundingClientRect()
+            const elementTop = window.scrollY + rect.top
+            const elementBottom = elementTop + element.offsetHeight
 
             if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-              currentActiveSection = sectionId.substring(1); // Store ID without #
-              break;
+              currentActiveSection = elementId
+              break
             }
           }
         }
-        setActiveSection(currentActiveSection);
+        
+        // Fallback for hero section if at the very top and no other section is matched
+        if (!currentActiveSection && window.scrollY < window.innerHeight * 0.33) {
+          const heroItem = navItems.find(item => item.sectionId === "hero")
+          if (heroItem) {
+            currentActiveSection = heroItem.sectionId
+          }
+        }
+        setActiveSection(currentActiveSection)
       } else {
-        setActiveSection(""); // Clear active section if not on homepage
+        setActiveSection("") // Clear active section if not on homepage
       }
     }
 
     window.addEventListener("scroll", handleScroll)
-    handleScroll(); // Call once to set initial state
+    handleScroll() // Initial check
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
-  const handleNavLinkClick = (href: string | { pathname: string; hash?: string }, sectionId?: string) => {
-    setIsMobileMenuOpen(false) // Always close mobile menu
+  const handleNavLinkClick = (href: string | { pathname: string; hash?: string }) => {
+    setIsMobileMenuOpen(false)
 
-    const targetPath = typeof href === 'string' ? href.split('#')[0] : href.pathname;
-    const targetHash = typeof href === 'string' ? (href.includes('#') ? href.substring(href.indexOf('#')) : undefined) : href.hash;
+    const targetPath = typeof href === 'string' ? href.split('#')[0] : href.pathname
+    const targetHash = typeof href === 'string' ? (href.includes('#') ? href.substring(href.indexOf('#')) : undefined) : href.hash
 
-    // If it's a hash link for the *current* page, then smooth scroll
-    if (targetHash && (targetPath === pathname || (targetPath === "/" && pathname === "/"))) {
-      const element = document.getElementById(targetHash.substring(1)) // Remove #
+    // Handle smooth scroll for same-page hash links on the homepage
+    if (targetHash && targetPath === "/" && pathname === "/") {
+      const elementId = targetHash.substring(1) // Remove #
+      const element = document.getElementById(elementId)
       if (element) {
         element.scrollIntoView({
           behavior: "smooth",
           block: "start"
         })
-        // Optionally, update URL hash manually if Link component doesn't always do it
-        // window.history.pushState(null, "", targetHash);
-        setActiveSection(targetHash.substring(1)); // Set active section immediately
-        return; // Prevent Link default navigation if we handle scroll
+        // No e.preventDefault() needed, Link component will update URL if necessary
+        // setActiveSection(elementId); // Optionally set active, scroll handler will catch it too
       }
     }
-    // For all other cases (different page, or same page without hash, or hash element not found for smooth scroll),
-    // let Next.js Link component handle the navigation normally.
-    // If navigating to a different page with a hash, Link will handle it.
+    // For other navigations (different page, or to homepage from another page with hash),
+    // Next.js Link component handles it, and browser scrolls to hash if present.
   }
-
-  const navItems = [
-    { href: "/", label: "Home", sectionId: "hero" },
-    { href: { pathname: '/', hash: '#solutions' }, label: "Solutions", sectionId: "solutions" },
-    { href: { pathname: '/', hash: '#partners' }, label: "Partners", sectionId: "partners" },
-    { href: { pathname: '/', hash: '#customers' }, label: "Customers", sectionId: "customers" },
-    { href: { pathname: '/', hash: '#news' }, label: "News", sectionId: "news" },
-  ]
 
   return (
     <header
@@ -103,10 +104,10 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         <Link href="/" className="flex items-center" onClick={() => handleNavLinkClick("/")}>
           <Image 
             src={isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
-            alt="AIdeology Logo" 
-            width={200} 
-            height={50} 
-            className="h-12 md:h-14 w-auto transition-all duration-300" 
+            alt="AIdeology Logo"
+            width={200}
+            height={50}
+            className="h-12 md:h-14 w-auto transition-all duration-300"
             priority
           />
         </Link>
@@ -117,14 +118,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
             <Link
               key={item.label}
               href={typeof item.href === 'string' ? item.href : { pathname: item.href.pathname, hash: item.href.hash }}
-              onClick={(e) => {
-                const targetPath = typeof item.href === 'string' ? item.href.split('#')[0] : item.href.pathname;
-                const targetHash = typeof item.href === 'string' ? (item.href.includes('#') ? item.href.substring(item.href.indexOf('#')) : undefined) : item.href.hash;
-                if (targetHash && (targetPath === pathname || (targetPath === "/" && pathname === "/"))) {
-                  e.preventDefault(); // Prevent default Link behavior only if we are handling scroll
-                }
-                handleNavLinkClick(item.href, item.sectionId)
-              }}
+              onClick={() => handleNavLinkClick(item.href)}
               className={`relative transition-all duration-300 hover:text-accent-green ${
                 isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
               } ${
@@ -137,11 +131,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               )}
             </Link>
           ))}
-          <Button 
-            asChild 
+          <Button
+            asChild
             className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
           >
-            <Link href="/#contact" onClick={() => handleNavLinkClick({pathname: '/', hash: '#contact'}, "contact")}>
+            <Link href="/#contact" onClick={() => handleNavLinkClick({pathname: '/', hash: '#contact'})}>
               Contact Us
             </Link>
           </Button>
@@ -168,14 +162,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               <Link
                 key={item.label}
                 href={typeof item.href === 'string' ? item.href : { pathname: item.href.pathname, hash: item.href.hash }}
-                onClick={(e) => {
-                  const targetPath = typeof item.href === 'string' ? item.href.split('#')[0] : item.href.pathname;
-                  const targetHash = typeof item.href === 'string' ? (item.href.includes('#') ? item.href.substring(item.href.indexOf('#')) : undefined) : item.href.hash;
-                  if (targetHash && (targetPath === pathname || (targetPath === "/" && pathname === "/"))) {
-                    e.preventDefault(); // Prevent default Link behavior only if we are handling scroll
-                  }
-                  handleNavLinkClick(item.href, item.sectionId)
-                }}
+                onClick={() => handleNavLinkClick(item.href)}
                 className={`block py-2 transition-colors hover:text-accent-green ${
                   activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
                 }`}
@@ -187,7 +174,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               asChild 
               className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90"
             >
-              <Link href="/#contact" onClick={() => handleNavLinkClick({pathname: '/', hash: '#contact'}, "contact")}>
+              <Link href="/#contact" onClick={() => handleNavLinkClick({pathname: '/', hash: '#contact'})}>
                 Contact Us
               </Link>
             </Button>

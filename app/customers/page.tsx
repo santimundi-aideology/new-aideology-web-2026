@@ -34,10 +34,10 @@ export default function CustomersPage() {
   const useCases: UseCase[] = [
     {
       id: "1",
-      title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+      title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
       industry: "AI Infrastructure",
       challenge:
-        "G42's Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+        "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
       solution:
         "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
       results: [
@@ -47,7 +47,7 @@ export default function CustomersPage() {
         "Enhanced AI capabilities across the region",
       ],
       image: "/customers/g42-infrastructure-case-study.png",
-      logo: "/customers/g42-logo.png",
+      logo: "/customer-logos/core42-logo.png",
       testimonial: {
         quote:
           "The partnership with AIdeology enabled us to rapidly deploy enterprise-grade AI infrastructure at scale. The DGX SuperPOD implementation has significantly enhanced our ability to serve AI workloads across diverse industries.",
@@ -65,7 +65,7 @@ export default function CustomersPage() {
       challenge:
         "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
       solution:
-        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM’s regional data facilities.",
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM\'s regional data facilities.",
       results: [
         "[ ___ PFLOPS / ___ TFLOPS ] aggregate AI compute online in < [ X ] weeks",
         "Cut model-training time for [ geospatial maps / traffic predictors / … ] by [ __ ]%",
@@ -88,7 +88,7 @@ export default function CustomersPage() {
       title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
       industry: "AI Consulting",
       challenge:
-        "Broadcom’s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a “hockey-stick” surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+        "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
       solution: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
       results: [
         "100 000+ invoices/year processed fully autonomously via Salesforce integration",
@@ -113,7 +113,7 @@ export default function CustomersPage() {
       title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
       industry: "AI Consulting",
       challenge:
-        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group’s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
       solution: "AIdeology delivered a secure, role-based AI finance agent that:",
       results: [
         "Days-long consolidation cycles cut to minutes, freeing controllers for analysis rather than data wrangling",
@@ -139,7 +139,7 @@ export default function CustomersPage() {
       industry: "AI Consulting",
       challenge:
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
-      solution: "AIdeology built a complete “store digital-twin” platform:",
+      solution: "AIdeology built a complete \"store digital-twin\" platform:",
       results: [
         "Enterprise roll-out ready for all 130+ stores, giving corporate and field teams a single source of behavioural truth.",
         "Model accuracy boosted thanks to the synthetic-image corpus—allowing reliable detection of complex, low-frequency events (e.g., abandoned check-outs).",
@@ -149,7 +149,7 @@ export default function CustomersPage() {
       image: "/customers/k-tuin-istyle-case-study.png",
       logo: "/customers/mindware-logo.png",
       testimonial: {
-        quote: "AIdeology built a complete “store digital-twin” platform:",
+        quote: "AIdeology built a complete \"store digital-twin\" platform:",
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
@@ -175,7 +175,7 @@ export default function CustomersPage() {
       logo: "/customers/beauty-and-the-bit-logo.png",
       testimonial: {
         quote:
-          "AIdeology's 3D AI solution has revolutionized how we present designs to clients. The ability to create photorealistic visualizations in a fraction of the time has given us a significant competitive advantage.",
+          "AIdeology\'s 3D AI solution has revolutionized how we present designs to clients. The ability to create photorealistic visualizations in a fraction of the time has given us a significant competitive advantage.",
         author: "Elena Martinez",
         position: "Creative Director",
         company: "Beauty & The Bit",

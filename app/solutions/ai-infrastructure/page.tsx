@@ -84,7 +84,7 @@ export default function AIInfrastructurePage() {
                 specific workloads and requirements.
               </p>
               <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green hover:scale-105 hover:shadow-lg transition-all duration-300">
+                <Button asChild className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">
                   <Link href="#contact">Schedule a consultation</Link>
                 </Button>
               </div>
@@ -223,7 +223,7 @@ export default function AIInfrastructurePage() {
             Let's discuss how our tailored infrastructure solutions can accelerate your AI initiatives.
           </p>
           <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green hover:scale-105 hover:shadow-lg transition-all duration-300">
+            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">
               <Link href="#contact">Book a discovery call</Link>
             </Button>
           </div>

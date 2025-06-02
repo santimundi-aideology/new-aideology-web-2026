@@ -98,7 +98,7 @@ export default function NewsletterSignup() {
           
           <Button 
             type="submit" 
-            className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105 group"
+            className="w-full bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 group"
             disabled={isSubmitting}
           >
             {isSubmitting ? (

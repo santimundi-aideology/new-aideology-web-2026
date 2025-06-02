@@ -11,15 +11,15 @@ const getCaseStudyBySlug = (slug: string) => {
   // Sample case study data for VFX studio
   if (slug === "g42-ai-cloud-infrastructure") {
     return {
-      title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+      title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
       industry: "AI Infrastructure",
-      company: "G42",
-      logo: "/customers/g42-logo.png",
+      company: "Core42",
+      logo: "/customer-logos/core42-logo.png",
       heroImage: "/customers/g42-infrastructure-case-study.png",
       challenge:
-        "G42's Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+        "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
       challengeDetails:
-        "G42's Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+        "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
       solution:
         "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
       solutionDetails:
@@ -94,9 +94,9 @@ const getCaseStudyBySlug = (slug: string) => {
       challengeDetails:
         "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
       solution:
-        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM’s regional data facilities.",
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM\'s regional data facilities.",
       solutionDetails:
-        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM’s regional data facilities.",
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM\'s regional data facilities.",
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
       results: [
@@ -139,7 +139,7 @@ const getCaseStudyBySlug = (slug: string) => {
       relatedCaseStudies: [
         {
           id: "1",
-          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
           image: "/customers/g42-infrastructure-case-study.png",
           slug: "g42-ai-cloud-infrastructure",
@@ -162,9 +162,9 @@ const getCaseStudyBySlug = (slug: string) => {
       logo: "/customers/broadcom-logo.png",
       heroImage: "/placeholder.svg?height=500&width=1200",
       challenge:
-        "Broadcom’s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a “hockey-stick” surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+        "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
       challengeDetails:
-        "Broadcom’s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a “hockey-stick” surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+        "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
       solution: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
       solutionDetails: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
       implementation:
@@ -210,7 +210,7 @@ const getCaseStudyBySlug = (slug: string) => {
       relatedCaseStudies: [
         {
           id: "1",
-          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
           image: "/customers/g42-infrastructure-case-study.png",
           slug: "g42-ai-cloud-infrastructure",
@@ -233,9 +233,9 @@ const getCaseStudyBySlug = (slug: string) => {
       logo: "/customers/mindware-logo.png",
       heroImage: "/placeholder.svg?height=500&width=1200",
       challenge:
-        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group’s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
       challengeDetails:
-        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group’s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
       solution: "AIdeology delivered a secure, role-based AI finance agent that:",
       solutionDetails: "AIdeology delivered a secure, role-based AI finance agent that:",
       implementation:
@@ -281,7 +281,7 @@ const getCaseStudyBySlug = (slug: string) => {
       relatedCaseStudies: [
         {
           id: "1",
-          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
           image: "/customers/g42-infrastructure-case-study.png",
           slug: "g42-ai-cloud-infrastructure",
@@ -307,8 +307,8 @@ const getCaseStudyBySlug = (slug: string) => {
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
       challengeDetails:
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
-      solution: "AIdeology built a complete “store digital-twin” platform:",
-      solutionDetails: "AIdeology built a complete “store digital-twin” platform:",
+      solution: "AIdeology built a complete \"store digital-twin\" platform:",
+      solutionDetails: "AIdeology built a complete \"store digital-twin\" platform:",
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
       results: [
@@ -320,7 +320,8 @@ const getCaseStudyBySlug = (slug: string) => {
       resultsDetails:
         "The impact of the new AI infrastructure was immediate and significant:\n\n- **Rendering Performance**: Average render times decreased by 60%, with some complex scenes seeing even greater improvements.\n\n- **Cost Efficiency**: Despite the increased performance, overall infrastructure costs decreased by 40% due to better resource utilization and the hybrid cloud approach.\n\n- **Capacity**: The studio was able to take on 3x more projects simultaneously without adding additional staff.\n\n- **Artist Productivity**: Artists could now get feedback on their work in minutes rather than hours, enabling more iterations and higher quality output.\n\n- **Competitive Advantage**: Faster turnaround times and higher quality work led to increased client satisfaction and new business opportunities.\n\n- **Energy Efficiency**: The new infrastructure consumed 35% less power per frame rendered, aligning with the studio's sustainability goals.",
       testimonial: {
-        quote: "AIdeology built a complete “store digital-twin” platform:",
+        quote:
+          "AIdeology built a complete \"store digital-twin\" platform:",
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
@@ -351,7 +352,7 @@ const getCaseStudyBySlug = (slug: string) => {
       relatedCaseStudies: [
         {
           id: "1",
-          title: "G42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
           image: "/customers/g42-infrastructure-case-study.png",
           slug: "g42-ai-cloud-infrastructure",
