@@ -1,8 +1,11 @@
 "use client"
 
 import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export default function ScrollAnimations() {
+  const pathname = usePathname()
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
@@ -44,7 +47,7 @@ export default function ScrollAnimations() {
         }
       })
     }
-  }, [])
+  }, [pathname])
 
   return null
 }

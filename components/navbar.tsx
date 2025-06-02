@@ -47,26 +47,37 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
-  const handleNavigation = (href: string, sectionId?: string) => {
+  const handleNavigation = (href: string | { pathname: string; hash: string }, sectionId?: string) => {
     setIsMobileMenuOpen(false)
     
-    if (sectionId && pathname === "/") {
-      const element = document.getElementById(sectionId)
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: "smooth",
-          block: "start"
-        })
+    const targetPath = typeof href === 'string' ? href : href.pathname;
+    const targetHash = typeof href === 'string' ? (href.startsWith('/#') ? href.substring(2) : undefined) : href.hash;
+
+    if (targetHash && targetPath === "/") {
+      // If already on the homepage and there's a hash, scroll to section
+      if (pathname === "/") {
+        const element = document.getElementById(targetHash)
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start"
+          })
+        }
+      } else {
+        // If on a different page, Next.js Link component will handle navigation to homepage + hash
+        // We don't need to do anything special here for scrolling, as Link will navigate first
       }
     }
+    // For other cases, Next.js Link handles navigation.
+    // If it's a simple string href like "/" or "#contact", Link handles it.
   }
 
   const navItems = [
     { href: "/", label: "Home", sectionId: "" },
-    { href: "/#solutions", label: "Solutions", sectionId: "solutions" },
-    { href: "/#partners", label: "Partners", sectionId: "partners" },
-    { href: "/#customers", label: "Customers", sectionId: "customers" },
-    { href: "/#news", label: "News", sectionId: "news" },
+    { href: { pathname: '/', hash: 'solutions' }, label: "Solutions", sectionId: "solutions" },
+    { href: { pathname: '/', hash: 'partners' }, label: "Partners", sectionId: "partners" },
+    { href: { pathname: '/', hash: 'customers' }, label: "Customers", sectionId: "customers" },
+    { href: { pathname: '/', hash: 'news' }, label: "News", sectionId: "news" },
   ]
 
   return (
@@ -92,7 +103,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              href={item.href}
+              href={typeof item.href === 'string' ? item.href : { pathname: item.href.pathname, hash: item.href.hash }}
               onClick={() => handleNavigation(item.href, item.sectionId)}
               className={`relative transition-all duration-300 hover:text-accent-green ${
                 isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
@@ -136,7 +147,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
             {navItems.map((item) => (
               <Link
                 key={item.label}
-                href={item.href}
+                href={typeof item.href === 'string' ? item.href : { pathname: item.href.pathname, hash: item.href.hash }}
                 onClick={() => handleNavigation(item.href, item.sectionId)}
                 className={`block py-2 transition-colors hover:text-accent-green ${
                   activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
