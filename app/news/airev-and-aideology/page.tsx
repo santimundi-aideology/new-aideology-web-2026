@@ -193,4 +193,4 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
       <Footer />
     </main>
   )
-} 
+}
