@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Server, Zap, Users, ArrowRight } from "lucide-react"
+import { Server, Zap, Users, Cpu, ArrowRight } from "lucide-react"
 
 export default function SolutionsSection() {
   const [visibleCards, setVisibleCards] = useState<number[]>([])
@@ -55,6 +55,20 @@ export default function SolutionsSection() {
         { name: "Machine Learning", path: "/services/ai-consulting/machine-learning" },
       ],
     },
+    {
+      title: "Robotics & Edge AI",
+      description:
+        "Intelligent robotics and edge computing solutions for autonomous systems and real-time AI applications.",
+      icon: (
+        <Cpu className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
+      link: "/solutions/robotics-edge-ai",
+      subpages: [
+        { name: "Edge AI", path: "/services/robotics-edge-ai/edge-ai" },
+        { name: "Vision AI", path: "/services/robotics-edge-ai/vision-ai" },
+        { name: "Robotics", path: "/services/robotics-edge-ai/robotics" },
+      ],
+    },
   ]
 
   // Progressive disclosure with intersection observer
@@ -102,12 +116,12 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {solutions.map((solution, index) => (
             <Card
               key={index}
               data-card-index={index}
-              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50`}
+              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50 flex flex-col h-full`}
             >
               <CardHeader>
                 <div className="mb-4">{solution.icon}</div>
@@ -115,7 +129,7 @@ export default function SolutionsSection() {
                   {solution.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <CardDescription className="text-gray-500 text-base mb-4">{solution.description}</CardDescription>
 
                 <div className="mb-4">

@@ -9,6 +9,7 @@ import MissionQuoteSection from "@/components/mission-quote-section"
 import LatestNewsSection from "@/components/latest-news-section"
 import NewsletterSignup from "@/components/newsletter-signup"
 import Footer from "@/components/footer"
+import ProductsPromo from "@/components/products-promo"
 
 export default function Home() {
   return (
@@ -17,19 +18,20 @@ export default function Home() {
       <HeroSection />
       <SolutionsSection />
       <WhyAIdeologySection />
+      <ProductsPromo />
       <GlobalPresenceSection />
       <CustomerLogosSection />
       <PartnerEcosystemSection />
       <MissionQuoteSection />
       <LatestNewsSection />
-      
+
       {/* Newsletter Signup Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-md">
           <NewsletterSignup />
         </div>
       </section>
-      
+
       <Footer />
     </main>
   )

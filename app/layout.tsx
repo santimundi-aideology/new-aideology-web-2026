@@ -4,6 +4,7 @@ import { Inter, Montserrat } from "next/font/google"
 import "./globals.css"
 // import ScrollToTop from "@/components/scroll-to-top" // Commented out
 import ScrollAnimations from "@/components/scroll-animations"
+import Navbar from "@/components/navbar"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${montserrat.variable} font-sans bg-[#f4f4f4] text-charcoal`}>
-        {/* <ScrollToTop /> */ /* Commented out */}
+        <Navbar />
         <ScrollAnimations />
         {children}
       </body>
