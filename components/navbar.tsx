@@ -14,10 +14,10 @@ interface NavbarProps {
 // Define navItems outside the component for stability and to be used by useEffect
 const navItems = [
   { href: "/", label: "Home", sectionId: "hero" }, // Ensure an element with id="hero" (or similar, like the first main section) exists
-  { href: { pathname: '/', hash: '#solutions' }, label: "Solutions", sectionId: "solutions" },
-  { href: { pathname: '/', hash: '#partners' }, label: "Partners", sectionId: "partners" },
-  { href: { pathname: '/', hash: '#customers' }, label: "Customers", sectionId: "customers" },
-  { href: { pathname: '/', hash: '#news' }, label: "News", sectionId: "news" },
+  { href: { pathname: "/", hash: "#solutions" }, label: "Solutions", sectionId: "solutions" },
+  { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
+  { href: { pathname: "/", hash: "#customers" }, label: "Customers", sectionId: "customers" },
+  { href: { pathname: "/", hash: "#news" }, label: "News", sectionId: "news" },
 ]
 
 export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
@@ -25,7 +25,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
-  const isOnServiceSubpage = pathname.startsWith('/services/');
+  const isOnServiceSubpage = pathname.startsWith("/services/")
 
   // Add state for managing the submenu
   const [showSubmenu, setShowSubmenu] = useState(false)
@@ -49,7 +49,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
 
           const element = document.getElementById(elementId)
 
-          if (element) { // HTMLElement allows offsetHeight
+          if (element) {
+            // HTMLElement allows offsetHeight
             const rect = element.getBoundingClientRect()
             const elementTop = window.scrollY + rect.top
             const elementBottom = elementTop + element.offsetHeight
@@ -60,10 +61,10 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
             }
           }
         }
-        
+
         // Fallback for hero section if at the very top and no other section is matched
         if (!currentActiveSection && window.scrollY < window.innerHeight * 0.33) {
-          const heroItem = navItems.find(item => item.sectionId === "hero")
+          const heroItem = navItems.find((item) => item.sectionId === "hero")
           if (heroItem) {
             currentActiveSection = heroItem.sectionId
           }
@@ -79,16 +80,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
-  const handleNavLinkClick = (href: string | { pathname: string; hash?: string }) => {
+  const handleNavigation = (href: string, sectionId?: string) => {
     setIsMobileMenuOpen(false)
 
-    const targetPath = typeof href === 'string' ? href.split('#')[0] : href.pathname
-    const targetHash = typeof href === 'string' ? (href.includes('#') ? href.substring(href.indexOf('#')) : undefined) : href.hash
-
-    // Handle smooth scroll for same-page hash links on the homepage
-    if (targetHash && targetPath === "/" && pathname === "/") {
-      const elementId = targetHash.substring(1) // Remove #
-      const element = document.getElementById(elementId)
+    if (href.startsWith("/#") && pathname === "/") {
+      // If already on the homepage and there's a hash, scroll to section
+      const targetHash = href.substring(2)
+      const element = document.getElementById(targetHash)
       if (element) {
         element.scrollIntoView({
           behavior: "smooth",
@@ -129,9 +127,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       { href: "/services/ai-consulting/ai-data-platform", label: "AI Data Platform" },
       { href: "/services/ai-consulting/machine-learning", label: "Machine Learning" },
     ],
+    "Robotics & Edge AI": [
+      { href: "/services/robotics-edge-ai/edge-ai", label: "Edge AI" },
+      { href: "/services/robotics-edge-ai/vision-ai", label: "Vision AI" },
+    ],
   }
 
-  const mainServices = ["AI Infrastructure", "3D AI", "AI Consulting"]
+  const mainServices = ["AI Infrastructure", "3D AI", "AI Consulting", "Robotics & Edge AI"]
 
   const handleSubmenuEnter = () => {
     if (submenuTimeoutRef.current) {
@@ -158,13 +160,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isOnServiceSubpage || isScrolled ? "bg-white/90 shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
+        isScrolled ? "bg-white/90 shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center" onClick={() => handleNavLinkClick("/")}>
-          <Image 
-            src={pathname === '/news' || isOnServiceSubpage || isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
+        <Link href="/" className="flex items-center" onClick={() => handleNavigation("/")}>
+          <Image
+            src={isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
             alt="AIdeology Logo"
             width={200}
             height={50}
@@ -186,7 +188,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 >
                   <span
                     className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
-                      isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
+                      isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
                     } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
                   >
                     {item.label}
@@ -218,7 +220,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                               }`}
                               onMouseEnter={() => setSelectedSubmenu(service)}
                             >
-                              <Link href={`/solutions/${service.toLowerCase().replace(" ", "-")}`} className="block">
+                              <Link href={`/services/${service.toLowerCase().replace(" ", "-")}`} className="block">
                                 {service}
                               </Link>
                             </div>
@@ -257,9 +259,9 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => handleNavLinkClick(item.href)}
-                  className={`relative transition-all duration-300 hover:text-accent-green ${
-                    isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
+                  onClick={() => handleNavigation(item.href, item.sectionId)}
+                  className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
+                    isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
                   } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
                 >
                   {item.label}
@@ -274,21 +276,18 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
             asChild
             className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
           >
-            <Link href="/#contact" onClick={() => handleNavLinkClick("#contact")}>
+            <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
               Contact Us
             </Link>
           </Button>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
+        <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? (
-            <X className={`h-6 w-6 ${isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
+            <X className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           ) : (
-            <Menu className={`h-6 w-6 ${isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
+            <Menu className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           )}
         </button>
       </div>
@@ -303,7 +302,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   <div key={item.label}>
                     <Link
                       href={item.href}
-                      onClick={() => handleNavLinkClick(item.href)}
+                      onClick={() => handleNavigation(item.href, item.sectionId)}
                       className={`block py-2 transition-colors hover:text-accent-green ${
                         activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
                       }`}
@@ -314,7 +313,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                       {mainServices.map((service) => (
                         <div key={service}>
                           <Link
-                            href={`/solutions/${service.toLowerCase().replace(" ", "-")}`}
+                            href={`/services/${service.toLowerCase().replace(" ", "-")}`}
                             className="block py-1 text-sm text-gray-600 hover:text-accent-green"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
@@ -342,7 +341,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={() => handleNavLinkClick(item.href)}
+                    onClick={() => handleNavigation(item.href, item.sectionId)}
                     className={`block py-2 transition-colors hover:text-accent-green ${
                       activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
                     }`}
@@ -353,7 +352,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               }
             })}
             <Button asChild className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90">
-              <Link href="#contact" onClick={() => handleNavLinkClick("#contact")}>
+              <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
                 Contact Us
               </Link>
             </Button>

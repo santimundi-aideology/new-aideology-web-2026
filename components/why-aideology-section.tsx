@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 export default function WhyAIdeologySection() {
   const kpis = [
     {
-      value: "+2,000",
+      value: "+500",
       label: "NVIDIA Servers implemented",
       color: "bg-accent-green/10 border-accent-green/30",
     },
@@ -45,12 +45,12 @@ export default function WhyAIdeologySection() {
           {/* Right Column - KPIs */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {kpis.map((kpi, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className={`${kpi.color} border text-charcoal hover-lift transition-all duration-300 hover:scale-105 animate-fade-in-up`}
                 style={{
                   animationDelay: `${200 + index * 150}ms`,
-                  animationFillMode: 'both'
+                  animationFillMode: "both",
                 }}
               >
                 <CardContent className="p-6 text-center">
