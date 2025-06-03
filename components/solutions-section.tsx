@@ -15,7 +15,7 @@ export default function SolutionsSection() {
       icon: (
         <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/services/ai-infrastructure",
+      link: "/solutions/ai-infrastructure",
       subpages: [
         { name: "Networking", path: "/services/ai-infrastructure/networking" },
         { name: "AI Data Platform", path: "/services/ai-infrastructure/ai-data-platform" },
@@ -31,7 +31,7 @@ export default function SolutionsSection() {
       icon: (
         <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/services/3d-ai",
+      link: "/solutions/3d-ai",
       subpages: [
         { name: "Design Visualization", path: "/services/3d-ai/design-visualization" },
         { name: "Robotic Simulation", path: "/services/3d-ai/robotic-simulation" },
@@ -46,7 +46,7 @@ export default function SolutionsSection() {
       icon: (
         <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/services/ai-consulting",
+      link: "/solutions/ai-consulting",
       subpages: [
         { name: "Conversational AI", path: "/services/ai-consulting/conversational-ai" },
         { name: "Generative AI", path: "/services/ai-consulting/generative-ai" },

@@ -25,6 +25,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
+  const isOnServiceSubpage = pathname.startsWith('/services/');
 
   // Add state for managing the submenu
   const [showSubmenu, setShowSubmenu] = useState(false)
@@ -157,13 +158,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled ? "bg-white/90 shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
+        isOnServiceSubpage || isScrolled ? "bg-white/90 shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center" onClick={() => handleNavLinkClick("/")}>
           <Image 
-            src={isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
+            src={pathname === '/news' || isOnServiceSubpage || isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
             alt="AIdeology Logo"
             width={200}
             height={50}
@@ -185,7 +186,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 >
                   <span
                     className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
-                      isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
+                      isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
                     } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
                   >
                     {item.label}
@@ -217,7 +218,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                               }`}
                               onMouseEnter={() => setSelectedSubmenu(service)}
                             >
-                              <Link href={`/services/${service.toLowerCase().replace(" ", "-")}`} className="block">
+                              <Link href={`/solutions/${service.toLowerCase().replace(" ", "-")}`} className="block">
                                 {service}
                               </Link>
                             </div>
@@ -258,7 +259,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   href={item.href}
                   onClick={() => handleNavLinkClick(item.href)}
                   className={`relative transition-all duration-300 hover:text-accent-green ${
-                    isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
+                    isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
                   } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
                 >
                   {item.label}
@@ -285,9 +286,9 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
+            <X className={`h-6 w-6 ${isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           ) : (
-            <Menu className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
+            <Menu className={`h-6 w-6 ${isOnServiceSubpage || isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
           )}
         </button>
       </div>
@@ -313,7 +314,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                       {mainServices.map((service) => (
                         <div key={service}>
                           <Link
-                            href={`/services/${service.toLowerCase().replace(" ", "-")}`}
+                            href={`/solutions/${service.toLowerCase().replace(" ", "-")}`}
                             className="block py-1 text-sm text-gray-600 hover:text-accent-green"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >

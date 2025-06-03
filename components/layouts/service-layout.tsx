@@ -14,17 +14,7 @@ export default function ServiceLayout({
   backText = "Back to Services",
 }: ServiceLayoutProps) {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-8">
-        <Link
-          href={backLink}
-          className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          {backText}
-        </Link>
-      </div>
-
+    <div className="px-4 pt-20 pb-12">
       <div className="prose prose-lg max-w-none">{children}</div>
     </div>
   )
