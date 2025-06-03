@@ -28,15 +28,15 @@ export default function NewsPage() {
       title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
       date: "April 16, 2025",
       category: "Events",
-      link: "https://www.aideology.ai/post/leap-2025",
+      link: "/news/leap-2025",
       image: "/news_images/image_1.jpeg"
     },
     {
       id: "2",
-      title: "Revolutionizing Industry Boundaries: A Week of Innovation at GITEX GLOBAL 2024",
+      title: "GITEX 2024: A Week of Innovation",
       date: "October 17, 2024",
       category: "Events",
-      link: "https://www.aideology.ai/post/revolutionizing-industry-boundaries-a-week-of-innovation-at-gitex-global-2024",
+      link: "/news/gitex-2024",
       image: "/news_images/image_2.jpeg"
     },
     {
@@ -44,7 +44,7 @@ export default function NewsPage() {
       title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
       date: "October 10, 2024",
       category: "Partnerships",
-      link: "https://www.aideology.ai/post/midis-and-aideology",
+      link: "/news/midis-and-aideology",
       image: "/news_images/image_3.jpeg"
     },
     {
@@ -52,7 +52,7 @@ export default function NewsPage() {
       title: "Seamless Integration: AIREV and AIdeology Unite",
       date: "September 30, 2024",
       category: "Partnerships",
-      link: "https://www.aideology.ai/post/airev-and-aideology",
+      link: "/news/airev-and-aideology",
       image: "/news_images/image_4.jpeg"
     },
     {
@@ -60,47 +60,47 @@ export default function NewsPage() {
       title: "AIdeology at LEAP 2024, KSA",
       date: "April 5, 2024",
       category: "Events",
-      link: "https://www.aideology.ai/post/leap24",
+      link: "/news/leap-2024",
       image: "/news_images/image_5.jpeg"
     },
     {
       id: "6",
-      title: "AIdeology at GITEX Global",
-      date: "October 2, 2023",
+      title: "GITEX 2023: Showcasing AI Innovation",
+      date: "October 20, 2023",
       category: "Events",
-      link: "https://www.aideology.ai/post/gitex-gobal-23",
+      link: "/news/gitex-global",
       image: "/news_images/image_6.jpeg"
     },
     {
       id: "7",
       title: "AIdeology at the Circuit of Catalunya with Lenovo and Aston Martin",
-      date: "July 2, 2023",
-      category: "Events",
-      link: "https://www.aideology.ai/post/lenovo-aston-martin",
+      date: "September 15, 2023",
+      category: "Partnerships",
+      link: "/news/lenovo-aston-martin",
       image: "/news_images/image_7.jpeg"
     },
     {
       id: "8",
-      title: "AIdeology at GITEX Africa (Morocco)",
-      date: "May 25, 2023",
+      title: "GITEX Africa 2023: Expanding AI Horizons",
+      date: "May 31, 2023",
       category: "Events",
-      link: "https://www.aideology.ai/post/gitex-africa-23",
+      link: "/news/gitex-africa",
       image: "/news_images/image_8.jpeg"
     },
     {
       id: "9",
-      title: "AIdeology & Lenovo at their 2023 EMEA Kick Off, Barcelona",
-      date: "March 3, 2023",
+      title: "Lenovo EMEA Kickoff 2023: AI Innovation Showcase",
+      date: "April 15, 2023",
       category: "Events",
-      link: "https://www.aideology.ai/post/lenovo-emea-kickoff",
+      link: "/news/lenovo-emea-2023",
       image: "/news_images/image_9.jpeg"
     },
     {
       id: "10",
-      title: "AIdeology at LEAP 2023, KSA",
-      date: "February 4, 2023",
+      title: "LEAP 2023: Pioneering AI Solutions",
+      date: "February 10, 2023",
       category: "Events",
-      link: "https://www.aideology.ai/post/leap23",
+      link: "/news/leap-2023",
       image: "/news_images/image_10.jpeg"
     }
   ]
@@ -173,8 +173,6 @@ export default function NewsPage() {
                   <CardContent className="mt-4">
                     <Link
                       href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="text-white hover:text-accent-green flex items-center group font-semibold drop-shadow-md"
                     >
                       Read more
