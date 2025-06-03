@@ -7,7 +7,7 @@ export default function AiInfrastructureLayout({ children }: { children: ReactNo
     { href: "/services/ai-infrastructure", label: "AI Infrastructure" },
   ]
   const sidebarNavItems = [
-    { href: "/services/ai-infrastructure/networking", label: "Networking" },
+    { href: "/services/ai-infrastructure/professional-services", label: "Professional Services" },
     { href: "/services/ai-infrastructure/ai-data-platform", label: "AI Data Platform (Infra)" },
     { href: "/services/ai-infrastructure/mlops", label: "MLOps" },
     { href: "/services/ai-infrastructure/accelerated-computing", label: "Accelerated Computing" },
