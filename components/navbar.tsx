@@ -101,6 +101,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     { href: "/", label: "Home", sectionId: "" },
     { href: "/#solutions", label: "Solutions", sectionId: "solutions" },
     { href: "/#partners", label: "Partners", sectionId: "partners" },
+    { href: "/#products", label: "Products", sectionId: "products" },
     { href: "/#customers", label: "Customers", sectionId: "customers" },
     { href: "/#news", label: "News", sectionId: "news" },
   ]
@@ -131,6 +132,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       { href: "/services/robotics-edge-ai/edge-ai", label: "Edge AI" },
       { href: "/services/robotics-edge-ai/vision-ai", label: "Vision AI" },
     ],
+    Products: [
+      { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
+      { href: "/products/nvidia-hgx", label: "NVIDIA HGX Systems" },
+      { href: "/products/networking", label: "Networking Solutions" },
+      { href: "/products/storage-systems", label: "Storage Systems" },
+      { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
+    ],
   }
 
   const mainServices = ["AI Infrastructure", "3D AI", "AI Consulting", "Robotics & Edge AI"]
@@ -140,12 +148,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       clearTimeout(submenuTimeoutRef.current)
     }
     setShowSubmenu(true)
-    setSelectedSubmenu("AI Infrastructure")
+    setSelectedSubmenu("AI Infrastructure") // This should only apply to Solutions
   }
 
   const handleSubmenuLeave = () => {
     submenuTimeoutRef.current = setTimeout(() => {
       setShowSubmenu(false)
+      setSelectedSubmenu(null)
     }, 300) // 300ms delay before hiding
   }
 
@@ -184,7 +193,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   key={item.label}
                   className="relative"
                   onMouseEnter={handleSubmenuEnter}
-                  onMouseLeave={handleSubmenuLeave}
+                  onMouseLeave={() => {
+                    submenuTimeoutRef.current = setTimeout(() => {
+                      setShowSubmenu(false)
+                      setSelectedSubmenu(null)
+                    }, 300)
+                  }}
                 >
                   <span
                     className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
@@ -202,7 +216,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                     <div
                       className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border border-gray-200 z-50 w-[600px] p-6"
                       onMouseEnter={handleSubmenuEnter}
-                      onMouseLeave={handleSubmenuLeave}
+                      onMouseLeave={() => {
+                        submenuTimeoutRef.current = setTimeout(() => {
+                          setShowSubmenu(false)
+                          setSelectedSubmenu(null)
+                        }, 300)
+                      }}
                     >
                       <div className="flex">
                         {/* Left side - Main services */}
@@ -250,6 +269,74 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                           )}
                         </div>
                       </div>
+                    </div>
+                  )}
+                </div>
+              )
+            } else if (item.label === "Products") {
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (submenuTimeoutRef.current) {
+                      clearTimeout(submenuTimeoutRef.current)
+                    }
+                    setShowSubmenu(true)
+                    setSelectedSubmenu("Products")
+                  }}
+                  onMouseLeave={() => {
+                    submenuTimeoutRef.current = setTimeout(() => {
+                      setShowSubmenu(false)
+                      setSelectedSubmenu(null)
+                    }, 300)
+                  }}
+                >
+                  <span
+                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
+                      isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
+                    } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
+                  >
+                    {item.label}
+                    {activeSection === item.sectionId && (
+                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-green animate-scale-in" />
+                    )}
+                  </span>
+
+                  {/* Products Submenu - Only show when Products is selected */}
+                  {showSubmenu && selectedSubmenu === "Products" && (
+                    <div
+                      className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border border-gray-200 z-50 w-[400px] p-6"
+                      onMouseEnter={() => {
+                        if (submenuTimeoutRef.current) {
+                          clearTimeout(submenuTimeoutRef.current)
+                        }
+                        setShowSubmenu(true)
+                        setSelectedSubmenu("Products")
+                      }}
+                      onMouseLeave={() => {
+                        submenuTimeoutRef.current = setTimeout(() => {
+                          setShowSubmenu(false)
+                          setSelectedSubmenu(null)
+                        }, 300)
+                      }}
+                    >
+                      <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                        Product Categories
+                      </h3>
+                      {submenuItems.Products?.map((productItem) => (
+                        <Link
+                          key={productItem.label}
+                          href={productItem.href}
+                          className="block py-2 px-3 text-charcoal hover:text-accent-green hover:bg-accent-green/5 rounded transition-colors"
+                          onClick={() => {
+                            setShowSubmenu(false)
+                            setSelectedSubmenu(null)
+                          }}
+                        >
+                          {productItem.label}
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -332,6 +419,32 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                             ))}
                           </div>
                         </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              } else if (item.label === "Products") {
+                return (
+                  <div key={item.label}>
+                    <Link
+                      href={item.href}
+                      onClick={() => handleNavigation(item.href, item.sectionId)}
+                      className={`block py-2 transition-colors hover:text-accent-green ${
+                        activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                    <div className="ml-4 mt-2 space-y-2">
+                      {submenuItems.Products?.map((productItem) => (
+                        <Link
+                          key={productItem.label}
+                          href={productItem.href}
+                          className="block py-1 text-sm text-gray-600 hover:text-accent-green"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {productItem.label}
+                        </Link>
                       ))}
                     </div>
                   </div>
