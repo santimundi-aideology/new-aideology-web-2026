@@ -20,7 +20,7 @@ export default function NvidiaDGXPage() {
         </p>
         <div className="relative h-[500px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/gpu-server-racks.png"
+            src="/products/nvidia_dgx_products_image.jpg"
             alt="NVIDIA DGX AI supercomputing systems in enterprise data center environment"
             fill
             className="object-cover"
@@ -80,7 +80,7 @@ export default function NvidiaDGXPage() {
             </div>
             <div className="lg:w-1/2 relative h-64 lg:h-auto">
               <Image
-                src="/ai-server-room-gpus.png"
+                src="/products/dgx_b200_image.png"
                 alt="NVIDIA DGX B200 Blackwell architecture AI supercomputer"
                 fill
                 className="object-cover"
@@ -127,7 +127,7 @@ export default function NvidiaDGXPage() {
             </div>
             <div className="lg:w-1/2 relative h-64 lg:h-auto">
               <Image
-                src="/data-center.webp"
+                src="/products/dgx_h200_image.jpg"
                 alt="NVIDIA DGX H200 system with enhanced memory capacity"
                 fill
                 className="object-cover"
@@ -174,7 +174,7 @@ export default function NvidiaDGXPage() {
             </div>
             <div className="lg:w-1/2 relative h-64 lg:h-auto">
               <Image
-                src="/g42-data-center.webp"
+                src="/products/dgx_gb200_image.jpg"
                 alt="NVIDIA DGX GB200 NVL72 rack-scale liquid-cooled AI supercomputer"
                 fill
                 className="object-cover"
@@ -221,7 +221,7 @@ export default function NvidiaDGXPage() {
             </div>
             <div className="lg:w-1/2 relative h-64 lg:h-auto">
               <Image
-                src="/vfx-studio-server-room.png"
+                src="/products/dgx_gh200_image.jpg"
                 alt="NVIDIA DGX GH200 AI supercomputer installation at enterprise scale"
                 fill
                 className="object-cover"
@@ -239,7 +239,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/services/gpu-cluster.png"
+                src="/products/dgx_basepod_image.jpeg"
                 alt="DGX BasePOD modular AI infrastructure deployment"
                 fill
                 className="object-cover"
@@ -261,7 +261,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/services/infrastructure-management.png"
+                src="/products/dgx_superpod_image.jpg"
                 alt="DGX SuperPOD large-scale AI data center infrastructure"
                 fill
                 className="object-cover"
@@ -305,7 +305,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
               <Image
-                src="/services/team-enablement.png"
+                src="/products/prof_services_image.png"
                 alt="Professional DGX system deployment and integration"
                 fill
                 className="object-cover"
@@ -321,7 +321,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
               <Image
-                src="/services/mlops.png"
+                src="/products/comp_support_image.png"
                 alt="Ongoing DGX system support and optimization"
                 fill
                 className="object-cover"

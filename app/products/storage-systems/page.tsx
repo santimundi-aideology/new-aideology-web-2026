@@ -20,7 +20,7 @@ export default function StorageSystemsPage() {
         </p>
         <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/services/storage-solutions.png"
+            src="/products/ai_storage.webp"
             alt="High-performance storage systems optimized for AI workloads"
             fill
             className="object-cover"

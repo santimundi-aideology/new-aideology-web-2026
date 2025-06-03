@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, CheckCircle, Quote } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import type { StaticImageData } from 'next/image'
 
 // Define interfaces for our data
 interface Testimonial {
@@ -23,7 +24,7 @@ interface UseCase {
   challenge: string
   solution: string
   results: string[]
-  image: string
+  image: string | StaticImageData
   logo?: string
   testimonial?: Testimonial
   slug: string
@@ -46,7 +47,7 @@ export default function CustomersPage() {
         "Massive scale AI cloud infrastructure operational",
         "Enhanced AI capabilities across the region",
       ],
-      image: "/customers/g42-infrastructure-case-study.png",
+      image: "/customers/core42_image.jpg",
       logo: "/customer-logos/core42-logo.png",
       testimonial: {
         quote:
@@ -54,7 +55,7 @@ export default function CustomersPage() {
         author: "Talal Al Kaissi",
         position: "CEO",
         company: "Core42 (G42)",
-        image: "/customers/testimonials/talal-al-kaissi.png",
+        image: "/customers/talal_image.jpeg",
       },
       slug: "g42-ai-cloud-infrastructure",
     },
@@ -72,7 +73,7 @@ export default function CustomersPage() {
         "Supports smart-city analytics for [ __ ] million sensors & resident digital twins",
         "Enabled Tonomus to launch its cognitive-cloud service [ __ ] months ahead of schedule, attracting [ __ ] new enterprise tenants",
       ],
-      image: "/customers/tonomus-case-study.png",
+      image: "/customers/tonomus_image.jpg",
       logo: "/customers/neom-logo.png",
       testimonial: {
         quote: "AIdeology delivered a secure, role-based AI finance agent that:",
@@ -97,7 +98,7 @@ export default function CustomersPage() {
         "97.5 % data accuracy and near-zero manual rework",
         "1 200 % ROI in the first year, driven by labour savings and faster revenue recognition",
       ],
-      image: "/customers/broadcom-case-study.png",
+      image: "/customers/vmware-logo.png",
       logo: "/customers/broadcom-logo.png",
       testimonial: {
         quote: "AIdeology delivered a secure, role-based AI finance agent that:",
@@ -122,7 +123,7 @@ export default function CustomersPage() {
         "Rapid adoption across subsidiaries—the chat UI required < 1 hour of training for most users",
         "Positioned Midis Group to scale seamlessly as new entities and reporting requirements are added",
       ],
-      image: "/customers/midis-group-case-study.png",
+      image: "/customers/midis-logo.jpeg",
       logo: "/customers/mindware-logo.png",
       testimonial: {
         quote: "AIdeology delivered a secure, role-based AI finance agent that:",
@@ -146,7 +147,7 @@ export default function CustomersPage() {
         "Operational uplift: managers can dynamically redeploy staff to cut wait times, optimise merchandising based on real engagement hotspots and measure the ROI of in-store campaigns in hours instead of weeks.",
         "Privacy & compliance by design, meeting GDPR and internal Midis Group policies without intrusive cameras or manual tagging.",
       ],
-      image: "/customers/k-tuin-istyle-case-study.png",
+      image: "istyle-ktuin-custom",
       logo: "/customers/mindware-logo.png",
       testimonial: {
         quote: "AIdeology built a complete \"store digital-twin\" platform:",
@@ -185,32 +186,6 @@ export default function CustomersPage() {
     },
     {
       id: "7",
-      title: "Manufacturing Company Optimizes Production with AI Agents",
-      industry: "AI Consulting",
-      challenge:
-        "A manufacturing company was experiencing inefficiencies in their production line due to manual quality control processes and lack of predictive maintenance capabilities. They needed an intelligent system that could identify potential issues before they caused downtime.",
-      solution:
-        "AIdeology developed and deployed a custom AI agent system that integrated with their existing IoT sensors and production management software. The solution included computer vision for quality control, predictive maintenance algorithms, and a centralized dashboard for monitoring and analytics.",
-      results: [
-        "37% reduction in production downtime",
-        "28% decrease in maintenance costs",
-        "42% improvement in defect detection accuracy",
-        "Annual savings of $4.2M through efficiency improvements",
-      ],
-      image: "/customers/manufacturing-case-study.png",
-      logo: "/customers/mrfactory-logo.png",
-      testimonial: {
-        quote:
-          "The AI consulting and implementation services from AIdeology have transformed our manufacturing operations. The predictive maintenance capabilities alone have paid for the investment many times over.",
-        author: "Michael Chen",
-        position: "Operations Director",
-        company: "MrFactory",
-        image: "/customers/testimonials/michael-chen.png",
-      },
-      slug: "manufacturing-optimization",
-    },
-    {
-      id: "8",
       title: "Media Production Studio Implements Virtual Production Pipeline",
       industry: "3D AI",
       challenge:
@@ -236,33 +211,7 @@ export default function CustomersPage() {
       slug: "virtual-production",
     },
     {
-      id: "9",
-      title: "Healthcare Provider Enhances Diagnostics with AI",
-      industry: "AI Consulting",
-      challenge:
-        "A healthcare provider needed to improve their diagnostic capabilities and reduce the workload on their radiologists, who were overwhelmed with the volume of medical imaging that needed to be analyzed.",
-      solution:
-        "AIdeology implemented an AI-powered diagnostic assistant that integrated with their existing PACS (Picture Archiving and Communication System). The solution included custom-trained models for detecting anomalies in various types of medical imaging, a prioritization system for urgent cases, and an intuitive interface for radiologists.",
-      results: [
-        "42% improvement in early detection rates",
-        "30% reduction in radiologist workload",
-        "25% decrease in time-to-diagnosis",
-        "Improved patient outcomes through faster intervention",
-      ],
-      image: "/customers/healthcare-case-study.png",
-      logo: "/customers/healthcare-logo.png",
-      testimonial: {
-        quote:
-          "The AI diagnostic system from AIdeology has been a game-changer for our radiology department. It allows our specialists to focus on the most critical cases while ensuring nothing is missed in routine scans.",
-        author: "Dr. Amanda Lee",
-        position: "Chief of Radiology",
-        company: "Global Health Systems",
-        image: "/customers/testimonials/amanda-lee.png",
-      },
-      slug: "healthcare-diagnostics",
-    },
-    {
-      id: "10",
+      id: "8",
       title: "Energy Company Optimizes Grid Management with Digital Twins",
       industry: "Physical AI",
       challenge:
@@ -314,15 +263,28 @@ export default function CustomersPage() {
             <div>
               <div className="flex items-center mb-6">
                 {useCases[0].logo && (
-                  <Image
-                    src={useCases[0].logo || "/placeholder.svg"}
-                    alt={useCases[0].testimonial?.company || "Company logo"}
-                    width={120}
-                    height={60}
-                    className="h-12 w-auto mr-4"
-                  />
+                  <>
+                    <div className="bg-white/80 p-3 rounded-lg shadow-md mr-4">
+                      <Image
+                        src={useCases[0].logo || "/placeholder.svg"}
+                        alt={useCases[0].testimonial?.company || "Company logo"}
+                        width={120}
+                        height={60}
+                        className="h-12 w-auto"
+                      />
+                    </div>
+                    <div className="bg-white/80 p-3 rounded-lg shadow-md mr-4">
+                      <Image
+                        src="/aideology.webp"
+                        alt="AIdeology logo"
+                        width={120}
+                        height={60}
+                        className="h-12 w-auto"
+                      />
+                    </div>
+                  </>
                 )}
-                <span className="text-accent-green font-semibold">{useCases[0].industry}</span>
+               
               </div>
               <h2 className="text-3xl font-bold mb-6">{useCases[0].title}</h2>
               <div className="mb-6">
@@ -420,23 +382,7 @@ export default function CustomersPage() {
                         className="bg-[#f4f4f4] border border-accent-green/20 hover-lift overflow-hidden"
                       >
                         <div className="relative h-48">
-                          <Image
-                            src={useCase.image || "/placeholder.svg"}
-                            alt={useCase.title}
-                            fill
-                            className="object-cover"
-                          />
-                          {useCase.logo && (
-                            <div className="absolute bottom-4 left-4 bg-white/90 p-2 rounded-md">
-                              <Image
-                                src={useCase.logo || "/placeholder.svg"}
-                                alt={useCase.testimonial?.company || "Company logo"}
-                                width={80}
-                                height={40}
-                                className="h-8 w-auto"
-                              />
-                            </div>
-                          )}
+                          <CardImage useCase={useCase} />
                         </div>
                         <CardContent className="p-6">
                           <h3 className="text-xl font-bold mb-4">{useCase.title}</h3>
@@ -526,5 +472,33 @@ export default function CustomersPage() {
 
       <Footer />
     </main>
+  )
+}
+
+
+// Custom rendering for iStyle & K-Tuin card image
+function CardImage({ useCase }: { useCase: UseCase }) {
+  if (useCase.image === "istyle-ktuin-custom") {
+    return (
+      <div className="flex items-center justify-center h-full w-full bg-white px-4">
+        <Image
+          src="/customers/ktuin_logo.png"
+          alt="K-Tuin logo"
+          width={100}
+          height={60}
+          className="object-contain h-12 w-auto mr-2"
+        />
+        <Image
+          src="/customers/istyle_logo.png"
+          alt="iStyle logo"
+          width={100}
+          height={60}
+          className="object-contain h-12 w-auto ml-2"
+        />
+      </div>
+    )
+  }
+  return (
+    <Image src={useCase.image || "/placeholder.svg"} alt={useCase.title} fill className="object-cover" />
   )
 }

@@ -15,15 +15,13 @@ const getCaseStudyBySlug = (slug: string) => {
       industry: "AI Infrastructure",
       company: "Core42",
       logo: "/customer-logos/core42-logo.png",
-      heroImage: "/customers/g42-infrastructure-case-study.png",
+      heroImage: "/customers/core42_image.jpg",
       challenge:
         "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
-      challengeDetails:
-        "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+    
       solution:
         "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
-      solutionDetails:
-        "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
+      
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
       results: [
@@ -40,7 +38,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Talal Al Kaissi",
         position: "CEO",
         company: "Core42 (G42)",
-        image: "/customers/testimonials/talal-al-kaissi.png",
+        image: "/customers/talal_image.jpeg",
       },
       metrics: [
         {
@@ -88,14 +86,10 @@ const getCaseStudyBySlug = (slug: string) => {
       industry: "AI Infrastructure",
       company: "NEOM",
       logo: "/customers/neom-logo.png",
-      heroImage: "/placeholder.svg?height=500&width=1200",
+      heroImage: "/customers/tonomus_image.jpg",
       challenge:
         "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
-      challengeDetails:
-        "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
       solution:
-        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM\'s regional data facilities.",
-      solutionDetails:
         "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM\'s regional data facilities.",
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
@@ -160,13 +154,12 @@ const getCaseStudyBySlug = (slug: string) => {
       industry: "AI Consulting",
       company: "Broadcom",
       logo: "/customers/broadcom-logo.png",
-      heroImage: "/placeholder.svg?height=500&width=1200",
+      heroImage: "/customers/crm_ai_image.jpg",
       challenge:
         "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
-      challengeDetails:
-        "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+      
       solution: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
-      solutionDetails: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
+
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
       results: [
@@ -231,13 +224,12 @@ const getCaseStudyBySlug = (slug: string) => {
       industry: "AI Consulting",
       company: "Midis Group",
       logo: "/customers/mindware-logo.png",
-      heroImage: "/placeholder.svg?height=500&width=1200",
+      heroImage: "/customers/finance_agent_image.png",
       challenge:
         "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
-      challengeDetails:
-        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+      
       solution: "AIdeology delivered a secure, role-based AI finance agent that:",
-      solutionDetails: "AIdeology delivered a secure, role-based AI finance agent that:",
+    
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
       results: [
@@ -302,13 +294,12 @@ const getCaseStudyBySlug = (slug: string) => {
       industry: "AI Consulting",
       company: "Midis Group",
       logo: "/customers/mindware-logo.png",
-      heroImage: "/placeholder.svg?height=500&width=1200",
+      heroImage: "/customers/digital_twins_image.png",
       challenge:
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
-      challengeDetails:
-        "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
-      solution: "AIdeology built a complete \"store digital-twin\" platform:",
-      solutionDetails: "AIdeology built a complete \"store digital-twin\" platform:",
+      
+      solution: "AIdeology built a complete \"store digital-twin\" platform.",
+      
       implementation:
         "The implementation was carried out in phases to minimize disruption to ongoing projects. AIdeology worked closely with El Ranchito's technical team to ensure smooth integration with their existing workflows and software tools. The deployment included comprehensive training for the studio's artists and technical staff.",
       results: [
@@ -442,6 +433,19 @@ const getCaseStudyBySlug = (slug: string) => {
   }
 }
 
+// Helper to render **bold** text as <strong> in React
+function renderWithBold(text: string) {
+  if (!text) return null;
+  // Replace **text** with <strong>text</strong>
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (/^\*\*[^*]+\*\*$/.test(part)) {
+      return <strong key={i}>{part.replace(/\*\*/g, "")}</strong>;
+    }
+    return part;
+  });
+}
+
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
   const caseStudy = getCaseStudyBySlug(params.slug)
 
@@ -509,7 +513,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                   Challenge
                 </h2>
                 <p className="text-charcoal/80 mb-4">{caseStudy.challenge}</p>
-                <div className="text-charcoal/80 whitespace-pre-line">{caseStudy.challengeDetails}</div>
+                <div className="text-charcoal/80 whitespace-pre-line">{renderWithBold(caseStudy.challengeDetails || "")}</div>
               </div>
 
               {/* Solution Section */}
@@ -521,7 +525,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                   Solution
                 </h2>
                 <p className="text-charcoal/80 mb-4">{caseStudy.solution}</p>
-                <div className="text-charcoal/80 whitespace-pre-line">{caseStudy.solutionDetails}</div>
+                <div className="text-charcoal/80 whitespace-pre-line">{renderWithBold(caseStudy.solutionDetails || "")}</div>
                 <div className="mt-6">
                   <h3 className="text-xl font-bold mb-3">Implementation Approach</h3>
                   <p className="text-charcoal/80">{caseStudy.implementation}</p>
@@ -553,7 +557,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                   ))}
                 </div>
 
-                <div className="text-charcoal/80 whitespace-pre-line mb-8">{caseStudy.resultsDetails}</div>
+                <div className="text-charcoal/80 whitespace-pre-line mb-8">{renderWithBold(caseStudy.resultsDetails || "")}</div>
 
                 {/* Testimonial */}
                 {caseStudy.testimonial && (

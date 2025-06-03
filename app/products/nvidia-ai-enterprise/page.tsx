@@ -119,7 +119,7 @@ export default function NvidiaAIEnterprisePage() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <Image
-                src="/nvidia-ai-enterprise-stack.png"
+                src="/products/software-stack.png"
                 alt="Diagram of NVIDIA AI Enterprise software stack"
                 width={600}
                 height={450}
@@ -242,7 +242,7 @@ export default function NvidiaAIEnterprisePage() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <Image
-                src="/nvidia-base-command-manager.png"
+                src="/products/base_command.png"
                 alt="NVIDIA Base Command Manager interface showing cluster management tools"
                 width={600}
                 height={450}

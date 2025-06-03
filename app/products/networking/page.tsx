@@ -20,7 +20,7 @@ export default function NetworkingPage() {
         </p>
         <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/services/network-architecture.png"
+            src="/products/ai_network.jpg"
             alt="Advanced AI networking infrastructure with high-performance switches and adapters"
             fill
             className="object-cover"
@@ -48,7 +48,7 @@ export default function NetworkingPage() {
           <div className="w-full md:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/services/gpu-cluster.png"
+                src="/products/ethernet.jpeg"
                 alt="NVIDIA Spectrum-4 ASIC and SN5000 switches for AI fabric platforms"
                 fill
                 className="object-cover"
@@ -124,7 +124,7 @@ export default function NetworkingPage() {
           <div className="w-full md:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/ai-server-room-gpus.png"
+                src="/products/infiniband.jpg"
                 alt="NVIDIA Quantum InfiniBand switches for high-performance computing"
                 fill
                 className="object-cover"
@@ -187,7 +187,7 @@ export default function NetworkingPage() {
           <div className="w-full md:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/services/infrastructure-management.png"
+                src="/products/smartnic.jpg"
                 alt="NVIDIA ConnectX SmartNIC and SuperNIC adapters for AI workloads"
                 fill
                 className="object-cover"
@@ -250,7 +250,7 @@ export default function NetworkingPage() {
           <div className="w-full md:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/services/storage-solutions.png"
+                src="/products/dpu.jpg"
                 alt="NVIDIA BlueField Data Processing Units for AI infrastructure"
                 fill
                 className="object-cover"

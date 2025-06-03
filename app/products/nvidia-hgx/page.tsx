@@ -20,7 +20,7 @@ export default function NvidiaHGXPage() {
         </p>
         <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/ai-server-room-gpus.png"
+            src="/products/nvidia_hgx_products.webp"
             alt="NVIDIA HGX GPU-accelerated computing systems in a modern data center"
             fill
             className="object-cover"
@@ -78,17 +78,7 @@ export default function NvidiaHGXPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white rounded-lg p-4 shadow-sm text-center">
                   <Image
-                    src="/partners/hpe-logo.png"
-                    alt="HPE Partner"
-                    width={80}
-                    height={40}
-                    className="mx-auto mb-2"
-                  />
-                  <p className="text-xs text-gray-600">Authorized Partner</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 shadow-sm text-center">
-                  <Image
-                    src="/partners/dell-logo.png"
+                    src="/partner-logos/dell-logo.webp"
                     alt="Dell Partner"
                     width={80}
                     height={40}
@@ -98,8 +88,8 @@ export default function NvidiaHGXPage() {
                 </div>
                 <div className="bg-white rounded-lg p-4 shadow-sm text-center">
                   <Image
-                    src="/partners/supermicro-logo.png"
-                    alt="Supermicro Partner"
+                    src="/partner-logos/hpe-logo.webp"
+                    alt="HPE Partner"
                     width={80}
                     height={40}
                     className="mx-auto mb-2"
@@ -108,8 +98,18 @@ export default function NvidiaHGXPage() {
                 </div>
                 <div className="bg-white rounded-lg p-4 shadow-sm text-center">
                   <Image
-                    src="/partners/lenovo-logo.png"
+                    src="/partner-logos/lenovo-logo.webp"
                     alt="Lenovo Partner"
+                    width={80}
+                    height={40}
+                    className="mx-auto mb-2"
+                  />
+                  <p className="text-xs text-gray-600">Authorized Partner</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-sm text-center">
+                  <Image
+                    src="/partner-logos/supermicro-logo.webp"
+                    alt="Supermicro Partner"
                     width={80}
                     height={40}
                     className="mx-auto mb-2"
@@ -128,7 +128,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/gpu-server-racks.png"
+                src="/products/hgx_b200.png"
                 alt="NVIDIA HGX B200 Blackwell 8-GPU board with advanced cooling and NVLink connectivity"
                 fill
                 className="object-cover"
@@ -168,7 +168,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/vfx-studio-server-room.png"
+                src="/products/hgx_b300.jpg"
                 alt="NVIDIA HGX B300 NVL16 Blackwell Ultra 16-GPU board in enterprise server configuration"
                 fill
                 className="object-cover"
@@ -208,7 +208,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/data-center.webp"
+                src="/products/hgx_h200.jpg"
                 alt="NVIDIA HGX H200 Hopper+ 8-GPU board with enhanced memory capacity"
                 fill
                 className="object-cover"
@@ -248,7 +248,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/manufacturing-ai.png"
+                src="/products/hgx_h100.jpeg"
                 alt="NVIDIA HGX H100 Hopper 8-GPU board - the proven workhorse for AI training and inference"
                 fill
                 className="object-cover"
@@ -293,8 +293,8 @@ export default function NvidiaHGXPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6 text-center">
             <Image
-              src="/partners/dell-logo.png"
-              alt="Dell Technologies logo"
+              src="/products/poweredge.avif"
+              alt="Dell PowerEdge XE Series"
               width={120}
               height={60}
               className="mx-auto mb-2"
@@ -302,17 +302,17 @@ export default function NvidiaHGXPage() {
             <p className="text-sm text-gray-600">PowerEdge XE Series</p>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <Image src="/partners/hpe-logo.png" alt="HPE logo" width={120} height={60} className="mx-auto mb-2" />
+            <Image src="/products/apollo_proliant.webp" alt="Apollo & ProLiant Series" width={120} height={60} className="mx-auto mb-2" />
             <p className="text-sm text-gray-600">Apollo & ProLiant Series</p>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <Image src="/partners/lenovo-logo.png" alt="Lenovo logo" width={120} height={60} className="mx-auto mb-2" />
+            <Image src="/products/Thinksystem.webp" alt="ThinkSystem Series" width={120} height={60} className="mx-auto mb-2" />
             <p className="text-sm text-gray-600">ThinkSystem Series</p>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
             <Image
-              src="/partners/supermicro-logo.png"
-              alt="Supermicro logo"
+              src="/products/supermicro.webp"
+              alt="SYS & BigTwin Series"
               width={120}
               height={60}
               className="mx-auto mb-2"
