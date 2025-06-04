@@ -16,19 +16,27 @@ export default function ProductsPromo() {
     <section id="products" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="w-full md:w-1/2 h-full flex items-center justify-center">
-            <div className="relative w-full h-[500px]">
+          <div 
+            className="w-full md:w-1/2 flex items-center justify-center animate-fade-in-up"
+            style={{ animationDelay: '100ms' }}
+          >
+            <div className="relative w-full">
               <Image
-                src="/ai-server-room-gpus.png"
+                src="/ai-products.webp"
                 alt="Advanced AI data center with high-performance GPU server racks and cooling infrastructure"
-                fill
-                className="rounded-lg shadow-lg object-cover"
-                style={{ objectPosition: "center" }}
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="rounded-lg shadow-lg"
+                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
               />
             </div>
           </div>
 
-          <div className="w-full md:w-1/2">
+          <div 
+            className="w-full md:w-1/2 animate-fade-in-up"
+            style={{ animationDelay: '300ms' }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">
               Cutting-Edge AI Products to Power Your Vision
             </h2>

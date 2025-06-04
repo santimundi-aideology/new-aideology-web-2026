@@ -121,7 +121,8 @@ export default function SolutionsSection() {
             <Card
               key={index}
               data-card-index={index}
-              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50 flex flex-col h-full`}
+              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50 flex flex-col h-full animate-fade-in-up`}
+              style={{ animationDelay: `${100 + index * 150}ms` }}
             >
               <CardHeader>
                 <div className="mb-4">{solution.icon}</div>

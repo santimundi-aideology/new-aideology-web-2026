@@ -66,6 +66,7 @@ export default function HeroSection() {
             muted
             loop
             playsInline
+            preload="metadata"
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
             style={{ width: "100vw", height: "100vh" }}
           >

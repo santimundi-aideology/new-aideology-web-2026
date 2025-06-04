@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client" // Ensure this is a client component
+
+import { useState, useEffect, useRef } from "react"; // Added useRef
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +11,8 @@ export default function NewsletterSignupSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false); // State to track visibility
+  const cardRef = useRef<HTMLDivElement | null>(null); // Ref for the card element
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,11 +29,41 @@ export default function NewsletterSignupSection() {
     setIsLoading(false);
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (cardRef.current) { // Check if cardRef.current is not null
+            observer.unobserve(cardRef.current); // Unobserve after animation
+          }
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) { // Check if cardRef.current is not null on cleanup
+        observer.unobserve(cardRef.current);
+      }
+      observer.disconnect(); // Disconnect observer
+    };
+  }, []);
+
   return (
     // Reduce top padding/margin here to lessen space from News section. py-12 from py-20
     <section id="newsletter" className="py-12 bg-white">
       <div className="container mx-auto px-4">
-        <Card className="max-w-2xl mx-auto bg-[#f4f4f4] border-accent-green/20 p-8 md:p-10 shadow-xl animate-fade-in-up">
+        <Card 
+          ref={cardRef} // Assign ref to the card
+          className={`max-w-2xl mx-auto bg-[#f4f4f4] border-accent-green/20 p-8 md:p-10 shadow-xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} // Removed transition-opacity, animation class will handle opacity
+        >
           <CardHeader className="text-center mb-4">
             {/* Reverted title to text-charcoal */}
             <CardTitle className="text-2xl md:text-3xl font-bold text-charcoal">Stay Updated</CardTitle>

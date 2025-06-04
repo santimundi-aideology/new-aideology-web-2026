@@ -1,9 +1,52 @@
+"use client";
+
 import Link from "next/link"
 import Image from "next/image"
 import { Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleFooterNavigation = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hashIndex = href.indexOf("#");
+    if (hashIndex === -1) {
+      return;
+    }
+
+    const targetId = href.substring(hashIndex + 1);
+    event.preventDefault();
+
+    const navbarElement = document.getElementById('main-navbar');
+    const navbarHeight = navbarElement ? navbarElement.offsetHeight : 0;
+
+    if (pathname === "/") {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const heading = element.querySelector('h2');
+        const scrollTarget = heading || element;
+        const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
+        const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
+        let headingHeight = 0;
+        if (heading) {
+          headingHeight = heading.offsetHeight;
+        }
+        const extraOffset = sectionPaddingTop - headingHeight * 5;
+        const offsetPosition = elementPosition - navbarHeight + extraOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      } else {
+        router.push(`/#${targetId}`);
+      }
+    } else {
+      router.push(`/#${targetId}`);
+    }
+  };
 
   const socialLinks = [
     {
@@ -13,6 +56,15 @@ export default function Footer() {
       color: "hover:text-blue-400 hover:bg-blue-400/10"
     },
   ]
+
+  const quickLinks = [
+    { href: "/", label: "Home" },
+    { href: "/#solutions", label: "Solutions" },
+    { href: "/#customers", label: "Customers" },
+    { href: "/#partners", label: "Partners" },
+    { href: "/news", label: "News" },
+    { href: "/#products", label: "Products" }
+  ];
 
   return (
     <footer id="contact" className="bg-charcoal/90 border-t border-accent-green/20 pt-16 pb-8 text-white">
@@ -46,7 +98,6 @@ export default function Footer() {
                   <social.icon className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:rotate-12" />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  {/* Tooltip */}
                   <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-charcoal/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none">
                     {social.label}
                   </span>
@@ -59,26 +110,17 @@ export default function Footer() {
           <div className="animate-fade-in-up" style={{animationDelay: '200ms'}}>
             <h3 className="text-xl font-bold mb-6 text-white">Quick Links</h3>
             <nav className="grid grid-cols-1 gap-3">
-              <Link href="/" className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group">
-                <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
-                Home
-              </Link>
-              <Link href="#solutions" className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group">
-                <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
-                Solutions
-              </Link>
-              <Link href="#customers" className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group">
-                <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
-                Customers
-              </Link>
-              <Link href="#partners" className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group">
-                <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
-                Partners
-              </Link>
-              <Link href="#news" className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group">
-                <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
-                News
-              </Link>
+              {quickLinks.map(link => (
+                <Link 
+                  key={link.label}
+                  href={link.href} 
+                  onClick={(e) => handleFooterNavigation(e, link.href)}
+                  className="text-white/70 hover:text-accent-green transition-all duration-300 hover:translate-x-2 flex items-center group"
+                >
+                  <span className="w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
