@@ -449,13 +449,18 @@ function renderWithBold(text: string) {
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
   const caseStudy = getCaseStudyBySlug(params.slug)
 
+  if (!caseStudy) {
+    // Optionally, you could use Next.js notFound() helper
+    return <div className="pt-28 text-center py-10">Case study not found</div>
+  }
+
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="bg-white text-charcoal min-h-screen pt-28">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="pb-12 md:pb-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4 pt-12 md:pt-16">
           <div className="flex items-center mb-6">
             <Link href="/customers" className="text-electric-green hover:text-electric-green/80 flex items-center">
               <ArrowLeft className="mr-2 h-4 w-4 text-accent-green" />

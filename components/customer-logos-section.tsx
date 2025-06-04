@@ -79,7 +79,7 @@ export default function CustomerLogosSection() {
               {[...customers, ...customers].map((customer, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200 hover:border-accent-green/50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="flex-shrink-0 p-4 bg-white rounded-lg border border-gray-200 hover:border-accent-green/50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <Image
                     src={customer.logo || "/placeholder.svg"}

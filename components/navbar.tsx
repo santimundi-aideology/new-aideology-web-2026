@@ -11,27 +11,33 @@ interface NavbarProps {
   forceDarkLogo?: boolean
 }
 
-// Define navItems outside the component for stability and to be used by useEffect
-const navItems = [
-  { href: "/", label: "Home", sectionId: "hero" }, // Ensure an element with id="hero" (or similar, like the first main section) exists
-  { href: { pathname: "/", hash: "#solutions" }, label: "Solutions", sectionId: "solutions" },
-  { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
-  { href: { pathname: "/", hash: "#customers" }, label: "Customers", sectionId: "customers" },
-  { href: { pathname: "/", hash: "#news" }, label: "News", sectionId: "news" },
-]
+// Type for nav items that have a hash link
+interface NavItemWithHash {
+  pathname: string;
+  hash: string;
+}
+
+// Helper function to stringify href for Link component
+const getLinkHref = (href: string | NavItemWithHash): string => {
+  if (typeof href === 'string') return href;
+  return href.pathname + (href.hash || '');
+};
 
 export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
-  const isOnServiceSubpage = pathname.startsWith("/services/")
+  const navbarRef = useRef<HTMLElement>(null); // Ref for the header element
 
   // Add state for managing the submenu
   const [showSubmenu, setShowSubmenu] = useState(false)
-  const [selectedSubmenu, setSelectedSubmenu] = useState<string | null>("AI Infrastructure")
+  const [selectedSubmenu, setSelectedSubmenu] = useState<string | null>(null); // Defaulting to null as per typical initial state
 
   const submenuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Determine if the navbar should always be dark based on the current page or forceDarkLogo prop
+  const alwaysDark = forceDarkLogo || pathname.startsWith("/services/") || pathname.startsWith("/products/") || pathname === "/customers" || pathname === "/news";
 
   // Handle scroll effects
   useEffect(() => {
@@ -44,25 +50,25 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         const scrollPosition = window.scrollY + window.innerHeight * 0.33
 
         for (const item of navItems) {
-          const elementId = item.sectionId
-          if (!elementId) continue
+          // Only consider items with sectionId and object href with hash for active section highlighting
+          if (item.sectionId && typeof item.href === 'object' && 'hash' in item.href && item.href.hash) {
+            const hrefObj = item.href as NavItemWithHash; // Explicit cast for clarity, though check is sufficient
+            const elementId = item.sectionId
+            const element = document.getElementById(elementId)
 
-          const element = document.getElementById(elementId)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              const elementTop = window.scrollY + rect.top
+              const elementBottom = elementTop + element.offsetHeight
 
-          if (element) {
-            // HTMLElement allows offsetHeight
-            const rect = element.getBoundingClientRect()
-            const elementTop = window.scrollY + rect.top
-            const elementBottom = elementTop + element.offsetHeight
-
-            if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-              currentActiveSection = elementId
-              break
+              if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+                currentActiveSection = elementId
+                break
+              }
             }
           }
         }
 
-        // Fallback for hero section if at the very top and no other section is matched
         if (!currentActiveSection && window.scrollY < window.innerHeight * 0.33) {
           const heroItem = navItems.find((item) => item.sectionId === "hero")
           if (heroItem) {
@@ -80,30 +86,97 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
-  const handleNavigation = (href: string, sectionId?: string) => {
-    setIsMobileMenuOpen(false)
+  // New useEffect for initial hash scrolling on homepage or after cross-page navigation to a hash
+  useEffect(() => {
+    if (pathname === "/") {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.substring(1); // Remove #
+        // Use a timeout to ensure the DOM is fully ready after page navigation
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element && navbarRef.current) {
+            const navbarHeight = navbarRef.current.offsetHeight;
+            const heading = element.querySelector('h2');
+            const scrollTarget = heading || element;
+            const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
 
-    if (href.startsWith("/#") && pathname === "/") {
-      // If already on the homepage and there's a hash, scroll to section
-      const targetHash = href.substring(2)
-      const element = document.getElementById(targetHash)
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        })
+            const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
+            let headingHeight = 0;
+            if (heading) {
+              headingHeight = heading.offsetHeight;
+            }
+            // User's current formula for offset
+            const extraOffset = sectionPaddingTop - headingHeight * 3;
+
+            const offsetPosition = elementPosition - navbarHeight + extraOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "auto", // Use 'auto' for initial load/cross-page nav for a less jarring scroll
+            });
+          }
+        }, 100); // 100ms delay, adjust if necessary
       }
     }
-    // For other cases, Next.js Link handles navigation
-  }
+  }, [pathname]); // Rerun when pathname changes
+
+  const handleNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    hrefInput: string | NavItemWithHash
+  ) => {
+    setIsMobileMenuOpen(false);
+    const targetHref = getLinkHref(hrefInput); // e.g., "/#solutions", "#contact", "/news"
+
+    // Handle same-page hash navigation if currently on the homepage
+    if (pathname === "/") {
+      let hashTargetId: string | null = null;
+
+      if (targetHref.startsWith("/#")) { // e.g., "/#solutions"
+        hashTargetId = targetHref.substring(2);
+      } else if (targetHref.startsWith("#") && !targetHref.startsWith("/#")) { // e.g., "#contact"
+        hashTargetId = targetHref.substring(1);
+      }
+
+      if (hashTargetId) {
+        const element = document.getElementById(hashTargetId);
+        if (element && navbarRef.current) {
+          event.preventDefault(); // Prevent default only for same-page smooth scroll
+
+          const navbarHeight = navbarRef.current.offsetHeight;
+          const heading = element.querySelector('h2');
+          const scrollTarget = heading || element;
+          const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
+
+          const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
+          let headingHeight = 0;
+          if (heading) {
+            headingHeight = heading.offsetHeight;
+          }
+          // User's current formula from their file
+          const extraOffset = sectionPaddingTop - headingHeight * 3;
+          const offsetPosition = elementPosition - navbarHeight + extraOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+          return; // Exit after handling same-page scroll
+        }
+      }
+    }
+    // For other cases (like navigating to a different page, or to the homepage with a hash from another page),
+    // let Next.js Link component handle the navigation.
+    // The new useEffect will then handle scrolling if the destination is the homepage with a hash.
+  };
 
   const navItems = [
-    { href: "/", label: "Home", sectionId: "" },
-    { href: "/#solutions", label: "Solutions", sectionId: "solutions" },
-    { href: "/#partners", label: "Partners", sectionId: "partners" },
-    { href: "/#products", label: "Products", sectionId: "products" },
-    { href: "/#customers", label: "Customers", sectionId: "customers" },
-    { href: "/#news", label: "News", sectionId: "news" },
+    { href: "/", label: "Home", sectionId: "hero" },
+    { href: { pathname: "/", hash: "#solutions" }, label: "Solutions", sectionId: "solutions" },
+    { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
+    { href: { pathname: "/", hash: "#products" }, label: "Products", sectionId: "products" },
+    { href: { pathname: "/", hash: "#customers" }, label: "Customers", sectionId: "customers" },
+    { href: "/news", label: "News", sectionId: "" },
   ]
 
   const submenuItems = {
@@ -148,7 +221,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       clearTimeout(submenuTimeoutRef.current)
     }
     setShowSubmenu(true)
-    setSelectedSubmenu("AI Infrastructure") // This should only apply to Solutions
+    // Set selectedSubmenu to the first main service if not already a main service
+    // This ensures the Solutions submenu populates correctly when first hovered.
+    if (!selectedSubmenu || !mainServices.includes(selectedSubmenu)) {
+      setSelectedSubmenu(mainServices[0]) // e.g., "AI Infrastructure"
+    }
   }
 
   const handleSubmenuLeave = () => {
@@ -166,16 +243,27 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     }
   }, [])
 
+  // Determine navbar appearance
+  const isHomepage = pathname === '/';
+  // Solid nav appears if scrolled, or forced, or not on homepage, or on specific content pages needing dark text from start
+  const showSolidNav = forceDarkLogo || isScrolled || pathname !== '/';
+
+  const headerClasses = showSolidNav
+    ? "bg-white/80 shadow-lg text-charcoal py-3"
+    : "bg-transparent text-white py-6";
+  const logoSrc = showSolidNav ? "/aideology.webp" : "/aideology-white.webp";
+  const linkTextColor = showSolidNav ? "text-charcoal" : "text-white";
+  const mobileMenuIconColor = showSolidNav ? "text-charcoal" : "text-white";
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled ? "bg-white/90 shadow-lg py-3 text-charcoal" : "bg-transparent py-6 text-white"
-      }`}
+      ref={navbarRef}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${headerClasses}`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center" onClick={() => handleNavigation("/")}>
+        <Link href="/" className="flex items-center" onClick={(e) => handleNavigation(e, "/")}>
           <Image
-            src={isScrolled || forceDarkLogo ? "/aideology.webp" : "/aideology-white.webp"}
+            src={logoSrc}
             alt="AIdeology Logo"
             width={200}
             height={50}
@@ -196,14 +284,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   onMouseLeave={() => {
                     submenuTimeoutRef.current = setTimeout(() => {
                       setShowSubmenu(false)
-                      setSelectedSubmenu(null)
                     }, 300)
                   }}
                 >
                   <span
-                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
-                      isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
-                    } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
+                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
+                      activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
                   >
                     {item.label}
                     {activeSection === item.sectionId && (
@@ -211,17 +297,19 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                     )}
                   </span>
 
-                  {/* Submenu */}
-                  {showSubmenu && (
+                  {/* Submenu for Solutions */}
+                  {showSubmenu && selectedSubmenu && mainServices.includes(selectedSubmenu) && (
                     <div
                       className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border border-gray-200 z-50 w-[600px] p-6"
-                      onMouseEnter={handleSubmenuEnter}
-                      onMouseLeave={() => {
-                        submenuTimeoutRef.current = setTimeout(() => {
-                          setShowSubmenu(false)
-                          setSelectedSubmenu(null)
-                        }, 300)
+                      onMouseEnter={() => {
+                        if (submenuTimeoutRef.current) clearTimeout(submenuTimeoutRef.current);
+                        setShowSubmenu(true);
+                        // Ensure selectedSubmenu remains a valid service, or default
+                        if (!selectedSubmenu || !mainServices.includes(selectedSubmenu)) {
+                            setSelectedSubmenu(mainServices[0]);
+                        }
                       }}
+                      onMouseLeave={handleSubmenuLeave}
                     >
                       <div className="flex">
                         {/* Left side - Main services */}
@@ -293,9 +381,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   }}
                 >
                   <span
-                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
-                      isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
-                    } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
+                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
+                      activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
                   >
                     {item.label}
                     {activeSection === item.sectionId && (
@@ -314,12 +401,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                         setShowSubmenu(true)
                         setSelectedSubmenu("Products")
                       }}
-                      onMouseLeave={() => {
-                        submenuTimeoutRef.current = setTimeout(() => {
-                          setShowSubmenu(false)
-                          setSelectedSubmenu(null)
-                        }, 300)
-                      }}
+                      onMouseLeave={handleSubmenuLeave}
                     >
                       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
                         Product Categories
@@ -345,11 +427,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               return (
                 <Link
                   key={item.label}
-                  href={item.href}
-                  onClick={() => handleNavigation(item.href, item.sectionId)}
-                  className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${
-                    isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"
-                  } ${activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
+                  href={getLinkHref(item.href)}
+                  onClick={(e) => handleNavigation(e, item.href)}
+                  className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
+                    activeSection === item.sectionId ? "text-accent-green font-semibold" : ""
+                  }`}
                 >
                   {item.label}
                   {activeSection === item.sectionId && (
@@ -363,7 +445,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
             asChild
             className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
           >
-            <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
+            <Link href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>
               Contact Us
             </Link>
           </Button>
@@ -372,9 +454,9 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         {/* Mobile Menu Button */}
         <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? (
-            <X className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
+            <X className={`h-6 w-6 ${mobileMenuIconColor}`} />
           ) : (
-            <Menu className={`h-6 w-6 ${isScrolled || forceDarkLogo ? "text-charcoal" : "text-white"}`} />
+            <Menu className={`h-6 w-6 ${mobileMenuIconColor}`} />
           )}
         </button>
       </div>
@@ -384,14 +466,15 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-accent-green/20">
           <nav className="container mx-auto px-4 py-4 space-y-4">
             {navItems.map((item) => {
+              const linkHref = getLinkHref(item.href);
               if (item.label === "Solutions") {
                 return (
                   <div key={item.label}>
                     <Link
-                      href={item.href}
-                      onClick={() => handleNavigation(item.href, item.sectionId)}
+                      href={linkHref}
+                      onClick={(e) => handleNavigation(e, item.href)}
                       className={`block py-2 transition-colors hover:text-accent-green ${
-                        activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
+                        activeSection === item.sectionId ? "text-accent-green font-semibold" : linkTextColor
                       }`}
                     >
                       {item.label}
@@ -427,10 +510,10 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 return (
                   <div key={item.label}>
                     <Link
-                      href={item.href}
-                      onClick={() => handleNavigation(item.href, item.sectionId)}
+                      href={linkHref}
+                      onClick={(e) => handleNavigation(e, item.href)}
                       className={`block py-2 transition-colors hover:text-accent-green ${
-                        activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
+                        activeSection === item.sectionId ? "text-accent-green font-semibold" : linkTextColor
                       }`}
                     >
                       {item.label}
@@ -453,10 +536,10 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 return (
                   <Link
                     key={item.label}
-                    href={item.href}
-                    onClick={() => handleNavigation(item.href, item.sectionId)}
+                    href={linkHref}
+                    onClick={(e) => handleNavigation(e, item.href)}
                     className={`block py-2 transition-colors hover:text-accent-green ${
-                      activeSection === item.sectionId ? "text-accent-green font-semibold" : "text-charcoal"
+                      activeSection === item.sectionId ? "text-accent-green font-semibold" : linkTextColor
                     }`}
                   >
                     {item.label}
@@ -465,7 +548,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               }
             })}
             <Button asChild className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90">
-              <Link href="#contact" onClick={() => handleNavigation("#contact", "contact")}>
+              <Link href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>
                 Contact Us
               </Link>
             </Button>
