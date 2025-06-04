@@ -3,41 +3,101 @@ title: High-Performance Networking for AI & HPC
 description: AIdeology designs and deploys cutting-edge networking solutions, featuring NVIDIA Quantum InfiniBand and Spectrum Ethernet, to eliminate bottlenecks and accelerate distributed AI training and HPC workloads.
 ---
 
-# High-Performance Networking for AI & HPC
+{/* Hero Section */}
+<div className="w-full bg-charcoal text-white py-16 md:py-24">
+  <div className="container mx-auto px-4 text-center">
+    {/* Optional: AI Infrastructure Tag -  Replace with your actual component/styling if needed */}
+    <div className="mb-4"><span className="bg-gray-700 text-accent-green px-3 py-1 rounded-full text-sm font-medium">AI Infrastructure</span></div>
+    <div className="prose prose-lg prose-invert max-w-none mx-auto">
+      <h1>High-Performance Networking for AI & HPC</h1>
+      <p className="text-xl md:text-2xl">
+        Eliminate network bottlenecks and accelerate distributed AI training with cutting-edge NVIDIA networking solutions.
+      </p>
+    </div>
+    {/* Optional: Buttons - Replace with your actual Button components and links */}
+    <div className="mt-8 flex justify-center gap-4">
+      {/* Replace with: <Button asChild>...</Button> or similar */}
+      <a href="#contact" className="inline-block bg-accent-green text-charcoal px-6 py-3 rounded-md text-base font-semibold hover:bg-accent-green/90 transition-colors">Get Started &rarr;</a>
+      <a href="/solutions/ai-infrastructure" className="inline-block bg-gray-600 text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-gray-500 transition-colors">Back to AI Infrastructure</a>
+    </div>
+  </div>
+</div>
 
-In the era of large-scale AI and High-Performance Computing (HPC), the network is no longer just a conduit for data—it's a critical component of the compute fabric itself. AIdeology specializes in architecting and implementing ultra-high-performance networking solutions that are essential for today's demanding distributed AI training, massive data analytics, and complex HPC simulations.
+{/* Section: Why Network Performance Matters */}
+<div className="w-full py-12 md:py-16">
+  <div className="container mx-auto px-4">
+    <div className="prose prose-lg max-w-none mx-auto mb-10 text-center">
+      <h2>Why Network Performance Matters</h2>
+      <p className="text-lg">
+        In the era of large-scale AI and HPC, the network is no longer just a conduit—it's a critical component of the compute fabric itself.
+      </p>
+    </div>
 
-## The Critical Role of Networking in AI/HPC
+    <div className="grid md:grid-cols-3 gap-8">
+      <div className="bg-white p-6 rounded-xl shadow-xl text-left hover:shadow-2xl transition-shadow duration-300">
+        <div className="text-accent-green mb-4 w-10 h-10 flex items-center justify-center bg-accent-green/10 rounded-lg">
+          {/* Placeholder for an actual Lucide icon or SVG */}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path><path d="M9 10h12"></path></svg>
+        </div>
+        <h3 className="text-xl font-semibold mb-3 text-charcoal">Distributed Processing</h3>
+        <p className="text-gray-600 text-sm leading-relaxed">Workloads spread across hundreds or thousands of GPUs and CPUs require ultra-low latency communication.</p>
+      </div>
 
-Modern AI models and HPC applications often involve:
+      <div className="bg-white p-6 rounded-xl shadow-xl text-left hover:shadow-2xl transition-shadow duration-300">
+        <div className="text-accent-green mb-4 w-10 h-10 flex items-center justify-center bg-accent-green/10 rounded-lg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
+        </div>
+        <h3 className="text-xl font-semibold mb-3 text-charcoal">Massive Data Movement</h3>
+        <p className="text-gray-600 text-sm leading-relaxed">Terabytes or petabytes of data need efficient movement between compute nodes and storage systems.</p>
+      </div>
 
-- **Distributed Processing**: Workloads are spread across hundreds or thousands of GPUs and CPUs
-- **Massive Data Movement**: Terabytes or petabytes of data need to be moved efficiently between compute nodes and storage
-- **Low-Latency Communication**: Synchronous operations like gradient exchange in AI training require minimal network delay
+      <div className="bg-white p-6 rounded-xl shadow-xl text-left hover:shadow-2xl transition-shadow duration-300">
+        <div className="text-accent-green mb-4 w-10 h-10 flex items-center justify-center bg-accent-green/10 rounded-lg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="10" y1="14" x2="21" y2="3"></line><path d="M21 3l-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3z"></path></svg>
+        </div>
+        <h3 className="text-xl font-semibold mb-3 text-charcoal">Low-Latency Communication</h3>
+        <p className="text-gray-600 text-sm leading-relaxed">Synchronous operations like gradient exchange in AI training require minimal network delay.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-Traditional networks can become significant bottlenecks, starving expensive compute resources and prolonging job completion times. AIdeology ensures your network accelerates, rather than impedes, your AI and HPC initiatives.
 
-## AIdeology's High-Performance Networking Services
+{/* Section: AIdeology's High-Performance Networking Services - This will be a text block */}
+<div className="w-full bg-gray-50 py-12 md:py-16"> 
+  <div className="container mx-auto px-4">
+    <div className="prose prose-lg max-w-none mx-auto text-left">
+      <h2>AIdeology's High-Performance Networking Services</h2>
+      <p>AIdeology specializes in architecting and implementing ultra-high-performance networking solutions that are essential for today's demanding distributed AI training, massive data analytics, and complex HPC simulations. Traditional networks can become significant bottlenecks, starving expensive compute resources and prolonging job completion times. AIdeology ensures your network accelerates, rather than impedes, your AI and HPC initiatives.</p>
+      <h3>Network Architecture & Design</h3>
+      <p>We assess your workload requirements and design a tailored network architecture that optimizes for performance, scalability, and cost-effectiveness, incorporating InfiniBand, Ethernet, or hybrid approaches.</p>
+      <h3>NVIDIA Quantum InfiniBand Deployment</h3>
+      <p>AIdeology provides expert deployment and configuration of NVIDIA's InfiniBand solutions, including switches, HCAs (Host Channel Adapters), and software, enabling extreme performance for GPU clusters.</p>
+      <h3>NVIDIA Spectrum Ethernet Solutions</h3>
+      <p>We implement high-performance Ethernet fabrics using NVIDIA Spectrum switches, ideal for AI storage, traditional enterprise workloads, and robust data center connectivity.</p>
+      <h3>Network Optimization & Tuning</h3>
+      <p>Our engineers fine-tune network parameters, routing protocols, and congestion control mechanisms to maximize application performance and ensure network stability.</p>
+    </div>
+  </div>
+</div>
 
-### Network Architecture & Design
-We assess your workload requirements and design a tailored network architecture that optimizes for performance, scalability, and cost-effectiveness, incorporating InfiniBand, Ethernet, or hybrid approaches.
-
-### NVIDIA Quantum InfiniBand Deployment
-AIdeology provides expert deployment and configuration of NVIDIA's InfiniBand solutions, including switches, HCAs (Host Channel Adapters), and software, enabling extreme performance for GPU clusters.
-
-### NVIDIA Spectrum Ethernet Solutions
-We implement high-performance Ethernet fabrics using NVIDIA Spectrum switches, ideal for AI storage, traditional enterprise workloads, and robust data center connectivity.
-
-### Network Optimization & Tuning
-Our engineers fine-tune network parameters, routing protocols, and congestion control mechanisms to maximize application performance and ensure network stability.
-
-## Benefits of AIdeology's Networking Solutions
-
-- **Maximized AI/HPC Application Performance**: Eliminate network bottlenecks to achieve faster training times and quicker results
-- **Increased GPU Efficiency**: Ensure your valuable GPU resources are fully utilized
-- **Scalability for Future Growth**: Design networks that can scale to support larger clusters and more demanding workloads
-- **Reduced Operational Complexity**: Leverage advanced management tools for easier network administration
-- **Investment Protection**: Build a future-proof network foundation based on industry-leading technologies
-
-Build a network that powers your AI and HPC ambitions. Contact AIdeology to learn how our expertise with NVIDIA networking technologies can transform your infrastructure.
-\`\`\`
+{/* Section: Benefits of AIdeology's Networking Solutions - This will be a text block */}
+<div className="w-full py-12 md:py-16">
+  <div className="container mx-auto px-4">
+    <div className="prose prose-lg max-w-none mx-auto text-left">
+      <h2>Benefits of AIdeology's Networking Solutions</h2>
+      <ul>
+        <li><strong>Maximized AI/HPC Application Performance</strong>: Eliminate network bottlenecks to achieve faster training times and quicker results</li>
+        <li><strong>Increased GPU Efficiency</strong>: Ensure your valuable GPU resources are fully utilized</li>
+        <li><strong>Scalability for Future Growth</strong>: Design networks that can scale to support larger clusters and more demanding workloads</li>
+        <li><strong>Reduced Operational Complexity</strong>: Leverage advanced management tools for easier network administration</li>
+        <li><strong>Investment Protection</strong>: Build a future-proof network foundation based on industry-leading technologies</li>
+      </ul>
+      <p>Build a network that powers your AI and HPC ambitions. Contact AIdeology to learn how our expertise with NVIDIA networking technologies can transform your infrastructure.</p>
+    </div>
+    {/* Optional: Image/graphic for benefits section - centered */}
+    {/* <div className="mt-10 text-center">
+      <img src="/path-to-your-benefits-graphic.png" alt="Networking Infrastructure Benefits" className="inline-block max-w-lg mx-auto rounded-lg shadow-md"/>
+    </div> */}
+  </div>
+</div>

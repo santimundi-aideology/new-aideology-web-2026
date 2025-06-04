@@ -242,11 +242,11 @@ export default function CustomersPage() {
   const gtmCategories = ["AI Infrastructure", "3D AI", "AI Consulting", "Physical AI"]
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-28">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
+      <section className="pb-16 bg-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">Customer Success Stories</h1>
           <p className="text-xl text-charcoal/70 max-w-3xl">

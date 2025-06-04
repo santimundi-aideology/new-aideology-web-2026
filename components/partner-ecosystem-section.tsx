@@ -81,15 +81,15 @@ export default function PartnerEcosystemSection() {
         </Tabs>
 
         <div 
-          key={activeCategory} // Crucial: Force re-render of the whole grid on category change
+          // key={activeCategory} // Intentionally removed to prevent re-animation issues
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 justify-items-center"
         >
           {filteredPartners.length > 0 ? (
             filteredPartners.map((partner, index) => (
               <div // Styled div acting as a Card
-                key={`${partner.name}-${activeCategory}-${index}-card`}
-                className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+                key={`${partner.name}-${activeCategory}-${index}-card`} // Key for item identity is kept
+                className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group"
+                // Removed: animate-fade-in-up and style={{ animationDelay: ... }}
               >
                 <Link
                   href={partner.website}
@@ -141,6 +141,86 @@ export default function PartnerEcosystemSection() {
             <span>Gen AI</span>
           </div>
         </div>
+
+        {/* NVIDIA Certifications Section */}
+        <div className="mt-16 pt-10 border-t border-gray-300">
+          <h3 className="text-2xl md:text-3xl font-bold text-charcoal text-center mb-20 animate-fade-in-up">NVIDIA Certifications</h3>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Elite Partner Section */}
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up" style={{animationDelay: '100ms'}}>
+              <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
+                <img 
+                  src="/elite-partner.webp" 
+                  alt="NVIDIA Elite Partner" 
+                  className="w-28 h-auto md:w-32 mb-4 md:mb-0 md:mr-5 rounded"
+                />
+                <div>
+                  <h4 className="text-xl lg:text-2xl font-bold text-charcoal mb-2">Elite Partner</h4>
+                  <p className="text-gray-700 mb-1 text-sm">Demonstrating the highest level of expertise and commitment.</p>
+                </div>
+              </div>
+              <div>
+                <h5 className="text-md font-semibold text-charcoal mb-3 border-b pb-1">Elite Competencies:</h5>
+                <ul className="list-disc list-inside space-y-2 text-gray-600 text-sm">
+                  <li>Networking</li>
+                  <li>DGX AI Compute Systems</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Preferred Partner Section */}
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up" style={{animationDelay: '300ms'}}>
+              <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
+                <img 
+                  src="/preferred-partner.webp" 
+                  alt="NVIDIA Preferred Partner" 
+                  className="w-28 h-auto md:w-32 mb-4 md:mb-0 md:mr-5 rounded"
+                />
+                <div>
+                  <h4 className="text-xl lg:text-2xl font-bold text-charcoal mb-2">Preferred Partner</h4>
+                  <p className="text-gray-700 mb-1 text-sm">Recognized for specialization and capability in specific NVIDIA technologies.</p>
+                </div>
+              </div>
+              <div>
+                <h5 className="text-md font-semibold text-charcoal mb-3 border-b pb-1">Preferred Competencies:</h5>
+                <ul className="list-disc list-inside space-y-2 text-gray-600 text-sm">
+                  <li>DGX Cloud</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End NVIDIA Certifications Section */}
+
+        {/* NVIDIA Expertise Section */}
+        <div className="mt-16 pt-10 border-t border-gray-300">
+          <h3 className="text-2xl md:text-3xl font-bold text-charcoal text-center mb-12 animate-fade-in-up">Our NVIDIA Expertise</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center items-center animate-fade-in-up" style={{animationDelay: '200ms'}}>
+            {[ 
+              { src: "/cuda-logo.webp", alt: "NVIDIA CUDA" },
+              { src: "/triton-inference-server-logo.webp", alt: "NVIDIA Triton Inference Server" },
+              { src: "/omniverse-logo.webp", alt: "NVIDIA Omniverse" },
+              { src: "/cudnn-logo.webp", alt: "NVIDIA cuDNN" },
+              { src: "/rapids-logo.webp", alt: "NVIDIA RAPIDS" },
+              { src: "/tensorrt-logo.webp", alt: "NVIDIA TensorRT" },
+            ].map((logo, index) => (
+              <div 
+                key={logo.alt}
+                className="group p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex justify-center items-center h-24 w-full"
+              >
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt} 
+                  className="max-h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* End NVIDIA Expertise Section */}
+
       </div>
     </section>
   )
