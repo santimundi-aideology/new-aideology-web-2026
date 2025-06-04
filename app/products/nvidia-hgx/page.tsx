@@ -143,10 +143,10 @@ export default function NvidiaHGXPage() {
             </p>
             <ul className="list-disc list-inside mb-4 text-gray-600 space-y-2">
               <li>
-                <strong>Performance:</strong> ≈1.4 EFLOPS FP4 compute capability
+                <strong>Performance:</strong> 144 PFLOPS FP4 compute capability
               </li>
               <li>
-                <strong>Memory:</strong> Up to 30 TB of pooled HBM3e memory
+                <strong>Memory:</strong> 1.44 TB of pooled HBM3e memory
               </li>
               <li>
                 <strong>Connectivity:</strong> 5th-gen NVLink switches for optimal GPU-to-GPU communication
@@ -377,7 +377,7 @@ export default function NvidiaHGXPage() {
                   <td className="py-3 font-medium">HGX B200</td>
                   <td className="py-3">Blackwell</td>
                   <td className="py-3">8</td>
-                  <td className="py-3">30 TB HBM3e</td>
+                  <td className="py-3">1.44 TB HBM3e</td>
                   <td className="py-3">1.4 EFLOPS FP4 performance</td>
                 </tr>
                 <tr className="border-b">

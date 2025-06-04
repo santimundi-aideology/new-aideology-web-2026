@@ -40,7 +40,7 @@ export default function NvidiaDGXPage() {
         <div className="mb-16 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-charcoal">DGX B200 (Blackwell Architecture)</h3>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">NVIDIA DGX B200</h3>
               <p className="text-gray-600 mb-4">
                 The flagship single-node AI supercomputer powered by NVIDIA's revolutionary Blackwell architecture. The
                 DGX B200 represents a quantum leap in AI performance and efficiency.
@@ -49,7 +49,7 @@ export default function NvidiaDGXPage() {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
                   <span className="text-gray-700">
-                    <strong>Eight B200 GPUs</strong> with 1.44 TB total HBM3e memory
+                    <strong>Eight B200 GPUs</strong> with 1440GB total HBM3e memory
                   </span>
                 </div>
                 <div className="flex items-center">
@@ -93,7 +93,7 @@ export default function NvidiaDGXPage() {
         <div className="mb-16 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col lg:flex-row-reverse">
             <div className="lg:w-1/2 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-charcoal">DGX H200 (Hopper Refresh)</h3>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">NVIDIA DGX H200</h3>
               <p className="text-gray-600 mb-4">
                 The enhanced Hopper-based system featuring upgraded H200 GPUs with significantly increased memory
                 capacity, enabling larger models to remain entirely on-GPU for optimal performance.
@@ -102,25 +102,25 @@ export default function NvidiaDGXPage() {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
                   <span className="text-gray-700">
-                    <strong>Eight H200 GPUs</strong> with 141 GB HBM3e each
+                    <strong>Eight H200 GPUs</strong> with 1128GB total HBM3e memory
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
                   <span className="text-gray-700">
-                    <strong>4.8 TB/s memory bandwidth</strong> per GPU
+                    <strong>7.2TB/s of bidirectional GPU-to-GPU bandwidth</strong>, 1.5X more than previous generation
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
                   <span className="text-gray-700">
-                    <strong>70B-parameter models</strong> stay entirely on-GPU
+                    <strong>1TB/s</strong> of peak bidirectional network bandwidth
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
                   <span className="text-gray-700">
-                    <strong>Firmware 25.04.3</strong> with enhanced stability and PSU optimizations
+                    Powerful <strong>Dual Intel Xeon Platinum 8480C processors, 112 cores total, and 2TB System Memory</strong> for the most intensive AI jobs
                   </span>
                 </div>
               </div>
@@ -140,7 +140,7 @@ export default function NvidiaDGXPage() {
         <div className="mb-16 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-charcoal">DGX GB200 NVL72 (Rack-Scale)</h3>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">NVIDIA DGX GB200 NVL72 (Rack-Scale)</h3>
               <p className="text-gray-600 mb-4">
                 Revolutionary rack-scale AI supercomputer combining Grace CPUs with Blackwell GPUs in a unified,
                 liquid-cooled architecture designed for the most demanding AI workloads.
@@ -187,7 +187,7 @@ export default function NvidiaDGXPage() {
         <div className="mb-16 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col lg:flex-row-reverse">
             <div className="lg:w-1/2 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-charcoal">DGX GH200 AI Supercomputer</h3>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">NVIDIA DGX GH200 AI Supercomputer</h3>
               <p className="text-gray-600 mb-4">
                 The ultimate AI supercomputing platform that clusters hundreds of Grace Hopper superchips into a unified
                 system with unprecedented memory capacity and computational power.
