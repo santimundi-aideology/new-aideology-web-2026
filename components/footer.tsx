@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
+import LinkedInIcon from "@/components/icons/linkedin-icon"
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Footer() {
@@ -51,7 +52,7 @@ export default function Footer() {
   const socialLinks = [
     {
       href: "https://www.linkedin.com/company/aideology/",
-      icon: Linkedin,
+      icon: LinkedInIcon,
       label: "LinkedIn",
       color: "hover:text-blue-400 hover:bg-blue-400/10"
     },
@@ -60,7 +61,7 @@ export default function Footer() {
   const quickLinks = [
     { href: "/", label: "Home" },
     { href: "/#solutions", label: "Solutions" },
-    { href: "/#customers", label: "Customers" },
+    { href: "/customers", label: "Customers" },
     { href: "/#partners", label: "Partners" },
     { href: "/news", label: "News" },
     { href: "/#products", label: "Products" }

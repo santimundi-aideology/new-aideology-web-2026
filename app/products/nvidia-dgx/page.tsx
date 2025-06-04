@@ -344,13 +344,16 @@ export default function NvidiaDGXPage() {
           AIdeology has the expertise and partnerships to deliver the perfect solution for your organization.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 px-8 py-3">
+          <Button 
+            asChild 
+            className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+          >
             <Link href="#contact">Schedule a Consultation</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white px-8 py-3"
+            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
             <Link href="https://www.nvidia.com/en-us/data-center/dgx/" target="_blank" rel="noopener noreferrer">
               Explore NVIDIA DGX Technical Specs

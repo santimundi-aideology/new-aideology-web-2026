@@ -197,14 +197,17 @@ export default function AiDataPlatformPage() {
               end-to-end data platforms that unleash the full potential of your AI workloads.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+              >
                 Design Your Data Platform
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
+                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
                 Explore Use Cases
               </Button>
@@ -323,7 +326,7 @@ export default function AiDataPlatformPage() {
                   </ul>
                   <Button
                     variant="outline"
-                    className="text-accent-green border-accent-green hover:bg-accent-green hover:text-white"
+                    className="text-accent-green border-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
                   >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -438,14 +441,17 @@ export default function AiDataPlatformPage() {
               Contact our experts today to discuss your project and unlock the true power of your data.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+              >
                 Schedule a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
+                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
                 Download Our Whitepaper
               </Button>
@@ -462,14 +468,16 @@ export default function AiDataPlatformPage() {
               Explore Related AI Infrastructure Services
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <Link href="/services/ai-infrastructure/networking" className="group">
-                <Card className="hover-lift h-full">
+              <Link href="/services/ai-infrastructure/professional-services" className="group">
+                <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="group-hover:text-accent-green transition-colors">Networking for AI</CardTitle>
+                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                      Professional Services
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription>
-                      High-performance networking solutions to connect your AI resources.
+                    <CardDescription className="text-base">
+                      Expert services for AI infrastructure design, deployment, and optimization.
                     </CardDescription>
                   </CardContent>
                 </Card>

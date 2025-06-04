@@ -63,7 +63,11 @@ const EdgeAIPage = () => {
               <h3 className="text-xl font-bold mb-2">Ready to Deploy Edge AI?</h3>
               <p className="text-lg">Book a strategy call to explore Edge AI solutions for your business.</p>
             </div>
-            <Button asChild size="lg" className="bg-charcoal text-white hover:bg-charcoal/90">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+            >
               <Link href="#contact">Book a Call</Link>
             </Button>
           </div>

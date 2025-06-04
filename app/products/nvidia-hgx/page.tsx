@@ -408,13 +408,16 @@ export default function NvidiaHGXPage() {
           optimal foundation for your AI infrastructure, from single nodes to large-scale deployments.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+          <Button 
+            asChild 
+            className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+          >
             <Link href="#contact">Contact our HGX specialists</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white"
+            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
             <Link href="https://www.nvidia.com/en-us/data-center/hgx/" target="_blank" rel="noopener noreferrer">
               Learn more on NVIDIA's website

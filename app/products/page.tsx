@@ -27,12 +27,12 @@ const productCategories = [
     alt: "Close-up of an NVIDIA HGX system with multiple GPUs, highlighting its dense computing power for AI.",
   },
   {
-    name: "Networking Solutions",
-    href: "/products/networking",
+    name: "Professional Services",
+    href: "/products/professional-services",
     description:
-      "Build a high-throughput, low-latency network fabric essential for modern AI data centers. AIdeology provides advanced networking solutions featuring NVIDIA Quantum InfiniBand, Spectrum Ethernet switches, and ConnectX SmartNICs. We also integrate robust solutions from industry leaders like Corning and Commscope, ensuring your AI clusters operate at peak performance without data bottlenecks.",
-    image: "/services/network-architecture.png", // Image for Networking
-    alt: "Abstract representation of a high-speed network architecture, symbolizing efficient data flow for AI.",
+      "Leverage AIdeology's expert Professional Services for designing, implementing, and optimizing your AI infrastructure. Our services cover advanced system architecture, data pipeline development, MLOps, and specialized support for complex AI deployments, ensuring your AI initiatives succeed.",
+    image: "/services/consulting-team.webp",
+    alt: "AIdeology professional services team collaborating on an AI project.",
   },
   {
     name: "Storage Systems",
@@ -94,7 +94,7 @@ export default function ProductsPage() {
                   <p className="text-lg text-gray-700 mb-6 leading-relaxed">{category.description}</p>
                   <Button
                     asChild
-                    className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-colors"
+                    className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
                     size="lg"
                   >
                     <Link href={category.href} className="inline-flex items-center">
@@ -143,7 +143,7 @@ export default function ProductsPage() {
           </p>
           <Button
             asChild
-            className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-colors"
+            className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
             size="lg"
           >
             <Link href="/#contact">Contact us</Link>

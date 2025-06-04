@@ -6,10 +6,10 @@ import Image from "next/image"
 
 export default function AiAgentsPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-24">
-        <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
+        <div className="absolute inset-0 point-cloud  -bg opacity-10"></div>
         <div className="w-full relative z-10">
           <div className="w-full text-center px-6 lg:px-12">
             <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -26,7 +26,7 @@ export default function AiAgentsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-8 py-4"
+                className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 Deploy AI Agents
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -34,7 +34,7 @@ export default function AiAgentsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4"
+                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 See Capabilities
               </Button>
@@ -68,7 +68,7 @@ export default function AiAgentsPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
@@ -107,13 +107,13 @@ export default function AiAgentsPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative group">
                 <Image
-                  src="/placeholder.svg?height=500&width=600"
-                  alt="AI Agents Network"
+                  src="/agent-web.webp"
+                  alt="Conceptual visualization of AI agents interacting with data and systems"
                   width={600}
                   height={500}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
             </div>
@@ -291,13 +291,13 @@ export default function AiAgentsPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
+              <div className="relative group">
                 <Image
                   src="/placeholder.svg?height=400&width=600"
                   alt="AI agent operations dashboard"
                   width={600}
                   height={400}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
               <div>
@@ -357,80 +357,55 @@ export default function AiAgentsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-charcoal text-white">
-        <div className="w-full px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Deploy Autonomous Intelligence?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transform your operations with AI agents that work autonomously, make intelligent decisions, and deliver
-            consistent results. Discover the power of autonomous AI for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-8 py-4"
-            >
-              Deploy AI Agents
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4"
-            >
-              Learn More
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Related Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="bg-charcoal text-white flex-grow flex flex-col pt-16">
         <div className="w-full px-6 lg:px-12">
-          <h3 className="text-3xl font-bold text-charcoal mb-12 text-center">Related AI Consulting Services</h3>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Link href="/services/ai-consulting/conversational-ai" className="group">
-              <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
-                    Conversational AI
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    Transform customer interactions with intelligent, natural language interfaces
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/services/ai-consulting/generative-ai" className="group">
-              <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
-                    Generative AI
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    Create content, enhance creativity, and automate complex tasks with generative AI
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/services/ai-consulting/machine-learning" className="group">
-              <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
-                    Machine Learning
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    End-to-end machine learning solutions from development to deployment
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
+          <h3 className="text-3xl font-bold text-white mb-12 text-center">Related AI Consulting Services</h3>
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto mb-16">
+            <div className="grid md:grid-cols-3 gap-8">
+              <Link href="/services/ai-consulting/conversational-ai" className="group">
+                <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                      Conversational AI
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      Transform customer interactions with intelligent, natural language interfaces
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/ai-consulting/generative-ai" className="group">
+                <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                      Generative AI
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      Create content, enhance creativity, and automate complex tasks with generative AI
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/ai-consulting/machine-learning" className="group">
+                <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                      Machine Learning
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      End-to-end machine learning solutions from development to deployment
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
