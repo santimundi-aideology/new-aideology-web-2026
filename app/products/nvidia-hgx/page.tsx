@@ -20,7 +20,7 @@ export default function NvidiaHGXPage() {
         </p>
         <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/products/nvidia_hgx_products.webp"
+            src="/products/nvidia_hgx_products.png"
             alt="NVIDIA HGX GPU-accelerated computing systems in a modern data center"
             fill
             className="object-cover"

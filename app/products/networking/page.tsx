@@ -20,7 +20,7 @@ export default function NetworkingPage() {
         </p>
         <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/products/ai_network.jpg"
+            src="/products/ai_network.png"
             alt="Advanced AI networking infrastructure with high-performance switches and adapters"
             fill
             className="object-cover"

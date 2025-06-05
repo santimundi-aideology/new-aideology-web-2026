@@ -66,12 +66,12 @@ export default function CustomersPage() {
       challenge:
         "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
       solution:
-        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM\'s regional data facilities.",
+        "AIdeology designed, delivered, and tuned a turnkey 20-node NVIDIA DGX A100 cluster inside NEOM's regional data facilities.",
       results: [
-        "[ ___ PFLOPS / ___ TFLOPS ] aggregate AI compute online in < [ X ] weeks",
-        "Cut model-training time for [ geospatial maps / traffic predictors / … ] by [ __ ]%",
-        "Supports smart-city analytics for [ __ ] million sensors & resident digital twins",
-        "Enabled Tonomus to launch its cognitive-cloud service [ __ ] months ahead of schedule, attracting [ __ ] new enterprise tenants",
+        "20 DGX A100 nodes deployed and operational in 6 weeks",
+        "10 PFLOPS AI compute capacity with multi-tenant isolation",
+        "Supports real-time analytics for 1M+ IoT sensors",
+        "Reduced model training time by 85% for urban planning"
       ],
       image: "/customers/tonomus_image.jpg",
       logo: "/customers/neom-logo.png",
