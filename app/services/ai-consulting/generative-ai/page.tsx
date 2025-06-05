@@ -15,48 +15,48 @@ export default function GenerativeAiPage() {
         </div>
 
         <div className="w-full relative z-10">
-          <div className="w-full text-center px-6 lg:px-12">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-6 py-3 rounded-full text-sm font-medium mb-8 backdrop-blur-sm">
+          <div className="w-full text-center px-6 lg:px-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-6 py-3 rounded-full text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <Sparkles className="w-4 h-4 mr-2" />
               AI Consulting • Generative AI
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Create the
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-blue-400">
                 Impossible
               </span>
             </h1>
 
-            <p className="text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               Harness the creative power of generative AI to produce content, solve problems, and innovate at the speed
               of imagination
             </p>
 
             {/* Floating Action Cards */}
-            <div className="grid md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer">
+            <div className="grid md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                 <FileText className="w-8 h-8 text-accent-green mx-auto mb-2" />
                 <div className="text-sm font-medium">Text Generation</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '700ms' }}>
                 <ImageIcon className="w-8 h-8 text-blue-400 mx-auto mb-2" />
                 <div className="text-sm font-medium">Image Creation</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '800ms' }}>
                 <Video className="w-8 h-8 text-purple-400 mx-auto mb-2" />
                 <div className="text-sm font-medium">Video & Audio</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '900ms' }}>
                 <Code className="w-8 h-8 text-green-400 mx-auto mb-2" />
                 <div className="text-sm font-medium">Code Generation</div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '1000ms' }}>
               <Button
                 size="lg"
-                className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl"
+                className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 Start Creating
                 <Sparkles className="ml-2 h-5 w-5" />
@@ -64,7 +64,7 @@ export default function GenerativeAiPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white hover:text-purple-900 text-lg px-10 py-5 rounded-2xl backdrop-blur-sm"
+                className="border-white/30 text-white hover:bg-white hover:text-purple-900 text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 Explore Examples
               </Button>
@@ -77,7 +77,7 @@ export default function GenerativeAiPage() {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <h2 className="text-5xl font-bold text-charcoal mb-6">Unleash Creative Potential</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 From concept to creation, our generative AI solutions transform ideas into reality across every medium
@@ -87,7 +87,7 @@ export default function GenerativeAiPage() {
             {/* Masonry-style Grid */}
             <div className="grid md:grid-cols-3 gap-8">
               {/* Large Feature Card */}
-              <div className="md:col-span-2 md:row-span-2">
+              <div className="md:col-span-2 md:row-span-2 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-12 text-white h-full flex flex-col justify-between min-h-[500px]">
                   <div>
                     <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-8">
@@ -100,7 +100,7 @@ export default function GenerativeAiPage() {
                     </p>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Button variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600">
+                    <Button variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 ease-in-out">
                       See Examples
                     </Button>
                     <div className="text-purple-200">→ 10x faster creation</div>
@@ -110,7 +110,7 @@ export default function GenerativeAiPage() {
 
               {/* Smaller Cards */}
               <div className="space-y-8">
-                <div className="bg-white rounded-2xl p-8 shadow-xl border">
+                <div className="bg-white rounded-2xl p-8 shadow-xl border animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
                     <FileText className="w-6 h-6 text-blue-600" />
                   </div>
@@ -121,7 +121,7 @@ export default function GenerativeAiPage() {
                   <div className="text-blue-600 font-semibold">Learn More →</div>
                 </div>
 
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-white">
+                <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-white animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                     <Zap className="w-6 h-6" />
                   </div>
@@ -132,7 +132,7 @@ export default function GenerativeAiPage() {
               </div>
 
               {/* Bottom Row */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl border">
+              <div className="bg-white rounded-2xl p-8 shadow-xl border animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
                   <ImageIcon className="w-6 h-6 text-orange-600" />
                 </div>
@@ -141,7 +141,7 @@ export default function GenerativeAiPage() {
                 <div className="text-orange-600 font-semibold">Explore →</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-xl border">
+              <div className="bg-white rounded-2xl p-8 shadow-xl border animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                   <Code className="w-6 h-6 text-purple-600" />
                 </div>
@@ -150,7 +150,7 @@ export default function GenerativeAiPage() {
                 <div className="text-purple-600 font-semibold">Start Coding →</div>
               </div>
 
-              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-8 text-white animate-fade-in-up" style={{ animationDelay: '700ms' }}>
                 <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                   <Video className="w-6 h-6" />
                 </div>
@@ -167,18 +167,18 @@ export default function GenerativeAiPage() {
       <section className="py-20 bg-white">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <h2 className="text-4xl font-bold text-charcoal mb-4">From Idea to Reality</h2>
               <p className="text-xl text-gray-600">Our proven process for implementing generative AI solutions</p>
             </div>
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent-green to-blue-500 rounded-full"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent-green to-blue-500 rounded-full animate-fade-in-up" style={{ animationDelay: '200ms' }}></div>
 
               <div className="space-y-16">
                 {/* Step 1 */}
-                <div className="flex items-center">
+                <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                   <div className="w-1/2 pr-12 text-right">
                     <div className="bg-white rounded-2xl p-8 shadow-lg border">
                       <h3 className="text-2xl font-bold text-charcoal mb-4">Discovery & Strategy</h3>
@@ -195,7 +195,7 @@ export default function GenerativeAiPage() {
                 </div>
 
                 {/* Step 2 */}
-                <div className="flex items-center">
+                <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                   <div className="w-1/2 pr-12"></div>
                   <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center relative z-10">
                     <span className="text-white font-bold text-xl">2</span>
@@ -212,7 +212,7 @@ export default function GenerativeAiPage() {
                 </div>
 
                 {/* Step 3 */}
-                <div className="flex items-center">
+                <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                   <div className="w-1/2 pr-12 text-right">
                     <div className="bg-white rounded-2xl p-8 shadow-lg border">
                       <h3 className="text-2xl font-bold text-charcoal mb-4">Integration & Deployment</h3>
@@ -229,7 +229,7 @@ export default function GenerativeAiPage() {
                 </div>
 
                 {/* Step 4 */}
-                <div className="flex items-center">
+                <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                   <div className="w-1/2 pr-12"></div>
                   <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center relative z-10">
                     <span className="text-white font-bold text-xl">4</span>
@@ -250,56 +250,93 @@ export default function GenerativeAiPage() {
         </div>
       </section>
 
-      {/* Technology Spotlight */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-black text-white">
+      {/* Enterprise-Grade AI Foundation (New section based on AI Agents page structure) */}
+      <section className="py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
-                  <Zap className="w-4 h-4 mr-2" />
-                  Powered by NVIDIA NeMo
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 p-8 rounded-xl mb-16 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <Zap className="h-8 w-8 text-green-600" /> {/* Changed icon to Zap for more general tech feel */}
                 </div>
-                <h2 className="text-4xl font-bold mb-6">Enterprise-Grade AI Foundation</h2>
-                <p className="text-xl text-gray-300 mb-8">
-                  Built on NVIDIA NeMo framework and leading foundation models, our solutions deliver unmatched
-                  performance, scalability, and reliability for enterprise applications.
-                </p>
-
-                <div className="grid grid-cols-2 gap-6 mb-8">
-                  <div>
-                    <div className="text-3xl font-bold text-accent-green mb-2">100B+</div>
-                    <div className="text-gray-400">Parameters</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-accent-green mb-2">50ms</div>
-                    <div className="text-gray-400">Response Time</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-accent-green mb-2">99.9%</div>
-                    <div className="text-gray-400">Uptime</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-accent-green mb-2">24/7</div>
-                    <div className="text-gray-400">Support</div>
-                  </div>
+                <div className="ml-4">
+                  <h3 className="text-2xl font-bold text-green-900 mb-3">Advanced AI Architecture</h3>
+                  <p className="text-green-800 text-lg leading-relaxed">
+                    Our solutions are built on cutting-edge frameworks and custom neural architectures. They leverage advanced model training, fine-tuning capabilities, and efficient inference to deliver robust and scalable generative AI.
+                  </p>
                 </div>
-
-                <Button className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
-                  Explore Technology
-                </Button>
               </div>
+            </div>
 
-              <div className="relative">
-                <div className="bg-gradient-to-br from-accent-green/20 to-blue-500/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
-                  <Image
-                    src="/placeholder.svg?height=400&width=500"
-                    alt="AI Technology Stack"
-                    width={500}
-                    height={400}
-                    className="rounded-2xl"
-                  />
+            {/* This div wraps the badge and the main title of the section */}
+            <div className="text-center mb-16"> {/* Removed animation from this wrapper */}
+              <div className="inline-flex items-center bg-accent-green text-charcoal px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                <Zap className="w-4 h-4 mr-2" />
+                Powered by NVIDIA NeMo
+              </div>
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '250ms' }}> {/* Added animation to H2 */}
+                Enterprise-Grade AI Foundation
+              </h2>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                <div className="space-y-8">
+                  <div className="flex items-start animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                    <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <span className="text-accent-green font-bold text-lg">1</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-charcoal mb-2 text-lg">Powerful Model Customization</h3>
+                      <p className="text-gray-600">
+                        Fine-tune state-of-the-art foundation models on your proprietary data for highly specialized and accurate generative outputs.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+                    <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <span className="text-accent-green font-bold text-lg">2</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-charcoal mb-2 text-lg">Scalable & Efficient Inference</h3>
+                      <p className="text-gray-600">
+                        Deploy generative models that scale with your needs, ensuring high throughput and low latency for real-time applications.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+                    <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <span className="text-accent-green font-bold text-lg">3</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-charcoal mb-2 text-lg">Robust MLOps Integration</h3>
+                      <p className="text-gray-600">
+                        Benefit from enterprise-grade MLOps for model versioning, monitoring, and continuous improvement of your generative AI solutions.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+                    <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <span className="text-accent-green font-bold text-lg">4</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-charcoal mb-2 text-lg">Responsible AI Practices</h3>
+                      <p className="text-gray-600">
+                        Implement generative AI with a focus on ethical considerations, data privacy, fairness, and transparency.
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              {/* Image Column - Added 'group' for hover effect */}
+              <div className="relative animate-fade-in-up group" style={{ animationDelay: '300ms' }}>
+                <Image
+                  src="/nemo-diagram.webp"
+                  alt="NVIDIA NeMo Framework for Generative AI"
+                  width={1200} // Adjusted width for potentially larger display
+                  height={900} // Adjusted height for potentially larger display
+                  className="rounded-xl shadow-2xl object-contain transition-transform duration-300 ease-in-out group-hover:scale-105" // Added hover effect & object-contain
+                />
               </div>
             </div>
           </div>
@@ -316,7 +353,7 @@ export default function GenerativeAiPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               size="lg"
-              className="bg-white text-accent-green hover:bg-gray-100 font-semibold text-lg px-10 py-5 rounded-2xl"
+              className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
             >
               Start Your AI Journey
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -324,7 +361,7 @@ export default function GenerativeAiPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-accent-green text-lg px-10 py-5 rounded-2xl"
+              className="border-white text-white hover:bg-white hover:text-accent-green text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
             >
               Explore Use Cases
             </Button>

@@ -11,11 +11,23 @@ import {
   ShieldCheck,
   Lightbulb,
   PackageCheck,
+  Shield,
+  Zap,
+  Layers,
+  Mail,
+  ChevronRight,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import ServiceLayout from "@/components/layouts/service-layout"
 
-export default function ProfessionalServicesPage() {
+export const metadata = {
+  title: "AI Infrastructure Professional Services | Design, Deployment & Optimization | AIdeology",
+  description:
+    "AIdeology offers expert Professional Services for your AI infrastructure, including custom design, high-performance deployment, MLOps integration, and ongoing optimization to maximize your AI capabilities.",
+}
+
+export default function AiInfrastructureProfessionalServicesPage() {
   const serviceLifecycleStages = [
     {
       stage: "Initiation",
@@ -142,158 +154,192 @@ export default function ProfessionalServicesPage() {
     },
   ]
 
+  const serviceOfferings = [
+    {
+      icon: <Layers className="w-10 h-10 text-accent-green mb-4" />,
+      title: "AI Infrastructure Design & Architecture",
+      description:
+        "Our experts design bespoke AI infrastructure solutions, selecting the optimal combination of compute (GPU/CPU), networking, and storage tailored to your specific workloads and scalability requirements.",
+      points: [
+        "Workload analysis and requirement gathering",
+        "GPU cluster design (NVIDIA DGX, HGX, and custom solutions)",
+        "High-performance networking (InfiniBand, Ethernet) strategy",
+        "Scalable storage architecture (parallel file systems, object storage)",
+        "Power and cooling considerations for data centers",
+      ],
+    },
+    {
+      icon: <Zap className="w-10 h-10 text-accent-green mb-4" />,
+      title: "Deployment & Integration Services",
+      description:
+        "Seamless deployment and integration of your AI infrastructure components. We handle everything from hardware racking and cabling to software installation and configuration, ensuring a turnkey solution.",
+      points: [
+        "Hardware installation and setup",
+        "Network fabric deployment and testing",
+        "Operating system and driver installation (Linux, CUDA)",
+        "Integration with existing IT environments",
+        "Acceptance testing and validation",
+      ],
+    },
+    {
+      icon: <Shield className="w-10 h-10 text-accent-green mb-4" />,
+      title: "MLOps & Orchestration Setup",
+      description:
+        "Implement robust MLOps practices and orchestration tools (e.g., Kubernetes, Slurm) on your AI infrastructure for efficient resource management, experiment tracking, and reproducible AI workflows.",
+      points: [
+        "Kubernetes deployment for AI (e.g., NVIDIA AI Enterprise)",
+        "Workload manager integration (Slurm, LSF)",
+        "Containerization of AI applications (Docker, Singularity)",
+        "CI/CD pipeline setup for ML models",
+        "Monitoring and logging solutions for infrastructure & workloads",
+      ],
+    },
+    {
+      icon: <Users className="w-10 h-10 text-accent-green mb-4" />,
+      title: "Performance Optimization & Support",
+      description:
+        "Maximize the performance and reliability of your AI infrastructure with our ongoing optimization services, health checks, and expert support, ensuring your systems run at peak efficiency.",
+      points: [
+        "Performance benchmarking and tuning",
+        "Bottleneck identification and resolution",
+        "Software and firmware updates",
+        "Proactive monitoring and maintenance",
+        "Dedicated technical support and training",
+      ],
+    },
+  ]
+
+  const breadcrumbPath = [
+    { name: "Services", href: "/services" },
+    { name: "AI Infrastructure", href: "/services/ai-infrastructure" },
+    { name: "Professional Services" }
+  ];
+
+  const heroTitle = "Expert Services for Your AI Infrastructure";
+  const heroSubtitle = "From design and deployment to optimization and support, AIdeology ensures your AI infrastructure powers innovation at scale.";
+  const heroImage = "/services/ai_infra_experts.webp";
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-24">
-        <div className="absolute inset-0 opacity-10">
-          <Image
-            src="/placeholder.svg?width=1920&height=1080"
-            alt="Abstract background"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-        <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Settings className="w-4 h-4 mr-2" />
-            AI Infrastructure Professional Services
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Expert Professional Services for Your AI Infrastructure
-          </h1>
-          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-            AIdeology delivers comprehensive, end-to-end professional services to design, deploy, optimize, and support
-            your high-performance AI infrastructure, ensuring maximum ROI and operational excellence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
-              Request a Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Link href="/customers">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
-              >
-                View Case Studies
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+    <ServiceLayout>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="mb-6 text-sm text-gray-500 flex items-center" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-gray-700">Home</Link>
+          {breadcrumbPath.map((item, index) => (
+            <div key={item.name} className="flex items-center">
+              <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+              {item.href ? (
+                <Link href={item.href} className="hover:text-gray-700">
+                  {item.name}
+                </Link>
+              ) : (
+                <span className="font-medium text-gray-700">{item.name}</span>
+              )}
+            </div>
+          ))}
+        </nav>
 
-      {/* Introduction to Our Process */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-charcoal mb-4">Our Proven Professional Services Lifecycle</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We follow a structured, multi-stage process to deliver robust and scalable AI infrastructure solutions,
-              tailored to your unique requirements. This lifecycle ensures quality, predictability, and successful
-              outcomes.
+        <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-16 md:py-20 rounded-lg mb-12 shadow-xl">
+          <div className="absolute inset-0 opacity-10">
+            {heroImage && (
+              <Image
+                src={heroImage}
+                alt="AI Infrastructure Services"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
+            )}
+          </div>
+          <div className="relative z-10 container mx-auto px-6 lg:px-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{heroTitle}</h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+              {heroSubtitle}
             </p>
-          </div>
-          {/* You can insert the lifecycle image here if desired */}
-          <div className="mb-12 flex justify-center">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-06-03%20at%2016.59.09-HpEm2JzsAC20KWgpe4dPbxnLcsQyVS.png"
-              alt="AIdeology Professional Services Lifecycle"
-              width={1200}
-              height={400}
-              className="rounded-lg shadow-xl"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Service Lifecycle Stages */}
-      {serviceLifecycleStages.map((item, index) => (
-        <section key={item.stage} className={`py-16 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-          <div className="container mx-auto px-6 lg:px-12">
-            <div
-              className={`flex flex-col md:flex-row items-center gap-12 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
             >
-              <div className="w-full md:w-1/2">
-                <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden">
-                  <Image src={item.image || "/placeholder.svg"} alt={item.alt} layout="fill" objectFit="cover" />
+              <Link href="/#contact" className="inline-flex items-center">
+                <Mail className="mr-2 h-5 w-5" />
+                Discuss Your Project
+              </Link>
+            </Button>
+          </div>
+        </section>
+
+        <section className="py-12 md:py-16 bg-gray-100 rounded-lg mb-12">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Comprehensive Services for Peak AI Performance</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Our Professional Services for AI Infrastructure are designed to help you build, manage, and scale a high-performance, reliable, and cost-effective foundation for all your AI initiatives.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              {serviceOfferings.map((service) => (
+                <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <div className="flex justify-center md:justify-start mb-4">{service.icon}</div>
+                  <h3 className="text-2xl font-bold text-charcoal mb-3 text-center md:text-left">{service.title}</h3>
+                  <p className="text-gray-600 mb-4 text-center md:text-left">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.points.map((point) => (
+                      <li key={point} className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-              <div className="w-full md:w-1/2">
-                <div className="flex items-center text-accent-green mb-3">
-                  <item.icon className="w-7 h-7 mr-3" />
-                  <span className="text-sm font-semibold uppercase tracking-wider">{item.stage}</span>
-                </div>
-                <h3 className="text-3xl font-bold text-charcoal mb-5">{item.title}</h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">{item.description}</p>
-                <ul className="space-y-3">
-                  {item.activities.map((activity) => (
-                    <li key={activity} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-accent-green mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-600">{activity}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              ))}
             </div>
           </div>
         </section>
-      ))}
 
-      {/* Why Choose AIdeology Section */}
-      <section className="py-20 bg-charcoal text-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Partner with AIdeology for Professional Services?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Leverage our deep expertise and customer-centric approach to build and maintain world-class AI
-              infrastructure.
+        <section className="py-12 md:py-16 mb-12">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Why AIdeology for Infrastructure Services?</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Partner with us to build a future-proof AI infrastructure foundation.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { title: "Deep Technical Expertise", description: "Certified experts in NVIDIA technologies, high-performance computing, and AI data center design.", icon: <Zap className="w-8 h-8 text-accent-green" /> },
+                { title: "End-to-End Solutions", description: "From initial consultation and design to deployment, management, and ongoing support.", icon: <Layers className="w-8 h-8 text-accent-green" /> },
+                { title: "Proven Track Record", description: "Successful deployments of complex AI infrastructures for leading enterprises and research institutions.", icon: <CheckCircle className="w-8 h-8 text-accent-green" /> },
+                { title: "Strategic Partnerships", description: "Strong relationships with leading hardware and software vendors to provide the best solutions.", icon: <Users className="w-8 h-8 text-accent-green" /> }
+              ].map(reason => (
+                <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+                  <div className="flex justify-center mb-4">{reason.icon}</div>
+                  <h3 className="text-xl font-semibold text-charcoal mb-2">{reason.title}</h3>
+                  <p className="text-gray-600 text-sm">{reason.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-gradient-to-r from-accent-green to-emerald-600 text-white rounded-lg">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Optimize Your AI Infrastructure?</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+              Our Professional Services team is ready to help. Contact us for a detailed consultation.
             </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-xl hover:scale-105 transition-all duration-300 ease-in-out"
+            >
+              <Link href="/#contact" className="inline-flex items-center">
+                <Mail className="mr-2 h-5 w-5" />
+                Contact an Expert
+              </Link>
+            </Button>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUsPoints.map((point) => (
-              <Card key={point.title} className="bg-gray-800 border-gray-700 hover-lift text-center">
-                <CardHeader className="items-center">
-                  <div className="p-3 bg-accent-green/20 rounded-full mb-4">
-                    <point.icon className="w-8 h-8 text-accent-green" />
-                  </div>
-                  <CardTitle className="text-xl text-white">{point.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-400">{point.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl font-bold text-charcoal mb-6">Ready to Elevate Your AI Infrastructure?</h2>
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Let AIdeology's Professional Services team guide you through every step of your AI journey. Contact us today
-            to discuss your project.
-          </p>
-          <Button
-            size="lg"
-            className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold px-10 py-4 text-lg"
-          >
-            Get in Touch
-            <ArrowRight className="ml-3 h-6 w-6" />
-          </Button>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </ServiceLayout>
   )
-}
-
-export const metadata = {
-  title: "AI Infrastructure Professional Services | AIdeology",
-  description:
-    "AIdeology offers end-to-end professional services for AI infrastructure, from site survey and design to deployment, testing, handover, and ongoing support. Maximize your AI investment with our expert guidance.",
 }

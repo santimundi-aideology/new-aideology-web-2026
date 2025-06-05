@@ -139,7 +139,11 @@ export default function NvidiaAIEnterprisePage() {
                 simplifies the complexities of building and scaling AI applications, allowing your teams to focus on
                 innovation and delivering business value.
               </p>
-              <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+              >
                 <Link
                   href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/"
                   target="_blank"
@@ -225,7 +229,7 @@ export default function NvidiaAIEnterprisePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white"
+                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 <Link href="https://www.run.ai/" target="_blank" rel="noopener noreferrer">
                   Learn More About Run:ai
@@ -287,7 +291,7 @@ export default function NvidiaAIEnterprisePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white"
+                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 <Link
                   href="https://www.nvidia.com/en-us/data-center/base-command-platform/"
@@ -398,7 +402,11 @@ export default function NvidiaAIEnterprisePage() {
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg">
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+              >
                 <Link href="#contact">Consult with Our AI Experts</Link>
               </Button>
             </div>
@@ -424,14 +432,18 @@ export default function NvidiaAIEnterprisePage() {
           and achieve unparalleled results. Let's build the future of AI, together.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <Button asChild size="lg" className="bg-charcoal text-white hover:bg-gray-700">
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+          >
             <Link href="#contact">Request a Demo</Link>
           </Button>
           <Button
             asChild
             variant="outline"
             size="lg"
-            className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white"
+            className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
           >
             <Link href="/products">Explore All Our Products</Link>
           </Button>

@@ -17,7 +17,7 @@ export default function SolutionsSection() {
       ),
       link: "/solutions/ai-infrastructure",
       subpages: [
-        { name: "Networking", path: "/services/ai-infrastructure/networking" },
+        { name: "Professional Services", path: "/services/ai-infrastructure/professional-services" },
         { name: "AI Data Platform", path: "/services/ai-infrastructure/ai-data-platform" },
         { name: "MLOps", path: "/services/ai-infrastructure/mlops" },
         { name: "Accelerated Computing", path: "/services/ai-infrastructure/accelerated-computing" },
@@ -121,7 +121,8 @@ export default function SolutionsSection() {
             <Card
               key={index}
               data-card-index={index}
-              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50 flex flex-col h-full`}
+              className={`bg-[#f4f4f4] border border-accent-green/20 text-charcoal hover-lift group cursor-pointer relative overflow-hidden transition-all duration-500 transform hover:border-accent-green/50 flex flex-col h-full animate-fade-in-up`}
+              style={{ animationDelay: `${100 + index * 150}ms` }}
             >
               <CardHeader>
                 <div className="mb-4">{solution.icon}</div>
@@ -152,10 +153,10 @@ export default function SolutionsSection() {
               <CardFooter>
                 <Link
                   href={solution.link}
-                  className="text-electric-green hover:text-electric-green/80 flex items-center group font-medium w-full justify-center bg-accent-green/10 hover:bg-accent-green/20 px-4 py-2 rounded transition-all duration-300"
+                  className="text-electric-green hover:text-white flex items-center group font-medium w-full justify-center bg-accent-green/10 hover:bg-charcoal px-4 py-2 rounded transition-all duration-300 hover:scale-105 ease-in-out"
                 >
                   Learn more
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-accent-green" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-accent-green group-hover:text-white" />
                 </Link>
               </CardFooter>
             </Card>

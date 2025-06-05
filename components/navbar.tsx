@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { SheetFooter } from "@/components/ui/sheet"
 
 interface NavbarProps {
   forceDarkLogo?: boolean
@@ -21,6 +22,36 @@ interface NavItemWithHash {
 const getLinkHref = (href: string | NavItemWithHash): string => {
   if (typeof href === 'string') return href;
   return href.pathname + (href.hash || '');
+};
+
+// Exported scroll utility function
+export const performScrollToSection = (
+  targetId: string,
+  navbarHeight: number,
+  scrollBehavior: ScrollBehavior = 'smooth' // Default to 'smooth'
+) => {
+  const element = document.getElementById(targetId);
+  if (element) {
+    const heading = element.querySelector('h2');
+    const scrollTarget = heading || element; // Prefer heading if available for more precise positioning under navbar
+    const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
+
+    const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
+    let headingHeight = 0;
+    if (heading) {
+      headingHeight = heading.offsetHeight;
+    }
+    // User's current formula for offset, consistent with existing Navbar logic
+    const extraOffset = sectionPaddingTop - headingHeight * 3;
+    const offsetPosition = elementPosition - navbarHeight + extraOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: scrollBehavior,
+    });
+    return true; // Indicate scroll was attempted
+  }
+  return false; // Indicate element not found
 };
 
 export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
@@ -94,27 +125,9 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         const targetId = hash.substring(1); // Remove #
         // Use a timeout to ensure the DOM is fully ready after page navigation
         setTimeout(() => {
-          const element = document.getElementById(targetId);
-          if (element && navbarRef.current) {
+          if (navbarRef.current) {
             const navbarHeight = navbarRef.current.offsetHeight;
-            const heading = element.querySelector('h2');
-            const scrollTarget = heading || element;
-            const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
-
-            const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
-            let headingHeight = 0;
-            if (heading) {
-              headingHeight = heading.offsetHeight;
-            }
-            // User's current formula for offset
-            const extraOffset = sectionPaddingTop - headingHeight * 3;
-
-            const offsetPosition = elementPosition - navbarHeight + extraOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "auto", // Use 'auto' for initial load/cross-page nav for a less jarring scroll
-            });
+            performScrollToSection(targetId, navbarHeight, 'auto'); // Use utility function
           }
         }, 100); // 100ms delay, adjust if necessary
       }
@@ -138,31 +151,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         hashTargetId = targetHref.substring(1);
       }
 
-      if (hashTargetId) {
-        const element = document.getElementById(hashTargetId);
-        if (element && navbarRef.current) {
-          event.preventDefault(); // Prevent default only for same-page smooth scroll
-
-          const navbarHeight = navbarRef.current.offsetHeight;
-          const heading = element.querySelector('h2');
-          const scrollTarget = heading || element;
-          const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
-
-          const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
-          let headingHeight = 0;
-          if (heading) {
-            headingHeight = heading.offsetHeight;
-          }
-          // User's current formula from their file
-          const extraOffset = sectionPaddingTop - headingHeight * 3;
-          const offsetPosition = elementPosition - navbarHeight + extraOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-          return; // Exit after handling same-page scroll
-        }
+      if (hashTargetId && navbarRef.current) {
+        event.preventDefault(); // Prevent default only for same-page smooth scroll
+        const navbarHeight = navbarRef.current.offsetHeight;
+        performScrollToSection(hashTargetId, navbarHeight, 'smooth'); // Use utility function
+        return; // Exit after handling same-page scroll
       }
     }
     // For other cases (like navigating to a different page, or to the homepage with a hash from another page),
@@ -175,13 +168,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     { href: { pathname: "/", hash: "#solutions" }, label: "Solutions", sectionId: "solutions" },
     { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
     { href: { pathname: "/", hash: "#products" }, label: "Products", sectionId: "products" },
-    { href: { pathname: "/", hash: "#customers" }, label: "Customers", sectionId: "customers" },
+    { href: "/customers", label: "Customers", sectionId: "" },
     { href: "/news", label: "News", sectionId: "" },
   ]
 
   const submenuItems = {
     "AI Infrastructure": [
-      { href: "/services/ai-infrastructure/networking", label: "Networking" },
+      { href: "/services/ai-infrastructure/professional-services", label: "Professional Services" },
       { href: "/services/ai-infrastructure/ai-data-platform", label: "AI Data Platform" },
       { href: "/services/ai-infrastructure/mlops", label: "MLOps" },
       { href: "/services/ai-infrastructure/accelerated-computing", label: "Accelerated Computing" },
@@ -208,7 +201,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     Products: [
       { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
       { href: "/products/nvidia-hgx", label: "NVIDIA HGX Systems" },
-      { href: "/products/networking", label: "Networking Solutions" },
+      { href: "/products/professional-services", label: "Professional Services" },
       { href: "/products/storage-systems", label: "Storage Systems" },
       { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
     ],
@@ -258,6 +251,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   return (
     <header
       ref={navbarRef}
+      id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${headerClasses}`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -430,25 +424,30 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   href={getLinkHref(item.href)}
                   onClick={(e) => handleNavigation(e, item.href)}
                   className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
-                    activeSection === item.sectionId ? "text-accent-green font-semibold" : ""
+                    // Condition for highlighting hash links on the same page OR direct page links
+                    (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
+                      ? "text-accent-green font-semibold"
+                      : ""
                   }`}
                 >
                   {item.label}
-                  {activeSection === item.sectionId && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-green animate-scale-in" />
-                  )}
                 </Link>
               )
             }
           })}
-          <Button
-            asChild
-            className="bg-accent-green text-charcoal hover:bg-accent-green/90 transition-all duration-300 hover:scale-105"
-          >
-            <Link href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>
-              Contact Us
+          <div className="hidden lg:flex items-center gap-x-2">
+            <Link href="/contact">
+              <Button 
+                className={`bg-accent-green text-charcoal font-semibold hover:scale-105 transition-all duration-300 ease-in-out ${ 
+                  showSolidNav 
+                    ? 'hover:bg-charcoal hover:text-white' 
+                    : 'hover:bg-white hover:text-charcoal' 
+                }`}
+              >
+                Contact Us
+              </Button>
             </Link>
-          </Button>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -473,8 +472,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                     <Link
                       href={linkHref}
                       onClick={(e) => handleNavigation(e, item.href)}
-                      className={`block py-2 transition-colors hover:text-accent-green ${
-                        activeSection === item.sectionId ? "text-accent-green font-semibold" : linkTextColor
+                      className={`block px-4 py-3 text-lg transition-colors duration-300 hover:text-accent-green ${
+                        // Condition for highlighting hash links on the same page OR direct page links in mobile nav
+                        (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
+                          ? "text-accent-green font-semibold"
+                          : "text-foreground/80"
                       }`}
                     >
                       {item.label}
@@ -512,8 +514,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                     <Link
                       href={linkHref}
                       onClick={(e) => handleNavigation(e, item.href)}
-                      className={`block py-2 transition-colors hover:text-accent-green ${
-                        activeSection === item.sectionId ? "text-accent-green font-semibold" : linkTextColor
+                      className={`block px-4 py-3 text-lg transition-colors duration-300 hover:text-accent-green ${
+                        // Condition for highlighting hash links on the same page OR direct page links in mobile nav
+                        (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
+                          ? "text-accent-green font-semibold"
+                          : "text-foreground/80"
                       }`}
                     >
                       {item.label}
@@ -538,8 +543,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                     key={item.label}
                     href={linkHref}
                     onClick={(e) => handleNavigation(e, item.href)}
-                    className={`block py-2 transition-colors hover:text-accent-green ${
-                      activeSection === item.sectionId ? "text-accent-green font-semibold" : linkTextColor
+                    className={`block px-4 py-3 text-lg transition-colors duration-300 hover:text-accent-green ${
+                      // Condition for highlighting hash links on the same page OR direct page links in mobile nav
+                      (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
+                        ? "text-accent-green font-semibold"
+                        : "text-foreground/80"
                     }`}
                   >
                     {item.label}
@@ -547,11 +555,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 )
               }
             })}
-            <Button asChild className="w-full bg-accent-green text-charcoal hover:bg-accent-green/90">
-              <Link href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>
-                Contact Us
+            <SheetFooter className="mt-6 pt-6 border-t border-gray-700">
+              <Link href="/contact" className="w-full">
+                <Button className="w-full bg-accent-green text-charcoal font-semibold hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">
+                  Contact Us
+                </Button>
               </Link>
-            </Button>
+            </SheetFooter>
           </nav>
         </div>
       )}

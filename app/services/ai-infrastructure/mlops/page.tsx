@@ -23,14 +23,17 @@ export default function MlopsPage() {
               Streamline the entire machine learning lifecycle with robust infrastructure and automation pipelines
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+              >
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
+                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
                 Learn More
               </Button>
@@ -322,14 +325,17 @@ export default function MlopsPage() {
               our MLOps solutions can accelerate your AI initiatives and ensure production success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+              >
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
+                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
                 View All Services
               </Button>

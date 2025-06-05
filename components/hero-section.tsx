@@ -66,6 +66,7 @@ export default function HeroSection() {
             muted
             loop
             playsInline
+            preload="metadata"
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
             style={{ width: "100vw", height: "100vh" }}
           >
@@ -95,7 +96,11 @@ export default function HeroSection() {
             Simplify and transform ideas into rational systems engineering artificial intelligence solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 animate-pulse-subtle group">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105 animate-pulse-subtle group"
+            >
               <Link href="#contact" className="flex items-center">
                 <PhoneCall className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 Book a discovery call
@@ -105,7 +110,7 @@ export default function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 bg-charcoal/50 font-medium group transition-all duration-300 hover:scale-105"
+              className="border-white text-white hover:bg-white hover:text-charcoal bg-charcoal/50 font-medium group transition-all duration-300 hover:scale-105"
             >
               <Link href="#download" className="flex items-center">
                 <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

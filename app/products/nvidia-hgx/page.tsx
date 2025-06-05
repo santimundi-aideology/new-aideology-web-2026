@@ -18,9 +18,9 @@ export default function NvidiaHGXPage() {
           The foundation for AI infrastructure - high-performance GPU-accelerated computing platforms designed for the
           most demanding AI and HPC workloads.
         </p>
-        <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
+        <div className="relative h-[500px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/products/nvidia_hgx_products.png"
+            src="/products/nvidia_hgx_products.jpg"
             alt="NVIDIA HGX GPU-accelerated computing systems in a modern data center"
             fill
             className="object-cover"
@@ -408,13 +408,16 @@ export default function NvidiaHGXPage() {
           optimal foundation for your AI infrastructure, from single nodes to large-scale deployments.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+          <Button 
+            asChild 
+            className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+          >
             <Link href="#contact">Contact our HGX specialists</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white"
+            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
             <Link href="https://www.nvidia.com/en-us/data-center/hgx/" target="_blank" rel="noopener noreferrer">
               Learn more on NVIDIA's website

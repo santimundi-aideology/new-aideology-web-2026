@@ -337,7 +337,10 @@ export default function ServicesPage() {
                             </li>
                           ))}
                         </ul>
-                        <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+                        <Button 
+                          asChild 
+                          className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                        >
                           <Link href="#contact">Inquire about this service</Link>
                         </Button>
                       </div>
@@ -462,7 +465,11 @@ export default function ServicesPage() {
           <p className="text-xl mb-8 max-w-2xl mx-auto text-charcoal/80">
             Let's discuss how our services can help you achieve your AI goals and overcome your challenges.
           </p>
-          <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+          >
             <Link href="#contact">Schedule a Consultation</Link>
           </Button>
         </div>

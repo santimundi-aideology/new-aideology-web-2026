@@ -25,7 +25,7 @@ export default function MachineLearningPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-8 py-4"
+                className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 Build ML Solutions
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -33,7 +33,7 @@ export default function MachineLearningPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4"
+                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 View Case Studies
               </Button>
@@ -106,13 +106,13 @@ export default function MachineLearningPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative group">
                 <Image
                   src="/placeholder.svg?height=500&width=600"
                   alt="Machine Learning Development"
                   width={600}
                   height={500}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
             </div>
@@ -291,13 +291,13 @@ export default function MachineLearningPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
+              <div className="relative group">
                 <Image
                   src="/placeholder.svg?height=400&width=600"
                   alt="Machine learning performance dashboard"
                   width={600}
                   height={400}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
               <div>
@@ -360,25 +360,25 @@ export default function MachineLearningPage() {
       {/* CTA Section */}
       <section className="py-20 bg-charcoal text-white">
         <div className="w-full px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Unlock ML Value?</h2>
+          <h2 className="text-4xl font-bold mb-6">Ready to Leverage Machine Learning?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transform your business with machine learning solutions that deliver measurable results. From concept to
-            production, we'll guide you through every step of your ML journey.
+            Partner with AIdeology to build machine learning solutions that drive innovation and deliver tangible
+            business value.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-8 py-4"
+              className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
             >
-              Start ML Project
+              Discuss Your Project
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4"
+              className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
             >
-              Assess ML Readiness
+              Explore Services
             </Button>
           </div>
         </div>

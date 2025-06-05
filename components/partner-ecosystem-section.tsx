@@ -87,9 +87,9 @@ export default function PartnerEcosystemSection() {
           {filteredPartners.length > 0 ? (
             filteredPartners.map((partner, index) => (
               <div // Styled div acting as a Card
-                key={`${partner.name}-${activeCategory}-${index}-card`} // Key for item identity is kept
-                className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group"
-                // Removed: animate-fade-in-up and style={{ animationDelay: ... }}
+                key={partner.name} // Key is stable based on partner name
+                className="bg-white border border-accent-green/10 rounded-lg p-6 flex items-center justify-center hover:border-accent-green/50 hover:shadow-lg hover:scale-105 transition-all duration-300 w-full h-32 group animate-fade-in-up" // Re-added animate-fade-in-up
+                style={{ animationDelay: `${index * 50}ms` }} // Re-added staggered delay
               >
                 <Link
                   href={partner.website}
@@ -101,7 +101,6 @@ export default function PartnerEcosystemSection() {
                     src={partner.logo || "/placeholder.svg"}
                     alt={`${partner.name} logo`}
                     className="w-auto h-auto max-w-[140px] max-h-[70px] object-contain transition-all duration-300 group-hover:scale-110"
-                    loading="lazy"
                   />
                   {partner.categories && partner.categories.length > 1 && (
                     <div className="absolute -top-2 -right-2 flex flex-wrap gap-1">
@@ -148,7 +147,13 @@ export default function PartnerEcosystemSection() {
           
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Elite Partner Section */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up" style={{animationDelay: '100ms'}}>
+            <a 
+              href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&limit=15&name=aideology-plc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up hover:no-underline"
+              style={{animationDelay: '100ms'}}
+            >
               <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
                 <img 
                   src="/elite-partner.webp" 
@@ -167,10 +172,16 @@ export default function PartnerEcosystemSection() {
                   <li>DGX AI Compute Systems</li>
                 </ul>
               </div>
-            </div>
+            </a>
 
             {/* Preferred Partner Section */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up" style={{animationDelay: '300ms'}}>
+            <a 
+              href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&limit=15&name=aideology-plc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up hover:no-underline"
+              style={{animationDelay: '300ms'}}
+            >
               <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
                 <img 
                   src="/preferred-partner.webp" 
@@ -188,7 +199,7 @@ export default function PartnerEcosystemSection() {
                   <li>DGX Cloud</li>
                 </ul>
               </div>
-            </div>
+            </a>
           </div>
         </div>
         {/* End NVIDIA Certifications Section */}
@@ -196,26 +207,36 @@ export default function PartnerEcosystemSection() {
         {/* NVIDIA Expertise Section */}
         <div className="mt-16 pt-10 border-t border-gray-300">
           <h3 className="text-2xl md:text-3xl font-bold text-charcoal text-center mb-12 animate-fade-in-up">Our NVIDIA Expertise</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center items-center animate-fade-in-up" style={{animationDelay: '200ms'}}>
+          <div className="flex flex-wrap justify-center items-stretch gap-8 animate-fade-in-up" style={{animationDelay: '200ms'}}>
             {[ 
-              { src: "/cuda-logo.webp", alt: "NVIDIA CUDA" },
-              { src: "/triton-inference-server-logo.webp", alt: "NVIDIA Triton Inference Server" },
-              { src: "/omniverse-logo.webp", alt: "NVIDIA Omniverse" },
-              { src: "/cudnn-logo.webp", alt: "NVIDIA cuDNN" },
-              { src: "/rapids-logo.webp", alt: "NVIDIA RAPIDS" },
-              { src: "/tensorrt-logo.webp", alt: "NVIDIA TensorRT" },
+              { src: "/cuda-logo.webp", alt: "NVIDIA CUDA", href: "https://developer.nvidia.com/cuda-toolkit" },
+              { src: "/triton-inference-server-logo.webp", alt: "NVIDIA Triton Inference Server", href: "https://developer.nvidia.com/triton-inference-server" },
+              { src: "/omniverse-logo.webp", alt: "NVIDIA Omniverse", href: "https://www.nvidia.com/en-us/omniverse/" },
+              { src: "/cudnn-logo.webp", alt: "NVIDIA cuDNN", href: "https://developer.nvidia.com/cudnn" },
+              { src: "/rapids-logo.webp", alt: "NVIDIA RAPIDS", href: "https://rapids.ai/" },
+              { src: "/tensorrt-logo.webp", alt: "NVIDIA TensorRT", href: "https://developer.nvidia.com/tensorrt" },
+              { src: "/partner-logos/nemo-logo.webp", alt: "NVIDIA NeMo", href: "https://www.nvidia.com/en-us/ai-data-science/products/nemo/" },
+              { src: "/isaac-sim-logo.webp", alt: "NVIDIA Isaac Sim", href: "https://developer.nvidia.com/isaac/sim" },
+              { src: "/clara-logo.webp", alt: "NVIDIA Clara", href: "https://www.nvidia.com/en-us/clara/" },
+              { src: "/academy-logo.webp", alt: "NVIDIA Academy", href: "https://academy.nvidia.com/en/" },
             ].map((logo, index) => (
-              <div 
-                key={logo.alt}
-                className="group p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex justify-center items-center h-24 w-full"
+              <a
+                key={index}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex justify-center items-center h-24 w-44" // Fixed width card
+                style={{ animationDelay: `${index * 75}ms` }} // Staggered animation
               >
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt} 
-                  className="max-h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
+                <div className="flex flex-col items-center text-center">
+                  <img 
+                    src={logo.src} 
+                    alt={logo.alt} 
+                    className="h-16 object-contain mb-2 group-hover:scale-110 transition-transform duration-300"
+                  />
+                  {/* <span className="text-xs text-charcoal group-hover:text-accent-blue">{logo.alt}</span> */}
+                </div>
+              </a>
             ))}
           </div>
         </div>

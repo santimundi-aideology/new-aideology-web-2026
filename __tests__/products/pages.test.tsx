@@ -3,7 +3,7 @@ import { render } from "@testing-library/react"
 import ProductsPage from "@/app/products/page"
 import NvidiaDGXPage from "@/app/products/nvidia-dgx/page"
 import NvidiaHGXPage from "@/app/products/nvidia-hgx/page"
-import NetworkingPage from "@/app/products/networking/page"
+import NetworkingPage from "@/app/products/professional-services/page"
 import StorageSystemsPage from "@/app/products/storage-systems/page"
 import NvidiaAIEnterprisePage from "@/app/products/nvidia-ai-enterprise/page"
 import jest from "jest" // Import jest to fix the undeclared variable error

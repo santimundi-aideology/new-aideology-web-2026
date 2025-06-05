@@ -1,34 +1,48 @@
+"use client";
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Server, Database, Network, Shield } from "lucide-react"
+import { Server, Database, Network, Shield, Cpu, Briefcase, HardDrive, BrainCog } from "lucide-react"
 
 export default function ProductsPromo() {
+  const imageUrl = "/ai-products.webp";
+
   const productCategories = [
     { name: "NVIDIA DGX Systems", href: "/products/nvidia-dgx", icon: Server },
-    { name: "NVIDIA HGX Systems", href: "/products/nvidia-hgx", icon: Server },
-    { name: "Networking Solutions", href: "/products/networking", icon: Network },
-    { name: "Storage Systems", href: "/products/storage-systems", icon: Database },
-    { name: "NVIDIA AI Enterprise", href: "/products/nvidia-ai-enterprise", icon: Shield },
+    { name: "NVIDIA HGX Systems", href: "/products/nvidia-hgx", icon: Cpu },
+    { name: "Professional Services", href: "/products/professional-services", icon: Briefcase },
+    { name: "Storage Systems", href: "/products/storage-systems", icon: HardDrive },
+    { name: "NVIDIA AI Enterprise", href: "/products/nvidia-ai-enterprise", icon: BrainCog },
   ]
 
   return (
     <section id="products" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="w-full md:w-1/2 h-full flex items-center justify-center">
-            <div className="relative w-full h-[500px]">
+          <div 
+            className="w-full md:w-1/2 animate-fade-in-up transition-transform duration-300 ease-in-out hover:scale-110"
+            style={{
+              animationDelay: '100ms',
+            }}
+          >
+            <div className="relative w-full">
               <Image
-                src="/ai-server-room-gpus.png"
+                src={imageUrl}
                 alt="Advanced AI data center with high-performance GPU server racks and cooling infrastructure"
-                fill
-                className="rounded-lg shadow-lg object-cover"
-                style={{ objectPosition: "center" }}
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="rounded-lg shadow-lg"
+                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
               />
             </div>
           </div>
 
-          <div className="w-full md:w-1/2">
+          <div 
+            className="w-full md:w-1/2 animate-fade-in-up"
+            style={{ animationDelay: '300ms' }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">
               Cutting-Edge AI Products to Power Your Vision
             </h2>
@@ -58,7 +72,10 @@ export default function ProductsPromo() {
               </ul>
             </div>
 
-            <Button asChild className="bg-charcoal text-white hover:bg-charcoal/90 px-8 py-3">
+            <Button 
+              asChild 
+              className="bg-charcoal text-white hover:bg-accent-green hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+            >
               <Link href="/products">Explore Products</Link>
             </Button>
           </div>

@@ -26,7 +26,7 @@ export default function AiDataPlatformPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-8 py-4"
+                className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 Start Planning
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -34,7 +34,7 @@ export default function AiDataPlatformPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4"
+                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 View Architecture
               </Button>
@@ -109,13 +109,13 @@ export default function AiDataPlatformPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative group">
                 <Image
                   src="/placeholder.svg?height=500&width=600"
                   alt="AI Data Platform Architecture"
                   width={600}
                   height={500}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
             </div>
@@ -291,13 +291,13 @@ export default function AiDataPlatformPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
+              <div className="relative group">
                 <Image
                   src="/placeholder.svg?height=400&width=600"
                   alt="AI data platform dashboard"
                   width={600}
                   height={400}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
               <div>
@@ -360,25 +360,25 @@ export default function AiDataPlatformPage() {
       {/* CTA Section */}
       <section className="py-20 bg-charcoal text-white">
         <div className="w-full px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Build Your AI Data Foundation?</h2>
+          <h2 className="text-4xl font-bold mb-6">Ready to Build Your AI-Powered Data Platform?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transform your data infrastructure into a strategic asset that powers successful AI initiatives. Let our
-            experts design and implement the platform your AI ambitions deserve.
+            Our expert consultants will help you design, implement, and optimize a data platform that accelerates
+            your AI initiatives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold text-lg px-8 py-4"
+              className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
             >
-              Start Assessment
+              Discuss Your Platform
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4"
+              className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
             >
-              Download Guide
+              View Case Studies
             </Button>
           </div>
         </div>
