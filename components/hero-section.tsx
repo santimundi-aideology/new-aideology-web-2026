@@ -99,10 +99,10 @@ export default function HeroSection() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105 animate-pulse-subtle group"
+              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105"
             >
-              <Link href="#contact" className="flex items-center">
-                <PhoneCall className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Link href="#contact" className="flex items-center transition-transform hover:translate-x-1">
+                <PhoneCall className="mr-2 h-5 w-5" />
                 Book a discovery call
               </Link>
             </Button>
@@ -110,10 +110,10 @@ export default function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-charcoal bg-charcoal/50 font-medium group transition-all duration-300 hover:scale-105"
+              className="border-white text-white hover:bg-white hover:text-charcoal bg-charcoal/50 font-medium transition-all duration-300 hover:scale-105"
             >
-              <Link href="#download" className="flex items-center">
-                <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Link href="#download" className="flex items-center transition-transform hover:translate-x-1">
+                <Download className="mr-2 h-5 w-5" />
                 Download one-pager
               </Link>
             </Button>

@@ -48,6 +48,7 @@ export default function SolutionsSection() {
       ),
       link: "/solutions/ai-consulting",
       subpages: [
+        { name: "AI Security & Compliance", path: "/solutions/ai-security-compliance" },
         { name: "Conversational AI", path: "/services/ai-consulting/conversational-ai" },
         { name: "Generative AI", path: "/services/ai-consulting/generative-ai" },
         { name: "AI Agents", path: "/services/ai-consulting/ai-agents" },

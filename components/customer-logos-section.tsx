@@ -95,7 +95,7 @@ export default function CustomerLogosSection() {
         </div>
 
         <div className="text-center mt-10 animate-fade-in-up" style={{animationDelay: '400ms'}}>
-          <Button asChild variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 px-6 py-3">
+          <Button asChild variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105 px-6 py-3">
             <Link href="/customers" className="flex items-center">
               View customer success stories
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

@@ -1,9 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from "@/components/ui/card"
@@ -150,12 +150,14 @@ export default function NewsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {newsItems.map((item) => (
               <Card key={item.id} className="relative min-h-[320px] overflow-hidden bg-gray-900 text-white border border-accent-green/10 shadow-md hover-lift group animate-fade-in-up flex flex-col justify-end">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 z-0 w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity duration-300"
-                />
-                <div className="relative z-10 p-4 bg-gradient-to-t from-black/80 to-transparent h-full flex flex-col justify-end">
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity duration-300"
+                  />
+                </div>
+                <Link href={item.link} className="relative z-10 p-4 bg-gradient-to-t from-black/80 to-transparent h-full flex flex-col justify-end">
                   <CardHeader className="flex-shrink-0 p-0">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-xs font-semibold text-white bg-accent-green/20 px-2 py-1 rounded-full">
@@ -171,15 +173,14 @@ export default function NewsPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="mt-4">
-                    <Link
-                      href={item.link}
+                    <div
                       className="text-white hover:text-accent-green flex items-center group font-semibold drop-shadow-md"
                     >
                       Read more
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-accent-green" />
-                    </Link>
+                    </div>
                   </CardContent>
-                </div>
+                </Link>
               </Card>
             ))}
           </div>

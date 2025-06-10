@@ -264,7 +264,7 @@ export default function CustomersPage() {
               <div className="flex items-center mb-6">
                 {useCases[0].logo && (
                   <>
-                    <div className="bg-white/80 p-3 rounded-lg shadow-md mr-4">
+                    <div className="bg-white p-3 rounded-lg shadow-md mr-4">
                       <Image
                         src={useCases[0].logo || "/placeholder.svg"}
                         alt={useCases[0].testimonial?.company || "Company logo"}
@@ -273,7 +273,7 @@ export default function CustomersPage() {
                         className="h-12 w-auto"
                       />
                     </div>
-                    <div className="bg-white/80 p-3 rounded-lg shadow-md mr-4">
+                    <div className="bg-white p-3 rounded-lg shadow-md mr-4">
                       <Image
                         src="/aideology.webp"
                         alt="AIdeology logo"
