@@ -38,4 +38,4 @@ const partners = [
   { name: "NVIDIA NEMO", logo: "/partner-logos/nemo-logo.webp", categories: ["infra-ai", "gen-ai"], website: "https://www.nvidia.com/en-us/ai-data-science/generative-ai/nemo-framework/" },
 ];
 
-export const allPartners = [...partners].sort((a, b) => a.name.localeCompare(b.name)); 
+export const allPartners = [...partners].sort((a, b) => a.name.localeCompare(b.name));
