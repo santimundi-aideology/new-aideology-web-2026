@@ -70,7 +70,7 @@ const VisionAIPage = () => {
               size="lg" 
               className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
             >
-              <Link href="#contact">Book a Call</Link>
+              <Link href="/book-discovery-call?type=consultation">Book a Call</Link>
             </Button>
           </div>
 

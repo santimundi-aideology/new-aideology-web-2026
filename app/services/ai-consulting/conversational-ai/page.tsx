@@ -290,9 +290,12 @@ export default function ConversationalAiPage() {
             <Button
               size="lg"
               className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              Request a Demo
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/book-discovery-call?type=demo">
+                Request a Demo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button
               size="lg"

@@ -354,16 +354,22 @@ export default function GenerativeAiPage() {
             <Button
               size="lg"
               className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              Start Your AI Journey
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/book-discovery-call">
+                Start Your AI Journey
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-accent-green text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              Explore Use Cases
+              <Link href="/solutions">
+                Explore Use Cases
+              </Link>
             </Button>
           </div>
         </div>

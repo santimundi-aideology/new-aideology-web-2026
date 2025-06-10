@@ -437,7 +437,7 @@ export default function NvidiaAIEnterprisePage() {
             size="lg" 
             className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
           >
-            <Link href="#contact">Request a Demo</Link>
+            <Link href="/book-discovery-call?type=demo">Request a Demo</Link>
           </Button>
           <Button
             asChild

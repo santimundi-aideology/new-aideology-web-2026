@@ -177,7 +177,7 @@ export default function ProfessionalServicesPage() {
             size="lg"
             className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-xl hover:scale-105 transition-all duration-300 ease-in-out"
           >
-            <Link href="/#contact" className="inline-flex items-center">
+            <Link href="/contact" className="inline-flex items-center">
               <Mail className="mr-2 h-5 w-5" />
               Get in Touch
             </Link>

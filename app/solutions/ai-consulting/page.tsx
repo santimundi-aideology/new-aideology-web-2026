@@ -331,7 +331,7 @@ export default function AIConsultingPage() {
           </p>
           <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">
-              <Link href="#contact">Book a consultation</Link>
+              <Link href="/book-discovery-call?type=consultation">Book a consultation</Link>
             </Button>
           </div>
         </div>

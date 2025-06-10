@@ -146,7 +146,7 @@ export default function ProductsPage() {
             className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
             size="lg"
           >
-            <Link href="/#contact">Contact us</Link>
+            <Link href="/contact">Contact us</Link>
           </Button>
         </div>
       </div>

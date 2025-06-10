@@ -347,7 +347,7 @@ export default function NetworkingPage() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-            <Link href="#contact">Contact Our Specialists</Link>
+            <Link href="/contact">Contact Our Specialists</Link>
           </Button>
           <Button
             asChild

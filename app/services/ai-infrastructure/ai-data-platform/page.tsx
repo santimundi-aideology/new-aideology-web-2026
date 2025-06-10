@@ -442,11 +442,14 @@ export default function AiDataPlatformPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
+                asChild
                 size="lg" 
                 className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
-                Schedule a Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href="/book-discovery-call?type=consultation">
+                  Schedule a Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"

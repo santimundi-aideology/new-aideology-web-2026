@@ -5,6 +5,7 @@ import "./globals.css"
 // import ScrollToTop from "@/components/scroll-to-top" // Commented out
 import ScrollAnimations from "@/components/scroll-animations"
 import Navbar from "@/components/navbar"
+import { Toaster } from 'sonner'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Navbar />
         <ScrollAnimations />
         {children}
+        <Toaster position="top-right" />
       </body>
     </html>
   )

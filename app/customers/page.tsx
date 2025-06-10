@@ -465,7 +465,7 @@ export default function CustomersPage() {
             achieve its goals.
           </p>
           <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-            <Link href="#contact">Schedule a Consultation</Link>
+            <Link href="/book-discovery-call?type=consultation">Schedule a Consultation</Link>
           </Button>
         </div>
       </section>

@@ -260,7 +260,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
               size="lg" 
               className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
             >
-              <Link href="/#contact" className="inline-flex items-center">
+              <Link href="/contact" className="inline-flex items-center">
                 <Mail className="mr-2 h-5 w-5" />
                 Discuss Your Project
               </Link>
@@ -332,7 +332,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
               size="lg"
               className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-xl hover:scale-105 transition-all duration-300 ease-in-out"
             >
-              <Link href="/#contact" className="inline-flex items-center">
+              <Link href="/contact" className="inline-flex items-center">
                 <Mail className="mr-2 h-5 w-5" />
                 Contact an Expert
               </Link>

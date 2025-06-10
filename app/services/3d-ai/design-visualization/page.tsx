@@ -290,12 +290,23 @@ export default function DesignVisualizationPage() {
             and outcomes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
-              Contact Us
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button 
+              size="lg" 
+              className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold"
+              asChild
+            >
+              <Link href="/contact">
+                Contact Us
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-charcoal">
-              View All Services
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-charcoal"
+              asChild
+            >
+              <Link href="/services">View All Services</Link>
             </Button>
           </div>
         </div>

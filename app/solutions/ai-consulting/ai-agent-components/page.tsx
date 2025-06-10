@@ -509,7 +509,7 @@ export default function AIAgentComponentsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-              <Link href="#contact">Schedule a consultation</Link>
+              <Link href="/book-discovery-call?type=consultation">Schedule a consultation</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Link href="/services">View all services</Link>

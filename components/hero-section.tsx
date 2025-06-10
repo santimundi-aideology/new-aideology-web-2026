@@ -101,7 +101,7 @@ export default function HeroSection() {
               size="lg" 
               className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105 animate-pulse-subtle group"
             >
-              <Link href="#contact" className="flex items-center">
+              <Link href="/book-discovery-call" className="flex items-center">
                 <PhoneCall className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 Book a discovery call
               </Link>

@@ -145,7 +145,7 @@ export default function StorageSystemsPage() {
             asChild 
             className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
-            <Link href="#contact">Contact us</Link>
+            <Link href="/contact">Contact us</Link>
           </Button>
           <Button
             asChild

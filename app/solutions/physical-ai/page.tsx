@@ -347,7 +347,7 @@ export default function PhysicalAIPage() {
             robotics.
           </p>
           <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-            <Link href="#contact">Schedule a consultation</Link>
+            <Link href="/book-discovery-call?type=consultation">Schedule a consultation</Link>
           </Button>
         </div>
       </section>

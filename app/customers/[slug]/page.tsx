@@ -652,7 +652,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                     solutions.
                   </p>
                   <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
-                    <Link href="#contact">Schedule a Consultation</Link>
+                    <Link href="/book-discovery-call?type=consultation&from=Schedule a Consultation">Schedule a Consultation</Link>
                   </Button>
                 </div>
               </div>
@@ -669,7 +669,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             Let's discuss how AIdeology's solutions can help you achieve your goals and overcome your challenges.
           </p>
           <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-            <Link href="#contact">Get Started Today</Link>
+            <Link href="/book-discovery-call?type=consultation">Get Started Today</Link>
           </Button>
         </div>
       </section>

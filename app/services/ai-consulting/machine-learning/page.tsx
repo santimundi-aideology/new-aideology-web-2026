@@ -369,9 +369,12 @@ export default function MachineLearningPage() {
             <Button
               size="lg"
               className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              Discuss Your Project
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/book-discovery-call?type=consultation">
+                Discuss Your Project
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button
               size="lg"

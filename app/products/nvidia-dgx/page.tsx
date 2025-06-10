@@ -348,7 +348,7 @@ export default function NvidiaDGXPage() {
             asChild 
             className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
-            <Link href="#contact">Schedule a Consultation</Link>
+            <Link href="/book-discovery-call?type=consultation">Schedule a Consultation</Link>
           </Button>
           <Button
             asChild
