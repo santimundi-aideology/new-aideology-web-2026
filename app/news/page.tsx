@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowLeft, ArrowRight } from "lucide-react"
-import Navbar from "@/components/navbar"
+
 import Footer from "@/components/footer"
 
 interface NewsArticle {
@@ -109,7 +109,7 @@ export default function NewsPage() {
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
-      <Navbar />
+
 
       <section className="pt-32 pb-16 bg-white">
         <div className="container mx-auto px-4">

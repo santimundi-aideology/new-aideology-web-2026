@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, CheckCircle, Quote } from "lucide-react"
-import Navbar from "@/components/navbar"
+
 import Footer from "@/components/footer"
 import type { StaticImageData } from 'next/image'
 
@@ -242,8 +242,8 @@ export default function CustomersPage() {
   const gtmCategories = ["AI Infrastructure", "3D AI", "AI Consulting", "Physical AI"]
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-28">
-      <Navbar />
+    <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-20">
+
 
       {/* Hero Section */}
       <section className="pb-16 bg-white">

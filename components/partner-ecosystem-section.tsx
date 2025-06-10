@@ -56,12 +56,12 @@ export default function PartnerEcosystemSection() {
               href={partner.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white border-2 border-gray-200 p-4 rounded-lg shadow-lg flex flex-col justify-center items-center min-h-[100px] opacity-100 visible z-10 hover:border-accent-green/50 hover:shadow-xl"
+              className="bg-white border-2 border-gray-200 p-4 rounded-lg shadow-lg flex flex-col justify-center items-center min-h-[100px] opacity-100 visible z-10 hover:border-accent-green/50 hover:shadow-xl transition-transform duration-300 hover:scale-105"
               style={{ 
                 animationDelay: `${index * 50}ms`,
-                display: 'flex !important',
-                visibility: 'visible !important',
-                opacity: '1 !important'
+                display: 'flex',
+                visibility: 'visible',
+                opacity: '1'
               }}
             >
               <img
@@ -69,9 +69,9 @@ export default function PartnerEcosystemSection() {
                 alt={`${partner.name} logo`}
                 className="max-h-12 w-auto object-contain opacity-100 visible"
                 style={{
-                  display: 'block !important',
-                  visibility: 'visible !important',
-                  opacity: '1 !important'
+                  display: 'block',
+                  visibility: 'visible',
+                  opacity: '1'
                 }}
               />
             </Link>
@@ -88,7 +88,7 @@ export default function PartnerEcosystemSection() {
               href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&limit=15&name=aideology-plc"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up hover:no-underline"
+              className="flex flex-col bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 animate-fade-in-up hover:no-underline hover:scale-105"
             >
               <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
                  <img 
@@ -114,7 +114,7 @@ export default function PartnerEcosystemSection() {
               href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&limit=15&name=aideology-plc"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-in-up hover:no-underline"
+              className="flex flex-col bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 animate-fade-in-up hover:no-underline hover:scale-105"
             >
                <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
                  <img 

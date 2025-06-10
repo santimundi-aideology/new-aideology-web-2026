@@ -14,22 +14,20 @@ export default function ProductLayout({
 }: ProductLayoutProps) {
   return (
     <>
-      <div className="px-4 pt-32 pb-12"> {/* Changed pt-28 to pt-32 */}
-        <div className="container mx-auto">
-          {/* The 'Back to Products' Link div has been removed */}
-          {/* 
-          <div className="mb-6">
-            <Link
-              href={backLink} // This was using the removed props
-              className="flex items-center text-accent-green hover:text-accent-green/80 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              {backText} // This was using the removed props
-            </Link>
-          </div>
-          */}
-          <div className="prose prose-lg max-w-none">{children}</div>
+      <div className="pt-32 pb-12"> {/* Removed px-4 and container to allow full width */}
+        {/* The 'Back to Products' Link div has been removed */}
+        {/* 
+        <div className="mb-6">
+          <Link
+            href={backLink} // This was using the removed props
+            className="flex items-center text-accent-green hover:text-accent-green/80 transition-colors"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            {backText} // This was using the removed props
+          </Link>
         </div>
+        */}
+        <div className="prose prose-lg max-w-none">{children}</div>
       </div>
       <Footer />
     </>

@@ -293,11 +293,11 @@ export default function MachineLearningPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative group">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/ml-cycle.webp"
                   alt="Machine learning performance dashboard"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                  width={720}
+                  height={480}
+                  className="group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </div>
               <div>

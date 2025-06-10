@@ -12,7 +12,7 @@ export const metadata = {
 export default function NetworkingPage() {
   return (
     <ProductLayout>
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h1 className="text-4xl font-bold mb-6 text-charcoal">AI Networking Solutions</h1>
         <p className="text-xl text-gray-600 mb-8">
           Advanced networking infrastructure designed for AI data centers, featuring the latest Ethernet and InfiniBand

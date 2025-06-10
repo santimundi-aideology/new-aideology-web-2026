@@ -12,7 +12,7 @@ export const metadata = {
 export default function StorageSystemsPage() {
   return (
     <ProductLayout>
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h1 className="text-4xl font-bold mb-6 text-charcoal">AI Storage Systems</h1>
         <p className="text-xl text-gray-600 mb-8">
           High-performance storage solutions designed for AI data pipelines, large-scale training, and inference
@@ -28,7 +28,7 @@ export default function StorageSystemsPage() {
         </div>
       </div>
 
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-4 text-charcoal">Storage for the AI Era</h2>
         <p className="mb-4">
           AI workloads place unique demands on storage infrastructure, requiring systems that can deliver massive
@@ -42,7 +42,7 @@ export default function StorageSystemsPage() {
         </p>
       </div>
 
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-4 text-charcoal">Our Storage Solutions</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -107,7 +107,7 @@ export default function StorageSystemsPage() {
         </div>
       </div>
 
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-4 text-charcoal">Key Considerations for AI Storage</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow p-6">
@@ -134,7 +134,8 @@ export default function StorageSystemsPage() {
         </div>
       </div>
 
-      <div className="bg-accent-green/10 rounded-lg p-8 text-center">
+      <div className="container mx-auto px-4">
+        <div className="bg-accent-green/10 rounded-lg p-8 text-center">
         <h2 className="text-3xl font-bold mb-4 text-charcoal">Optimize Your AI Data Infrastructure</h2>
         <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
           Contact our team to discuss your AI storage requirements and learn how our solutions can accelerate your AI
@@ -149,8 +150,7 @@ export default function StorageSystemsPage() {
           </Button>
           <Button
             asChild
-            variant="outline"
-            className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+            className="bg-charcoal text-white hover:bg-accent-green hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
           >
             <Link
               href="https://www.nvidia.com/en-us/data-center/dgx-systems/storage/"
@@ -161,6 +161,7 @@ export default function StorageSystemsPage() {
             </Link>
           </Button>
         </div>
+      </div>
       </div>
     </ProductLayout>
   )

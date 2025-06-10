@@ -28,7 +28,7 @@ export default function ConversationalAiPage() {
               {/* Feature Pills */}
               <div className="flex flex-wrap gap-3 mb-8">
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">24/7 Availability</div>
-                <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">95% Accuracy</div>
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">99% Accuracy</div>
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Multi-Language</div>
               </div>
 
@@ -98,7 +98,6 @@ export default function ConversationalAiPage() {
                   <p className="text-gray-600 mb-4">
                     Context-aware bots that maintain conversation flow and understand complex queries
                   </p>
-                  <div className="text-blue-600 font-semibold text-sm">Learn More →</div>
                 </div>
               </div>
 
@@ -111,7 +110,6 @@ export default function ConversationalAiPage() {
                   <p className="text-gray-600 mb-4">
                     Natural speech recognition and synthesis for hands-free interactions
                   </p>
-                  <div className="text-purple-600 font-semibold text-sm">Learn More →</div>
                 </div>
               </div>
 
@@ -124,7 +122,6 @@ export default function ConversationalAiPage() {
                   <p className="text-gray-600 mb-4">
                     Automated support that resolves issues instantly while maintaining human touch
                   </p>
-                  <div className="text-green-600 font-semibold text-sm">Learn More →</div>
                 </div>
               </div>
 
@@ -135,7 +132,6 @@ export default function ConversationalAiPage() {
                   </div>
                   <h3 className="text-xl font-bold text-charcoal mb-3">Analytics</h3>
                   <p className="text-gray-600 mb-4">Deep insights into customer behavior and conversation patterns</p>
-                  <div className="text-orange-600 font-semibold text-sm">Learn More →</div>
                 </div>
               </div>
             </div>
@@ -241,7 +237,7 @@ export default function ConversationalAiPage() {
                     conversations.
                   </p>
                   <div className="mt-6">
-                    <Link href="https://developer.nvidia.com/riva" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://www.nvidia.com/en-us/ai-data-science/products/riva/" target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="outline"
                         className="border-accent-purple text-accent-purple hover:bg-accent-purple hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"

@@ -361,7 +361,7 @@ export default function AiAgentsPage() {
       <section className="bg-charcoal text-white flex-grow flex flex-col pt-16">
         <div className="w-full px-6 lg:px-12">
           <h3 className="text-3xl font-bold text-white mb-12 text-center">Related AI Consulting Services</h3>
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto mb-16">
+          <div className="rounded-2xl p-8 max-w-6xl mx-auto mb-16">
             <div className="grid md:grid-cols-3 gap-8">
               <Link href="/services/ai-consulting/conversational-ai" className="group">
                 <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">

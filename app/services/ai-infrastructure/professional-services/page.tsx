@@ -221,7 +221,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
 
   return (
     <ServiceLayout>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="mb-6 text-sm text-gray-500 flex items-center" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-gray-700">Home</Link>
           {breadcrumbPath.map((item, index) => (
@@ -237,94 +237,117 @@ export default function AiInfrastructureProfessionalServicesPage() {
             </div>
           ))}
         </nav>
+      </div>
 
-        <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-16 md:py-20 rounded-lg mb-12 shadow-xl">
-          <div className="absolute inset-0 opacity-10">
-            {heroImage && (
-              <Image
-                src={heroImage}
-                alt="AI Infrastructure Services"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-            )}
-          </div>
-          <div className="relative z-10 container mx-auto px-6 lg:px-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{heroTitle}</h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-              {heroSubtitle}
+      <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-16 md:py-20 shadow-xl">
+        <div className="absolute inset-0 opacity-10">
+          {heroImage && (
+            <Image
+              src={heroImage}
+              alt="AI Infrastructure Services"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+          )}
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold max-w-3xl">
+            {heroTitle}
+          </h1>
+          <p className="mt-4 text-lg text-gray-300 max-w-3xl">
+            {heroSubtitle}
+          </p>
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+          >
+            <Link href="/#contact" className="inline-flex items-center">
+              <Mail className="mr-2 h-5 w-5" />
+              Discuss Your Project
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">
+              A Partner for Every Step of Your AI Journey
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              AIdeology's Professional Services provide the deep expertise and hands-on support you need to design,
+              deploy, and optimize high-performance AI infrastructure. We de-risk your investment and accelerate your
+              time to value.
             </p>
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
-            >
-              <Link href="/#contact" className="inline-flex items-center">
-                <Mail className="mr-2 h-5 w-5" />
-                Discuss Your Project
-              </Link>
-            </Button>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="py-12 md:py-16 bg-gray-100 rounded-lg mb-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Comprehensive Services for Peak AI Performance</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Our Professional Services for AI Infrastructure are designed to help you build, manage, and scale a high-performance, reliable, and cost-effective foundation for all your AI initiatives.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {serviceOfferings.map((service) => (
-                <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <div className="flex justify-center md:justify-start mb-4">{service.icon}</div>
-                  <h3 className="text-2xl font-bold text-charcoal mb-3 text-center md:text-left">{service.title}</h3>
-                  <p className="text-gray-600 mb-4 text-center md:text-left">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.points.map((point) => (
-                      <li key={point} className="flex items-start">
-                        <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-1 flex-shrink-0" />
-                        <span className="text-gray-700">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
+              Our End-to-End Service Lifecycle
+            </h2>
+            <p className="text-lg text-gray-600 mb-12">
+              We provide a structured, comprehensive approach to AI infrastructure projects, ensuring success and a
+              seamless experience from initiation to ongoing operation.
+            </p>
           </div>
-        </section>
-
-        <section className="py-12 md:py-16 mb-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Why AIdeology for Infrastructure Services?</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Partner with us to build a future-proof AI infrastructure foundation.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { title: "Deep Technical Expertise", description: "Certified experts in NVIDIA technologies, high-performance computing, and AI data center design.", icon: <Zap className="w-8 h-8 text-accent-green" /> },
-                { title: "End-to-End Solutions", description: "From initial consultation and design to deployment, management, and ongoing support.", icon: <Layers className="w-8 h-8 text-accent-green" /> },
-                { title: "Proven Track Record", description: "Successful deployments of complex AI infrastructures for leading enterprises and research institutions.", icon: <CheckCircle className="w-8 h-8 text-accent-green" /> },
-                { title: "Strategic Partnerships", description: "Strong relationships with leading hardware and software vendors to provide the best solutions.", icon: <Users className="w-8 h-8 text-accent-green" /> }
-              ].map(reason => (
-                <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-                  <div className="flex justify-center mb-4">{reason.icon}</div>
-                  <h3 className="text-xl font-semibold text-charcoal mb-2">{reason.title}</h3>
-                  <p className="text-gray-600 text-sm">{reason.description}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {serviceOfferings.map((service) => (
+              <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div className="flex justify-center md:justify-start mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-bold text-charcoal mb-3 text-center md:text-left">{service.title}</h3>
+                <p className="text-gray-600 mb-4 text-center md:text-left">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.points.map((point) => (
+                    <li key={point} className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="py-16 bg-gradient-to-r from-accent-green to-emerald-600 text-white rounded-lg">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Optimize Your AI Infrastructure?</h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Why Partner with AIdeology?</h2>
+            <p className="text-lg text-gray-600 mb-12">
+              Our services are built on a foundation of deep technical expertise, a proven methodology, and a
+              commitment to your success.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Deep Technical Expertise", description: "Certified experts in NVIDIA technologies, high-performance computing, and AI data center design.", icon: <Zap className="w-8 h-8 text-accent-green" /> },
+              { title: "End-to-End Solutions", description: "From initial consultation and design to deployment, management, and ongoing support.", icon: <Layers className="w-8 h-8 text-accent-green" /> },
+              { title: "Proven Track Record", description: "Successful deployments of complex AI infrastructures for leading enterprises and research institutions.", icon: <CheckCircle className="w-8 h-8 text-accent-green" /> },
+              { title: "Strategic Partnerships", description: "Strong relationships with leading hardware and software vendors to provide the best solutions.", icon: <Users className="w-8 h-8 text-accent-green" /> }
+            ].map(reason => (
+              <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+                <div className="flex justify-center mb-4">{reason.icon}</div>
+                <h3 className="text-xl font-semibold text-charcoal mb-2">{reason.title}</h3>
+                <p className="text-gray-600 text-sm">{reason.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-accent-green/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center bg-white p-12 rounded-lg shadow-lg">
+            <h2 className="text-3xl font-bold text-charcoal mb-4">Ready to Build Your AI Future?</h2>
+            <p className="text-lg text-gray-600 mb-8">
               Our Professional Services team is ready to help. Contact us for a detailed consultation.
             </p>
             <Button
@@ -338,8 +361,8 @@ export default function AiInfrastructureProfessionalServicesPage() {
               </Link>
             </Button>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </ServiceLayout>
   )
 }

@@ -8,10 +8,10 @@ export default function GenerativeAiPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Animated Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-32">
+      <section className="relative overflow-hidden bg-charcoal text-white py-32">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-blue-900/50"></div>
+          <div className="absolute inset-0 bg-charcoal/50"></div>
         </div>
 
         <div className="w-full relative z-10">
@@ -23,7 +23,7 @@ export default function GenerativeAiPage() {
 
             <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Create the
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent-green to-blue-400">
+              <span className="block text-accent-green">
                 Impossible
               </span>
             </h1>
@@ -40,15 +40,15 @@ export default function GenerativeAiPage() {
                 <div className="text-sm font-medium">Text Generation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-                <ImageIcon className="w-8 h-8 text-blue-400 mx-auto mb-2" />
+                <ImageIcon className="w-8 h-8 text-accent-green mx-auto mb-2" />
                 <div className="text-sm font-medium">Image Creation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '800ms' }}>
-                <Video className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                <Video className="w-8 h-8 text-accent-green mx-auto mb-2" />
                 <div className="text-sm font-medium">Video & Audio</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/20 transition-all cursor-pointer animate-fade-in-up" style={{ animationDelay: '900ms' }}>
-                <Code className="w-8 h-8 text-green-400 mx-auto mb-2" />
+                <Code className="w-8 h-8 text-accent-green mx-auto mb-2" />
                 <div className="text-sm font-medium">Code Generation</div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function GenerativeAiPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white hover:text-purple-900 text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
+                className="border-white/30 text-white hover:bg-white hover:text-charcoal text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 Explore Examples
               </Button>
@@ -84,79 +84,93 @@ export default function GenerativeAiPage() {
               </p>
             </div>
 
-            {/* Masonry-style Grid */}
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Large Feature Card */}
-              <div className="md:col-span-2 md:row-span-2 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-12 text-white h-full flex flex-col justify-between min-h-[500px]">
-                  <div>
-                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-8">
-                      <Palette className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-4xl font-bold mb-6">Multi-Modal Creation</h3>
-                    <p className="text-xl text-purple-100 mb-8">
-                      Generate text, images, audio, and video content with unified AI models that understand context
-                      across all mediums.
-                    </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Card 1: Multi-Modal Creation */}
+              <div className="animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '200ms' }}>
+                <div className="bg-charcoal rounded-3xl p-8 text-white h-full flex flex-col">
+                  <div className="w-12 h-12 bg-accent-green/20 rounded-xl flex items-center justify-center mb-6">
+                    <Palette className="w-6 h-6 text-accent-green" />
                   </div>
-                  <div className="flex items-center gap-4">
-                    <Button variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 ease-in-out">
-                      See Examples
-                    </Button>
-                    <div className="text-purple-200">→ 10x faster creation</div>
-                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Multi-Modal Creation</h3>
+                  <p className="text-gray-300 mb-6 flex-grow">
+                    Generate text, images, audio, and video with unified AI models that understand context across all mediums.
+                  </p>
+                  <Button variant="outline" className="border-accent-green text-accent-green w-full hover:bg-accent-green hover:text-charcoal transition-all duration-300">
+                    See Examples
+                  </Button>
                 </div>
               </div>
 
-              {/* Smaller Cards */}
-              <div className="space-y-8">
-                <div className="bg-white rounded-2xl p-8 shadow-xl border animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                    <FileText className="w-6 h-6 text-blue-600" />
+              {/* Card 2: Enterprise Content */}
+              <div className="animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '300ms' }}>
+                <div className="bg-white rounded-3xl p-8 shadow-xl border h-full flex flex-col">
+                  <div className="w-12 h-12 bg-accent-green/10 rounded-xl flex items-center justify-center mb-6">
+                    <FileText className="w-6 h-6 text-accent-green" />
                   </div>
                   <h3 className="text-2xl font-bold text-charcoal mb-4">Enterprise Content</h3>
-                  <p className="text-gray-600 mb-6">
-                    Generate reports, documentation, and marketing materials at scale
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    Generate reports, documentation, and marketing materials at scale.
                   </p>
-                  <div className="text-blue-600 font-semibold">Learn More →</div>
+                  <Button variant="link" className="text-accent-green p-0">Learn More <ArrowRight className="ml-2 h-4 w-4" /></Button>
                 </div>
+              </div>
 
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-white animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                    <Zap className="w-6 h-6" />
+              {/* Card 3: Real-time Generation */}
+              <div className="animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '400ms' }}>
+                <div className="bg-white rounded-3xl p-8 shadow-xl border h-full flex flex-col">
+                  <div className="w-12 h-12 bg-accent-green/10 rounded-xl flex items-center justify-center mb-6">
+                    <Zap className="w-6 h-6 text-accent-green" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Real-time Generation</h3>
-                  <p className="text-green-100 mb-6">Instant content creation with sub-second response times</p>
-                  <div className="text-green-200 font-semibold">Try Now →</div>
+                  <h3 className="text-2xl font-bold text-charcoal mb-4">Real-time Generation</h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    Instant content creation with sub-second response times for dynamic applications.
+                  </p>
+                  <Button variant="link" className="text-accent-green p-0">Try Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
                 </div>
               </div>
 
-              {/* Bottom Row */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl border animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                  <ImageIcon className="w-6 h-6 text-orange-600" />
+              {/* Card 4: Visual Content */}
+              <div className="animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '500ms' }}>
+                <div className="bg-white rounded-3xl p-8 shadow-xl border h-full flex flex-col">
+                  <div className="w-12 h-12 bg-accent-green/10 rounded-xl flex items-center justify-center mb-6">
+                    <ImageIcon className="w-6 h-6 text-accent-green" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-charcoal mb-4">Visual Content</h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    Create stunning, high-resolution images and visual designs from simple text descriptions.
+                  </p>
+                  <Button variant="link" className="text-accent-green p-0">Explore <ArrowRight className="ml-2 h-4 w-4" /></Button>
                 </div>
-                <h3 className="text-2xl font-bold text-charcoal mb-4">Visual Content</h3>
-                <p className="text-gray-600 mb-6">Create stunning visuals from simple text descriptions</p>
-                <div className="text-orange-600 font-semibold">Explore →</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-xl border animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                  <Code className="w-6 h-6 text-purple-600" />
+              {/* Card 5: Code Generation */}
+              <div className="animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '600ms' }}>
+                <div className="bg-white rounded-3xl p-8 shadow-xl border h-full flex flex-col">
+                  <div className="w-12 h-12 bg-accent-green/10 rounded-xl flex items-center justify-center mb-6">
+                    <Code className="w-6 h-6 text-accent-green" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-charcoal mb-4">Code Generation</h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    Automate software development tasks by generating clean, efficient code in multiple languages.
+                  </p>
+                  <Button variant="link" className="text-accent-green p-0">Start Coding <ArrowRight className="ml-2 h-4 w-4" /></Button>
                 </div>
-                <h3 className="text-2xl font-bold text-charcoal mb-4">Code Generation</h3>
-                <p className="text-gray-600 mb-6">Automate software development with AI-generated code</p>
-                <div className="text-purple-600 font-semibold">Start Coding →</div>
               </div>
 
-              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-8 text-white animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                  <Video className="w-6 h-6" />
+              {/* Card 6: Media Production */}
+              <div className="animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '700ms' }}>
+                <div className="bg-charcoal rounded-3xl p-8 text-white h-full flex flex-col">
+                  <div className="w-12 h-12 bg-accent-green/20 rounded-xl flex items-center justify-center mb-6">
+                    <Video className="w-6 h-6 text-accent-green" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Media Production</h3>
+                  <p className="text-gray-300 mb-6 flex-grow">
+                    Generate engaging videos, realistic voiceovers, and complete multimedia content effortlessly.
+                  </p>
+                  <Button variant="outline" className="border-accent-green text-accent-green w-full hover:bg-accent-green hover:text-charcoal transition-all duration-300">
+                    Create Media
+                  </Button>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Media Production</h3>
-                <p className="text-indigo-100 mb-6">Generate videos, voiceovers, and multimedia content</p>
-                <div className="text-indigo-200 font-semibold">Create Media →</div>
               </div>
             </div>
           </div>
@@ -174,7 +188,7 @@ export default function GenerativeAiPage() {
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent-green to-blue-500 rounded-full animate-fade-in-up" style={{ animationDelay: '200ms' }}></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-accent-green rounded-full animate-fade-in-up" style={{ animationDelay: '200ms' }}></div>
 
               <div className="space-y-16">
                 {/* Step 1 */}
@@ -197,7 +211,7 @@ export default function GenerativeAiPage() {
                 {/* Step 2 */}
                 <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                   <div className="w-1/2 pr-12"></div>
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center relative z-10">
+                  <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
                     <span className="text-white font-bold text-xl">2</span>
                   </div>
                   <div className="w-1/2 pl-12">
@@ -222,7 +236,7 @@ export default function GenerativeAiPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center relative z-10">
+                  <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
                     <span className="text-white font-bold text-xl">3</span>
                   </div>
                   <div className="w-1/2 pl-12"></div>
@@ -231,7 +245,7 @@ export default function GenerativeAiPage() {
                 {/* Step 4 */}
                 <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                   <div className="w-1/2 pr-12"></div>
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center relative z-10">
+                  <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
                     <span className="text-white font-bold text-xl">4</span>
                   </div>
                   <div className="w-1/2 pl-12">
@@ -344,16 +358,16 @@ export default function GenerativeAiPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-accent-green to-emerald-600 text-white">
+      <section className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12 text-center">
-          <h2 className="text-5xl font-bold mb-6">Ready to Create the Future?</h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+          <h2 className="text-5xl font-bold mb-6 text-charcoal">Ready to Create the Future?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal">
             Join innovative companies using generative AI to transform their creative processes and business outcomes.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               size="lg"
-              className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              className="bg-charcoal text-white hover:bg-white hover:text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
             >
               Start Your AI Journey
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -361,7 +375,7 @@ export default function GenerativeAiPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-accent-green text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
             >
               Explore Use Cases
             </Button>

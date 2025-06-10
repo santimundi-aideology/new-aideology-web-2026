@@ -208,7 +208,6 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     Products: [
       { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
       { href: "/products/nvidia-hgx", label: "NVIDIA HGX Systems" },
-      { href: "/products/professional-services", label: "Professional Services" },
       { href: "/products/storage-systems", label: "Storage Systems" },
       { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
     ],
@@ -265,8 +264,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const showSolidNav = forceDarkLogo || isScrolled || pathname !== '/';
 
   const headerClasses = showSolidNav
-    ? "bg-white/80 shadow-lg text-charcoal py-3"
-    : "bg-transparent text-white py-6";
+    ? "bg-white/80 shadow-none text-charcoal"
+    : "bg-transparent text-white";
   const logoSrc = showSolidNav ? "/aideology.webp" : "/aideology-white.webp";
   const linkTextColor = showSolidNav ? "text-charcoal" : "text-white";
   const mobileMenuIconColor = showSolidNav ? "text-charcoal" : "text-white";
@@ -274,11 +273,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   return (
     <header
       ref={navbarRef}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${headerClasses}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-[80px] flex items-center ${headerClasses}`}
       onMouseLeave={handleSubmenuLeave}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0 outline-none focus:outline-none">
           <Image src={logoSrc} alt="AIdeology Logo" width={150} height={40} priority />
         </Link>
 
@@ -295,73 +294,121 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 href={getLinkHref(item.href)}
                 onClick={e => handleNavigation(e, item.href)}
                 className={`
-                  flex items-center text-base font-medium transition-all duration-300
+                  flex items-center text-base font-medium transition-all duration-300 group outline-none focus:outline-none
                   ${linkTextColor}
-                  ${activeSection === item.sectionId ? "text-accent-green" : "group-hover:text-accent-green"}
+                  hover:text-accent-green
                 `}
               >
                 {item.label}
                 {(item.label === "Solutions" || item.label === "Products") && (
-                  <>
-                    {showSubmenu && selectedSubmenu === item.label ? (
-                      <ChevronUp className="h-4 w-4 ml-1" />
-                    ) : (
-                      <ChevronDown className="h-4 w-4 ml-1" />
-                    )}
-                  </>
+                  <ChevronDown
+                    className={`h-4 w-4 ml-1 transition-all duration-300 ${
+                      showSubmenu && selectedSubmenu === item.label 
+                        ? "rotate-180" 
+                        : ""
+                    } ${
+                      showSolidNav ? "text-charcoal group-hover:text-accent-green" : "text-white group-hover:text-accent-green"
+                    }`}
+                  />
                 )}
               </Link>
-               {showSubmenu && selectedSubmenu === item.label && (
+              {showSubmenu && selectedSubmenu === item.label && (
                 <div
-                  className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 z-50 p-4"
-                   onMouseEnter={() => handleSubmenuEnter(item.label)}
-                   onMouseLeave={handleSubmenuLeave}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+                  onMouseEnter={() => handleSubmenuEnter(item.label)}
+                  onMouseLeave={handleSubmenuLeave}
                 >
-                  {(submenuItems[selectedSubmenu] || []).map(subItem => (
-                    <div 
-                      key={subItem.label} 
-                      className="relative"
-                      onMouseEnter={() => handleFlyoutEnter(subItem.label)}
-                      onMouseLeave={handleFlyoutLeave}
-                    >
-                      <Link
-                        href={subItem.href}
-                        className="flex justify-between items-center w-full text-left px-4 py-2 text-charcoal hover:bg-gray-100 rounded-md whitespace-nowrap"
-                      >
-                        {subItem.label}
-                         {submenuItems[subItem.label] && <ArrowRight className="h-4 w-4 ml-2 text-gray-400" />}
-                      </Link>
-                      {flyoutSubmenu === subItem.label && submenuItems[subItem.label] && (
-                        <div 
-                          className="absolute left-full top-0 ml-1 bg-white shadow-lg rounded-lg border border-gray-200 z-50 p-4"
-                          onMouseEnter={() => handleFlyoutEnter(subItem.label)}
-                          onMouseLeave={handleFlyoutLeave}
-                        >
-                          {submenuItems[subItem.label].map(flyoutItem => (
+                  {selectedSubmenu === "Solutions" ? (
+                    <div className="flex w-[700px]">
+                      {/* Left Column */}
+                      <div className="w-1/2 p-4 border-r border-gray-200">
+                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                          {selectedSubmenu}
+                        </h3>
+                        <div className="flex flex-col">
+                          {(submenuItems[selectedSubmenu] || []).map(subItem => (
                             <Link
-                              key={flyoutItem.label}
-                              href={flyoutItem.href}
-                              className="block px-4 py-2 text-charcoal hover:bg-gray-100 rounded-md whitespace-nowrap"
+                              key={subItem.label}
+                              href={subItem.href}
+                              className={`flex justify-between items-center w-full text-left px-4 py-2 text-charcoal rounded-md whitespace-nowrap ${
+                                flyoutSubmenu === subItem.label
+                                  ? "bg-accent-green/10 font-semibold"
+                                  : "hover:bg-accent-green/10 hover:font-semibold"
+                              }`}
+                              onMouseEnter={() => handleFlyoutEnter(subItem.label)}
                             >
-                              {flyoutItem.label}
+                              {subItem.label}
+                              {submenuItems[subItem.label] && <ArrowRight className="h-4 w-4 text-gray-400" />}
                             </Link>
                           ))}
                         </div>
-                      )}
+                      </div>
+                      {/* Right Column */}
+                      <div className="w-1/2 p-4">
+                        {flyoutSubmenu && submenuItems[flyoutSubmenu] ? (
+                          <>
+                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                              {flyoutSubmenu} Services
+                            </h3>
+                            <div className="flex flex-col">
+                              {submenuItems[flyoutSubmenu].map(flyoutItem => (
+                                <Link
+                                  key={flyoutItem.label}
+                                  href={flyoutItem.href}
+                                  className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
+                                >
+                                  {flyoutItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                              AI Infrastructure Services
+                            </h3>
+                            <div className="flex flex-col">
+                              {submenuItems["AI Infrastructure"].map(flyoutItem => (
+                                <Link
+                                  key={flyoutItem.label}
+                                  href={flyoutItem.href}
+                                  className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
+                                >
+                                  {flyoutItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
                     </div>
-                  ))}
+                  ) : (
+                    /* Products - Single Column */
+                    <div className="w-[350px] p-4">
+                      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                        {selectedSubmenu}
+                      </h3>
+                      <div className="flex flex-col">
+                        {(submenuItems[selectedSubmenu] || []).map(subItem => (
+                          <Link
+                            key={subItem.label}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           ))}
            <div className="hidden lg:flex items-center gap-x-2">
-             <Link href="/contact">
+             <Link href="/contact" className="outline-none focus:outline-none">
                <Button 
-                 className={`bg-accent-green text-charcoal font-semibold hover:scale-105 transition-all duration-300 ease-in-out ${ 
-                   showSolidNav 
-                     ? 'hover:bg-charcoal hover:text-white' 
-                     : 'hover:bg-white hover:text-charcoal' 
-                 }`}
+                 className="bg-accent-green text-charcoal font-semibold hover:scale-105 hover:bg-charcoal hover:text-white transition-all duration-300 ease-in-out shadow-none outline-none focus:outline-none border-none"
                >
                  Contact Us
                </Button>
@@ -371,7 +418,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <Button variant="ghost" size="icon" className="shadow-none outline-none focus:outline-none border-none" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? (
               <X className={`h-6 w-6 ${mobileMenuIconColor}`} />
             ) : (

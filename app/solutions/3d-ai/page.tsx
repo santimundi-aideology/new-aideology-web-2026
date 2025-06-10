@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import Navbar from "@/components/navbar"
+
 import Footer from "@/components/footer"
 import { CuboidIcon as Cube, Layers, Workflow, Zap, Wand2, ArrowRight } from "lucide-react"
 import { allPartners } from "@/lib/partners"
@@ -46,7 +46,7 @@ export default function ThreeDimensionalAIPage() {
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
-      <Navbar forceDarkLogo={true} />
+
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative">

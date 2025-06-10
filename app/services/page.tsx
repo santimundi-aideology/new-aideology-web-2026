@@ -18,7 +18,7 @@ import {
   BarChart,
   Users,
 } from "lucide-react"
-import Navbar from "@/components/navbar"
+
 import Footer from "@/components/footer"
 
 export default function ServicesPage() {
@@ -251,7 +251,7 @@ export default function ServicesPage() {
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
-      <Navbar />
+
 
       {/* Hero Section */}
       <section className="pt-16 pb-16 bg-white">

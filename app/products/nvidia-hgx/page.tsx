@@ -12,7 +12,7 @@ export const metadata = {
 export default function NvidiaHGXPage() {
   return (
     <ProductLayout>
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h1 className="text-4xl font-bold mb-6 text-charcoal">NVIDIA HGX Systems</h1>
         <p className="text-xl text-gray-600 mb-8">
           The foundation for AI infrastructure - high-performance GPU-accelerated computing platforms designed for the
@@ -28,7 +28,7 @@ export default function NvidiaHGXPage() {
         </div>
       </div>
 
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-4 text-charcoal">The Evolution of AI Computing</h2>
         <p className="mb-4">
           NVIDIA HGX is the foundational GPU-accelerated platform that powers the world's leading AI systems. From the
@@ -43,7 +43,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* AIdeology Partnership Section */}
-      <div className="mb-16">
+      <div className="container mx-auto px-4 mb-16">
         <div className="bg-gradient-to-r from-accent-green/10 to-blue-50 rounded-lg p-8">
           <div className="flex flex-col lg:flex-row items-center gap-8">
             <div className="w-full lg:w-2/3">
@@ -123,7 +123,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* HGX B200 Section */}
-      <div className="mb-16">
+      <div className="container mx-auto px-4 mb-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
@@ -163,7 +163,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* HGX B300 NVL16 Section */}
-      <div className="mb-16">
+      <div className="container mx-auto px-4 mb-16">
         <div className="flex flex-col lg:flex-row-reverse items-center gap-8 mb-8">
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
@@ -203,7 +203,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* HGX H200 Section */}
-      <div className="mb-16">
+      <div className="container mx-auto px-4 mb-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
@@ -243,7 +243,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* HGX H100 Section */}
-      <div className="mb-16">
+      <div className="container mx-auto px-4 mb-16">
         <div className="flex flex-col lg:flex-row-reverse items-center gap-8 mb-8">
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
@@ -283,7 +283,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* OEM Partners Section */}
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-charcoal">OEM Partner Solutions</h2>
         <p className="text-gray-600 mb-8">
           AIdeology offers HGX-based systems from leading server manufacturers, providing flexible options to meet your
@@ -323,7 +323,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* Key Benefits Section */}
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-charcoal">Why Choose HGX Systems</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow-lg p-6">
@@ -351,7 +351,7 @@ export default function NvidiaHGXPage() {
       </div>
 
       {/* Performance Comparison */}
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-charcoal">Performance Evolution</h2>
         <div className="bg-white rounded-lg shadow-lg p-6">
           <div className="overflow-x-auto">
