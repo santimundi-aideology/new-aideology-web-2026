@@ -35,7 +35,6 @@ export default function AISecurityCompliancePage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-10"></div>
           <div className="absolute inset-0 bg-charcoal/50"></div>
         </div>
         
@@ -127,35 +126,6 @@ export default function AISecurityCompliancePage() {
           </div>
         </section>
         
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                Navigating Compliance Frameworks
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8 items-start">
-                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                  <h3 className="text-2xl font-bold mb-3">GDPR</h3>
-                  <p className="text-charcoal/70 mb-4">Ensuring data protection and privacy for users in the European Union.</p>
-                  <Image src="/logos/gdpr.svg" alt="GDPR Logo" width={80} height={40} />
-                </div>
-                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                  <h3 className="text-2xl font-bold mb-3">HIPAA</h3>
-                  <p className="text-charcoal/70 mb-4">Protecting sensitive patient health information in the United States.</p>
-                  <Image src="/logos/hipaa.svg" alt="HIPAA Logo" width={80} height={40} />
-                </div>
-                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                  <h3 className="text-2xl font-bold mb-3">AI Act</h3>
-                  <p className="text-charcoal/70 mb-4">Adhering to the upcoming European Union regulations for artificial intelligence.</p>
-                   <Image src="/logos/eu_ai_act.svg" alt="AI Act Logo" width={80} height={40} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
         {/* Process Section */}
         <section className="py-20 bg-gray-50">
           <div className="w-full px-6 lg:px-12">
@@ -233,6 +203,33 @@ export default function AISecurityCompliancePage() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Navigating Compliance Frameworks
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8 items-start">
+                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                  <h3 className="text-2xl font-bold mb-3">GDPR</h3>
+                  <p className="text-charcoal/70 mb-4">Ensuring data protection and privacy for users in the European Union.</p>
+                  <Image src="/logos/gdpr.svg" alt="GDPR Logo" width={80} height={40} />
+                </div>
+                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                  <h3 className="text-2xl font-bold mb-3">HIPAA</h3>
+                  <p className="text-charcoal/70 mb-4">Protecting sensitive patient health information in the United States.</p>
+                  <Image src="/logos/hipaa.svg" alt="HIPAA Logo" width={80} height={40} />
+                </div>
+                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                  <h3 className="text-2xl font-bold mb-3">AI Act</h3>
+                  <p className="text-charcoal/70 mb-4">Adhering to the upcoming European Union regulations for artificial intelligence.</p>
+                   <Image src="/logos/eu_ai_act.svg" alt="AI Act Logo" width={80} height={40} />
                 </div>
               </div>
             </div>

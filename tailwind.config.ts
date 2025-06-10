@@ -22,7 +22,7 @@ const config = {
       colors: {
         charcoal: "#2C2929",
         "electric-green": "#333333", // Changed from #004651 to #333333 (dark grey)
-        "accent-green": "#a4e473", // Light green for icons and lines
+        "accent-green": "#9fce4d", // Green for icons and lines
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
