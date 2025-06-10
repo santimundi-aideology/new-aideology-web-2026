@@ -1,8 +1,11 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter } from "lucide-react"
+import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter, Expand, X } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
@@ -61,6 +64,7 @@ const getArticleBySlug = (slug: string) => {
 
 export default function NewsArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
@@ -97,13 +101,21 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden mb-8">
+              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden mb-8 group">
                 <Image
                   src={article.image || "/placeholder.svg?height=600&width=1200&query=AI technology partnership"}
                   alt={article.title}
                   fill
                   className="object-cover"
                 />
+                 <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-2 right-2 z-10 text-white bg-black/30 hover:bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={() => setSelectedImage(article.image)}
+                  >
+                    <Expand className="h-5 w-5" />
+                  </Button>
               </div>
 
               <div
@@ -184,6 +196,26 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           </div>
         </div>
       </section>
+
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 animate-fade-in-fast"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-4 right-4 text-white z-50"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <img 
+            src={selectedImage} 
+            alt="Expanded view" 
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking on image
+          />
+        </div>
+      )}
 
       <Footer />
     </main>

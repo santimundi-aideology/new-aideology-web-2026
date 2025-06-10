@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, CheckCircle, Quote } from "lucide-react"
-import Navbar from "@/components/navbar"
+
 import Footer from "@/components/footer"
 import type { StaticImageData } from 'next/image'
 
@@ -242,8 +242,8 @@ export default function CustomersPage() {
   const gtmCategories = ["AI Infrastructure", "3D AI", "AI Consulting", "Physical AI"]
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-28">
-      <Navbar />
+    <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-20">
+
 
       {/* Hero Section */}
       <section className="pb-16 bg-white">
@@ -264,7 +264,7 @@ export default function CustomersPage() {
               <div className="flex items-center mb-6">
                 {useCases[0].logo && (
                   <>
-                    <div className="bg-white/80 p-3 rounded-lg shadow-md mr-4">
+                    <div className="bg-white p-3 rounded-lg shadow-md mr-4">
                       <Image
                         src={useCases[0].logo || "/placeholder.svg"}
                         alt={useCases[0].testimonial?.company || "Company logo"}
@@ -273,7 +273,7 @@ export default function CustomersPage() {
                         className="h-12 w-auto"
                       />
                     </div>
-                    <div className="bg-white/80 p-3 rounded-lg shadow-md mr-4">
+                    <div className="bg-white p-3 rounded-lg shadow-md mr-4">
                       <Image
                         src="/aideology.webp"
                         alt="AIdeology logo"

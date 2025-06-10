@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown, ArrowRight, ChevronUp } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { SheetFooter } from "@/components/ui/sheet"
 
@@ -172,7 +172,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     { href: "/news", label: "News", sectionId: "" },
   ]
 
-  const submenuItems = {
+  const submenuItems: Record<string, { href: string; label: string }[]> = {
+    Solutions: [
+      { href: "/solutions/ai-infrastructure", label: "AI Infrastructure" },
+      { href: "/solutions/3d-ai", label: "3D AI" },
+      { href: "/solutions/ai-consulting", label: "AI Consulting" },
+      { href: "/solutions/robotics-edge-ai", label: "Robotics & Edge AI" },
+    ],
     "AI Infrastructure": [
       { href: "/services/ai-infrastructure/professional-services", label: "Professional Services" },
       { href: "/services/ai-infrastructure/ai-data-platform", label: "AI Data Platform" },
@@ -188,20 +194,20 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       { href: "/services/3d-ai/digital-twins", label: "Digital Twins" },
     ],
     "AI Consulting": [
+      { href: "/solutions/ai-security-compliance", label: "AI Security & Compliance" },
       { href: "/services/ai-consulting/conversational-ai", label: "Conversational AI" },
       { href: "/services/ai-consulting/generative-ai", label: "Generative AI" },
       { href: "/services/ai-consulting/ai-agents", label: "AI Agents" },
-      { href: "/services/ai-consulting/ai-data-platform", label: "AI Data Platform" },
       { href: "/services/ai-consulting/machine-learning", label: "Machine Learning" },
     ],
     "Robotics & Edge AI": [
       { href: "/services/robotics-edge-ai/edge-ai", label: "Edge AI" },
       { href: "/services/robotics-edge-ai/vision-ai", label: "Vision AI" },
+      { href: "/services/robotics-edge-ai/robotics", label: "Robotics" },
     ],
     Products: [
       { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
       { href: "/products/nvidia-hgx", label: "NVIDIA HGX Systems" },
-      { href: "/products/professional-services", label: "Professional Services" },
       { href: "/products/storage-systems", label: "Storage Systems" },
       { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
     ],
@@ -209,16 +215,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
 
   const mainServices = ["AI Infrastructure", "3D AI", "AI Consulting", "Robotics & Edge AI"]
 
-  const handleSubmenuEnter = () => {
+  const handleSubmenuEnter = (menu: string) => {
     if (submenuTimeoutRef.current) {
       clearTimeout(submenuTimeoutRef.current)
     }
     setShowSubmenu(true)
-    // Set selectedSubmenu to the first main service if not already a main service
-    // This ensures the Solutions submenu populates correctly when first hovered.
-    if (!selectedSubmenu || !mainServices.includes(selectedSubmenu)) {
-      setSelectedSubmenu(mainServices[0]) // e.g., "AI Infrastructure"
-    }
+    setSelectedSubmenu(menu)
   }
 
   const handleSubmenuLeave = () => {
@@ -227,11 +229,31 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       setSelectedSubmenu(null)
     }, 300) // 300ms delay before hiding
   }
+  
+  const [flyoutSubmenu, setFlyoutSubmenu] = useState<string | null>(null);
+  const flyoutTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleFlyoutEnter = (menu: string) => {
+    if (flyoutTimeoutRef.current) {
+      clearTimeout(flyoutTimeoutRef.current);
+    }
+    setFlyoutSubmenu(menu);
+  };
+
+  const handleFlyoutLeave = () => {
+    flyoutTimeoutRef.current = setTimeout(() => {
+      setFlyoutSubmenu(null);
+    }, 300);
+  };
+
 
   useEffect(() => {
     return () => {
       if (submenuTimeoutRef.current) {
         clearTimeout(submenuTimeoutRef.current)
+      }
+      if (flyoutTimeoutRef.current) {
+        clearTimeout(flyoutTimeoutRef.current);
       }
     }
   }, [])
@@ -242,8 +264,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const showSolidNav = forceDarkLogo || isScrolled || pathname !== '/';
 
   const headerClasses = showSolidNav
-    ? "bg-white/80 shadow-lg text-charcoal py-3"
-    : "bg-transparent text-white py-6";
+    ? "bg-white/80 shadow-none text-charcoal"
+    : "bg-transparent text-white";
   const logoSrc = showSolidNav ? "/aideology.webp" : "/aideology-white.webp";
   const linkTextColor = showSolidNav ? "text-charcoal" : "text-white";
   const mobileMenuIconColor = showSolidNav ? "text-charcoal" : "text-white";
@@ -251,316 +273,181 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   return (
     <header
       ref={navbarRef}
-      id="main-navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${headerClasses}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-[80px] flex items-center ${headerClasses}`}
+      onMouseLeave={handleSubmenuLeave}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center" onClick={(e) => handleNavigation(e, "/")}>
-          <Image
-            src={logoSrc}
-            alt="AIdeology Logo"
-            width={200}
-            height={50}
-            className="h-12 md:h-14 w-auto transition-all duration-300"
-            priority
-          />
+        <Link href="/" className="flex-shrink-0 outline-none focus:outline-none">
+          <Image src={logoSrc} alt="AIdeology Logo" width={150} height={40} priority />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => {
-            if (item.label === "Solutions") {
-              return (
+        <nav className="hidden lg:flex items-center space-x-8">
+          {navItems.map(item => (
+            <div
+              key={item.label}
+              className="relative group"
+              onMouseEnter={() => (item.label === "Solutions" || item.label === "Products") && handleSubmenuEnter(item.label)}
+              onMouseLeave={() => (item.label === "Solutions" || item.label === "Products") && handleSubmenuLeave()}
+            >
+              <Link
+                href={getLinkHref(item.href)}
+                onClick={e => handleNavigation(e, item.href)}
+                className={`
+                  flex items-center text-base font-medium transition-all duration-300 group outline-none focus:outline-none
+                  ${linkTextColor}
+                  hover:text-accent-green
+                `}
+              >
+                {item.label}
+                {(item.label === "Solutions" || item.label === "Products") && (
+                  <ChevronDown
+                    className={`h-4 w-4 ml-1 transition-all duration-300 ${
+                      showSubmenu && selectedSubmenu === item.label 
+                        ? "rotate-180" 
+                        : ""
+                    } ${
+                      showSolidNav ? "text-charcoal group-hover:text-accent-green" : "text-white group-hover:text-accent-green"
+                    }`}
+                  />
+                )}
+              </Link>
+              {showSubmenu && selectedSubmenu === item.label && (
                 <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={handleSubmenuEnter}
-                  onMouseLeave={() => {
-                    submenuTimeoutRef.current = setTimeout(() => {
-                      setShowSubmenu(false)
-                    }, 300)
-                  }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+                  onMouseEnter={() => handleSubmenuEnter(item.label)}
+                  onMouseLeave={handleSubmenuLeave}
                 >
-                  <span
-                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
-                      activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
-                  >
-                    {item.label}
-                    {activeSection === item.sectionId && (
-                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-green animate-scale-in" />
-                    )}
-                  </span>
-
-                  {/* Submenu for Solutions */}
-                  {showSubmenu && selectedSubmenu && mainServices.includes(selectedSubmenu) && (
-                    <div
-                      className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border border-gray-200 z-50 w-[600px] p-6"
-                      onMouseEnter={() => {
-                        if (submenuTimeoutRef.current) clearTimeout(submenuTimeoutRef.current);
-                        setShowSubmenu(true);
-                        // Ensure selectedSubmenu remains a valid service, or default
-                        if (!selectedSubmenu || !mainServices.includes(selectedSubmenu)) {
-                            setSelectedSubmenu(mainServices[0]);
-                        }
-                      }}
-                      onMouseLeave={handleSubmenuLeave}
-                    >
-                      <div className="flex">
-                        {/* Left side - Main services */}
-                        <div className="w-1/2 pr-4 border-r border-gray-200">
-                          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                            Solutions
-                          </h3>
-                          {mainServices.map((service) => (
-                            <div
-                              key={service}
-                              className={`py-2 px-3 rounded cursor-pointer transition-colors ${
-                                selectedSubmenu === service
-                                  ? "bg-accent-green/10 text-accent-green"
-                                  : "text-charcoal hover:bg-gray-50"
+                  {selectedSubmenu === "Solutions" ? (
+                    <div className="flex w-[700px]">
+                      {/* Left Column */}
+                      <div className="w-1/2 p-4 border-r border-gray-200">
+                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                          {selectedSubmenu}
+                        </h3>
+                        <div className="flex flex-col">
+                          {(submenuItems[selectedSubmenu] || []).map(subItem => (
+                            <Link
+                              key={subItem.label}
+                              href={subItem.href}
+                              className={`flex justify-between items-center w-full text-left px-4 py-2 text-charcoal rounded-md whitespace-nowrap ${
+                                flyoutSubmenu === subItem.label
+                                  ? "bg-accent-green/10 font-semibold"
+                                  : "hover:bg-accent-green/10 hover:font-semibold"
                               }`}
-                              onMouseEnter={() => setSelectedSubmenu(service)}
+                              onMouseEnter={() => handleFlyoutEnter(subItem.label)}
                             >
-                              <Link href={`/services/${service.toLowerCase().replace(" ", "-")}`} className="block">
-                                {service}
-                              </Link>
-                            </div>
+                              {subItem.label}
+                              {submenuItems[subItem.label] && <ArrowRight className="h-4 w-4 text-gray-400" />}
+                            </Link>
                           ))}
                         </div>
-
-                        {/* Right side - Sub-services */}
-                        <div className="w-1/2 pl-4">
-                          {selectedSubmenu && (
-                            <>
-                              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                                {selectedSubmenu} Services
-                              </h3>
-                              {submenuItems[selectedSubmenu as keyof typeof submenuItems]?.map((subItem) => (
+                      </div>
+                      {/* Right Column */}
+                      <div className="w-1/2 p-4">
+                        {flyoutSubmenu && submenuItems[flyoutSubmenu] ? (
+                          <>
+                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                              {flyoutSubmenu} Services
+                            </h3>
+                            <div className="flex flex-col">
+                              {submenuItems[flyoutSubmenu].map(flyoutItem => (
                                 <Link
-                                  key={subItem.label}
-                                  href={subItem.href}
-                                  className="block py-2 px-3 text-charcoal hover:text-accent-green hover:bg-accent-green/5 rounded transition-colors"
-                                  onClick={() => {
-                                    setShowSubmenu(false)
-                                  }}
+                                  key={flyoutItem.label}
+                                  href={flyoutItem.href}
+                                  className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
                                 >
-                                  {subItem.label}
+                                  {flyoutItem.label}
                                 </Link>
                               ))}
-                            </>
-                          )}
-                        </div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                              AI Infrastructure Services
+                            </h3>
+                            <div className="flex flex-col">
+                              {submenuItems["AI Infrastructure"].map(flyoutItem => (
+                                <Link
+                                  key={flyoutItem.label}
+                                  href={flyoutItem.href}
+                                  className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
+                                >
+                                  {flyoutItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    /* Products - Single Column */
+                    <div className="w-[350px] p-4">
+                      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                        {selectedSubmenu}
+                      </h3>
+                      <div className="flex flex-col">
+                        {(submenuItems[selectedSubmenu] || []).map(subItem => (
+                          <Link
+                            key={subItem.label}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   )}
                 </div>
-              )
-            } else if (item.label === "Products") {
-              return (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (submenuTimeoutRef.current) {
-                      clearTimeout(submenuTimeoutRef.current)
-                    }
-                    setShowSubmenu(true)
-                    setSelectedSubmenu("Products")
-                  }}
-                  onMouseLeave={() => {
-                    submenuTimeoutRef.current = setTimeout(() => {
-                      setShowSubmenu(false)
-                      setSelectedSubmenu(null)
-                    }, 300)
-                  }}
-                >
-                  <span
-                    className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
-                      activeSection === item.sectionId ? "text-accent-green font-semibold" : ""}`}
-                  >
-                    {item.label}
-                    {activeSection === item.sectionId && (
-                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-green animate-scale-in" />
-                    )}
-                  </span>
-
-                  {/* Products Submenu - Only show when Products is selected */}
-                  {showSubmenu && selectedSubmenu === "Products" && (
-                    <div
-                      className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border border-gray-200 z-50 w-[400px] p-6"
-                      onMouseEnter={() => {
-                        if (submenuTimeoutRef.current) {
-                          clearTimeout(submenuTimeoutRef.current)
-                        }
-                        setShowSubmenu(true)
-                        setSelectedSubmenu("Products")
-                      }}
-                      onMouseLeave={handleSubmenuLeave}
-                    >
-                      <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                        Product Categories
-                      </h3>
-                      {submenuItems.Products?.map((productItem) => (
-                        <Link
-                          key={productItem.label}
-                          href={productItem.href}
-                          className="block py-2 px-3 text-charcoal hover:text-accent-green hover:bg-accent-green/5 rounded transition-colors"
-                          onClick={() => {
-                            setShowSubmenu(false)
-                            setSelectedSubmenu(null)
-                          }}
-                        >
-                          {productItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )
-            } else {
-              return (
-                <Link
-                  key={item.label}
-                  href={getLinkHref(item.href)}
-                  onClick={(e) => handleNavigation(e, item.href)}
-                  className={`relative transition-all duration-300 hover:text-accent-green cursor-pointer ${linkTextColor} ${
-                    // Condition for highlighting hash links on the same page OR direct page links
-                    (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
-                      ? "text-accent-green font-semibold"
-                      : ""
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              )
-            }
-          })}
-          <div className="hidden lg:flex items-center gap-x-2">
-            <Link href="/contact">
-              <Button 
-                className={`bg-accent-green text-charcoal font-semibold hover:scale-105 transition-all duration-300 ease-in-out ${ 
-                  showSolidNav 
-                    ? 'hover:bg-charcoal hover:text-white' 
-                    : 'hover:bg-white hover:text-charcoal' 
-                }`}
-              >
-                Contact Us
-              </Button>
-            </Link>
-          </div>
+              )}
+            </div>
+          ))}
+           <div className="hidden lg:flex items-center gap-x-2">
+             <Link href="/contact" className="outline-none focus:outline-none">
+               <Button 
+                 className="bg-accent-green text-charcoal font-semibold hover:scale-105 hover:bg-charcoal hover:text-white transition-all duration-300 ease-in-out shadow-none outline-none focus:outline-none border-none"
+               >
+                 Contact Us
+               </Button>
+             </Link>
+           </div>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? (
-            <X className={`h-6 w-6 ${mobileMenuIconColor}`} />
-          ) : (
-            <Menu className={`h-6 w-6 ${mobileMenuIconColor}`} />
-          )}
-        </button>
+        <div className="lg:hidden">
+          <Button variant="ghost" size="icon" className="shadow-none outline-none focus:outline-none border-none" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? (
+              <X className={`h-6 w-6 ${mobileMenuIconColor}`} />
+            ) : (
+              <Menu className={`h-6 w-6 ${mobileMenuIconColor}`} />
+            )}
+          </Button>
+        </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-accent-green/20">
-          <nav className="container mx-auto px-4 py-4 space-y-4">
-            {navItems.map((item) => {
-              const linkHref = getLinkHref(item.href);
-              if (item.label === "Solutions") {
-                return (
-                  <div key={item.label}>
-                    <Link
-                      href={linkHref}
-                      onClick={(e) => handleNavigation(e, item.href)}
-                      className={`block px-4 py-3 text-lg transition-colors duration-300 hover:text-accent-green ${
-                        // Condition for highlighting hash links on the same page OR direct page links in mobile nav
-                        (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
-                          ? "text-accent-green font-semibold"
-                          : "text-foreground/80"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                    <div className="ml-4 mt-2 space-y-2">
-                      {mainServices.map((service) => (
-                        <div key={service}>
-                          <Link
-                            href={`/services/${service.toLowerCase().replace(" ", "-")}`}
-                            className="block py-1 text-sm text-gray-600 hover:text-accent-green"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {service}
-                          </Link>
-                          <div className="ml-4 space-y-1">
-                            {submenuItems[service as keyof typeof submenuItems]?.map((subItem) => (
-                              <Link
-                                key={subItem.label}
-                                href={subItem.href}
-                                className="block py-1 text-xs text-gray-500 hover:text-accent-green"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                              >
-                                {subItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )
-              } else if (item.label === "Products") {
-                return (
-                  <div key={item.label}>
-                    <Link
-                      href={linkHref}
-                      onClick={(e) => handleNavigation(e, item.href)}
-                      className={`block px-4 py-3 text-lg transition-colors duration-300 hover:text-accent-green ${
-                        // Condition for highlighting hash links on the same page OR direct page links in mobile nav
-                        (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
-                          ? "text-accent-green font-semibold"
-                          : "text-foreground/80"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                    <div className="ml-4 mt-2 space-y-2">
-                      {submenuItems.Products?.map((productItem) => (
-                        <Link
-                          key={productItem.label}
-                          href={productItem.href}
-                          className="block py-1 text-sm text-gray-600 hover:text-accent-green"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {productItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )
-              } else {
-                return (
-                  <Link
-                    key={item.label}
-                    href={linkHref}
-                    onClick={(e) => handleNavigation(e, item.href)}
-                    className={`block px-4 py-3 text-lg transition-colors duration-300 hover:text-accent-green ${
-                      // Condition for highlighting hash links on the same page OR direct page links in mobile nav
-                      (activeSection === item.sectionId && item.sectionId !== "") || (typeof item.href === 'string' && pathname === item.href)
-                        ? "text-accent-green font-semibold"
-                        : "text-foreground/80"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              }
-            })}
-            <SheetFooter className="mt-6 pt-6 border-t border-gray-700">
-              <Link href="/contact" className="w-full">
-                <Button className="w-full bg-accent-green text-charcoal font-semibold hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">
-                  Contact Us
-                </Button>
+        <div className="lg:hidden bg-white text-charcoal absolute top-full left-0 w-full h-screen p-4">
+          <nav className="flex flex-col space-y-4">
+            {navItems.map(item => (
+              <Link
+                key={item.label}
+                href={getLinkHref(item.href)}
+                onClick={e => handleNavigation(e, item.href)}
+                className="text-lg font-medium hover:text-accent-green"
+              >
+                {item.label}
               </Link>
+            ))}
+            <SheetFooter>
+              <Button asChild className="mt-4">
+                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  Contact Us
+                </Link>
+              </Button>
             </SheetFooter>
           </nav>
         </div>

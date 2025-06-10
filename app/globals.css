@@ -334,3 +334,39 @@ body {
   /* Explicit default body background is set in layout.tsx */
   @apply text-foreground;
 }
+
+/* Custom Button Hover Effects */
+.btn-hover-primary {
+  @apply transition-all duration-300 ease-in-out;
+}
+.btn-hover-primary:hover {
+  @apply bg-white text-black;
+}
+
+.btn-white-hover {
+  @apply transition-all duration-300 ease-in-out bg-white text-black;
+}
+.btn-white-hover:hover {
+  @apply bg-black text-white;
+}
+
+.btn-green-hover-dark-bg {
+  @apply transition-all duration-300 ease-in-out bg-green-500 text-white;
+}
+.btn-green-hover-dark-bg:hover {
+  @apply bg-white text-black;
+}
+
+.btn-green-hover-light-bg {
+  @apply transition-all duration-300 ease-in-out bg-green-500 text-white;
+}
+.btn-green-hover-light-bg:hover {
+  @apply bg-black text-white;
+}
+
+.btn-colored-hover {
+  @apply transition-all duration-300 ease-in-out;
+}
+.btn-colored-hover:hover {
+  @apply bg-black text-white;
+}

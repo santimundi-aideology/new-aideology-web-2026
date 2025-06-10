@@ -68,9 +68,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contact" className="bg-charcoal/90 border-t border-accent-green/20 pt-16 pb-8 text-white">
+    <footer id="contact" className="bg-charcoal/90 border-t border-accent-green/20 pt-16 pb-16 text-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left Column - Logo and Tagline */}
           <div className="animate-fade-in-up">
             <Link href="/" className="inline-block mb-4">
@@ -150,9 +150,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 text-center text-white/50 text-sm animate-fade-in-up" style={{animationDelay: '600ms'}}>
-          <p>© {currentYear} AIdeology. All rights reserved.</p>
-        </div>
+        
       </div>
     </footer>
   )

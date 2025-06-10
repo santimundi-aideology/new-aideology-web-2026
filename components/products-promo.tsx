@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Server, Database, Network, Shield, Cpu, Briefcase, HardDrive, BrainCog } from "lucide-react"
+import { Server, Database, Network, Shield, Cpu, HardDrive, BrainCog } from "lucide-react"
 
 export default function ProductsPromo() {
   const imageUrl = "/ai-products.webp";
@@ -11,7 +11,6 @@ export default function ProductsPromo() {
   const productCategories = [
     { name: "NVIDIA DGX Systems", href: "/products/nvidia-dgx", icon: Server },
     { name: "NVIDIA HGX Systems", href: "/products/nvidia-hgx", icon: Cpu },
-    { name: "Professional Services", href: "/products/professional-services", icon: Briefcase },
     { name: "Storage Systems", href: "/products/storage-systems", icon: HardDrive },
     { name: "NVIDIA AI Enterprise", href: "/products/nvidia-ai-enterprise", icon: BrainCog },
   ]

@@ -12,7 +12,7 @@ export const metadata = {
 export default function NvidiaDGXPage() {
   return (
     <ProductLayout>
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h1 className="text-4xl font-bold mb-6 text-charcoal">NVIDIA DGX Systems</h1>
         <p className="text-xl text-gray-600 mb-8">
           The world's most advanced AI supercomputing platform, engineered to accelerate breakthrough discoveries and
@@ -28,7 +28,7 @@ export default function NvidiaDGXPage() {
         </div>
       </div>
 
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-charcoal">Next-Generation DGX Portfolio</h2>
         <p className="text-lg mb-8 text-gray-600">
           AIdeology delivers the complete spectrum of NVIDIA DGX systems, from cutting-edge Blackwell architecture to
@@ -232,7 +232,7 @@ export default function NvidiaDGXPage() {
       </div>
 
       {/* DGX Infrastructure Solutions */}
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-charcoal">Enterprise-Scale DGX Infrastructure</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -283,7 +283,7 @@ export default function NvidiaDGXPage() {
       </div>
 
       {/* Why Choose AIdeology */}
-      <div className="mb-12">
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6 text-charcoal">Why Choose AIdeology for NVIDIA DGX</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-lg shadow-lg p-6">

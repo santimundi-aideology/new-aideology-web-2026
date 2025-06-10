@@ -96,19 +96,19 @@ export default function NewsletterSignup() {
             )}
           </div>
           
-          <Button 
+          <Button
             type="submit" 
-            className="w-full bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 group"
+            className="w-full bg-accent-green text-charcoal hover:bg-black hover:text-white transition-all duration-300 hover:scale-105"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
-              <div className="flex items-center">
+              <div className="flex items-center justify-center">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-charcoal mr-2"></div>
                 Subscribing...
               </div>
             ) : (
-              <div className="flex items-center">
-                <Mail className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <div className="flex items-center justify-center">
+                <Mail className="mr-2 h-5 w-5" />
                 Subscribe to Newsletter
               </div>
             )}

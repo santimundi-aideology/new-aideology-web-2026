@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Footer from "@/components/footer"
 
 export const metadata = {
   title: "Enterprise AI Hardware & Software Solutions | AIdeology",
@@ -27,14 +28,6 @@ const productCategories = [
     alt: "Close-up of an NVIDIA HGX system with multiple GPUs, highlighting its dense computing power for AI.",
   },
   {
-    name: "Professional Services",
-    href: "/products/professional-services",
-    description:
-      "Leverage AIdeology's expert Professional Services for designing, implementing, and optimizing your AI infrastructure. Our services cover advanced system architecture, data pipeline development, MLOps, and specialized support for complex AI deployments, ensuring your AI initiatives succeed.",
-    image: "/services/consulting-team.webp",
-    alt: "AIdeology professional services team collaborating on an AI project.",
-  },
-  {
     name: "Storage Systems",
     href: "/products/storage-systems",
     description:
@@ -54,7 +47,7 @@ const productCategories = [
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+    <div className="min-h-screen bg-gray-50 pt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 pt-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal">Enterprise AI Hardware & Software</h1>
@@ -64,50 +57,52 @@ export default function ProductsPage() {
             enterprise-grade AI software designed to accelerate your AI journey.
           </p>
         </div>
+      </div>
 
-        {productCategories.map((category, index) => (
-          <section
-            key={category.name}
-            className={`py-12 md:py-16 ${index < productCategories.length - 1 ? "border-b border-gray-200" : ""}`}
-          >
-            <div className="container mx-auto px-4">
-              <div
-                className={`flex flex-col ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } items-center gap-8 md:gap-12 lg:gap-16`}
-              >
-                <div className="w-full md:w-5/12">
-                  <div className="relative aspect-[4/3] rounded-lg shadow-xl overflow-hidden bg-gray-100">
-                    <Image
-                      src={
-                        category.image ||
-                        "/placeholder.svg?width=800&height=600&query=" + encodeURIComponent(category.name)
-                      }
-                      alt={category.alt}
-                      fill
-                      className="object-contain p-4" // Changed to object-contain and added padding for logos/diagrams
-                    />
-                  </div>
-                </div>
-                <div className="w-full md:w-7/12">
-                  <h2 className="text-3xl font-bold mb-4 text-charcoal">{category.name}</h2>
-                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">{category.description}</p>
-                  <Button
-                    asChild
-                    className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
-                    size="lg"
-                  >
-                    <Link href={category.href} className="inline-flex items-center">
-                      Learn more about {category.name}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
+      {productCategories.map((category, index) => (
+        <section
+          key={category.name}
+          className={`py-12 md:py-16 ${index < productCategories.length - 1 ? "border-b border-gray-200" : ""}`}
+        >
+          <div className="container mx-auto px-4">
+            <div
+              className={`flex flex-col ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              } items-center gap-8 md:gap-12 lg:gap-16`}
+            >
+              <div className="w-full md:w-5/12">
+                <div className="relative aspect-[4/3] rounded-lg shadow-xl overflow-hidden bg-gray-100">
+                  <Image
+                    src={
+                      category.image ||
+                      "/placeholder.svg?width=800&height=600&query=" + encodeURIComponent(category.name)
+                    }
+                    alt={category.alt}
+                    fill
+                    className="object-contain p-4" // Changed to object-contain and added padding for logos/diagrams
+                  />
                 </div>
               </div>
+              <div className="w-full md:w-7/12">
+                <h2 className="text-3xl font-bold mb-4 text-charcoal">{category.name}</h2>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">{category.description}</p>
+                <Button
+                  asChild
+                  className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+                  size="lg"
+                >
+                  <Link href={category.href} className="inline-flex items-center">
+                    Learn more about {category.name}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
+      ))}
 
+      <div className="container mx-auto px-4">
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 my-16">
           <h2 className="text-3xl font-bold mb-6 text-charcoal text-center">Why Choose AIdeology for AI Hardware?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -134,22 +129,27 @@ export default function ProductsPage() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="bg-charcoal rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Ready to Build Your AI Infrastructure?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact our team today to discuss your AI hardware and software requirements. Let us help you architect a
-            customized, high-performance solution proposal.
-          </p>
-          <Button
-            asChild
-            className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
-            size="lg"
-          >
-            <Link href="/contact">Contact us</Link>
-          </Button>
+      <div className="bg-charcoal">
+        <div className="container mx-auto px-4">
+          <div className="rounded-lg shadow-xl p-8 md:p-12 text-center text-white">
+            <h2 className="text-3xl font-bold mb-4">Ready to Build Your AI Infrastructure?</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Contact our team today to discuss your AI hardware and software requirements. Let us help you architect a
+              customized, high-performance solution proposal.
+            </p>
+            <Button
+              asChild
+              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+              size="lg"
+            >
+              <Link href="/#contact">Contact us</Link>
+            </Button>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

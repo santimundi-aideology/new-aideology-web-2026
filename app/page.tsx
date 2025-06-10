@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import SolutionsSection from "@/components/solutions-section"
 import WhyAIdeologySection from "@/components/why-aideology-section"
@@ -14,7 +13,6 @@ import ProductsPromo from "@/components/products-promo"
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
-      <Navbar />
       <HeroSection />
       <SolutionsSection />
       <WhyAIdeologySection />

@@ -1,164 +1,156 @@
-'use client';
+import { Mail, Phone, MapPin, Building, MessageSquare } from "lucide-react"
+import Link from "next/link"
+import ContactForm from "@/components/contact-form"
+import { InteractiveMap } from "@/components/interactive-map" // Using named import
+import LinkedInIcon from "@/components/icons/linkedin-icon"
 
-import { useState } from 'react';
-import { useFormState } from 'react-dom';
-import { submitContactForm } from './actions';
-import { Button } from '@/components/ui/button';
-import { Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
+export const metadata = {
+  title: "Contact Us | AIdeology",
+  description:
+    "Get in touch with AIdeology for AI infrastructure, 3D AI solutions, and AI consulting. We are here to help you.",
+}
+
+const contactDetails = [
+  {
+    icon: Mail,
+    label: "Email Us",
+    value: "aideology@aideology.ai",
+    href: "mailto:aideology@aideology.ai",
+  },
+  {
+    icon: Phone,
+    label: "Call Us",
+    value: "+971 50 963 7367",
+    href: "tel:+971509637367",
+  },
+  {
+    icon: MapPin,
+    label: "Our Office",
+    value: "101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE",
+    href: "https://www.google.com/maps/search/?api=1&query=AIdeology+Dubai+Silicon+Oasis",
+  },
+]
+
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/company/aideology/",
+    icon: LinkedInIcon,
+    label: "LinkedIn",
+    color: "hover:text-blue-400 hover:bg-blue-400/10",
+  },
+]
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: '',
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const result = await submitContactForm(formData);
-      if (result.success) {
-        toast.success(result.message);
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          message: '',
-        });
-      } else {
-        toast.error(result.message);
-      }
-    } catch (error) {
-      toast.error('An unexpected error occurred. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-          <p className="text-lg text-gray-600">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-          </p>
+    <>
+      <main className="bg-gray-50 py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Section */}
+          <section className="text-center mb-16 md:mb-20">
+            <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4 animate-fade-in-up">
+              Get in Touch with AIdeology
+            </h1>
+            <p
+              className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              We&apos;re here to help you unlock the power of AI. Whether you have a question about our services, want
+              to discuss a project, or need expert advice, our team is ready to assist you.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Contact Form Section */}
+            <section
+              className="bg-white p-8 md:p-10 rounded-xl shadow-xl animate-fade-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <h2 className="text-3xl font-semibold text-charcoal mb-6 flex items-center">
+                <MessageSquare className="w-8 h-8 mr-3 text-accent-green" />
+                Send Us a Message
+              </h2>
+              <ContactForm />
+            </section>
+
+            {/* Contact Details Section */}
+            <section className="space-y-10 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+              <div>
+                <h2 className="text-3xl font-semibold text-charcoal mb-6 flex items-center">
+                  <Building className="w-8 h-8 mr-3 text-accent-green" />
+                  Contact Information
+                </h2>
+                <div className="space-y-6">
+                  {contactDetails.map((item, index) => (
+                    <a
+                      key={index}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="flex items-start group p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      <item.icon className="w-6 h-6 text-accent-green mr-4 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-lg font-medium text-charcoal group-hover:text-accent-green transition-colors">
+                          {item.label}
+                        </h3>
+                        <p className="text-gray-600">{item.value}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-charcoal mb-4">Connect With Us</h3>
+                <div className="flex space-x-3">
+                  {socialLinks.map((social) => (
+                    <Link
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`p-3 rounded-full text-charcoal bg-gray-200 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 ${social.color} group relative overflow-hidden`}
+                      aria-label={social.label}
+                    >
+                      <social.icon className="h-6 w-6 relative z-10 transition-transform duration-300 group-hover:rotate-12" />
+                      <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-charcoal text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none">
+                        {social.label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
+      </main>
 
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Name *
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email *
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700">
-                Company
-              </label>
-              <input
-                type="text"
-                name="company"
-                id="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                Message *
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                required
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div>
-              <Button
-                type="submit"
-                className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  'Send Message'
-                )}
-              </Button>
-            </div>
-          </form>
+      {/* Map Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-charcoal text-center mb-12 animate-fade-in-up">
+            Visit Our Office
+          </h2>
+          <div
+            className="rounded-xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] animate-fade-in-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <InteractiveMap
+              locations={[
+                {
+                  id: "dubai-hq",
+                  name: "AIdeology HQ",
+                  coords: { lat: 25.121226, lng: 55.390008 },
+                  description:
+                    "101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE. Visit us for cutting-edge AI solutions.",
+                },
+              ]}
+              height="100%"
+              className="w-full h-full"
+            />
+          </div>
         </div>
-      </div>
-    </div>
-  );
-} 
+      </section>
+    </>
+  )
+}
