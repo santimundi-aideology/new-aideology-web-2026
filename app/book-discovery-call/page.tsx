@@ -88,6 +88,8 @@ export default function BookDiscoveryCall() {
         return 'Schedule a Demo';
       case 'consultation':
         return 'Schedule a Consultation';
+      case 'assessment':
+        return 'Schedule an Assessment';
       default:
         return 'Book a Discovery Call';
     }
@@ -99,8 +101,10 @@ export default function BookDiscoveryCall() {
         return 'Schedule a personalized demo with our experts to see our AI solutions in action and discover how they can transform your business.';
       case 'consultation':
         return 'Book a consultation with our experts to discuss your AI infrastructure needs and explore tailored solutions for your organization.';
+      case 'assessment':
+        return 'Schedule a comprehensive assessment with our security experts to evaluate your AI systems and identify potential vulnerabilities and compliance gaps.';
       default:
-        return 'Schedule a call with our experts to discuss your AI infrastructure needs and how we can help transform your business.';
+        return 'Schedule a call with our experts to discuss your AI needs and explore how we can help accelerate your business transformation.';
     }
   };
 
@@ -156,7 +160,7 @@ export default function BookDiscoveryCall() {
       // TODO: Implement actual booking logic here
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      toast.success(`Your ${type === 'demo' ? 'demo' : type === 'consultation' ? 'consultation' : 'discovery call'} has been scheduled! You will receive a confirmation email shortly.`);
+      toast.success(`Your ${type === 'demo' ? 'demo' : type === 'consultation' ? 'consultation' : type === 'assessment' ? 'assessment' : 'discovery call'} has been scheduled! You will receive a confirmation email shortly.`);
       // Reset form and go back to step 1
       setFormData({
         name: '',

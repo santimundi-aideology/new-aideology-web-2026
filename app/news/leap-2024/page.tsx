@@ -232,7 +232,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                     Discover how AIdeology can help you design, deploy, and operate cutting-edge AI infrastructure tailored to your specific needs.
                   </p>
                   <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
-                    <Link href="#contact">Contact Us</Link>
+                    <Link href="/contact">Contact Us</Link>
                   </Button>
                 </div>
               </div>

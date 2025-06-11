@@ -27,22 +27,22 @@ import { Badge } from "@/components/ui/badge"
 export default function AcceleratedComputingPage() {
   const capabilities = [
     {
-      icon: <Zap className="h-10 w-10 text-sky-500" />,
+      icon: <Zap className="h-10 w-10 text-accent-green" />,
       title: "Massive Parallelism",
       description: "Thousands of cores working simultaneously on complex calculations.",
     },
     {
-      icon: <Cpu className="h-10 w-10 text-sky-500" />,
+      icon: <Cpu className="h-10 w-10 text-accent-green" />,
       title: "Specialized Architecture",
       description: "Hardware optimized for AI, graphics, and scientific computing.",
     },
     {
-      icon: <Gauge className="h-10 w-10 text-sky-500" />,
+      icon: <Gauge className="h-10 w-10 text-accent-green" />,
       title: "Energy Efficiency",
       description: "Higher performance per watt compared to CPU-only solutions.",
     },
     {
-      icon: <Layers className="h-10 w-10 text-sky-500" />,
+      icon: <Layers className="h-10 w-10 text-accent-green" />,
       title: "Scalability",
       description: "From workstations to supercomputers with consistent architecture.",
     },
@@ -50,25 +50,25 @@ export default function AcceleratedComputingPage() {
 
   const services = [
     {
-      icon: <ServerCog className="h-8 w-8 text-sky-600" />,
+      icon: <ServerCog className="h-8 w-8 text-accent-green" />,
       title: "GPU Infrastructure Design & Implementation",
       description:
         "We design and build optimized GPU infrastructure—from individual workstations to large-scale clusters—tailored to your specific workloads and performance requirements.",
     },
     {
-      icon: <Box className="h-8 w-8 text-sky-600" />, // Using Box as a stand-in for DGX system
+      icon: <Box className="h-8 w-8 text-accent-green" />, // Using Box as a stand-in for DGX system
       title: "NVIDIA DGX Systems Deployment",
       description:
         "AIdeology specializes in deploying NVIDIA DGX systems—purpose-built AI supercomputers—and integrating them into your existing infrastructure for maximum performance and efficiency.",
     },
     {
-      icon: <BarChartBig className="h-8 w-8 text-sky-600" />,
+      icon: <BarChartBig className="h-8 w-8 text-accent-green" />,
       title: "GPU Cluster Management",
       description:
         "We implement comprehensive management solutions for GPU clusters, including workload scheduling, resource allocation, and monitoring to ensure optimal utilization and performance.",
     },
     {
-      icon: <Rocket className="h-8 w-8 text-sky-600" />,
+      icon: <Rocket className="h-8 w-8 text-accent-green" />,
       title: "Performance Optimization",
       description:
         "AIdeology's experts fine-tune your accelerated computing infrastructure for maximum performance, identifying and eliminating bottlenecks in computation, memory access, and data movement.",
@@ -111,25 +111,25 @@ export default function AcceleratedComputingPage() {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-sky-700 via-sky-600 to-blue-700 text-white py-20 md:py-28">
+      <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-20 md:py-28">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
-              <Badge className="mb-4 bg-sky-500/30 text-sky-100 border-sky-400 hover:bg-sky-500/40 px-3 py-1 text-sm">
+              <Badge className="mb-4 bg-accent-green/20 text-accent-green border-accent-green/30 hover:bg-accent-green/30 px-3 py-1 text-sm">
                 AI Infrastructure
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Accelerated Computing <span className="block text-sky-300">Infrastructure</span>
+                Accelerated Computing <span className="block text-accent-green">Infrastructure</span>
               </h1>
-              <p className="text-lg md:text-xl text-sky-100 mb-8 max-w-2xl mx-auto md:mx-0">
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0">
                 Transform your computational capabilities with GPU-accelerated infrastructure that powers the most
                 demanding AI, HPC, and data analytics workloads.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Button
                   size="lg"
-                  className="bg-white text-sky-700 hover:bg-sky-50 shadow-lg transition-transform hover:scale-105"
+                  className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
                   asChild
                 >
                   <Link href="/contact">
@@ -139,7 +139,7 @@ export default function AcceleratedComputingPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 shadow-lg transition-transform hover:scale-105"
+                  className="border-white text-white hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
                   asChild
                 >
                   <Link href="#services">Explore Services</Link>
@@ -174,10 +174,10 @@ export default function AcceleratedComputingPage() {
             {capabilities.map((item) => (
               <Card
                 key={item.title}
-                className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-sky-500"
+                className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-accent-green"
               >
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="mb-4 p-3 rounded-full bg-sky-100">{item.icon}</div>
+                  <div className="mb-4 p-3 rounded-full bg-accent-green/10">{item.icon}</div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-gray-600 text-sm">{item.description}</p>
                 </CardContent>
@@ -205,10 +205,10 @@ export default function AcceleratedComputingPage() {
               >
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 p-3 bg-sky-100 rounded-lg text-sky-600 group-hover:bg-sky-200 transition-colors">
+                    <div className="flex-shrink-0 p-3 bg-accent-green/10 rounded-lg text-accent-green group-hover:bg-accent-green/20 transition-colors">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-xl font-semibold text-gray-900 group-hover:text-sky-600 transition-colors">
+                    <CardTitle className="text-xl font-semibold text-gray-900 group-hover:text-accent-green transition-colors">
                       {service.title}
                     </CardTitle>
                   </div>
@@ -223,14 +223,14 @@ export default function AcceleratedComputingPage() {
       </section>
 
       {/* NVIDIA Technology Highlight Section */}
-      <section className="py-16 md:py-24 bg-gray-900 text-white">
+      <section className="py-16 md:py-24 bg-charcoal text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               {/* You can use an actual NVIDIA logo image here if available */}
               {/* <Image src="/nvidia-logo-white.png" alt="NVIDIA Logo" width={200} height={100} className="mb-6" /> */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-400/50 mb-4 text-sm">
-                <Nvidia className="h-5 w-5 text-green-400" /> {/* Using placeholder Nvidia icon */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/20 text-accent-green border border-accent-green/50 mb-4 text-sm">
+                <Nvidia className="h-5 w-5 text-accent-green" /> {/* Using placeholder Nvidia icon */}
                 Powered by NVIDIA
               </div>
               <h3 className="text-3xl font-bold mb-4">Leveraging NVIDIA's Ecosystem</h3>
@@ -241,7 +241,7 @@ export default function AcceleratedComputingPage() {
               </p>
               <Button
                 variant="outline"
-                className="border-green-400 text-green-300 hover:bg-green-400/10 hover:text-green-200"
+                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-charcoal"
                 asChild
               >
                 <Link href="/products/nvidia-dgx">
@@ -276,7 +276,7 @@ export default function AcceleratedComputingPage() {
               <Card key={benefit.title} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-3 rounded-full bg-sky-100 text-sky-600">{benefit.icon}</div>
+                    <div className="p-3 rounded-full bg-accent-green/10 text-accent-green">{benefit.icon}</div>
                     <h3 className="text-lg font-semibold text-gray-900">{benefit.title}</h3>
                   </div>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
@@ -288,17 +288,17 @@ export default function AcceleratedComputingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-sky-700 to-blue-800 text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-charcoal to-gray-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Accelerate Your Innovations?</h2>
-          <p className="text-lg md:text-xl text-sky-100 mb-8">
+          <p className="text-lg md:text-xl text-gray-300 mb-8">
             Let AIdeology design and deploy the optimal GPU-accelerated infrastructure to power your most ambitious
             projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-sky-700 hover:bg-sky-50 shadow-lg transition-transform hover:scale-105"
+              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
               asChild
             >
               <Link href="/contact">
@@ -308,7 +308,7 @@ export default function AcceleratedComputingPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10 shadow-lg transition-transform hover:scale-105"
+              className="border-white text-white hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
               asChild
             >
               <Link href="/solutions/ai-infrastructure">View AI Infrastructure Solutions</Link>

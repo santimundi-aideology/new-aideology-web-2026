@@ -367,12 +367,8 @@ export default function GenerativeAiPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
               size="lg"
-<<<<<<< HEAD
-              className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
-              asChild
-=======
               className="bg-charcoal text-white hover:bg-white hover:text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
->>>>>>> b3ea634b604cd9140c39fb3490508d3339400fd7
+              asChild
             >
               <Link href="/book-discovery-call">
                 Start Your AI Journey
@@ -382,12 +378,8 @@ export default function GenerativeAiPage() {
             <Button
               size="lg"
               variant="outline"
-<<<<<<< HEAD
-              className="border-white text-white hover:bg-white hover:text-accent-green text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
-              asChild
-=======
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
->>>>>>> b3ea634b604cd9140c39fb3490508d3339400fd7
+              asChild
             >
               <Link href="/solutions">
                 Explore Use Cases

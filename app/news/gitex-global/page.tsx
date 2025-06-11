@@ -242,7 +242,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                     tailored to your specific needs.
                   </p>
                   <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
-                    <Link href="#contact">Contact Us</Link>
+                    <Link href="/contact">Contact Us</Link>
                   </Button>
                 </div>
               </div>

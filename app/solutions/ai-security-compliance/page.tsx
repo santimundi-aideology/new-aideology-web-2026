@@ -67,8 +67,9 @@ export default function AISecurityCompliancePage() {
               size="lg"
               variant="outline"
               className="border-white/30 text-white hover:bg-white hover:text-charcoal text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              Assessment Report
+              <Link href="#assessment-section">Assessment Report</Link>
             </Button>
           </div>
         </div>
@@ -236,7 +237,7 @@ export default function AISecurityCompliancePage() {
           </div>
         </section>
 
-        <section className="py-20 bg-charcoal text-white">
+        <section id="assessment-section" className="py-20 bg-charcoal text-white">
           <div className="w-full px-6 lg:px-12 text-center">
             <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Secure Your AI Advantage</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -248,7 +249,7 @@ export default function AISecurityCompliancePage() {
                 className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
                 asChild
               >
-                <Link href="/contact" className="flex items-center">
+                <Link href="/book-discovery-call?type=assessment" className="flex items-center">
                   Schedule Assessment
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

@@ -44,8 +44,9 @@ export default function ConversationalAiPage() {
                   size="lg"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
+                  asChild
                 >
-                  See Demo
+                  <Link href="#demo-section">See Demo</Link>
                 </Button>
               </div>
             </div>
@@ -276,7 +277,7 @@ export default function ConversationalAiPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-charcoal text-white overflow-hidden">
+      <section id="demo-section" className="py-20 bg-charcoal text-white overflow-hidden">
         <div className="w-full px-6 lg:px-12 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Transform Customer Conversations?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>

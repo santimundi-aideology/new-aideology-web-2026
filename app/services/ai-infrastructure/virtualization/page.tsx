@@ -25,27 +25,27 @@ import Link from "next/link"
 export default function VirtualizationPage() {
   const capabilities = [
     {
-      icon: <GitFork className="h-8 w-8 text-purple-600 mb-4" />,
+      icon: <GitFork className="h-8 w-8 text-accent-green mb-4" />,
       title: "Resource Sharing",
       description: "Multiple users and workloads can share GPU resources efficiently.",
     },
     {
-      icon: <Layers className="h-8 w-8 text-purple-600 mb-4" />,
+      icon: <Layers className="h-8 w-8 text-accent-green mb-4" />,
       title: "Workload Consolidation",
       description: "Run diverse applications on the same infrastructure, optimizing hardware use.",
     },
     {
-      icon: <SlidersHorizontal className="h-8 w-8 text-purple-600 mb-4" />,
+      icon: <SlidersHorizontal className="h-8 w-8 text-accent-green mb-4" />,
       title: "Simplified Management",
       description: "Centralize deployment and management of GPU resources with ease.",
     },
     {
-      icon: <ShieldCheck className="h-8 w-8 text-purple-600 mb-4" />,
+      icon: <ShieldCheck className="h-8 w-8 text-accent-green mb-4" />,
       title: "Enhanced Security",
       description: "Maintain isolated environments with consistent and robust security policies.",
     },
     {
-      icon: <Laptop className="h-8 w-8 text-purple-600 mb-4" />,
+      icon: <Laptop className="h-8 w-8 text-accent-green mb-4" />,
       title: "Flexible Access",
       description: "Enable remote access to GPU computing power from virtually any device.",
     },
@@ -56,25 +56,25 @@ export default function VirtualizationPage() {
       title: "NVIDIA vGPU Infrastructure Design",
       description:
         "We design virtualized GPU infrastructure tailored to your specific workload mix, user requirements, and performance expectations, ensuring optimal resource allocation and utilization.",
-      icon: <CloudCog className="h-10 w-10 text-purple-600" />,
+      icon: <CloudCog className="h-10 w-10 text-accent-green" />,
     },
     {
       title: "Virtual Desktop Infrastructure (VDI) for AI",
       description:
         "AIdeology implements GPU-accelerated VDI solutions that provide data scientists and researchers with powerful, secure workspaces accessible from anywhere.",
-      icon: <TerminalSquare className="h-10 w-10 text-purple-600" />,
+      icon: <TerminalSquare className="h-10 w-10 text-accent-green" />,
     },
     {
       title: "Multi-Tenant AI Infrastructure",
       description:
         "We create virtualized AI environments that enable multiple teams or departments to share GPU resources while maintaining isolation and ensuring quality of service.",
-      icon: <Building className="h-10 w-10 text-purple-600" />,
+      icon: <Building className="h-10 w-10 text-accent-green" />,
     },
     {
       title: "Virtualized AI Platform Management",
       description:
         "AIdeology implements comprehensive management solutions for virtualized GPU environments, including monitoring, resource optimization, and automated scaling.",
-      icon: <Gauge className="h-10 w-10 text-purple-600" />,
+      icon: <Gauge className="h-10 w-10 text-accent-green" />,
     },
   ]
 
@@ -109,28 +109,28 @@ export default function VirtualizationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-700 via-blue-700 to-indigo-800 text-white py-24 md:py-32">
+      <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-24 md:py-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <Badge
                 variant="outline"
-                className="mb-4 border-purple-300 text-purple-300 bg-purple-900/30 text-sm py-1 px-3"
+                className="mb-4 border-accent-green/30 text-accent-green bg-accent-green/20 text-sm py-1 px-3"
               >
                 AI Infrastructure
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 tracking-tight">
-                AI & GPU <span className="text-purple-300">Virtualization</span>
+                AI & GPU <span className="text-accent-green">Virtualization</span>
               </h1>
-              <p className="text-lg md:text-xl text-purple-100 mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
                 Enable flexible, efficient utilization of GPU resources across diverse AI, VDI, and graphics workloads
                 with AIdeology's advanced virtualization solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="bg-white text-purple-700 hover:bg-purple-100 transition-all duration-300 transform hover:scale-105"
+                  className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
                   asChild
                 >
                   <Link href="/contact">
@@ -141,7 +141,7 @@ export default function VirtualizationPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-purple-700 transition-all duration-300 transform hover:scale-105"
+                  className="border-white text-white hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
                   asChild
                 >
                   <Link href="#services">Learn More</Link>
@@ -157,8 +157,8 @@ export default function VirtualizationPage() {
                 className="rounded-lg shadow-2xl object-cover"
                 priority
               />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-purple-500 rounded-full opacity-50"></div>
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-blue-500 rounded-lg opacity-30 transform rotate-12"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-green/50 rounded-full opacity-50"></div>
+              <div className="absolute -top-4 -left-4 w-32 h-32 bg-accent-green/30 rounded-lg opacity-30 transform rotate-12"></div>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function VirtualizationPage() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              The <span className="text-purple-600">Value</span> of GPU Virtualization
+              The <span className="text-accent-green">Value</span> of GPU Virtualization
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               GPU virtualization transforms how organizations deploy and manage accelerated computing resources,
@@ -181,7 +181,7 @@ export default function VirtualizationPage() {
             {capabilities.map((capability, index) => (
               <Card
                 key={index}
-                className="border-l-4 border-purple-600 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+                className="border-l-4 border-accent-green bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
               >
                 <CardContent className="p-6 pt-8">
                   {capability.icon}
@@ -199,7 +199,7 @@ export default function VirtualizationPage() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              AIdeology's GPU <span className="text-blue-600">Virtualization Services</span>
+              AIdeology's GPU <span className="text-accent-green">Virtualization Services</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Comprehensive virtualization solutions designed to maximize the value of your GPU investments and
@@ -215,7 +215,7 @@ export default function VirtualizationPage() {
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-purple-100 rounded-lg text-purple-600 transition-transform duration-300 group-hover:scale-110">
+                    <div className="p-3 bg-accent-green/10 rounded-lg text-accent-green transition-transform duration-300 group-hover:scale-110">
                       {service.icon}
                     </div>
                     <CardTitle className="text-xl font-semibold text-gray-900 mt-1">{service.title}</CardTitle>
@@ -231,7 +231,7 @@ export default function VirtualizationPage() {
       </section>
 
       {/* NVIDIA Technology Highlight */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative order-2 lg:order-1 mt-8 lg:mt-0">
@@ -245,7 +245,7 @@ export default function VirtualizationPage() {
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center mb-4">
-                <Cpu className="h-10 w-10 text-green-400 mr-3" />
+                <Cpu className="h-10 w-10 text-accent-green mr-3" />
                 <h3 className="text-2xl md:text-3xl font-bold">NVIDIA AI Enterprise & vGPU Software</h3>
               </div>
               <p className="text-gray-300 text-lg mb-6">
@@ -256,7 +256,7 @@ export default function VirtualizationPage() {
               </p>
               <Button
                 variant="outline"
-                className="border-green-400 text-green-400 hover:bg-green-400 hover:text-gray-900 transition-colors"
+                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-charcoal transition-colors"
                 asChild
               >
                 <Link href="/products/nvidia-ai-enterprise">
@@ -273,7 +273,7 @@ export default function VirtualizationPage() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key <span className="text-purple-600">Benefits</span> of Our Virtualization Solutions
+              Key <span className="text-accent-green">Benefits</span> of Our Virtualization Solutions
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Partnering with AIdeology for GPU virtualization offers tangible advantages for your organization.
@@ -287,7 +287,7 @@ export default function VirtualizationPage() {
                 className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
               >
                 <CardContent className="p-6 text-center">
-                  <div className="p-4 bg-purple-100 rounded-full w-fit mx-auto mb-4 text-purple-600">
+                  <div className="p-4 bg-accent-green/10 rounded-full w-fit mx-auto mb-4 text-accent-green">
                     {benefit.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
@@ -300,17 +300,17 @@ export default function VirtualizationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-purple-700 via-blue-700 to-indigo-800 text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Maximize Your GPU Investments Today</h2>
-          <p className="text-lg md:text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Transform your AI infrastructure with AIdeology's expert GPU virtualization solutions. Let's discuss how we
             can tailor a strategy to your unique needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-purple-700 hover:bg-purple-100 transition-all duration-300 transform hover:scale-105"
+              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
               asChild
             >
               <Link href="/contact">
@@ -321,7 +321,7 @@ export default function VirtualizationPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-purple-700 transition-all duration-300 transform hover:scale-105"
+              className="border-white text-white hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
               asChild
             >
               <Link href="/solutions/ai-infrastructure">View AI Infrastructure Solutions</Link>

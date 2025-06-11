@@ -77,25 +77,25 @@ export default function SustainableComputingPage() {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-800 via-teal-800 to-blue-900 text-white">
+      <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <Badge variant="secondary" className="mb-4 bg-white/10 text-white border-white/20 backdrop-blur-sm">
+              <Badge variant="secondary" className="mb-4 bg-accent-green/20 text-accent-green border-accent-green/30 backdrop-blur-sm">
                 <Leaf className="mr-2 h-4 w-4" />
                 AI Infrastructure
               </Badge>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Sustainable & Energy-Efficient Computing
               </h1>
-              <p className="text-xl text-green-100 mb-8">
+              <p className="text-xl text-gray-300 mb-8">
                 Design and implement sustainable computing infrastructure for AI and HPC that reduces environmental
                 impact without compromising on performance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button asChild size="lg" className="bg-white text-green-900 hover:bg-green-50">
-                  <Link href="/contact">
+                <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal">
+                  <Link href="#consultation">
                     Consult an Expert
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -104,7 +104,7 @@ export default function SustainableComputingPage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-green-900"
+                  className="border-white text-white hover:bg-white hover:text-charcoal"
                 >
                   <Link href="#benefits">View Benefits</Link>
                 </Button>
@@ -168,7 +168,7 @@ export default function SustainableComputingPage() {
               >
                 <CardHeader>
                   <div className="flex items-center gap-4">
-                    <div className="p-3 bg-green-100 rounded-lg text-green-600">{service.icon}</div>
+                    <div className="p-3 bg-accent-green/10 rounded-lg text-accent-green">{service.icon}</div>
                     <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
@@ -184,10 +184,10 @@ export default function SustainableComputingPage() {
       {/* NVIDIA Technology Highlight */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Card className="border-l-4 border-green-500 bg-white shadow-lg overflow-hidden">
+          <Card className="border-l-4 border-accent-green bg-white shadow-lg overflow-hidden">
             <div className="grid md:grid-cols-5">
               <div className="md:col-span-3 p-8">
-                <h3 className="text-2xl font-bold text-green-800 mb-4">Powered by NVIDIA's Green Technologies</h3>
+                <h3 className="text-2xl font-bold text-accent-green mb-4">Powered by NVIDIA's Green Technologies</h3>
                 <p className="text-gray-700 text-lg mb-4">
                   AIdeology leverages NVIDIA's portfolio of energy-efficient computing technologies. From GPUs that
                   deliver more computation per watt to optimized software that maximizes efficiency, these technologies
@@ -198,7 +198,7 @@ export default function SustainableComputingPage() {
                   centers to operate with unprecedented efficiency and density.
                 </p>
               </div>
-              <div className="md:col-span-2 bg-green-900/5 p-8 flex items-center justify-center">
+              <div className="md:col-span-2 bg-accent-green/5 p-8 flex items-center justify-center">
                 <Image src="/nvidia-logo.png" alt="NVIDIA Logo" width={200} height={100} className="object-contain" />
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function SustainableComputingPage() {
                 className="border-0 bg-gray-50 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
                 <CardContent className="p-8 text-center">
-                  <div className="p-4 bg-green-100 rounded-full w-fit mx-auto mb-4 text-green-600">{benefit.icon}</div>
+                  <div className="p-4 bg-accent-green/10 rounded-full w-fit mx-auto mb-4 text-accent-green">{benefit.icon}</div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
                 </CardContent>
@@ -235,7 +235,7 @@ export default function SustainableComputingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-charcoal to-gray-800 text-white">
+      <section id="consultation" className="bg-gradient-to-r from-charcoal to-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
           <div className="text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Build a Greener, More Powerful AI Future</h2>
@@ -245,7 +245,7 @@ export default function SustainableComputingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent-green text-white hover:bg-accent-green/90">
-                <Link href="/contact">
+                <Link href="/book-discovery-call?type=consultation">
                   Schedule a Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

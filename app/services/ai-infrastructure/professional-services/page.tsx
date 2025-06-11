@@ -254,7 +254,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
           <h1 className="text-4xl md:text-5xl font-bold max-w-3xl">
             {heroTitle}
           </h1>
-          <p className="mt-4 text-lg text-gray-300 max-w-3xl">
+          <p className="mt-4 text-lg text-gray-300 max-w-3xl mb-8">
             {heroSubtitle}
           </p>
           <Button 
@@ -262,7 +262,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
             size="lg" 
             className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
-            <Link href="/#contact" className="inline-flex items-center">
+            <Link href="#contact-section" className="inline-flex items-center">
               <Mail className="mr-2 h-5 w-5" />
               Discuss Your Project
             </Link>
@@ -342,7 +342,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-accent-green/10">
+      <section id="contact-section" className="py-16 md:py-20 bg-accent-green/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center bg-white p-12 rounded-lg shadow-lg">
             <h2 className="text-3xl font-bold text-charcoal mb-4">Ready to Build Your AI Future?</h2>
