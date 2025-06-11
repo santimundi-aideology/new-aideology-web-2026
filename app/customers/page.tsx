@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, CheckCircle, Quote } from "lucide-react"
 
 import Footer from "@/components/footer"
-import type { StaticImageData } from 'next/image'
+import type { StaticImageData } from "next/image"
 
 // Define interfaces for our data
 interface Testimonial {
@@ -38,7 +38,7 @@ export default function CustomersPage() {
       title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
       industry: "AI Infrastructure",
       challenge:
-        "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
+        "G42's Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
       solution:
         "AIdeology designed and deployed a comprehensive 5 Scalable unit DGX SuperPOD infrastructure featuring over 159 NVIDIA DGX H100 systems. The solution included optimized networking, storage fabric, and management systems specifically configured for multi-tenant AI cloud operations.",
       results: [
@@ -71,7 +71,7 @@ export default function CustomersPage() {
         "20 DGX A100 nodes deployed and operational in 6 weeks",
         "10 PFLOPS AI compute capacity with multi-tenant isolation",
         "Supports real-time analytics for 1M+ IoT sensors",
-        "Reduced model training time by 85% for urban planning"
+        "Reduced model training time by 85% for urban planning",
       ],
       image: "/customers/tonomus_image.jpg",
       logo: "/customers/neom-logo.png",
@@ -89,7 +89,7 @@ export default function CustomersPage() {
       title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
       industry: "AI Consulting",
       challenge:
-        "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
+        'Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a "hockey-stick" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.',
       solution: "AIdeology delivered a tailored, end-to-end automation stack that fuses Generative AI with RPA:",
       results: [
         "100 000+ invoices/year processed fully autonomously via Salesforce integration",
@@ -114,7 +114,7 @@ export default function CustomersPage() {
       title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
       industry: "AI Consulting",
       challenge:
-        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
+        "With dozens of operating companies spread across the Middle East & North Africa, Midis Group's finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
       solution: "AIdeology delivered a secure, role-based AI finance agent that:",
       results: [
         "Days-long consolidation cycles cut to minutes, freeing controllers for analysis rather than data wrangling",
@@ -137,10 +137,10 @@ export default function CustomersPage() {
     {
       id: "5",
       title: "iStyle & K-Tuin – Digital-Twin Retail Analytics for 130+ Apple Stores",
-      industry: "AI Consulting",
+      industry: "3D AI",
       challenge:
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
-      solution: "AIdeology built a complete \"store digital-twin\" platform:",
+      solution: 'AIdeology built a complete "store digital-twin" platform:',
       results: [
         "Enterprise roll-out ready for all 130+ stores, giving corporate and field teams a single source of behavioural truth.",
         "Model accuracy boosted thanks to the synthetic-image corpus—allowing reliable detection of complex, low-frequency events (e.g., abandoned check-outs).",
@@ -150,7 +150,7 @@ export default function CustomersPage() {
       image: "istyle-ktuin-custom",
       logo: "/customers/mindware-logo.png",
       testimonial: {
-        quote: "AIdeology built a complete \"store digital-twin\" platform:",
+        quote: 'AIdeology built a complete "store digital-twin" platform:',
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
@@ -159,92 +159,38 @@ export default function CustomersPage() {
       slug: "k-tuin-istyle-digital-twin",
     },
     {
-      id: "6",
-      title: "Architectural Firm Enhances Visualization with 3D AI",
+      id: "9",
+      title: "HCT Pioneers Metaverse Education with NVIDIA Omniverse Lab",
       industry: "3D AI",
       challenge:
-        "An architectural firm wanted to improve their client presentations with more realistic visualizations but lacked the in-house expertise and infrastructure to implement advanced 3D rendering technologies.",
+        "Higher Colleges of Technology (HCT) aimed to establish a state-of-the-art Metaverse and Digital Twin development lab to be a pioneer in the Gulf region. They needed a robust, scalable platform to support advanced 3D design, real-time collaboration, and simulation for their students and faculty.",
       solution:
-        "AIdeology implemented a comprehensive 3D AI solution that integrated with their existing design tools. The solution included AI-powered rendering optimization, real-time visualization capabilities, and a custom digital twin framework for interactive presentations.",
+        "AIdeology, an NVIDIA Elite Partner, supplied and commissioned a complete Metaverse Lab built on Lenovo's EveryScale OVX architecture, purpose-built for NVIDIA Omniverse. The solution provides a powerful platform for real-time, multi-user collaboration and simulation, enabling HCT to create and operate complex 3D virtual worlds and digital twins. AIdeology also provided comprehensive training and knowledge transfer to faculty and students.",
       results: [
-        "85% faster visualization turnaround time",
-        "30% increase in client conversion rate",
-        "Ability to offer new services like VR walkthroughs",
-        "Reduced need for physical mockups, saving time and materials",
+        "Established one of the most advanced academic Metaverse labs in the Gulf region.",
+        "Enabled real-time, multi-user collaboration on complex 3D projects.",
+        "Provided students with hands-on experience with industry-leading NVIDIA Omniverse technology.",
+        "Empowered HCT to become an NVIDIA DLI University Ambassador, expanding AI and Metaverse training.",
       ],
-      image: "/customers/architecture-firm-case-study.png",
-      logo: "/customers/beauty-and-the-bit-logo.png",
+      image: "/customers/hct-metaverse-lab.png",
+      logo: "/customer-logos/hct-logo.png",
       testimonial: {
         quote:
-          "AIdeology\'s 3D AI solution has revolutionized how we present designs to clients. The ability to create photorealistic visualizations in a fraction of the time has given us a significant competitive advantage.",
-        author: "Elena Martinez",
-        position: "Creative Director",
-        company: "Beauty & The Bit",
-        image: "/customers/testimonials/elena-martinez.png",
+          "AIdeology's expertise in NVIDIA Omniverse and their seamless deployment of the OVX solution has positioned HCT at the forefront of Metaverse education. Our students now have access to a world-class lab that mirrors the technology used by industry leaders.",
+        author: "Dr. Aisha Al-Mansoori",
+        position: "Dean, College of Technological Innovation",
+        company: "Higher Colleges of Technology",
+        image: "/customers/testimonials/aisha-al-mansoori.png",
       },
-      slug: "architectural-visualization",
-    },
-    {
-      id: "7",
-      title: "Media Production Studio Implements Virtual Production Pipeline",
-      industry: "3D AI",
-      challenge:
-        "A media production studio wanted to transition to virtual production techniques but faced challenges with real-time rendering, camera tracking, and integrating physical and digital elements seamlessly.",
-      solution:
-        "AIdeology designed a complete virtual production pipeline powered by AI, including LED wall integration, camera tracking systems, real-time rendering servers, and a custom software layer for managing assets and scenes. The solution included training for the studio's team and ongoing support.",
-      results: [
-        "50% reduction in production time for complex scenes",
-        "35% cost savings compared to traditional location shooting",
-        "Ability to iterate on scenes in real-time during shooting",
-        "New creative possibilities previously impossible with traditional methods",
-      ],
-      image: "/customers/virtual-production-case-study.png",
-      logo: "/customers/serena-tv-logo.png",
-      testimonial: {
-        quote:
-          "AIdeology's virtual production solution has completely changed how we approach production. The ability to see final-quality imagery in-camera has streamlined our workflow and opened up new creative possibilities.",
-        author: "Sarah Johnson",
-        position: "Head of Production",
-        company: "Serena TV",
-        image: "/customers/testimonials/sarah-johnson.png",
-      },
-      slug: "virtual-production",
-    },
-    {
-      id: "8",
-      title: "Energy Company Optimizes Grid Management with Digital Twins",
-      industry: "Physical AI",
-      challenge:
-        "An energy company was struggling to optimize their power grid operations, leading to inefficiencies, higher costs, and occasional service disruptions. They needed a way to simulate and predict grid behavior under various conditions.",
-      solution:
-        "AIdeology created a comprehensive digital twin of their power grid infrastructure, integrating real-time data from sensors and weather forecasts. The solution included AI-powered predictive analytics for demand forecasting, failure prediction, and optimization algorithms for load balancing.",
-      results: [
-        "22% improvement in grid efficiency",
-        "18% reduction in operational costs",
-        "65% decrease in unplanned outages",
-        "$3.5M annual savings in maintenance and energy costs",
-      ],
-      image: "/customers/energy-grid-case-study.png",
-      logo: "/customers/energy-logo.png",
-      testimonial: {
-        quote:
-          "The digital twin solution from AIdeology has transformed how we manage our grid. The predictive capabilities have allowed us to be proactive rather than reactive, resulting in better service for our customers and lower costs for our operations.",
-        author: "Robert Thompson",
-        position: "Grid Operations Manager",
-        company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
-      },
-      slug: "energy-grid-optimization",
+      slug: "hct-metaverse-lab",
     },
   ]
 
   // Group use cases by industry
-  const gtmCategories = ["AI Infrastructure", "3D AI", "AI Consulting", "Physical AI"]
+  const gtmCategories = ["AI Infrastructure", "3D AI", "AI Consulting"]
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-20">
-
-
       {/* Hero Section */}
       <section className="pb-16 bg-white">
         <div className="container mx-auto px-4">
@@ -284,7 +230,6 @@ export default function CustomersPage() {
                     </div>
                   </>
                 )}
-               
               </div>
               <h2 className="text-3xl font-bold mb-6">{useCases[0].title}</h2>
               <div className="mb-6">
@@ -359,7 +304,7 @@ export default function CustomersPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Success Stories by GTM</h2>
 
           <Tabs defaultValue={gtmCategories[0]} className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full max-w-4xl mx-auto mb-8 justify-center">
+            <TabsList className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 w-full max-w-4xl mx-auto mb-8 justify-center">
               {gtmCategories.map((category) => (
                 <TabsTrigger
                   key={category}
@@ -475,7 +420,6 @@ export default function CustomersPage() {
   )
 }
 
-
 // Custom rendering for iStyle & K-Tuin card image
 function CardImage({ useCase }: { useCase: UseCase }) {
   if (useCase.image === "istyle-ktuin-custom") {
@@ -498,7 +442,5 @@ function CardImage({ useCase }: { useCase: UseCase }) {
       </div>
     )
   }
-  return (
-    <Image src={useCase.image || "/placeholder.svg"} alt={useCase.title} fill className="object-cover" />
-  )
+  return <Image src={useCase.image || "/placeholder.svg"} alt={useCase.title} fill className="object-cover" />
 }

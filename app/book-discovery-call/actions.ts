@@ -34,4 +34,4 @@ export async function submitBooking(data: BookingData) {
       message: 'There was an error scheduling your call. Please try again later.'
     }
   }
-} 
+}
