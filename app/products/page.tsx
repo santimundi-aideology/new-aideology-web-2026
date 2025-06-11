@@ -40,8 +40,8 @@ const productCategories = [
     href: "/products/nvidia-ai-enterprise",
     description:
       "Accelerate your AI journey from development to production with NVIDIA AI Enterprise. This end-to-end, cloud-native suite of AI and data analytics software is optimized, certified, and supported by NVIDIA to run on mainstream data center platforms. AIdeology helps you leverage NVAIE for streamlined AI workflows, faster time-to-value, and enterprise-grade support for your AI initiatives.",
-    image: "/partners/nvidia-nemo-logo.png", // Updated image for NVIDIA AI Enterprise (example, can be changed)
-    alt: "Logo of NVIDIA AI Enterprise, representing the comprehensive AI software suite.",
+    image: "/ai-enterprise.webp", 
+    alt: "NVIDIA AI Enterprise",
   },
 ]
 

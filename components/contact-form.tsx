@@ -47,7 +47,7 @@ const FormField: React.FC<FormFieldProps & { error?: string }> = ({
           name={id}
           placeholder={placeholder}
           required={required}
-          className={`pl-10 ${error ? "border-red-500 focus:border-red-500" : "border-gray-300"}`}
+          className={`${error ? "border-red-500 focus:border-red-500" : "border-gray-300"}`}
         />
       ) : (
         <Textarea
@@ -56,13 +56,8 @@ const FormField: React.FC<FormFieldProps & { error?: string }> = ({
           placeholder={placeholder}
           required={required}
           rows={5}
-          className={`pl-10 ${error ? "border-red-500 focus:border-red-500" : "border-gray-300"}`}
+          className={`${error ? "border-red-500 focus:border-red-500" : "border-gray-300"}`}
         />
-      )}
-      {Icon && (
-        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-          <Icon className="w-5 h-5" />
-        </div>
       )}
     </div>
     {error && <p className="text-sm text-red-600 mt-1">{error}</p>}

@@ -27,7 +27,7 @@ const contactDetails = [
     icon: MapPin,
     label: "Our Office",
     value: "101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE",
-    href: "https://www.google.com/maps/search/?api=1&query=AIdeology+Dubai+Silicon+Oasis",
+    href: "https://maps.app.goo.gl/sqD6d6guPDFGigUN8",
   },
 ]
 
@@ -43,7 +43,7 @@ const socialLinks = [
 export default function ContactPage() {
   return (
     <>
-      <main className="bg-gray-50 py-16 md:py-24">
+      <main className="bg-gray-50 py-28 md:py-36">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <section className="text-center mb-16 md:mb-20">

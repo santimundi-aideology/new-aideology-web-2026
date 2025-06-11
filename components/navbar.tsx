@@ -264,7 +264,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const showSolidNav = forceDarkLogo || isScrolled || pathname !== '/';
 
   const headerClasses = showSolidNav
-    ? "bg-white/80 shadow-none text-charcoal"
+    ? "bg-white/90 shadow-none text-charcoal"
     : "bg-transparent text-white";
   const logoSrc = showSolidNav ? "/aideology.webp" : "/aideology-white.webp";
   const linkTextColor = showSolidNav ? "text-charcoal" : "text-white";
