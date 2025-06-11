@@ -19,7 +19,6 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import ServiceLayout from "@/components/layouts/service-layout"
 
 export const metadata = {
   title: "AI Infrastructure Professional Services | Design, Deployment & Optimization | AIdeology",
@@ -220,7 +219,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
   const heroImage = "/services/ai_infra_experts.webp";
 
   return (
-    <ServiceLayout>
+    <div className="min-h-screen bg-white">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="mb-6 text-sm text-gray-500 flex items-center" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-gray-700">Home</Link>
@@ -282,19 +281,6 @@ export default function AiInfrastructureProfessionalServicesPage() {
               deploy, and optimize high-performance AI infrastructure. We de-risk your investment and accelerate your
               time to value.
             </p>
-<<<<<<< HEAD
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
-            >
-              <Link href="/contact" className="inline-flex items-center">
-                <Mail className="mr-2 h-5 w-5" />
-                Discuss Your Project
-              </Link>
-            </Button>
-=======
->>>>>>> b3ea634b604cd9140c39fb3490508d3339400fd7
           </div>
         </div>
       </section>
@@ -376,6 +362,6 @@ export default function AiInfrastructureProfessionalServicesPage() {
           </div>
         </div>
       </section>
-    </ServiceLayout>
+    </div>
   )
 }
