@@ -137,7 +137,7 @@ export default function CustomersPage() {
     {
       id: "5",
       title: "iStyle & K-Tuin – Digital-Twin Retail Analytics for 130+ Apple Stores",
-      industry: "3D AI",
+      industry: "Design & Simulation",
       challenge:
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
       solution: 'AIdeology built a complete "store digital-twin" platform:',
@@ -161,7 +161,7 @@ export default function CustomersPage() {
     {
       id: "9",
       title: "HCT Pioneers Metaverse Education with NVIDIA Omniverse Lab",
-      industry: "3D AI",
+      industry: "Design & Simulation",
       challenge:
         "Higher Colleges of Technology (HCT) aimed to establish a state-of-the-art Metaverse and Digital Twin development lab to be a pioneer in the Gulf region. They needed a robust, scalable platform to support advanced 3D design, real-time collaboration, and simulation for their students and faculty.",
       solution:
@@ -187,7 +187,7 @@ export default function CustomersPage() {
   ]
 
   // Group use cases by industry
-  const gtmCategories = ["AI Infrastructure", "3D AI", "AI Consulting"]
+  const gtmCategories = ["AI Infrastructure", "Design & Simulation", "AI Consulting"]
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-20">

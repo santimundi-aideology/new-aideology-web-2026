@@ -1,10 +1,12 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, ArrowRight, ChevronUp } from "lucide-react"
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { SheetFooter } from "@/components/ui/sheet"
 
@@ -14,61 +16,66 @@ interface NavbarProps {
 
 // Type for nav items that have a hash link
 interface NavItemWithHash {
-  pathname: string;
-  hash: string;
+  pathname: string
+  hash: string
 }
 
 // Helper function to stringify href for Link component
 const getLinkHref = (href: string | NavItemWithHash): string => {
-  if (typeof href === 'string') return href;
-  return href.pathname + (href.hash || '');
-};
+  if (typeof href === "string") return href
+  return href.pathname + (href.hash || "")
+}
 
 // Exported scroll utility function
 export const performScrollToSection = (
   targetId: string,
   navbarHeight: number,
-  scrollBehavior: ScrollBehavior = 'smooth' // Default to 'smooth'
+  scrollBehavior: ScrollBehavior = "smooth", // Default to 'smooth'
 ) => {
-  const element = document.getElementById(targetId);
+  const element = document.getElementById(targetId)
   if (element) {
-    const heading = element.querySelector('h2');
-    const scrollTarget = heading || element; // Prefer heading if available for more precise positioning under navbar
-    const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
+    const heading = element.querySelector("h2")
+    const scrollTarget = heading || element // Prefer heading if available for more precise positioning under navbar
+    const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY
 
-    const sectionPaddingTop = parseFloat(window.getComputedStyle(element).paddingTop) || 0;
-    let headingHeight = 0;
+    const sectionPaddingTop = Number.parseFloat(window.getComputedStyle(element).paddingTop) || 0
+    let headingHeight = 0
     if (heading) {
-      headingHeight = heading.offsetHeight;
+      headingHeight = heading.offsetHeight
     }
     // User's current formula for offset, consistent with existing Navbar logic
-    const extraOffset = sectionPaddingTop - headingHeight * 3;
-    const offsetPosition = elementPosition - navbarHeight + extraOffset;
+    const extraOffset = sectionPaddingTop - headingHeight * 3
+    const offsetPosition = elementPosition - navbarHeight + extraOffset
 
     window.scrollTo({
       top: offsetPosition,
       behavior: scrollBehavior,
-    });
-    return true; // Indicate scroll was attempted
+    })
+    return true // Indicate scroll was attempted
   }
-  return false; // Indicate element not found
-};
+  return false // Indicate element not found
+}
 
 export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
-  const navbarRef = useRef<HTMLElement>(null); // Ref for the header element
+  const navbarRef = useRef<HTMLElement>(null) // Ref for the header element
 
   // Add state for managing the submenu
   const [showSubmenu, setShowSubmenu] = useState(false)
-  const [selectedSubmenu, setSelectedSubmenu] = useState<string | null>(null); // Defaulting to null as per typical initial state
+  const [selectedSubmenu, setSelectedSubmenu] = useState<string | null>(null) // Defaulting to null as per typical initial state
 
   const submenuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Determine if the navbar should always be dark based on the current page or forceDarkLogo prop
-  const alwaysDark = forceDarkLogo || pathname.startsWith("/services/") || pathname.startsWith("/products/") || pathname === "/customers" || pathname === "/news";
+  const alwaysDark =
+    forceDarkLogo ||
+    pathname.startsWith("/services/") ||
+    pathname.startsWith("/products/") ||
+    pathname === "/customers" ||
+    pathname === "/news"
 
   // Handle scroll effects
   useEffect(() => {
@@ -82,8 +89,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
 
         for (const item of navItems) {
           // Only consider items with sectionId and object href with hash for active section highlighting
-          if (item.sectionId && typeof item.href === 'object' && 'hash' in item.href && item.href.hash) {
-            const hrefObj = item.href as NavItemWithHash; // Explicit cast for clarity, though check is sufficient
+          if (item.sectionId && typeof item.href === "object" && "hash" in item.href && item.href.hash) {
+            const hrefObj = item.href as NavItemWithHash // Explicit cast for clarity, though check is sufficient
             const elementId = item.sectionId
             const element = document.getElementById(elementId)
 
@@ -120,48 +127,47 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   // New useEffect for initial hash scrolling on homepage or after cross-page navigation to a hash
   useEffect(() => {
     if (pathname === "/") {
-      const hash = window.location.hash;
+      const hash = window.location.hash
       if (hash) {
-        const targetId = hash.substring(1); // Remove #
+        const targetId = hash.substring(1) // Remove #
         // Use a timeout to ensure the DOM is fully ready after page navigation
         setTimeout(() => {
           if (navbarRef.current) {
-            const navbarHeight = navbarRef.current.offsetHeight;
-            performScrollToSection(targetId, navbarHeight, 'auto'); // Use utility function
+            const navbarHeight = navbarRef.current.offsetHeight
+            performScrollToSection(targetId, navbarHeight, "auto") // Use utility function
           }
-        }, 100); // 100ms delay, adjust if necessary
+        }, 100) // 100ms delay, adjust if necessary
       }
     }
-  }, [pathname]); // Rerun when pathname changes
+  }, [pathname]) // Rerun when pathname changes
 
-  const handleNavigation = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    hrefInput: string | NavItemWithHash
-  ) => {
-    setIsMobileMenuOpen(false);
-    const targetHref = getLinkHref(hrefInput); // e.g., "/#solutions", "#contact", "/news"
+  const handleNavigation = (event: React.MouseEvent<HTMLAnchorElement>, hrefInput: string | NavItemWithHash) => {
+    setIsMobileMenuOpen(false)
+    const targetHref = getLinkHref(hrefInput) // e.g., "/#solutions", "#contact", "/news"
 
     // Handle same-page hash navigation if currently on the homepage
     if (pathname === "/") {
-      let hashTargetId: string | null = null;
+      let hashTargetId: string | null = null
 
-      if (targetHref.startsWith("/#")) { // e.g., "/#solutions"
-        hashTargetId = targetHref.substring(2);
-      } else if (targetHref.startsWith("#") && !targetHref.startsWith("/#")) { // e.g., "#contact"
-        hashTargetId = targetHref.substring(1);
+      if (targetHref.startsWith("/#")) {
+        // e.g., "/#solutions"
+        hashTargetId = targetHref.substring(2)
+      } else if (targetHref.startsWith("#") && !targetHref.startsWith("/#")) {
+        // e.g., "#contact"
+        hashTargetId = targetHref.substring(1)
       }
 
       if (hashTargetId && navbarRef.current) {
-        event.preventDefault(); // Prevent default only for same-page smooth scroll
-        const navbarHeight = navbarRef.current.offsetHeight;
-        performScrollToSection(hashTargetId, navbarHeight, 'smooth'); // Use utility function
-        return; // Exit after handling same-page scroll
+        event.preventDefault() // Prevent default only for same-page smooth scroll
+        const navbarHeight = navbarRef.current.offsetHeight
+        performScrollToSection(hashTargetId, navbarHeight, "smooth") // Use utility function
+        return // Exit after handling same-page scroll
       }
     }
     // For other cases (like navigating to a different page, or to the homepage with a hash from another page),
     // let Next.js Link component handle the navigation.
     // The new useEffect will then handle scrolling if the destination is the homepage with a hash.
-  };
+  }
 
   const navItems = [
     { href: "/", label: "Home", sectionId: "hero" },
@@ -175,7 +181,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const submenuItems: Record<string, { href: string; label: string }[]> = {
     Solutions: [
       { href: "/solutions/ai-infrastructure", label: "AI Infrastructure" },
-      { href: "/solutions/3d-ai", label: "3D AI" },
+      { href: "/solutions/design-simulation", label: "Design & Simulation" },
       { href: "/solutions/ai-consulting", label: "AI Consulting" },
       { href: "/solutions/robotics-edge-ai", label: "Robotics & Edge AI" },
     ],
@@ -187,11 +193,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       { href: "/services/ai-infrastructure/virtualization", label: "Virtualization" },
       { href: "/services/ai-infrastructure/sustainable-computing", label: "Sustainable Computing" },
     ],
-    "3D AI": [
-      { href: "/services/3d-ai/design-visualization", label: "Design Visualization" },
-      { href: "/services/3d-ai/robotic-simulation", label: "Robotic Simulation" },
-      { href: "/services/3d-ai/extended-reality", label: "Extended Reality" },
-      { href: "/services/3d-ai/digital-twins", label: "Digital Twins" },
+    "Design & Simulation": [
+      { href: "/services/design-simulation/design-visualization", label: "Design Visualization" },
+      { href: "/services/design-simulation/robotic-simulation", label: "Robotic Simulation" },
+      { href: "/services/design-simulation/extended-reality", label: "Extended Reality" },
+      { href: "/services/design-simulation/digital-twins", label: "Digital Twins" },
     ],
     "AI Consulting": [
       { href: "/solutions/ai-security-compliance", label: "AI Security & Compliance" },
@@ -229,23 +235,22 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       setSelectedSubmenu(null)
     }, 300) // 300ms delay before hiding
   }
-  
-  const [flyoutSubmenu, setFlyoutSubmenu] = useState<string | null>(null);
-  const flyoutTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const [flyoutSubmenu, setFlyoutSubmenu] = useState<string | null>(null)
+  const flyoutTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleFlyoutEnter = (menu: string) => {
     if (flyoutTimeoutRef.current) {
-      clearTimeout(flyoutTimeoutRef.current);
+      clearTimeout(flyoutTimeoutRef.current)
     }
-    setFlyoutSubmenu(menu);
-  };
+    setFlyoutSubmenu(menu)
+  }
 
   const handleFlyoutLeave = () => {
     flyoutTimeoutRef.current = setTimeout(() => {
-      setFlyoutSubmenu(null);
-    }, 300);
-  };
-
+      setFlyoutSubmenu(null)
+    }, 300)
+  }
 
   useEffect(() => {
     return () => {
@@ -253,22 +258,20 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
         clearTimeout(submenuTimeoutRef.current)
       }
       if (flyoutTimeoutRef.current) {
-        clearTimeout(flyoutTimeoutRef.current);
+        clearTimeout(flyoutTimeoutRef.current)
       }
     }
   }, [])
 
   // Determine navbar appearance
-  const isHomepage = pathname === '/';
+  const isHomepage = pathname === "/"
   // Solid nav appears if scrolled, or forced, or not on homepage, or on specific content pages needing dark text from start
-  const showSolidNav = forceDarkLogo || isScrolled || pathname !== '/';
+  const showSolidNav = forceDarkLogo || isScrolled || pathname !== "/"
 
-  const headerClasses = showSolidNav
-    ? "bg-white/90 shadow-none text-charcoal"
-    : "bg-transparent text-white";
-  const logoSrc = showSolidNav ? "/aideology.webp" : "/aideology-white.webp";
-  const linkTextColor = showSolidNav ? "text-charcoal" : "text-white";
-  const mobileMenuIconColor = showSolidNav ? "text-charcoal" : "text-white";
+  const headerClasses = showSolidNav ? "bg-white/90 shadow-none text-charcoal" : "bg-transparent text-white"
+  const logoSrc = showSolidNav ? "/aideology.webp" : "/aideology-white.webp"
+  const linkTextColor = showSolidNav ? "text-charcoal" : "text-white"
+  const mobileMenuIconColor = showSolidNav ? "text-charcoal" : "text-white"
 
   return (
     <header
@@ -278,21 +281,23 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex-shrink-0 outline-none focus:outline-none">
-          <Image src={logoSrc} alt="AIdeology Logo" width={150} height={40} priority />
+          <Image src={logoSrc || "/placeholder.svg"} alt="AIdeology Logo" width={150} height={40} priority />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8">
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <div
               key={item.label}
               className="relative group"
-              onMouseEnter={() => (item.label === "Solutions" || item.label === "Products") && handleSubmenuEnter(item.label)}
+              onMouseEnter={() =>
+                (item.label === "Solutions" || item.label === "Products") && handleSubmenuEnter(item.label)
+              }
               onMouseLeave={() => (item.label === "Solutions" || item.label === "Products") && handleSubmenuLeave()}
             >
               <Link
                 href={getLinkHref(item.href)}
-                onClick={e => handleNavigation(e, item.href)}
+                onClick={(e) => handleNavigation(e, item.href)}
                 className={`
                   flex items-center text-base font-medium transition-all duration-300 group outline-none focus:outline-none
                   ${linkTextColor}
@@ -303,11 +308,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 {(item.label === "Solutions" || item.label === "Products") && (
                   <ChevronDown
                     className={`h-4 w-4 ml-1 transition-all duration-300 ${
-                      showSubmenu && selectedSubmenu === item.label 
-                        ? "rotate-180" 
-                        : ""
+                      showSubmenu && selectedSubmenu === item.label ? "rotate-180" : ""
                     } ${
-                      showSolidNav ? "text-charcoal group-hover:text-accent-green" : "text-white group-hover:text-accent-green"
+                      showSolidNav
+                        ? "text-charcoal group-hover:text-accent-green"
+                        : "text-white group-hover:text-accent-green"
                     }`}
                   />
                 )}
@@ -326,7 +331,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                           {selectedSubmenu}
                         </h3>
                         <div className="flex flex-col">
-                          {(submenuItems[selectedSubmenu] || []).map(subItem => (
+                          {(submenuItems[selectedSubmenu] || []).map((subItem) => (
                             <Link
                               key={subItem.label}
                               href={subItem.href}
@@ -351,7 +356,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                               {flyoutSubmenu} Services
                             </h3>
                             <div className="flex flex-col">
-                              {submenuItems[flyoutSubmenu].map(flyoutItem => (
+                              {submenuItems[flyoutSubmenu].map((flyoutItem) => (
                                 <Link
                                   key={flyoutItem.label}
                                   href={flyoutItem.href}
@@ -368,7 +373,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                               AI Infrastructure Services
                             </h3>
                             <div className="flex flex-col">
-                              {submenuItems["AI Infrastructure"].map(flyoutItem => (
+                              {submenuItems["AI Infrastructure"].map((flyoutItem) => (
                                 <Link
                                   key={flyoutItem.label}
                                   href={flyoutItem.href}
@@ -389,7 +394,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                         {selectedSubmenu}
                       </h3>
                       <div className="flex flex-col">
-                        {(submenuItems[selectedSubmenu] || []).map(subItem => (
+                        {(submenuItems[selectedSubmenu] || []).map((subItem) => (
                           <Link
                             key={subItem.label}
                             href={subItem.href}
@@ -405,20 +410,23 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               )}
             </div>
           ))}
-           <div className="hidden lg:flex items-center gap-x-2">
-             <Link href="/contact" className="outline-none focus:outline-none">
-               <Button 
-                 className="bg-accent-green text-charcoal font-semibold hover:scale-105 hover:bg-charcoal hover:text-white transition-all duration-300 ease-in-out shadow-none outline-none focus:outline-none border-none"
-               >
-                 Contact Us
-               </Button>
-             </Link>
-           </div>
+          <div className="hidden lg:flex items-center gap-x-2">
+            <Link href="/contact" className="outline-none focus:outline-none">
+              <Button className="bg-accent-green text-charcoal font-semibold hover:scale-105 hover:bg-charcoal hover:text-white transition-all duration-300 ease-in-out shadow-none outline-none focus:outline-none border-none">
+                Contact Us
+              </Button>
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
-          <Button variant="ghost" size="icon" className="shadow-none outline-none focus:outline-none border-none" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="shadow-none outline-none focus:outline-none border-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             {isMobileMenuOpen ? (
               <X className={`h-6 w-6 ${mobileMenuIconColor}`} />
             ) : (
@@ -432,11 +440,11 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white text-charcoal absolute top-full left-0 w-full h-screen p-4">
           <nav className="flex flex-col space-y-4">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={getLinkHref(item.href)}
-                onClick={e => handleNavigation(e, item.href)}
+                onClick={(e) => handleNavigation(e, item.href)}
                 className="text-lg font-medium hover:text-accent-green"
               >
                 {item.label}
