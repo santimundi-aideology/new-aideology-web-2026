@@ -14,16 +14,17 @@ const getArticleBySlug = (slug: string) => {
     title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
     date: "April 16, 2025",
     category: "Events",
-    image: "/news_images/image_1.jpeg",
+    image: "/news_images/image_1.webp",
     content: `
       <p class="mb-8">We were thrilled to return to Riyadh for LEAP 2025, marking our fourth consecutive year participating in this dynamic global technology event. The energy and growth of LEAP continue to impress us, and we were honored to connect with so many forward-thinking professionals in the Kingdom.</p>
 
       <div class="flex flex-row w-full h-[400px] mb-8 overflow-hidden">
         <div class="relative w-1/2 h-full group cursor-pointer">
           <Image
-            src="/news_images/image_1.jpeg"
+            src="/news_images/image_1.webp"
             alt="AIdeology team at LEAP 2025"
-            fill
+            width={800}
+            height={400}
             className="object-cover transition-transform duration-200 group-hover:scale-105"
           />
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -38,9 +39,10 @@ const getArticleBySlug = (slug: string) => {
         </div>
         <div class="relative w-1/2 h-full group cursor-pointer">
           <Image
-            src="/news_images/leap_2025-lenovo-image.jpeg"
+            src="/news_images/lenovo_booth.webp"
             alt="Lenovo booth at LEAP 2025"
-            fill
+            width={800}
+            height={400}
             className="object-cover transition-transform duration-200 group-hover:scale-105"
           />
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -79,7 +81,7 @@ const getArticleBySlug = (slug: string) => {
         title: "GITEX 2024: A Week of Innovation",
         snippet: "Our experience and achievements at GITEX GLOBAL 2024, showcasing cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024"
       },
@@ -88,7 +90,7 @@ const getArticleBySlug = (slug: string) => {
         title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
         snippet: "Strategic partnership announcement with Midis Group to scale AI solutions across the Middle East.",
         date: "October 10, 2024",
-        image: "/news_images/image_3.jpeg",
+        image: "/news_images/image_3.webp",
         category: "Partnerships",
         slug: "midis-and-aideology",
       },
@@ -238,7 +240,8 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
             <Image
               src={selectedImage}
               alt="Enlarged view"
-              fill
+              width={800}
+              height={400}
               className="object-contain"
             />
           </div>

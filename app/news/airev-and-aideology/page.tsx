@@ -13,7 +13,7 @@ const getArticleBySlug = (slug: string) => {
     title: "Seamless Integration: AIREV and AIdeology Unite",
     date: "September 30, 2024",
     category: "Partnerships",
-    image: "/news_images/image_4.jpeg",
+    image: "/news_images/image_4.webp",
     content: `
       <p class="mb-8">We are thrilled to announce our exciting partnership with AIREV HOLDING LIMITED, uniting two industry leaders poised to transform the way we approach artificial intelligence. This strategic alliance marks a significant milestone in our mission to expand human potential with AI and propel global industries forward.</p>
       
@@ -43,7 +43,7 @@ const getArticleBySlug = (slug: string) => {
         title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
         snippet: "Our latest showcase of AI solutions and innovations at LEAP 2025 in Riyadh.",
         date: "April 16, 2025",
-        image: "/news_images/image_1.jpeg",
+        image: "/news_images/image_1.webp",
         category: "Events",
         slug: "leap-2025",
       },
@@ -52,7 +52,7 @@ const getArticleBySlug = (slug: string) => {
         title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
         snippet: "Strategic partnership announcement with Midis Group to scale AI solutions across the Middle East.",
         date: "October 10, 2024",
-        image: "/news_images/image_3.jpeg",
+        image: "/news_images/image_3.webp",
         category: "Partnerships",
         slug: "midis-and-aideology",
       },

@@ -20,7 +20,7 @@ const getArticleBySlug = (slug: string) => {
         title: "GITEX 2024: A Week of Innovation",
         snippet: "Our latest showcase at GITEX GLOBAL 2024, featuring cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024"
       },
@@ -29,7 +29,7 @@ const getArticleBySlug = (slug: string) => {
         title: "GITEX Africa 2023: Expanding AI Horizons",
         snippet: "Our participation at the first edition of GITEX Africa in Morocco.",
         date: "May 31, 2023",
-        image: "/news_images/image_8.jpeg",
+        image: "/news_images/image_8.webp",
         category: "Events",
         slug: "gitex-africa"
       }
@@ -43,15 +43,15 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
 
   const images = [
     {
-      src: "/news_images/gitex-2023-image_1.jpg",
+      src: "/news_images/gitex-2023-image_1.webp",
       alt: "GITEX 2023 Booth 1"
     },
     {
-      src: "/news_images/gitex-2023-image_2.jpg",
+      src: "/news_images/gitex-2023-image_2.webp",
       alt: "GITEX 2023 Booth 2"
     },
     {
-      src: "/news_images/gitex-2023-image_3.jpg",
+      src: "/news_images/gitex-2023-image_3.webp",
       alt: "VARJO XR3 Demo"
     }
   ]

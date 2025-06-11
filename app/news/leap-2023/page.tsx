@@ -13,14 +13,14 @@ const getArticleBySlug = (slug: string) => {
     title: "AIdeology at LEAP 2023, KSA",
     date: "February 10, 2023",
     category: "Events",
-    image: "/news_images/image_10.jpeg",
+    image: "/news_images/image_10.webp",
     content: `
       <h2 class="text-2xl font-semibold mt-10 mb-6">We went to LEAP with LENOVO to showcase NVIDIA's Omniverse Platform running on Lenovo OVX infrastructure</h2>
 
       <p class="mb-8">We went to LEAP, the world's most attended tech event to Showcase NVIDIA's Omniverse Platform Running on Lenovo OVX Everyscale Solution, with the new OVX 2.0 node configuration announced on September 2022.</p>
 
        <div class="relative w-full h-64 mb-8">
-        <img src="/news_images/image_10.jpeg" alt="LEAP Event" class="object-cover w-full h-full rounded-lg" />
+        <img src="/news_images/image_10.webp" alt="LEAP Event" class="object-cover w-full h-full rounded-lg" />
       </div>
 
 
@@ -70,7 +70,7 @@ const getArticleBySlug = (slug: string) => {
         title: "LEAP 2024: Driving Enterprise AI",
         snippet: "Our latest showcase of AI solutions at LEAP 2024 in Riyadh.",
         date: "April 5, 2024",
-        image: "/news_images/image_5.jpeg",
+        image: "/news_images/image_5.webp",
         category: "Events",
         slug: "leap-2024",
       },
@@ -79,7 +79,7 @@ const getArticleBySlug = (slug: string) => {
         title: "GITEX 2024: A Week of Innovation",
         snippet: "Our latest showcase at GITEX GLOBAL 2024, featuring cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024",
       },

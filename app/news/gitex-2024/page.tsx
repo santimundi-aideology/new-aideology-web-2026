@@ -18,9 +18,9 @@ const getArticleBySlug = (slug: string) => {
     date: "October 17, 2024",
     category: "Events",
     imageGallery: [
-      "/news_images/gitex-2024-image_1.jpg",
-      "/news_images/gitex-2024-image_2.jpg",
-      "/news_images/gitex-2024-image_3.jpg"
+      "/news_images/gitex-2024-image_1.webp",
+      "/news_images/gitex-2024-image_2.webp",
+      "/news_images/gitex-2024-image_3.webp"
     ],
     content: `
       <p class="mb-8">We are thrilled to share with you the excitement and insights from this year's GITEX GLOBAL, the largest tech and startup show in the world. We were honored to showcase our cutting-edge Gen AI platform, Maind, alongside other innovative technologies that are shaping the future of industries.</p>
@@ -51,7 +51,7 @@ const getArticleBySlug = (slug: string) => {
         title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
         snippet: "Our latest showcase of AI solutions and innovations at LEAP 2025 in Riyadh.",
         date: "April 16, 2025",
-        image: "/news_images/image_1.jpeg",
+        image: "/news_images/image_1.webp",
         category: "Events",
         slug: "leap-2025",
       },
@@ -60,7 +60,7 @@ const getArticleBySlug = (slug: string) => {
         title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
         snippet: "Strategic partnership announcement with Midis Group to scale AI solutions across the Middle East.",
         date: "October 10, 2024",
-        image: "/news_images/image_3.jpeg",
+        image: "/news_images/image_3.webp",
         category: "Partnerships",
         slug: "midis-and-aideology",
       },

@@ -12,7 +12,7 @@ const getArticleBySlug = (slug: string) => {
     title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
     date: "October 10, 2024",
     category: "Partnerships",
-    image: "/news_images/image_3.jpeg",
+    image: "/news_images/image_3.webp",
     content: `
       <p class="mb-8">We are thrilled to announce that we, at AIdeology FZCO, have embarked on an exciting new chapter alongside Midis Group. This strategic partnership will empower us to scale our impact and bring cutting-edge AI technologies to more businesses across the Middle East and beyond.</p>
 
@@ -46,7 +46,7 @@ const getArticleBySlug = (slug: string) => {
         title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
         snippet: "Our latest showcase of AI solutions and innovations at LEAP 2025 in Riyadh.",
         date: "April 16, 2025",
-        image: "/news_images/image_1.jpeg",
+        image: "/news_images/image_1.webp",
         category: "Events",
         slug: "leap-2025",
       },
@@ -55,7 +55,7 @@ const getArticleBySlug = (slug: string) => {
         title: "Revolutionizing Industry Boundaries: A Week of Innovation at GITEX GLOBAL 2024",
         snippet: "Our experience and achievements at GITEX GLOBAL 2024, showcasing cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024"
       },
@@ -103,7 +103,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
             <div className="lg:col-span-2">
               <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
                 <Image
-                  src={article.image}
+                  src="/news_images/aideology_midis.webp"
                   alt={article.title}
                   fill
                   className="object-cover"
@@ -122,7 +122,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
               <div className="py-16 w-full bg-white">
                 <div className="max-w-[800px] h-[120px] relative mx-auto">
                   <Image
-                    src="/news_images/midis-aideology-logo.png"
+                    src="/news_images/midis-aideology-logo.webp"
                     alt="MDS System Integration and AIdeology.ai logos"
                     fill
                     className="object-contain"

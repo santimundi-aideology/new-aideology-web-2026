@@ -11,7 +11,7 @@ const getArticleBySlug = (slug: string) => {
     title: "AIdeology & Lenovo at their 2023 EMEA Kick Off, Barcelona",
     date: "April 15, 2023",
     category: "Events",
-    image: "/news_images/image_9.jpeg",
+    image: "/news_images/image_9.webp",
     content: `
       <h2 class="text-2xl font-semibold mt-10 mb-6">We went to Barcelona with LENOVO to showcase Lenovo OVX Everyscale infrastructure and Digital Twins</h2>
 
@@ -25,7 +25,7 @@ const getArticleBySlug = (slug: string) => {
 
       <div class="w-full h-auto my-8">
         <video controls class="w-full rounded-lg shadow-md">
-          <source src="/news_images/lenovo-aideology.mp4" type="video/mp4" />
+          <source src="/news_images/lenovo_emea.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -62,7 +62,7 @@ const getArticleBySlug = (slug: string) => {
         title: "AIdeology at the Circuit of Catalunya with Lenovo and Aston Martin",
         snippet: "Our collaboration with Lenovo and Aston Martin in automotive innovation.",
         date: "September 15, 2023",
-        image: "/news_images/image_7.jpeg",
+        image: "/news_images/image_7.webp",
         category: "Partnerships",
         slug: "lenovo-aston-martin",
       },
@@ -71,7 +71,7 @@ const getArticleBySlug = (slug: string) => {
         title: "GITEX 2024: A Week of Innovation",
         snippet: "Our latest showcase at GITEX GLOBAL 2024, featuring cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024"
       },

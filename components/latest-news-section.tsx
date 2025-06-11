@@ -15,19 +15,19 @@ export default function LatestNewsSection() {
       title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
       date: "April 16, 2025",
       link: "/news/leap-2025",
-      image: "/news_images/image_1.jpeg"
+      image: "/news_images/image_1.webp"
     },
     {
       title: "Revolutionizing Industry Boundaries: A Week of Innovation at GITEX GLOBAL 2024",
       date: "October 17, 2024",
       link: "/news/gitex-2024",
-      image: "/news_images/image_2.jpeg"
+      image: "/news_images/image_2.webp"
     },
     {
       title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
       date: "October 10, 2024",
       link: "/news/midis-and-aideology",
-      image: "/news_images/image_3.jpeg"
+      image: "/news_images/aideology_midis.webp"
     }
   ]
 

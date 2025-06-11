@@ -13,7 +13,7 @@ const getArticleBySlug = (slug: string) => {
     title: "AIdeology Announces Partnership with NVIDIA for AI Infrastructure Solutions",
     date: "May 10, 2025",
     category: "Partnerships",
-    image: "/news/nvidia-partnership.png",
+    image: "/news/nvidia-partnership.webp",
     content: `
       <p>AIdeology is proud to announce a strategic partnership with NVIDIA to deliver cutting-edge AI infrastructure solutions for enterprise clients. This collaboration will enable us to provide our clients with the most advanced GPU-accelerated computing solutions for their AI workloads.</p>
       
@@ -41,7 +41,7 @@ const getArticleBySlug = (slug: string) => {
         snippet:
           "Our latest 3D AI pipeline technology significantly reduces time-to-deployment for digital twin projects.",
         date: "April 28, 2025",
-        image: "/news/3d-ai-pipeline.png",
+        image: "/news/3d-ai-pipeline.webp",
         category: "Technology",
         slug: "3d-ai-pipeline",
       },
@@ -51,7 +51,7 @@ const getArticleBySlug = (slug: string) => {
         snippet:
           "Recognition of our expertise in designing and implementing NVIDIA-powered AI infrastructure solutions.",
         date: "March 22, 2025",
-        image: "/news/nvidia-elite.png",
+        image: "/news/nvidia-elite.webp",
         category: "Achievements",
         slug: "nvidia-elite-status",
       },

@@ -13,14 +13,14 @@ const getArticleBySlug = (slug: string) => {
     title: "AIdeology at GITEX Africa (Morocco)",
     date: "May 31, 2023",
     category: "Events",
-    image: "/news_images/image_8.jpeg",
+    image: "/news_images/image_8.webp",
     relatedArticles: [
       {
         id: "1",
         title: "GITEX 2024: A Week of Innovation",
         snippet: "Our latest showcase at GITEX GLOBAL 2024, featuring cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024",
       },
@@ -29,7 +29,7 @@ const getArticleBySlug = (slug: string) => {
         title: "GITEX 2023: Showcasing AI Innovation",
         snippet: "Highlights from our participation at GITEX GLOBAL 2023.",
         date: "October 20, 2023",
-        image: "/news_images/image_6.jpeg",
+        image: "/news_images/image_6.webp",
         category: "Events",
         slug: "gitex-global",
       },
@@ -75,15 +75,6 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden mb-8">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
               <div className="prose prose-lg max-w-none text-charcoal/80 space-y-6">
                 <h2 className="text-2xl font-semibold mt-10 mb-6">AIdeology at GITEX Africa: Pioneering Technology Innovation in Morocco</h2>
 
@@ -92,7 +83,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                 {/* Embedded Banner Image */}
                 <div className="w-full h-auto relative rounded-lg overflow-hidden">
                   <Image
-                    src="/news_images/gitex-africa-image_1.png"
+                    src="/news_images/gitex_africa_banner.webp"
                     alt="GITEX Africa Banner"
                     width={1200}
                     height={300}

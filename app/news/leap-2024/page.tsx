@@ -20,7 +20,7 @@ const getArticleBySlug = (slug: string) => {
         title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
         snippet: "Our latest showcase of AI solutions and innovations at LEAP 2025 in Riyadh.",
         date: "April 16, 2025",
-        image: "/news_images/image_1.jpeg",
+        image: "/news_images/image_1.webp",
         category: "Events",
         slug: "leap-2025",
       },
@@ -29,7 +29,7 @@ const getArticleBySlug = (slug: string) => {
         title: "Revolutionizing Industry Boundaries: A Week of Innovation at GITEX GLOBAL 2024",
         snippet: "Our experience and achievements at GITEX GLOBAL 2024, showcasing cutting-edge AI solutions.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024",
       },
@@ -84,7 +84,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
                 <div className="relative w-full h-60 sm:h-72 group cursor-pointer">
                   <Image 
-                    src="/news_images/leap_2024-image_1.jpg" 
+                    src="/news_images/leap_2024-image_1.webp" 
                     alt="LEAP 2024 Image 1" 
                     fill 
                     className="object-cover rounded-lg transition-transform duration-200 group-hover:scale-105" 
@@ -92,14 +92,14 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <button 
                     className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => setSelectedImage("/news_images/leap_2024-image_1.jpg")}
+                    onClick={() => setSelectedImage("/news_images/leap_2024-image_1.webp")}
                   >
                     <Maximize2 className="h-5 w-5 text-white" />
                   </button>
                 </div>
                 <div className="relative w-full h-60 sm:h-72 group cursor-pointer">
                   <Image 
-                    src="/news_images/leap_2024-image_2.jpg" 
+                    src="/news_images/leap_2024-image_2.webp" 
                     alt="LEAP 2024 Image 2" 
                     fill 
                     className="object-cover rounded-lg transition-transform duration-200 group-hover:scale-105" 
@@ -107,14 +107,14 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <button 
                     className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => setSelectedImage("/news_images/leap_2024-image_2.jpg")}
+                    onClick={() => setSelectedImage("/news_images/leap_2024-image_2.webp")}
                   >
                     <Maximize2 className="h-5 w-5 text-white" />
                   </button>
                 </div>
                 <div className="relative w-full h-60 sm:h-72 group cursor-pointer">
                   <Image 
-                    src="/news_images/leap_2024-image_3.jpg" 
+                    src="/news_images/leap_2024_image3.webp" 
                     alt="LEAP 2024 Image 3" 
                     fill 
                     className="object-cover rounded-lg transition-transform duration-200 group-hover:scale-105" 
@@ -122,14 +122,14 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <button 
                     className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => setSelectedImage("/news_images/leap_2024-image_3.jpg")}
+                    onClick={() => setSelectedImage("/news_images/leap_2024-image_3.webp")}
                   >
                     <Maximize2 className="h-5 w-5 text-white" />
                   </button>
                 </div>
                 <div className="relative w-full h-60 sm:h-72 group cursor-pointer">
                   <Image 
-                    src="/news_images/leap_2024-image_4.jpg" 
+                    src="/news_images/leap_2024-image_4.webp" 
                     alt="LEAP 2024 Image 4" 
                     fill 
                     className="object-cover rounded-lg transition-transform duration-200 group-hover:scale-105" 
@@ -137,7 +137,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <button 
                     className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => setSelectedImage("/news_images/leap_2024-image_4.jpg")}
+                    onClick={() => setSelectedImage("/news_images/leap_2024-image_4.webp")}
                   >
                     <Maximize2 className="h-5 w-5 text-white" />
                   </button>

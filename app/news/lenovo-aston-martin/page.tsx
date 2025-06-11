@@ -14,14 +14,14 @@ const getArticleBySlug = (slug: string) => {
     title: "AIdeology at the Circuit of Catalunya with Lenovo and Aston Martin",
     date: "September 15, 2023",
     category: "Partnerships",
-    image: "/news_images/image_7.jpeg",
+    image: "/news_images/image_7.webp",
     relatedArticles: [
       {
         id: "1",
         title: "GITEX 2024: A Week of Innovation",
         snippet: "Our latest showcase at GITEX GLOBAL 2024, featuring cutting-edge AI solutions and partnerships.",
         date: "October 17, 2024",
-        image: "/news_images/image_2.jpeg",
+        image: "/news_images/image_2.webp",
         category: "Events",
         slug: "gitex-2024",
       },
@@ -30,7 +30,7 @@ const getArticleBySlug = (slug: string) => {
         title: "AIdeology at LEAP 2024, KSA",
         snippet: "Showcasing our latest AI innovations at LEAP 2024 in Riyadh.",
         date: "April 5, 2024",
-        image: "/news_images/image_5.jpeg",
+        image: "/news_images/image_5.webp",
         category: "Events",
         slug: "leap-2024",
       },
@@ -44,19 +44,19 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
 
   const images = [
     {
-      src: "/news_images/astonmartin-image_1.jpg",
+      src: "/news_images/astonmartin-image_1.webp",
       alt: "Aston Martin Event 1"
     },
     {
-      src: "/news_images/astonmartin-image_2.jpg",
+      src: "/news_images/astonmartin-image_2.webp",
       alt: "Aston Martin Event 2"
     },
     {
-      src: "/news_images/astonmartin-image_3.jpg",
+      src: "/news_images/astonmartin-image_3.webp",
       alt: "Aston Martin Event 3"
     },
     {
-      src: "/news_images/astonmartin-image_4.jpg",
+      src: "/news_images/astonmartin-image_4.webp",
       alt: "Aston Martin Event 4"
     }
   ]

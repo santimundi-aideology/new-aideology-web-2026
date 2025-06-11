@@ -29,7 +29,7 @@ export default function NewsPage() {
       date: "April 16, 2025",
       category: "Events",
       link: "/news/leap-2025",
-      image: "/news_images/image_1.jpeg"
+      image: "/news_images/image_1.webp"
     },
     {
       id: "2",
@@ -37,7 +37,7 @@ export default function NewsPage() {
       date: "October 17, 2024",
       category: "Events",
       link: "/news/gitex-2024",
-      image: "/news_images/image_2.jpeg"
+      image: "/news_images/image_2.webp"
     },
     {
       id: "3",
@@ -45,7 +45,7 @@ export default function NewsPage() {
       date: "October 10, 2024",
       category: "Partnerships",
       link: "/news/midis-and-aideology",
-      image: "/news_images/image_3.jpeg"
+      image: "/news_images/aideology_midis.webp"
     },
     {
       id: "4",
@@ -53,7 +53,7 @@ export default function NewsPage() {
       date: "September 30, 2024",
       category: "Partnerships",
       link: "/news/airev-and-aideology",
-      image: "/news_images/image_4.jpeg"
+      image: "/news_images/image_4.webp"
     },
     {
       id: "5",
@@ -61,7 +61,7 @@ export default function NewsPage() {
       date: "April 5, 2024",
       category: "Events",
       link: "/news/leap-2024",
-      image: "/news_images/image_5.jpeg"
+      image: "/news_images/image_5.webp"
     },
     {
       id: "6",
@@ -69,7 +69,7 @@ export default function NewsPage() {
       date: "October 20, 2023",
       category: "Events",
       link: "/news/gitex-global",
-      image: "/news_images/image_6.jpeg"
+      image: "/news_images/image_6.webp"
     },
     {
       id: "7",
@@ -77,7 +77,7 @@ export default function NewsPage() {
       date: "September 15, 2023",
       category: "Partnerships",
       link: "/news/lenovo-aston-martin",
-      image: "/news_images/image_7.jpeg"
+      image: "/news_images/image_7.webp"
     },
     {
       id: "8",
@@ -85,7 +85,7 @@ export default function NewsPage() {
       date: "May 31, 2023",
       category: "Events",
       link: "/news/gitex-africa",
-      image: "/news_images/image_8.jpeg"
+      image: "/news_images/image_8.webp"
     },
     {
       id: "9",
@@ -93,7 +93,7 @@ export default function NewsPage() {
       date: "April 15, 2023",
       category: "Events",
       link: "/news/lenovo-emea-2023",
-      image: "/news_images/image_9.jpeg"
+      image: "/news_images/image_9.webp"
     },
     {
       id: "10",
@@ -101,7 +101,7 @@ export default function NewsPage() {
       date: "February 10, 2023",
       category: "Events",
       link: "/news/leap-2023",
-      image: "/news_images/image_10.jpeg"
+      image: "/news_images/image_10.webp"
     }
   ]
 
