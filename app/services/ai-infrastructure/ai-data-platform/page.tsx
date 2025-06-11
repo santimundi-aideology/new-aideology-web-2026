@@ -185,18 +185,18 @@ export default function AiDataPlatformPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <Database className="w-4 h-4 mr-2" />
               AI Infrastructure
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               High-Performance AI <span className="text-accent-green">Data Platforms</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Fuel your AI ambitions with a robust, scalable, and optimized data foundation. AIdeology engineers
               end-to-end data platforms that unleash the full potential of your AI workloads.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Button 
                 size="lg" 
                 className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
@@ -220,10 +220,10 @@ export default function AiDataPlatformPage() {
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               The Engine of Modern AI: The Data Platform
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               An AI data platform is more than just storage; it's a comprehensive ecosystem designed to efficiently
               manage the entire lifecycle of data for AI. From ingestion and preparation to training and inference, a
               well-architected data platform is critical for unlocking transformative AI capabilities, ensuring speed,
@@ -234,159 +234,130 @@ export default function AiDataPlatformPage() {
               alt="AI Data Platform Architecture Diagram"
               width={800}
               height={400}
-              className="rounded-lg shadow-xl mx-auto"
+              className="rounded-lg shadow-xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: '300ms' }}
             />
           </div>
         </div>
       </section>
 
-      {/* The Data Challenge in AI (Expanded) */}
-      <section className="py-16 md:py-20">
+      {/* Data Challenges Section */}
+      <section className="py-20">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-                Navigating the Complexities of AI Data
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Why AI Demands High-Performance Data Platforms
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Data is the lifeblood of AI, but its inherent characteristics present significant hurdles. AIdeology
-                helps you overcome these challenges.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Traditional data infrastructure falls short of AI's unique demands. Here's why:
               </p>
             </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {dataChallenges.map((challenge) => (
-                <Card key={challenge.title} className="hover-lift text-center p-6">
+              {dataChallenges.map((challenge, index) => (
+                <Card 
+                  key={index} 
+                  className="text-center p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                  style={{ animationDelay: `${300 + index * 100}ms` }}
+                >
                   <div className="flex justify-center mb-4">{challenge.icon}</div>
-                  <CardTitle className="text-xl mb-2">{challenge.title}</CardTitle>
-                  <CardDescription className="text-gray-600">{challenge.description}</CardDescription>
+                  <h3 className="text-xl font-bold text-charcoal mb-3">{challenge.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{challenge.description}</p>
                 </Card>
               ))}
             </div>
-            <div className="mt-12 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-blue-500" />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-lg font-semibold text-blue-800 mb-2">
-                    Leveraging NVIDIA's Data Platform Innovations
-                  </h3>
-                  <p className="text-blue-700">
-                    AIdeology architects solutions incorporating NVIDIA's cutting-edge data platform technologies,
-                    including RAPIDS for accelerated data science, DALI for optimized data loading, Magnum IO for
-                    efficient data movement, and GPUDirect Storage for high-speed data access, ensuring your AI
-                    infrastructure performs at its peak.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Core Components of Our AI Data Platform */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      {/* Platform Services Section */}
+      <section className="py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-                AIdeology's End-to-End AI Data Platform Services
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                AIdeology's AI Data Platform Services
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We provide a holistic suite of services to design, build, and manage high-performance data
-                infrastructure tailored to your unique AI requirements.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Comprehensive solutions engineered to unlock the full potential of your AI data
               </p>
             </div>
-            {platformServices.map((service, index) => (
-              <div
-                key={service.title}
-                className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8 md:gap-12 mb-16 md:mb-20`}
-              >
-                <div className="w-full md:w-1/2">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.alt}
-                    width={600}
-                    height={400}
-                    className="rounded-lg shadow-xl object-cover aspect-[3/2]"
-                  />
-                </div>
-                <div className="w-full md:w-1/2">
-                  <div className="flex items-center mb-3">
-                    {service.icon} <h3 className="text-2xl font-semibold ml-2">{service.title}</h3>
+
+            <div className="space-y-16">
+              {platformServices.map((service, index) => (
+                <div 
+                  key={index} 
+                  className={`grid lg:grid-cols-2 gap-12 items-center animate-fade-in-up ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
+                  style={{ animationDelay: `${300 + index * 150}ms` }}
+                >
+                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                      <CardHeader>
+                        <div className="flex items-center mb-4">
+                          {service.icon}
+                          <CardTitle className="text-2xl font-bold text-charcoal ml-3">{service.title}</CardTitle>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="text-gray-600 text-base leading-relaxed mb-6">
+                          {service.description}
+                        </CardDescription>
+                        <ul className="space-y-3">
+                          {service.points.map((point, pointIndex) => (
+                            <li key={pointIndex} className="flex items-start">
+                              <CheckCircle className="w-4 h-4 text-accent-green mr-3 mt-1 flex-shrink-0" />
+                              <span className="text-sm text-gray-700">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-6">{service.description}</p>
-                  <ul className="space-y-2 mb-6">
-                    {service.points.map((point) => (
-                      <li key={point} className="flex items-start">
-                        <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-1 flex-shrink-0" />
-                        <span className="text-gray-600">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant="outline"
-                    className="text-accent-green border-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
-                  >
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <div className={`relative h-[400px] rounded-xl overflow-hidden shadow-lg ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Key Technologies We Integrate */}
-      <section className="py-16 md:py-20">
+      {/* Key Technologies Section */}
+      <section className="py-20">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-                Powered by Leading-Edge Technologies
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Key Technologies & Partners
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our AI data platforms are built using a curated selection of best-in-class hardware and software to
-                ensure optimal performance, scalability, and reliability.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                We leverage industry-leading technologies to build robust AI data platforms
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-              {keyTechnologies.map((tech) => (
-                <div key={tech.name} className="flex flex-col items-center text-center">
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+              {keyTechnologies.map((tech, index) => (
+                <Card 
+                  key={index} 
+                  className="p-6 flex items-center justify-center h-24 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up group"
+                  style={{ animationDelay: `${300 + index * 100}ms` }}
+                >
                   <Image
-                    src={tech.logo || "/placeholder.svg"}
-                    alt={`${tech.name} logo`}
+                    src={tech.logo}
+                    alt={tech.name}
                     width={120}
                     height={60}
-                    className="object-contain mb-2"
+                    className="max-h-12 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
-                  <p className="text-sm text-gray-600 font-medium">{tech.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industry-Specific Solutions */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="w-full px-6 lg:px-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-                Tailored Data Platforms for Your Industry
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We understand that different industries have unique data challenges and AI objectives. Our experts
-                design data platforms that address your specific needs.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {industryApplications.map((app) => (
-                <Card key={app.title} className="hover-lift p-6 flex flex-col items-center text-center">
-                  {app.icon}
-                  <CardTitle className="text-xl my-3">{app.title}</CardTitle>
-                  <CardDescription className="text-gray-600">{app.description}</CardDescription>
                 </Card>
               ))}
             </div>
@@ -394,28 +365,64 @@ export default function AiDataPlatformPage() {
         </div>
       </section>
 
-      {/* Benefits of Partnering with AIdeology */}
-      <section className="py-16 md:py-20">
+      {/* Industry Applications Section */}
+      <section className="py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-                Why AIdeology for Your AI Data Platform?
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Industry Applications
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Partner with us to build a data foundation that not only supports your current AI initiatives but also
-                scales for future innovations.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Tailored solutions for diverse industry requirements
               </p>
             </div>
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10">
-              {benefits.map((benefit) => (
-                <div key={benefit.title} className="flex items-start">
-                  {benefit.icon}
-                  <div>
-                    <h3 className="text-xl font-semibold text-charcoal mb-2">{benefit.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {industryApplications.map((application, index) => (
+                <Card 
+                  key={index} 
+                  className="text-center p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                  style={{ animationDelay: `${300 + index * 100}ms` }}
+                >
+                  <div className="flex justify-center">{application.icon}</div>
+                  <h3 className="text-xl font-bold text-charcoal mb-3">{application.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{application.description}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Why Choose AIdeology for AI Data Platforms
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Accelerate your AI journey with our proven expertise and cutting-edge solutions
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {benefits.map((benefit, index) => (
+                <Card 
+                  key={index} 
+                  className="p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                  style={{ animationDelay: `${300 + index * 100}ms` }}
+                >
+                  <div className="flex items-start">
+                    {benefit.icon}
+                    <div>
+                      <h3 className="text-lg font-bold text-charcoal mb-2">{benefit.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+                    </div>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
             <div className="mt-16 text-center">
@@ -435,12 +442,12 @@ export default function AiDataPlatformPage() {
       <section className="py-20 bg-charcoal text-white">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Build Your AI Data Foundation?</h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Build Your AI Data Foundation?</h2>
+            <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Let AIdeology be your trusted partner in designing and implementing a high-performance AI data platform.
               Contact our experts today to discuss your project and unlock the true power of your data.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Button 
                 asChild
                 size="lg" 
@@ -467,12 +474,12 @@ export default function AiDataPlatformPage() {
       <section className="py-16 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-2xl font-bold text-charcoal mb-8 text-center">
+            <h3 className="text-2xl font-bold text-charcoal mb-8 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               Explore Related AI Infrastructure Services
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <Link href="/services/ai-infrastructure/professional-services" className="group">
-                <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+              <Link href="/services/ai-infrastructure/professional-services" className="group animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full border-0 shadow-lg">
                   <CardHeader>
                     <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
                       Professional Services
@@ -485,8 +492,8 @@ export default function AiDataPlatformPage() {
                   </CardContent>
                 </Card>
               </Link>
-              <Link href="/services/ai-infrastructure/mlops" className="group">
-                <Card className="hover-lift h-full">
+              <Link href="/services/ai-infrastructure/mlops" className="group animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader>
                     <CardTitle className="group-hover:text-accent-green transition-colors">
                       MLOps Infrastructure
@@ -499,8 +506,8 @@ export default function AiDataPlatformPage() {
                   </CardContent>
                 </Card>
               </Link>
-              <Link href="/services/ai-infrastructure/accelerated-computing" className="group">
-                <Card className="hover-lift h-full">
+              <Link href="/services/ai-infrastructure/accelerated-computing" className="group animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader>
                     <CardTitle className="group-hover:text-accent-green transition-colors">
                       Accelerated Computing

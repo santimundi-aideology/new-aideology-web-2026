@@ -12,17 +12,17 @@ export default function MlopsPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <GitBranch className="w-4 h-4 mr-2" />
               AI Infrastructure
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <span className="text-accent-green">MLOps</span> Infrastructure & Automation
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Streamline the entire machine learning lifecycle with robust infrastructure and automation pipelines
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Button 
                 size="lg" 
                 className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
@@ -47,14 +47,14 @@ export default function MlopsPage() {
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-charcoal mb-4">The MLOps Challenge</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>The MLOps Challenge</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 Organizations face significant challenges when moving AI from experimentation to production
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16 max-w-7xl mx-auto">
-              <Card className="hover-lift text-center">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 text-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <Cog className="w-6 h-6 text-accent-green" />
@@ -66,7 +66,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift text-center">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <Rocket className="w-6 h-6 text-accent-green" />
@@ -78,7 +78,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift text-center">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 text-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <GitBranch className="w-6 h-6 text-accent-green" />
@@ -90,7 +90,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift text-center">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 text-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <Monitor className="w-6 h-6 text-accent-green" />
@@ -102,7 +102,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift text-center">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 text-center animate-fade-in-up" style={{ animationDelay: '700ms' }}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-accent-green/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <ArrowRight className="w-6 h-6 text-accent-green" />
@@ -115,7 +115,7 @@ export default function MlopsPage() {
               </Card>
             </div>
 
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg animate-fade-in-up" style={{ animationDelay: '800ms' }}>
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <CheckCircle className="h-6 w-6 text-blue-500" />
@@ -139,14 +139,14 @@ export default function MlopsPage() {
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-charcoal mb-4">AIdeology's MLOps Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>AIdeology's MLOps Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 Comprehensive MLOps solutions for your AI development lifecycle
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">MLOps Infrastructure Design & Implementation</CardTitle>
                 </CardHeader>
@@ -172,7 +172,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">Model Development Environment</CardTitle>
                 </CardHeader>
@@ -198,7 +198,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">Model Deployment Automation</CardTitle>
                 </CardHeader>
@@ -224,7 +224,7 @@ export default function MlopsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">Model Monitoring & Management</CardTitle>
                 </CardHeader>
@@ -259,20 +259,20 @@ export default function MlopsPage() {
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-charcoal mb-4">Benefits of AIdeology's MLOps Solutions</h2>
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Benefits of AIdeology's MLOps Solutions</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <ul className="space-y-6">
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                     <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Accelerated Time-to-Production</h3>
                       <p className="text-gray-600">Reduce the time to deploy models from months to days</p>
                     </div>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                     <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Improved Model Quality</h3>
@@ -281,7 +281,7 @@ export default function MlopsPage() {
                       </p>
                     </div>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                     <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Enhanced Collaboration</h3>
@@ -290,7 +290,7 @@ export default function MlopsPage() {
                       </p>
                     </div>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                     <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal mb-1">Governance & Compliance</h3>
@@ -301,7 +301,7 @@ export default function MlopsPage() {
                   </li>
                 </ul>
               </div>
-              <div className="relative">
+              <div className="relative animate-fade-in-up" style={{ animationDelay: '700ms' }}>
                 <Image
                   src="/solutions/mlops.webp"
                   alt="MLOps infrastructure and automation"
@@ -319,12 +319,12 @@ export default function MlopsPage() {
       <section className="py-20 bg-charcoal text-white">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-4">Ready to Transform Your AI Development Lifecycle?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Transform Your AI Development Lifecycle?</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Transform your AI development lifecycle with robust MLOps infrastructure. Contact AIdeology to learn how
               our MLOps solutions can accelerate your AI initiatives and ensure production success.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Button 
                 size="lg" 
                 className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
@@ -352,10 +352,10 @@ export default function MlopsPage() {
       <section className="py-16 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-2xl font-bold text-charcoal mb-8 text-center">Related AI Infrastructure Services</h3>
+            <h3 className="text-2xl font-bold text-charcoal mb-8 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Related AI Infrastructure Services</h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <Link href="/services/ai-infrastructure/ai-data-platform" className="group">
-                <Card className="hover-lift h-full">
+              <Link href="/services/ai-infrastructure/ai-data-platform" className="group animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader>
                     <CardTitle className="group-hover:text-accent-green transition-colors">AI Data Platform</CardTitle>
                   </CardHeader>
@@ -364,8 +364,8 @@ export default function MlopsPage() {
                   </CardContent>
                 </Card>
               </Link>
-              <Link href="/services/ai-infrastructure/accelerated-computing" className="group">
-                <Card className="hover-lift h-full">
+              <Link href="/services/ai-infrastructure/accelerated-computing" className="group animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader>
                     <CardTitle className="group-hover:text-accent-green transition-colors">
                       Accelerated Computing
@@ -376,8 +376,8 @@ export default function MlopsPage() {
                   </CardContent>
                 </Card>
               </Link>
-              <Link href="/services/ai-infrastructure/virtualization" className="group">
-                <Card className="hover-lift h-full">
+              <Link href="/services/ai-infrastructure/virtualization" className="group animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader>
                     <CardTitle className="group-hover:text-accent-green transition-colors">Virtualization</CardTitle>
                   </CardHeader>

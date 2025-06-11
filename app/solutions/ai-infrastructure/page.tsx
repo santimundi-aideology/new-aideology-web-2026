@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 import Footer from "@/components/footer"
-import { Server, Database, Network, Cpu, Shield, ArrowRight } from "lucide-react"
+import { Server, Database, Network, Cpu, Shield, ArrowRight, Zap, Globe, Settings, CheckCircle } from "lucide-react"
 import { allPartners } from "@/lib/partners"
 
 export default function AIInfrastructurePage() {
@@ -39,6 +39,81 @@ export default function AIInfrastructurePage() {
     },
   ]
 
+  const services = [
+    {
+      icon: <Server className="w-12 h-12 text-accent-green" />,
+      title: "Professional Services",
+      description: "Expert consultation and strategic planning for your AI infrastructure initiatives.",
+      features: [
+        "Infrastructure assessment and planning",
+        "Technology selection and architecture design",
+        "Implementation and deployment support",
+        "Ongoing optimization and maintenance"
+      ],
+      link: "/services/ai-infrastructure/professional-services"
+    },
+    {
+      icon: <Database className="w-12 h-12 text-accent-green" />,
+      title: "AI Data Platform",
+      description: "Comprehensive data platform solutions designed for AI workloads and analytics.",
+      features: [
+        "High-performance data storage systems",
+        "Real-time data processing pipelines",
+        "AI-optimized data architectures",
+        "Scalable analytics infrastructure"
+      ],
+      link: "/services/ai-infrastructure/ai-data-platform"
+    },
+    {
+      icon: <Settings className="w-12 h-12 text-accent-green" />,
+      title: "MLOps",
+      description: "End-to-end machine learning operations for automated model deployment and management.",
+      features: [
+        "Automated ML pipeline orchestration",
+        "Model versioning and lifecycle management",
+        "Continuous integration and deployment",
+        "Performance monitoring and optimization"
+      ],
+      link: "/services/ai-infrastructure/mlops"
+    },
+    {
+      icon: <Zap className="w-12 h-12 text-accent-green" />,
+      title: "Accelerated Computing",
+      description: "High-performance computing solutions optimized for AI and HPC workloads.",
+      features: [
+        "GPU cluster design and deployment",
+        "Parallel computing architectures",
+        "Performance optimization services",
+        "Workload-specific acceleration"
+      ],
+      link: "/services/ai-infrastructure/accelerated-computing"
+    },
+    {
+      icon: <Globe className="w-12 h-12 text-accent-green" />,
+      title: "Virtualization",
+      description: "Advanced virtualization solutions for efficient resource utilization and management.",
+      features: [
+        "Containerized AI workload deployment",
+        "Resource orchestration and scaling",
+        "Multi-tenant infrastructure solutions",
+        "Virtual desktop infrastructure for AI"
+      ],
+      link: "/services/ai-infrastructure/virtualization"
+    },
+    {
+      icon: <Shield className="w-12 h-12 text-accent-green" />,
+      title: "Sustainable Computing",
+      description: "Energy-efficient and environmentally conscious computing solutions.",
+      features: [
+        "Green data center design",
+        "Energy optimization strategies",
+        "Carbon footprint reduction",
+        "Sustainable infrastructure practices"
+      ],
+      link: "/services/ai-infrastructure/sustainable-computing"
+    }
+  ]
+
   const relevantPartners = allPartners.filter(partner => 
     partner.categories.includes("infra-ai")
   ).sort((a, b) => a.name.localeCompare(b.name)); // Ensure filtered list is also sorted for display
@@ -46,26 +121,101 @@ export default function AIInfrastructurePage() {
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
 
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative">
+      <section className="pt-32 pb-20 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">AI Infrastructure</h1>
-              <p className="text-xl mb-8 text-charcoal/80 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <Server className="w-4 h-4 mr-2" />
+                Enterprise AI Infrastructure
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white animate-fade-in-up" style={{ animationDelay: '200ms' }}>AI Infrastructure</h1>
+              <p className="text-xl mb-8 text-gray-300 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 From GPU clusters to storage fabrics, we design and deploy turnkey HPC-AI stacks tailored to your
                 specific workloads and requirements.
               </p>
-              <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <Button asChild className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">
-                  <Link href="/book-discovery-call?type=consultation">Schedule a consultation</Link>
+              <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <Button size="lg" className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal font-semibold px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300" asChild>
+                  <Link href="/book-discovery-call?type=consultation">
+                    Schedule a consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-accent-green text-accent-green hover:bg-accent-green hover:text-charcoal px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300"
+                  asChild
+                >
+                  <Link href="#services">
+                    Explore Services
+                  </Link>
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Image src="/data-center.webp" alt="AI Infrastructure" fill className="object-cover" />
+            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+              <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
+              <Image src="/data-center.webp" alt="AI Infrastructure" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Comprehensive Infrastructure Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Discover our full spectrum of AI infrastructure services designed to accelerate your AI initiatives.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card 
+                key={service.title} 
+                className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg animate-fade-in-up" 
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 bg-accent-green/10 rounded-xl group-hover:bg-accent-green/20 transition-colors">
+                      {service.icon}
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-accent-green transition-colors" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-charcoal group-hover:text-accent-green transition-colors">
+                    {service.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <CardDescription className="text-gray-600 text-base leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-accent-green mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    asChild 
+                    className="w-full mt-4 bg-charcoal hover:bg-accent-green text-white hover:text-charcoal transition-all duration-300"
+                  >
+                    <Link href={service.link}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -78,7 +228,7 @@ export default function AIInfrastructurePage() {
             {features.map((feature, index) => (
               <Card 
                 key={index} 
-                className="border border-accent-green/20 hover-lift hover:scale-105 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+                className="border border-accent-green/20 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
                 style={{ animationDelay: `${200 + index * 100}ms` }}
               >
                 <CardContent className="p-6">

@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 import Footer from "@/components/footer"
-import { CuboidIcon as Cube, Layers, Workflow, Zap, Wand2, ArrowRight } from "lucide-react"
+import { CuboidIcon as Cube, Layers, Workflow, Zap, Wand2, ArrowRight, Eye, Globe, CheckCircle } from "lucide-react"
 import { allPartners } from "@/lib/partners"
 
 export default function ThreeDimensionalAIPage() {
@@ -40,6 +40,57 @@ export default function ThreeDimensionalAIPage() {
     },
   ]
 
+  const services = [
+    {
+      icon: <Eye className="w-12 h-12 text-accent-green" />,
+      title: "Design Visualization",
+      description: "Advanced 3D visualization and rendering solutions for design and architecture.",
+      features: [
+        "Photorealistic 3D rendering",
+        "Real-time visualization platforms",
+        "Interactive design environments",
+        "AR/VR visualization experiences"
+      ],
+      link: "/services/3d-ai/design-visualization"
+    },
+    {
+      icon: <Cube className="w-12 h-12 text-accent-green" />,
+      title: "Robotic Simulation",
+      description: "High-fidelity robotic simulation environments for development and testing.",
+      features: [
+        "Physics-accurate robotic modeling",
+        "Multi-robot simulation environments",
+        "Sensor simulation and validation",
+        "Automated testing frameworks"
+      ],
+      link: "/services/3d-ai/robotic-simulation"
+    },
+    {
+      icon: <Globe className="w-12 h-12 text-accent-green" />,
+      title: "Extended Reality",
+      description: "Immersive XR solutions combining AR, VR, and mixed reality technologies.",
+      features: [
+        "Virtual reality applications",
+        "Augmented reality experiences",
+        "Mixed reality environments",
+        "Cross-platform XR development"
+      ],
+      link: "/services/3d-ai/extended-reality"
+    },
+    {
+      icon: <Layers className="w-12 h-12 text-accent-green" />,
+      title: "Digital Twins",
+      description: "Comprehensive digital twin solutions for real-time monitoring and optimization.",
+      features: [
+        "Real-time data synchronization",
+        "Predictive analytics integration",
+        "IoT sensor integration",
+        "Performance optimization tools"
+      ],
+      link: "/services/3d-ai/digital-twins"
+    }
+  ]
+
   const relevantPartners = allPartners.filter(partner => 
     partner.categories.includes("3d-ai")
   ).sort((a, b) => a.name.localeCompare(b.name));
@@ -47,26 +98,101 @@ export default function ThreeDimensionalAIPage() {
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
 
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative">
+      <section className="pt-32 pb-20 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">3D AI Solutions</h1>
-              <p className="text-xl mb-8 text-charcoal/80 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <Cube className="w-4 h-4 mr-2" />
+                Advanced 3D Technologies
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white animate-fade-in-up" style={{ animationDelay: '200ms' }}>3D AI Solutions</h1>
+              <p className="text-xl mb-8 text-gray-300 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 End-to-end metaverse & digital-twins implementation, from rendering to simulation, powered by
                 cutting-edge AI technologies.
               </p>
-              <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <Button asChild className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">
-                  <Link href="#contact">Explore 3D AI possibilities</Link>
+              <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <Button size="lg" className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal font-semibold px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300" asChild>
+                  <Link href="#contact">
+                    Explore 3D AI possibilities
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-accent-green text-accent-green hover:bg-accent-green hover:text-charcoal px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300"
+                  asChild
+                >
+                  <Link href="#services">
+                    Explore Services
+                  </Link>
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Image src="/3d-ai.webp" alt="3D AI Solutions" fill className="object-cover" />
+            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+              <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
+              <Image src="/3d-ai.webp" alt="3D AI Solutions" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Comprehensive 3D AI Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Discover our full spectrum of 3D AI solutions from design visualization to robotic simulation.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card 
+                key={service.title} 
+                className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg animate-fade-in-up" 
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 bg-accent-green/10 rounded-xl group-hover:bg-accent-green/20 transition-colors">
+                      {service.icon}
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-accent-green transition-colors" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-charcoal group-hover:text-accent-green transition-colors">
+                    {service.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <CardDescription className="text-gray-600 text-base leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-accent-green mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    asChild 
+                    className="w-full mt-4 bg-charcoal hover:bg-accent-green text-white hover:text-charcoal transition-all duration-300"
+                  >
+                    <Link href={service.link}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -80,7 +206,7 @@ export default function ThreeDimensionalAIPage() {
             {capabilities.map((capability, index) => (
               <Card 
                 key={index} 
-                className="border border-accent-green/20 hover-lift animate-fade-in-up"
+                className="border border-accent-green/20 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
                 style={{ animationDelay: `${200 + index * 100}ms` }}
               >
                 <CardContent className="p-6">

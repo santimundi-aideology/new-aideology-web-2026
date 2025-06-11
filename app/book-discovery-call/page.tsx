@@ -6,7 +6,6 @@ import { Calendar } from '@/components/ui/calendar';
 import { toast } from 'sonner';
 import { Loader2, ArrowRight, ArrowLeft, CalendarIcon } from 'lucide-react';
 import { format } from 'date-fns';
-import { useSearchParams } from 'next/navigation';
 
 interface BookingFormData {
   name: string;
@@ -75,9 +74,9 @@ const groupedTopics = topics.reduce((acc, topic) => {
 }, {} as Record<string, typeof topics>);
 
 export default function BookDiscoveryCall() {
-  const searchParams = useSearchParams();
-  const type = searchParams.get('type') || 'discovery-call';
-  const fromPage = searchParams.get('from') || '';
+  // Static defaults for static export
+  const type: 'discovery-call' | 'demo' | 'consultation' | 'assessment' = 'discovery-call';
+  const fromPage = '';
 
   const getHeadingText = () => {
     if (fromPage) {
@@ -87,7 +86,7 @@ export default function BookDiscoveryCall() {
       case 'demo':
         return 'Schedule a Demo';
       case 'consultation':
-        return 'Schedule a Consultation';
+        return 'Schedule a Consultation';  
       case 'assessment':
         return 'Schedule an Assessment';
       default:

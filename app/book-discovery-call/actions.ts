@@ -1,5 +1,4 @@
-'use server'
-
+// Stub for static export - replace with actual server action for production
 interface BookingData {
   name: string
   email: string
@@ -11,27 +10,11 @@ interface BookingData {
 }
 
 export async function submitBooking(data: BookingData) {
-  try {
-    // TODO: Implement actual booking logic here
-    // This could include:
-    // 1. Sending confirmation emails to both the user and the team
-    // 2. Creating a calendar event
-    // 3. Storing in a database
-    // 4. Creating a ticket in the CRM system
-    // 5. etc.
-
-    // For now, we'll just simulate a successful submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    return {
-      success: true,
-      message: 'Your discovery call has been scheduled! You will receive a confirmation email shortly.'
-    }
-  } catch (error) {
-    console.error('Error submitting booking:', error)
-    return {
-      success: false,
-      message: 'There was an error scheduling your call. Please try again later.'
-    }
+  // Static export stub - replace with actual implementation
+  console.log('Booking submitted (static export):', data)
+  
+  return {
+    success: true,
+    message: 'Thank you for your interest! Please contact us directly to schedule your discovery call.'
   }
 }

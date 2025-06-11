@@ -16,6 +16,7 @@ import {
   Layers,
   Mail,
   ChevronRight,
+  Brain,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -240,27 +241,18 @@ export default function AiInfrastructureProfessionalServicesPage() {
 
       <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-16 md:py-20 shadow-xl">
         <div className="absolute inset-0 opacity-10">
-          {heroImage && (
-            <Image
-              src={heroImage}
-              alt="AI Infrastructure Services"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
-            />
-          )}
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold max-w-3xl animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             {heroTitle}
           </h1>
-          <p className="mt-4 text-lg text-gray-300 max-w-3xl mb-8">
+          <p className="mt-4 text-lg text-gray-300 max-w-3xl mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             {heroSubtitle}
           </p>
           <Button 
             asChild 
             size="lg" 
-            className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+            className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3 animate-fade-in-up" style={{ animationDelay: '300ms' }}
           >
             <Link href="#contact-section" className="inline-flex items-center">
               <Mail className="mr-2 h-5 w-5" />
@@ -273,10 +265,10 @@ export default function AiInfrastructureProfessionalServicesPage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               A Partner for Every Step of Your AI Journey
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-600 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               AIdeology's Professional Services provide the deep expertise and hands-on support you need to design,
               deploy, and optimize high-performance AI infrastructure. We de-risk your investment and accelerate your
               time to value.
@@ -285,20 +277,61 @@ export default function AiInfrastructureProfessionalServicesPage() {
         </div>
       </section>
 
+      <section className="py-20 bg-gray-50">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Professional AI Infrastructure Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Expert consulting and implementation services for enterprise-grade AI infrastructure
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  icon: <Brain className="w-8 h-8 text-accent-green" />,
+                  title: "AI Strategy Consulting",
+                  description: "Develop comprehensive AI strategies aligned with business objectives and technical capabilities"
+                },
+                {
+                  icon: <Zap className="w-8 h-8 text-accent-green" />,
+                  title: "Infrastructure Assessment",
+                  description: "Evaluate current infrastructure and recommend optimized AI-ready solutions"
+                },
+                {
+                  icon: <Shield className="w-8 h-8 text-accent-green" />,
+                  title: "Security & Compliance",
+                  description: "Ensure AI systems meet security requirements and regulatory compliance standards"
+                }
+              ].map((service, index) => (
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                  <div className="flex items-center mb-4">
+                    {service.icon}
+                    <h3 className="text-xl font-bold ml-3">{service.title}</h3>
+                  </div>
+                  <p className="text-gray-600">{service.description}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               Our End-to-End Service Lifecycle
             </h2>
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-lg text-gray-600 mb-12 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               We provide a structured, comprehensive approach to AI infrastructure projects, ensuring success and a
               seamless experience from initiation to ongoing operation.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {serviceOfferings.map((service) => (
-              <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            {serviceOfferings.map((service, index) => (
+              <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
                 <div className="flex justify-center md:justify-start mb-4">{service.icon}</div>
                 <h3 className="text-2xl font-bold text-charcoal mb-3 text-center md:text-left">{service.title}</h3>
                 <p className="text-gray-600 mb-4 text-center md:text-left">{service.description}</p>
@@ -319,8 +352,8 @@ export default function AiInfrastructureProfessionalServicesPage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Why Partner with AIdeology?</h2>
-            <p className="text-lg text-gray-600 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Why Partner with AIdeology?</h2>
+            <p className="text-lg text-gray-600 mb-12 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Our services are built on a foundation of deep technical expertise, a proven methodology, and a
               commitment to your success.
             </p>
@@ -331,8 +364,8 @@ export default function AiInfrastructureProfessionalServicesPage() {
               { title: "End-to-End Solutions", description: "From initial consultation and design to deployment, management, and ongoing support.", icon: <Layers className="w-8 h-8 text-accent-green" /> },
               { title: "Proven Track Record", description: "Successful deployments of complex AI infrastructures for leading enterprises and research institutions.", icon: <CheckCircle className="w-8 h-8 text-accent-green" /> },
               { title: "Strategic Partnerships", description: "Strong relationships with leading hardware and software vendors to provide the best solutions.", icon: <Users className="w-8 h-8 text-accent-green" /> }
-            ].map(reason => (
-              <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+            ].map((reason, index) => (
+              <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                 <div className="flex justify-center mb-4">{reason.icon}</div>
                 <h3 className="text-xl font-semibold text-charcoal mb-2">{reason.title}</h3>
                 <p className="text-gray-600 text-sm">{reason.description}</p>
@@ -345,17 +378,17 @@ export default function AiInfrastructureProfessionalServicesPage() {
       <section id="contact-section" className="py-16 md:py-20 bg-accent-green/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center bg-white p-12 rounded-lg shadow-lg">
-            <h2 className="text-3xl font-bold text-charcoal mb-4">Ready to Build Your AI Future?</h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <h2 className="text-3xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Build Your AI Future?</h2>
+            <p className="text-lg text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Our Professional Services team is ready to help. Contact us for a detailed consultation.
             </p>
             <Button
               asChild
               size="lg"
-              className="bg-white text-accent-green hover:bg-charcoal hover:text-white font-semibold text-lg px-10 py-5 rounded-xl hover:scale-105 transition-all duration-300 ease-in-out"
+              className="bg-accent-green text-white hover:bg-charcoal hover:text-white font-bold text-xl px-12 py-6 rounded-xl hover:scale-110 transition-all duration-300 ease-in-out shadow-2xl border-4 border-accent-green hover:border-charcoal animate-fade-in-up" style={{ animationDelay: '300ms' }}
             >
               <Link href="/contact" className="inline-flex items-center">
-                <Mail className="mr-2 h-5 w-5" />
+                <Mail className="mr-3 h-6 w-6" />
                 Contact an Expert
               </Link>
             </Button>

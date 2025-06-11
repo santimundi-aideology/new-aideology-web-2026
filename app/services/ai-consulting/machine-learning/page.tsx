@@ -12,17 +12,17 @@ export default function MachineLearningPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full relative z-10">
           <div className="w-full text-center px-6 lg:px-12">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <Brain className="w-4 h-4 mr-2" />
               AI Consulting
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <span className="text-accent-green">Machine Learning</span> Solutions
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               End-to-end machine learning solutions from model development and training to deployment and optimization
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Button
                 size="lg"
                 className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
@@ -46,19 +46,19 @@ export default function MachineLearningPage() {
       <section className="py-16 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="text-center">
+            <div className="text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <div className="text-3xl md:text-4xl font-bold text-charcoal mb-2">95%</div>
               <div className="text-gray-600">Model Accuracy</div>
             </div>
-            <div className="text-center">
+            <div className="text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <div className="text-3xl md:text-4xl font-bold text-charcoal mb-2">80%</div>
               <div className="text-gray-600">Faster Deployment</div>
             </div>
-            <div className="text-center">
+            <div className="text-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <div className="text-3xl md:text-4xl font-bold text-charcoal mb-2">100+</div>
               <div className="text-gray-600">Models Deployed</div>
             </div>
-            <div className="text-center">
+            <div className="text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <div className="text-3xl md:text-4xl font-bold text-charcoal mb-2">24/7</div>
               <div className="text-gray-600">Model Monitoring</div>
             </div>

@@ -116,17 +116,17 @@ export default function AcceleratedComputingPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
-              <Badge className="mb-4 bg-accent-green/20 text-accent-green border-accent-green/30 hover:bg-accent-green/30 px-3 py-1 text-sm">
+              <Badge className="mb-4 bg-accent-green/20 text-accent-green border-accent-green/30 hover:bg-accent-green/30 px-3 py-1 text-sm animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 AI Infrastructure
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 Accelerated Computing <span className="block text-accent-green">Infrastructure</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0">
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 Transform your computational capabilities with GPU-accelerated infrastructure that powers the most
                 demanding AI, HPC, and data analytics workloads.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <Button
                   size="lg"
                   className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
@@ -146,7 +146,7 @@ export default function AcceleratedComputingPage() {
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <Image
                 src="/gpu-server-racks.png"
                 alt="GPU Server Racks"
@@ -164,17 +164,18 @@ export default function AcceleratedComputingPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Power of Accelerated Computing</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>The Power of Accelerated Computing</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Traditional CPU-only infrastructure struggles with modern AI & HPC demands. GPU acceleration offers
               transformative advantages.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {capabilities.map((item) => (
+            {capabilities.map((item, index) => (
               <Card
                 key={item.title}
-                className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-accent-green"
+                className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-l-4 border-accent-green animate-fade-in-up"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
               >
                 <CardContent className="p-6 flex flex-col items-center text-center">
                   <div className="mb-4 p-3 rounded-full bg-accent-green/10">{item.icon}</div>
@@ -191,30 +192,25 @@ export default function AcceleratedComputingPage() {
       <section id="services" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Accelerated Computing Services</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Accelerated Computing Services</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Comprehensive solutions to design, deploy, and optimize your GPU-accelerated infrastructure for peak
               performance.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {services.map((service) => (
-              <Card
-                key={service.title}
-                className="bg-gray-50 shadow-lg hover:shadow-xl transition-shadow duration-300 group overflow-hidden"
-              >
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 p-3 bg-accent-green/10 rounded-lg text-accent-green group-hover:bg-accent-green/20 transition-colors">
+            {services.map((service, index) => (
+              <Card key={index} className="h-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                <CardHeader className="pb-4">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-lg bg-accent-green/10 mr-4">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-xl font-semibold text-gray-900 group-hover:text-accent-green transition-colors">
-                      {service.title}
-                    </CardTitle>
+                    <CardTitle className="text-xl font-bold text-gray-900">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                <CardContent className="pt-0">
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -266,52 +262,59 @@ export default function AcceleratedComputingPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Advantages of AIdeology's Solutions</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Partner with AIdeology to unlock significant benefits for your organization through accelerated computing.
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Transform Your Organization with Accelerated Computing
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Unlock unprecedented performance, efficiency, and capabilities for your most demanding workloads.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {benefits.map((benefit) => (
-              <Card key={benefit.title} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="p-3 rounded-full bg-accent-green/10 text-accent-green">{benefit.icon}</div>
-                    <h3 className="text-lg font-semibold text-gray-900">{benefit.title}</h3>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 p-3 rounded-lg bg-accent-green/10 mr-4">
+                    <div className="text-accent-green">{benefit.icon}</div>
                   </div>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
-                </CardContent>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
+                    <p className="text-gray-600 text-sm">{benefit.description}</p>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-charcoal to-gray-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Accelerate Your Innovations?</h2>
-          <p className="text-lg md:text-xl text-gray-300 mb-8">
-            Let AIdeology design and deploy the optimal GPU-accelerated infrastructure to power your most ambitious
-            projects.
+      {/* Call to Action */}
+      <section className="py-16 md:py-24 bg-accent-green text-charcoal">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            Ready to Accelerate Your Computing Infrastructure?
+          </h2>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            Let AIdeology design and implement a GPU-accelerated infrastructure solution that transforms your
+            organization's computational capabilities.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button
               size="lg"
-              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
+              className="bg-charcoal text-white hover:bg-gray-800 shadow-lg transition-transform hover:scale-105"
               asChild
             >
               <Link href="/contact">
-                Consult Our Experts <ArrowRight className="ml-2 h-5 w-5" />
+                Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white shadow-lg transition-transform hover:scale-105"
               asChild
             >
-              <Link href="/solutions/ai-infrastructure">View AI Infrastructure Solutions</Link>
+              <Link href="/services/ai-infrastructure">Explore More Services</Link>
             </Button>
           </div>
         </div>

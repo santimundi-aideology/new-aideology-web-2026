@@ -12,26 +12,26 @@ export default function DesignVisualizationPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               <Layers className="w-4 h-4 mr-2" />
               3D AI
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Advanced <span className="text-accent-green">3D Design</span> & Visualization
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Transform how architects, designers, and creative professionals bring their visions to life with
               cutting-edge visualization technology
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold hover:scale-105 transition-all duration-300">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
+                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -45,7 +45,7 @@ export default function DesignVisualizationPage() {
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
-              <div className="relative">
+              <div className="relative animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 <Image
                   src="/architectural-visualization-ai.png"
                   alt="Architectural Visualization"
@@ -54,34 +54,34 @@ export default function DesignVisualizationPage() {
                   className="rounded-lg shadow-lg"
                 />
               </div>
-              <div>
+              <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <h2 className="text-3xl font-bold mb-6">Revolutionizing Design Visualization</h2>
                 <p className="text-lg mb-6">
                   Traditional design visualization processes are often slow, iterative, and limited in their ability to
                   convey complex ideas. Modern GPU-accelerated visualization offers transformative advantages:
                 </p>
                 <ul className="space-y-3">
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                     <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-0.5" />
                     <span>
                       <strong>Real-time Photorealism</strong>: Instant feedback with physically accurate lighting and
                       materials
                     </span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '350ms' }}>
                     <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-0.5" />
                     <span>
                       <strong>Interactive Exploration</strong>: Navigate and modify complex scenes in real time
                     </span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                     <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-0.5" />
                     <span>
                       <strong>Collaborative Workflows</strong>: Enable multiple stakeholders to review and provide
                       feedback
                     </span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start animate-fade-in-up" style={{ animationDelay: '450ms' }}>
                     <CheckCircle className="w-5 h-5 text-accent-green mr-2 mt-0.5" />
                     <span>
                       <strong>AI-Enhanced Creation</strong>: Leverage AI to automate repetitive tasks and enhance
@@ -93,14 +93,14 @@ export default function DesignVisualizationPage() {
             </div>
 
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-charcoal mb-4">AIdeology's Design Visualization Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>AIdeology's Design Visualization Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 Comprehensive solutions to transform your creative workflows
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">Architectural Visualization</CardTitle>
                 </CardHeader>
@@ -126,7 +126,7 @@ export default function DesignVisualizationPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">Product Design & Prototyping</CardTitle>
                 </CardHeader>
@@ -152,7 +152,7 @@ export default function DesignVisualizationPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">Collaborative Design Platforms</CardTitle>
                 </CardHeader>
@@ -178,7 +178,7 @@ export default function DesignVisualizationPage() {
                 </CardContent>
               </Card>
 
-              <Card className="hover-lift">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                 <CardHeader>
                   <CardTitle className="text-xl">AI-Enhanced Design Tools</CardTitle>
                 </CardHeader>
@@ -198,7 +198,7 @@ export default function DesignVisualizationPage() {
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
-                      <span className="text-sm">Automated optimization</span>
+                      <span className="text-sm">Automated asset generation</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -208,151 +208,132 @@ export default function DesignVisualizationPage() {
         </div>
       </section>
 
-      {/* Technology Section */}
+      {/* Industry Applications */}
       <section className="py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-16">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-blue-500" />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-lg font-semibold text-blue-800 mb-2">NVIDIA RTX & Omniverse Technologies</h3>
-                  <p className="text-blue-700">
-                    AIdeology leverages NVIDIA RTX technology for real-time ray tracing and AI-accelerated denoising,
-                    along with NVIDIA Omniverse for collaborative design and visualization. These technologies enable
-                    unprecedented levels of visual fidelity and workflow efficiency for design professionals.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-charcoal mb-4">
-                Benefits of AIdeology's Design Visualization Solutions
-              </h2>
+              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Industry Applications</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Our visualization solutions serve diverse industries with specialized requirements
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <ul className="space-y-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-charcoal mb-1">Accelerated Design Cycles</h3>
-                      <p className="text-gray-600">Reduce iteration time with real-time feedback</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-charcoal mb-1">Enhanced Client Communication</h3>
-                      <p className="text-gray-600">Present designs in photorealistic detail</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-charcoal mb-1">Improved Decision Making</h3>
-                      <p className="text-gray-600">Enable stakeholders to experience designs virtually</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-accent-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-charcoal mb-1">Reduced Physical Prototyping</h3>
-                      <p className="text-gray-600">Save costs with comprehensive digital prototypes</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="RTX-powered architectural visualization"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                <CardHeader>
+                  <CardTitle className="text-xl">Architecture & Real Estate</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="mb-4">
+                    Create compelling architectural presentations, property marketing materials, and immersive
+                    experiences that help clients visualize finished projects.
+                  </CardDescription>
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Pre-construction visualization</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Property marketing assets</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Virtual property tours</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <CardHeader>
+                  <CardTitle className="text-xl">Manufacturing & Product Development</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="mb-4">
+                    Accelerate product development cycles with photorealistic prototypes, streamlined reviews, and
+                    enhanced collaboration across distributed teams.
+                  </CardDescription>
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Digital twin creation</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Assembly process visualization</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Quality control visualization</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+                <CardHeader>
+                  <CardTitle className="text-xl">Entertainment & Media</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="mb-4">
+                    Support content creation workflows with real-time rendering, virtual production capabilities, and
+                    collaborative tools for creative teams.
+                  </CardDescription>
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Virtual set design</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Pre-visualization workflows</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                      <span className="text-sm">Interactive experiences</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-charcoal text-white">
-        <div className="w-full px-6 lg:px-12 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Design Visualization?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact AIdeology to learn how our advanced 3D visualization solutions can elevate your creative processes
-            and outcomes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold"
-              asChild
-            >
-              <Link href="/contact">
-                Contact Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-charcoal"
-              asChild
-            >
-              <Link href="/services">View All Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12">
-          <h3 className="text-2xl font-bold text-charcoal mb-8 text-center">Related 3D AI Services</h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            <Link href="/services/3d-ai/digital-twins" className="group">
-              <Card className="hover-lift h-full">
-                <CardHeader>
-                  <CardTitle className="group-hover:text-accent-green transition-colors">Digital Twins</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Virtual replicas of physical assets for real-time monitoring and simulation
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/services/3d-ai/extended-reality" className="group">
-              <Card className="hover-lift h-full">
-                <CardHeader>
-                  <CardTitle className="group-hover:text-accent-green transition-colors">Extended Reality</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Immersive VR, AR, and MR experiences for training, visualization, and collaboration
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/services/3d-ai/robotic-simulation" className="group">
-              <Card className="hover-lift h-full">
-                <CardHeader>
-                  <CardTitle className="group-hover:text-accent-green transition-colors">Robotic Simulation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Accelerate development and testing of autonomous systems and robotics
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Ready to Transform Your Design Process?
+            </h2>
+            <p className="text-xl mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Let AIdeology help you implement cutting-edge visualization solutions that accelerate creativity and enhance collaboration.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              <Button 
+                asChild
+                size="lg" 
+                className="bg-charcoal text-white font-semibold hover:bg-gray-800 hover:scale-105 transition-all duration-300 px-8 py-3"
+              >
+                <Link href="/contact">
+                  Schedule Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 px-8 py-3"
+                asChild
+              >
+                <Link href="/services/3d-ai">
+                  Explore 3D AI Services
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

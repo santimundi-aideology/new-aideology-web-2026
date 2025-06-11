@@ -1,270 +1,262 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import Footer from "@/components/footer"
-import { Shield, Lock, FileText, CheckCircle, ArrowRight, Eye, AlertTriangle, Users, Code } from "lucide-react"
+import { Shield, Lock, FileText, CheckCircle, ArrowRight, Eye, AlertTriangle, Users, Code, Radar, Database, Key, Zap, Cpu, Globe } from "lucide-react"
 
-export default function AISecurityCompliancePage() {
-  const features = [
+const AISecurityCompliancePage = () => {
+  const securitySolutions = [
     {
-      icon: <Shield className="h-12 w-12 text-accent-green" />,
-      title: "Threat Modeling & Risk Assessment",
-      description: "We identify and prioritize potential threats to your AI systems, including data poisoning, model evasion, and privacy breaches.",
+      icon: <Shield className="w-8 h-8 text-accent-green" />,
+      title: "AI Model Security",
+      description: "Protect your AI models from adversarial attacks and ensure data integrity throughout the AI lifecycle.",
+      features: ["Model encryption", "Access control", "Audit trails", "Threat detection"]
     },
     {
-      icon: <Lock className="h-12 w-12 text-accent-green" />,
-      title: "Secure AI Development Lifecycle",
-      description: "Integrating security best practices into every stage of your AI development process, from data acquisition to model deployment.",
+      icon: <Lock className="w-8 h-8 text-accent-green" />,
+      title: "Data Privacy Protection",
+      description: "Safeguard sensitive data with advanced privacy-preserving AI techniques and compliance frameworks.",
+      features: ["Data anonymization", "Differential privacy", "Secure computation", "GDPR compliance"]
     },
     {
-      icon: <FileText className="h-12 w-12 text-accent-green" />,
-      title: "Regulatory Compliance",
-      description: "Navigate complex regulatory landscapes like GDPR, HIPAA, and the AI Act with our expert guidance and compliance frameworks.",
+      icon: <Eye className="w-8 h-8 text-accent-green" />,
+      title: "AI Monitoring & Governance",
+      description: "Comprehensive monitoring and governance solutions for transparent and accountable AI systems.",
+      features: ["Real-time monitoring", "Bias detection", "Performance tracking", "Compliance reporting"]
+    }
+  ]
+
+  const complianceFeatures = [
+    {
+      title: "Risk Assessment",
+      description: "Comprehensive AI risk evaluation and mitigation strategies",
+      icon: <AlertTriangle className="w-6 h-6 text-accent-green" />
     },
     {
-      icon: <CheckCircle className="h-12 w-12 text-accent-green" />,
-      title: "Model Robustness & Validation",
-      description: "Testing and validating your AI models against adversarial attacks to ensure they are robust, reliable, and fair.",
+      title: "Access Management",
+      description: "Secure user authentication and authorization systems",
+      icon: <Users className="w-6 h-6 text-accent-green" />
     },
+    {
+      title: "Data Governance",
+      description: "Structured data management and compliance frameworks",
+      icon: <Database className="w-6 h-6 text-accent-green" />
+    },
+    {
+      title: "Automated Compliance",
+      description: "Streamlined compliance processes and automated reporting",
+      icon: <Zap className="w-6 h-6 text-accent-green" />
+    }
+  ]
+
+  const industries = [
+    {
+      name: "Financial Services",
+      icon: <Key className="w-6 h-6 text-accent-green" />,
+      description: "Meet regulatory requirements for AI in banking and finance"
+    },
+    {
+      name: "Healthcare",
+      icon: <Shield className="w-6 h-6 text-accent-green" />,
+      description: "HIPAA-compliant AI solutions for medical applications"
+    },
+    {
+      name: "Government",
+      icon: <Globe className="w-6 h-6 text-accent-green" />,
+      description: "Secure AI systems for public sector applications"
+    },
+    {
+      name: "Enterprise",
+      icon: <Cpu className="w-6 h-6 text-accent-green" />,
+      description: "Corporate AI governance and security frameworks"
+    }
   ]
 
   return (
-    <main className="min-h-screen bg-white text-charcoal">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-charcoal/50"></div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-32">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(34,197,94,.1),transparent_50%)] animate-pulse"></div>
         </div>
-        
-        <div className="w-full text-center px-6 lg:px-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-          <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-6 py-3 rounded-full text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <Shield className="w-4 h-4 mr-2" />
-            AI Solutions • Security & Compliance
-          </div>
-          
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-            Secure AI
-            <span className="block text-accent-green">
-              Excellence
-            </span>
-          </h1>
-          
-          <p className="text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-            Build trustworthy AI systems with enterprise-grade security, compliance frameworks, and risk management
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-            <Button
-              size="lg"
-              className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
-            >
-              Secure Your AI
-              <Shield className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white hover:text-charcoal text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
-              asChild
-            >
-              <Link href="#assessment-section">Assessment Report</Link>
-            </Button>
+
+        <div className="w-full relative z-10">
+          <div className="w-full text-center px-6 lg:px-12">
+            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-6 py-3 rounded-full text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              <Shield className="w-4 h-4 mr-2" />
+              Security • Compliance • Governance
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <span className="text-accent-green">AI Security</span>
+              <span className="block text-white">& Compliance</span>
+            </h1>
+
+            <p className="text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              Secure your AI systems with comprehensive security and compliance solutions that protect data, ensure governance, and meet regulatory requirements
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <Button
+                size="lg"
+                className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
+              >
+                <Link href="/book-discovery-call?type=consultation">
+                  Secure Your AI
+                  <Shield className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white hover:text-charcoal text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
+              >
+                <Link href="#solutions">View Solutions</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                <h2 className="text-3xl font-bold mb-4">Why AI Security Matters</h2>
-                <p className="text-charcoal/80 mb-4">
-                  As AI becomes more integrated into critical business functions, the attack surface for malicious actors expands. Securing your AI systems is not just about protecting data; it's about ensuring the integrity, reliability, and trustworthiness of your AI-driven decisions.
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-accent-green mr-2" />
-                    Protect against data poisoning and model theft.
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-accent-green mr-2" />
-                    Ensure fairness and mitigate algorithmic bias.
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-accent-green mr-2" />
-                    Comply with evolving AI regulations and standards.
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-72 md:h-[28rem] rounded-lg overflow-hidden animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                <Image
-                  src="/solutions/ai_security.webp"
-                  alt="AI Security Concept"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
+      {/* AI Security Solutions */}
+      <section id="solutions" className="py-20 bg-gray-50">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                AI Security Solutions
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Comprehensive security measures to protect your AI systems from threats and ensure compliance
+              </p>
             </div>
-          </div>
-        </section>
 
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              Our AI Security & Compliance Services
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) => (
-                <Card key={index} className="text-center p-6 animate-fade-in-up transition-transform duration-300 hover:scale-105" style={{ animationDelay: `${200 + index * 100}ms` }}>
-                  <div className="flex justify-center mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-charcoal/70">{feature.description}</p>
+            <div className="grid lg:grid-cols-3 gap-8">
+              {securitySolutions.map((solution, index) => (
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                  <CardHeader>
+                    <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center mb-4">
+                      {solution.icon}
+                    </div>
+                    <CardTitle className="text-xl">{solution.title}</CardTitle>
+                    <CardDescription className="text-base leading-relaxed">{solution.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      {solution.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center">
+                          <CheckCircle className="w-4 h-4 text-accent-green mr-2" />
+                          <span className="text-sm text-gray-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
                 </Card>
               ))}
             </div>
           </div>
-        </section>
-        
-        {/* Process Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="w-full px-6 lg:px-12">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                <h2 className="text-4xl font-bold text-charcoal mb-4">Security Implementation Process</h2>
-                <p className="text-xl text-gray-600">Our proven methodology for implementing AI security</p>
-              </div>
+        </div>
+      </section>
 
-              <div className="relative">
-                {/* Timeline Line */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-accent-green rounded-full animate-fade-in-up" style={{ animationDelay: '200ms' }}></div>
-
-                <div className="space-y-16">
-                  {/* Step 1 */}
-                  <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                    <div className="w-1/2 pr-12 text-right">
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                        <h3 className="text-2xl font-bold text-charcoal mb-4">Security Assessment</h3>
-                        <p className="text-gray-600">
-                          Comprehensive evaluation of your current AI systems, identifying vulnerabilities and security gaps.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
-                      <span className="text-white font-bold text-xl">1</span>
-                    </div>
-                    <div className="w-1/2 pl-12"></div>
-                  </div>
-
-                  {/* Step 2 */}
-                  <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                    <div className="w-1/2 pr-12"></div>
-                    <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
-                      <span className="text-white font-bold text-xl">2</span>
-                    </div>
-                    <div className="w-1/2 pl-12">
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                        <h3 className="text-2xl font-bold text-charcoal mb-4">Risk Mitigation</h3>
-                        <p className="text-gray-600">
-                          Implementation of security controls and risk mitigation strategies tailored to your environment.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Step 3 */}
-                  <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-                    <div className="w-1/2 pr-12 text-right">
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                        <h3 className="text-2xl font-bold text-charcoal mb-4">Compliance Alignment</h3>
-                        <p className="text-gray-600">
-                          Ensure your AI systems meet regulatory requirements and industry standards.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
-                      <span className="text-white font-bold text-xl">3</span>
-                    </div>
-                    <div className="w-1/2 pl-12"></div>
-                  </div>
-
-                  {/* Step 4 */}
-                  <div className="flex items-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-                    <div className="w-1/2 pr-12"></div>
-                    <div className="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center relative z-10">
-                      <span className="text-white font-bold text-xl">4</span>
-                    </div>
-                    <div className="w-1/2 pl-12">
-                      <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                        <h3 className="text-2xl font-bold text-charcoal mb-4">Continuous Monitoring</h3>
-                        <p className="text-gray-600">
-                          Ongoing security monitoring and incident response to maintain protection over time.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                Navigating Compliance Frameworks
+      {/* AI Security & Compliance Features */}
+      <section className="py-20 bg-white">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Core Security Features
               </h2>
-              <div className="grid md:grid-cols-3 gap-8 items-start">
-                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                  <h3 className="text-2xl font-bold mb-3">GDPR</h3>
-                  <p className="text-charcoal/70 mb-4">Ensuring data protection and privacy for users in the European Union.</p>
-                  <Image src="/solutions/gdpr-logo.webp" alt="GDPR Logo" width={80} height={40} />
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Essential security and compliance capabilities for enterprise AI systems
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {complianceFeatures.map((feature, index) => (
+                <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                  <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-charcoal mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm">{feature.description}</p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                  <h3 className="text-2xl font-bold mb-3">HIPAA</h3>
-                  <p className="text-charcoal/70 mb-4">Protecting sensitive patient health information in the United States.</p>
-                  <Image src="/solutions/hipaa-logo.webp" alt="HIPAA Logo" width={80} height={40} />
-                </div>
-                <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                  <h3 className="text-2xl font-bold mb-3">AI Act</h3>
-                  <p className="text-charcoal/70 mb-4">Adhering to the upcoming European Union regulations for artificial intelligence.</p>
-                   <Image src="/solutions/ai_act.webp" alt="AI Act Logo" width={80} height={40} />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="assessment-section" className="py-20 bg-charcoal text-white">
-          <div className="w-full px-6 lg:px-12 text-center">
-            <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Secure Your AI Advantage</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Don't let security be an afterthought. Build trust and compliance into your AI systems from the ground up.
+      {/* Industry Applications */}
+      <section className="py-20 bg-charcoal text-white">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Industry Applications
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Tailored security and compliance solutions for your industry
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {industries.map((industry, index) => (
+                <div key={index} className="bg-gray-800 rounded-2xl p-8 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                  <div className="flex items-center mb-4">
+                    {industry.icon}
+                    <h3 className="text-2xl font-bold ml-3">{industry.name}</h3>
+                  </div>
+                  <p className="text-gray-300">{industry.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-accent-green text-charcoal">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Ready to Secure Your AI?
+            </h2>
+            <p className="text-xl mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Protect your AI investments with comprehensive security and compliance solutions from AIdeology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <Button
-                size="lg" 
-                className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+              <Button 
                 asChild
+                size="lg" 
+                className="bg-charcoal text-white font-semibold hover:bg-gray-800 hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
-                <Link href="/book-discovery-call?type=assessment" className="flex items-center">
-                  Schedule Assessment
+                <Link href="/book-discovery-call?type=consultation">
+                  Schedule Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
+                className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                asChild
               >
-                Download Whitepaper
+                <Link href="/solutions">
+                  Explore All Solutions
+                </Link>
               </Button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
       <Footer />
-    </main>
+    </div>
   )
 }
+
+export default AISecurityCompliancePage
