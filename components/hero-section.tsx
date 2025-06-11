@@ -1,9 +1,148 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Download, PhoneCall } from "lucide-react"
+
+// Dual Video Component for seamless playback
+function DualVideoBackground() {
+  const video1Ref = useRef<HTMLVideoElement>(null)
+  const video2Ref = useRef<HTMLVideoElement>(null)
+  const [currentVideo, setCurrentVideo] = useState<1 | 2>(1)
+  const [video2Loaded, setVideo2Loaded] = useState(false)
+  const [video2Loading, setVideo2Loading] = useState(false)
+
+  useEffect(() => {
+    const video1 = video1Ref.current
+    const video2 = video2Ref.current
+
+    if (!video1 || !video2) return
+
+    // Start preloading video2 immediately
+    const startVideo2Loading = () => {
+      if (!video2Loading) {
+        setVideo2Loading(true)
+        video2.load()
+      }
+    }
+
+    // Multiple events to detect when video2 is ready
+    const handleVideo2Ready = () => {
+      if (video2.readyState >= 3) { // HAVE_FUTURE_DATA or better
+        setVideo2Loaded(true)
+      }
+    }
+
+    const handleVideo2CanPlay = () => {
+      setVideo2Loaded(true)
+    }
+
+    const handleVideo2LoadedData = () => {
+      setVideo2Loaded(true)
+    }
+
+    const handleVideo1Ended = () => {
+      // Check if video2 is actually ready to play
+      if (video2Loaded && video2.readyState >= 3) {
+        setCurrentVideo(2)
+        video2.currentTime = 0
+        video2.play().catch((error) => {
+          console.error('Error playing video2:', error)
+          // Fallback to video1
+          setCurrentVideo(1)
+          video1.currentTime = 0
+          video1.play()
+        })
+      } else {
+        // Video2 not ready, loop video1
+        video1.currentTime = 0
+        video1.play()
+        // Continue trying to load video2
+        startVideo2Loading()
+      }
+    }
+
+    const handleVideo2Ended = () => {
+      // Loop back to video1
+      setCurrentVideo(1)
+      video1.currentTime = 0
+      video1.play()
+    }
+
+    // Start video2 loading as soon as video1 starts playing
+    const handleVideo1Playing = () => {
+      startVideo2Loading()
+    }
+
+    // Event listeners for video1
+    video1.addEventListener('playing', handleVideo1Playing)
+    video1.addEventListener('ended', handleVideo1Ended)
+
+    // Event listeners for video2 - multiple events for better reliability
+    video2.addEventListener('canplay', handleVideo2CanPlay)
+    video2.addEventListener('loadeddata', handleVideo2LoadedData)
+    video2.addEventListener('canplaythrough', handleVideo2Ready)
+    video2.addEventListener('ended', handleVideo2Ended)
+
+    // Start playing video1
+    video1.play().catch(console.error)
+
+    // Also start loading video2 after a short delay as backup
+    const backupTimeout = setTimeout(() => {
+      startVideo2Loading()
+    }, 1000)
+
+    return () => {
+      clearTimeout(backupTimeout)
+      video1.removeEventListener('playing', handleVideo1Playing)
+      video1.removeEventListener('ended', handleVideo1Ended)
+      video2.removeEventListener('canplay', handleVideo2CanPlay)
+      video2.removeEventListener('loadeddata', handleVideo2LoadedData)
+      video2.removeEventListener('canplaythrough', handleVideo2Ready)
+      video2.removeEventListener('ended', handleVideo2Ended)
+    }
+  }, [video2Loading, video2Loaded])
+
+  return (
+    <div className="absolute inset-0 z-0">
+      {/* Video 1 */}
+      <video
+        ref={video1Ref}
+        muted
+        playsInline
+        preload="auto"
+        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover transition-opacity duration-300 ${
+          currentVideo === 1 ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ width: "100vw", height: "100vh" }}
+      >
+        <source src="/homepage-video-1.mp4" type="video/mp4" />
+      </video>
+
+      {/* Video 2 */}
+      <video
+        ref={video2Ref}
+        muted
+        playsInline
+        preload="none"
+        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover transition-opacity duration-300 ${
+          currentVideo === 2 ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ width: "100vw", height: "100vh" }}
+      >
+        <source src="/homepage-video-2.mp4" type="video/mp4" />
+      </video>
+
+      {/* Debug indicator (remove in production) */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="absolute top-4 right-4 z-50 text-white text-sm bg-black/50 p-2 rounded">
+          Video: {currentVideo} | V2 Loaded: {video2Loaded ? 'Yes' : 'No'}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
@@ -57,24 +196,12 @@ export default function HeroSection() {
         </div>
       )} */}
 
-      {/* Local Video Background */}
+      {/* Dual Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-charcoal/70 z-10"></div>
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
-            style={{ width: "100vw", height: "100vh" }}
-          >
-            <source src="/homepage-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        {/* Fallback image if video doesn't load */}
+        <DualVideoBackground />
+        
+        {/* Fallback image if videos don't load */}
         <img
           src="/gpu-server-racks.png"
           alt="AI Infrastructure"

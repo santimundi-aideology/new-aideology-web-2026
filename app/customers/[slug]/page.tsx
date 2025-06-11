@@ -446,6 +446,17 @@ function renderWithBold(text: string) {
   });
 }
 
+export async function generateStaticParams() {
+  // Return all possible slug values for static generation
+  return [
+    { slug: 'g42-ai-cloud-infrastructure' },
+    { slug: 'tonomus-neom-cognitive-cloud' },
+    { slug: 'broadcom-vmware-crm-automation' },
+    { slug: 'architectural-visualization' },
+    { slug: 'virtual-production' },
+  ]
+}
+
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
   const caseStudy = getCaseStudyBySlug(params.slug)
 

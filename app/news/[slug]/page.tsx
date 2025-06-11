@@ -1,6 +1,3 @@
-"use client"
-
-import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -62,9 +59,17 @@ const getArticleBySlug = (slug: string) => {
   }
 }
 
+export async function generateStaticParams() {
+  // Return all possible slug values for static generation
+  return [
+    { slug: 'nvidia-partnership' },
+    { slug: '3d-ai-pipeline' },
+    { slug: 'nvidia-elite-status' },
+  ]
+}
+
 export default function NewsArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
@@ -112,7 +117,6 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                     variant="ghost"
                     size="icon"
                     className="absolute top-2 right-2 z-10 text-white bg-black/30 hover:bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => setSelectedImage(article.image)}
                   >
                     <Expand className="h-5 w-5" />
                   </Button>
@@ -196,26 +200,6 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           </div>
         </div>
       </section>
-
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 animate-fade-in-fast"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button 
-            className="absolute top-4 right-4 text-white z-50"
-            onClick={() => setSelectedImage(null)}
-          >
-            <X className="h-8 w-8" />
-          </button>
-          <img 
-            src={selectedImage} 
-            alt="Expanded view" 
-            className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking on image
-          />
-        </div>
-      )}
 
       <Footer />
     </main>
