@@ -10,7 +10,6 @@ export default function GenerativeAiPage() {
       {/* Animated Hero Section */}
       <section className="relative overflow-hidden bg-charcoal text-white py-32">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] opacity-10"></div>
           <div className="absolute inset-0 bg-charcoal/50"></div>
         </div>
 
@@ -360,11 +359,11 @@ export default function GenerativeAiPage() {
       {/* CTA Section */}
       <section className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12 text-center">
-          <h2 className="text-5xl font-bold mb-6 text-charcoal">Ready to Create the Future?</h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal">
+          <h2 className="text-5xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Create the Future?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             Join innovative companies using generative AI to transform their creative processes and business outcomes.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button
               size="lg"
               className="bg-charcoal text-white hover:bg-white hover:text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
@@ -392,9 +391,9 @@ export default function GenerativeAiPage() {
       {/* Related Services */}
       <section className="py-16 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
-          <h3 className="text-3xl font-bold text-charcoal mb-12 text-center">Related AI Consulting Services</h3>
+          <h3 className="text-3xl font-bold text-charcoal mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Related AI Consulting Services</h3>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Link href="/services/ai-consulting/conversational-ai" className="group">
+            <Link href="/services/ai-consulting/conversational-ai" className="group animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
@@ -408,7 +407,7 @@ export default function GenerativeAiPage() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/services/ai-consulting/ai-agents" className="group">
+            <Link href="/services/ai-consulting/ai-agents" className="group animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="group-hover:text-accent-green transition-colors text-xl">AI Agents</CardTitle>
@@ -420,7 +419,7 @@ export default function GenerativeAiPage() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/services/ai-consulting/machine-learning" className="group">
+            <Link href="/services/ai-consulting/machine-learning" className="group animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="group-hover:text-accent-green transition-colors text-xl">

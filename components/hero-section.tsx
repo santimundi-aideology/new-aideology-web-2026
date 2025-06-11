@@ -112,7 +112,7 @@ export default function HeroSection() {
               size="lg"
               className="border-white text-white hover:bg-white hover:text-charcoal bg-charcoal/50 font-medium transition-all duration-300 hover:scale-105"
             >
-              <Link href="#download" className="flex items-center transition-transform hover:translate-x-1">
+              <Link href="/one-pager.pdf" target="_blank" className="flex items-center transition-transform hover:translate-x-1">
                 <Download className="mr-2 h-5 w-5" />
                 Download one-pager
               </Link>

@@ -82,19 +82,19 @@ export default function SustainableComputingPage() {
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <Badge variant="secondary" className="mb-4 bg-accent-green/20 text-accent-green border-accent-green/30 backdrop-blur-sm">
+              <Badge variant="secondary" className="mb-4 bg-accent-green/20 text-accent-green border-accent-green/30 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 <Leaf className="mr-2 h-4 w-4" />
                 AI Infrastructure
               </Badge>
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 Sustainable & Energy-Efficient Computing
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-gray-300 mb-8 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 Design and implement sustainable computing infrastructure for AI and HPC that reduces environmental
                 impact without compromising on performance.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300">
                   <Link href="#consultation">
                     Consult an Expert
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -104,13 +104,13 @@ export default function SustainableComputingPage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-charcoal"
+                  className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300"
                 >
                   <Link href="#benefits">View Benefits</Link>
                 </Button>
               </div>
             </div>
-            <div className="relative hidden lg:block">
+            <div className="relative hidden lg:block animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <Image
                 src="/data-center.webp"
                 alt="A modern, sustainable data center with green ambient lighting"
@@ -127,8 +127,8 @@ export default function SustainableComputingPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">The Sustainability Imperative in AI</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>The Sustainability Imperative in AI</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               As AI workloads grow, so does their environmental impact. AIdeology helps you address these critical
               challenges head-on.
             </p>
@@ -137,7 +137,8 @@ export default function SustainableComputingPage() {
             {imperatives.map((item, index) => (
               <Card
                 key={index}
-                className="bg-white border-0 border-l-4 border-accent-green shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white border-0 border-l-4 border-accent-green shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
               >
                 <CardContent className="p-6">
                   <div className="mb-4">{item.icon}</div>
@@ -154,8 +155,8 @@ export default function SustainableComputingPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Sustainable Computing Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Sustainable Computing Services</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               We provide end-to-end solutions to reduce your environmental impact while maximizing computational
               performance.
             </p>
@@ -164,7 +165,8 @@ export default function SustainableComputingPage() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="border-0 bg-gray-50 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                className="border-0 bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${300 + index * 150}ms` }}
               >
                 <CardHeader>
                   <div className="flex items-center gap-4">
@@ -184,7 +186,7 @@ export default function SustainableComputingPage() {
       {/* NVIDIA Technology Highlight */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Card className="border-l-4 border-accent-green bg-white shadow-lg overflow-hidden">
+          <Card className="border-l-4 border-accent-green bg-white shadow-lg overflow-hidden animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <div className="grid md:grid-cols-5">
               <div className="md:col-span-3 p-8">
                 <h3 className="text-2xl font-bold text-accent-green mb-4">Powered by NVIDIA's Green Technologies</h3>
@@ -198,8 +200,12 @@ export default function SustainableComputingPage() {
                   centers to operate with unprecedented efficiency and density.
                 </p>
               </div>
-              <div className="md:col-span-2 bg-accent-green/5 p-8 flex items-center justify-center">
-                <Image src="/nvidia-logo.png" alt="NVIDIA Logo" width={200} height={100} className="object-contain" />
+              <div className="md:col-span-2 p-8 bg-accent-green/5 flex items-center justify-center">
+                <div className="text-center">
+                  <Leaf className="h-16 w-16 text-accent-green mx-auto mb-4" />
+                  <p className="text-lg font-semibold text-gray-800">Energy Efficient</p>
+                  <p className="text-sm text-gray-600">NVIDIA Technology</p>
+                </div>
               </div>
             </div>
           </Card>
@@ -210,55 +216,57 @@ export default function SustainableComputingPage() {
       <section id="benefits" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of Sustainable AI Infrastructure
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Benefits of Sustainable Computing with AIdeology
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Embrace sustainability to unlock significant financial, operational, and reputational advantages.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Our sustainable computing solutions deliver measurable benefits for your organization and the environment.
             </p>
           </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="border-0 bg-gray-50 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="p-4 bg-accent-green/10 rounded-full w-fit mx-auto mb-4 text-accent-green">{benefit.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
+              <Card key={index} className="bg-gray-50 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                <div className="text-center">
+                  <div className="p-4 bg-accent-green/10 rounded-full w-fit mx-auto mb-4 text-accent-green">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="consultation" className="bg-gradient-to-r from-charcoal to-gray-800 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
-          <div className="text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Build a Greener, More Powerful AI Future</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Ready to reduce your operational costs and environmental footprint? Let's design your sustainable AI
-              infrastructure together.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent-green text-white hover:bg-accent-green/90">
-                <Link href="/book-discovery-call?type=consultation">
-                  Schedule a Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-gray-400 text-white hover:bg-white hover:text-charcoal"
-              >
-                <Link href="/solutions/ai-infrastructure">Explore Solutions</Link>
-              </Button>
-            </div>
+      {/* Call to Action Section */}
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            Ready to Build Sustainable AI Infrastructure?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            Let AIdeology design and implement energy-efficient computing solutions that reduce your environmental impact while maximizing performance.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <Button
+              asChild
+              size="lg"
+              className="bg-charcoal text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105"
+            >
+              <Link href="/contact">
+                Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105"
+            >
+              <Link href="/services/ai-infrastructure">Explore More Services</Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -1,65 +1,86 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Eye, Camera, Search, Shield, Sparkles, Video, Scan, Target, Brain, BarChart3, CheckCircle, TrendingUp, DollarSign, Lock } from "lucide-react"
+import { ArrowRight, Cpu, Wrench, Shield, Zap, Factory, Car, Brain, Cog, Bot, Settings, ChevronRight, CheckCircle, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-const VisionAIPage = () => {
-  const visionSolutions = [
+const RoboticsEdgeAIPage = () => {
+  const roboticsSolutions = [
     {
-      icon: <Eye className="w-8 h-8 text-accent-green" />,
-      title: "Object Recognition",
-      description: "Intelligent systems that can identify and classify objects in real-time with high accuracy.",
-      applications: ["Quality control", "Inventory management", "Security monitoring"]
+      icon: <Factory className="w-8 h-8 text-accent-green" />,
+      title: "Industrial Automation",
+      description: "Smart robotic systems that optimize manufacturing processes and increase production efficiency.",
+      applications: ["Assembly line automation", "Quality inspection", "Material handling"]
     },
     {
-      icon: <Camera className="w-8 h-8 text-accent-green" />,
-      title: "Image Analysis",
-      description: "Advanced image processing capabilities for extracting insights from visual data.",
-      applications: ["Medical imaging", "Document processing", "Content moderation"]
+      icon: <Car className="w-8 h-8 text-accent-green" />,
+      title: "Autonomous Vehicles",
+      description: "AI-powered navigation and control systems for self-driving vehicles and autonomous mobile robots.",
+      applications: ["Self-driving cars", "Warehouse robots", "Delivery drones"]
     },
     {
-      icon: <Search className="w-8 h-8 text-accent-green" />,
-      title: "Visual Search",
-      description: "Enable users to search using images instead of text for enhanced user experiences.",
-      applications: ["E-commerce", "Product discovery", "Similar item finding"]
+      icon: <Bot className="w-8 h-8 text-accent-green" />,
+      title: "Service Robots",
+      description: "Intelligent robots designed to assist humans in various service-oriented tasks.",
+      applications: ["Healthcare assistance", "Customer service", "Cleaning robots"]
     },
     {
-      icon: <Video className="w-8 h-8 text-accent-green" />,
-      title: "Video Analytics",
-      description: "Real-time analysis of video streams for actionable intelligence and automation.",
-      applications: ["Traffic monitoring", "Crowd analysis", "Behavior detection"]
+      icon: <Brain className="w-8 h-8 text-accent-green" />,
+      title: "Smart Edge Computing",
+      description: "Real-time AI processing at the edge for immediate decision-making without cloud dependency.",
+      applications: ["Real-time analytics", "Predictive maintenance", "Local data processing"]
     }
   ]
 
   const benefits = [
-    { title: "Improved Accuracy", description: "Reduce human error with AI-powered visual recognition", icon: <TrendingUp className="w-8 h-8 text-accent-green" /> },
-    { title: "Cost Reduction", description: "Automate visual inspection tasks to cut operational costs", icon: <DollarSign className="w-8 h-8 text-accent-green" /> },
-    { title: "Enhanced Safety", description: "Monitor environments for safety compliance automatically", icon: <Lock className="w-8 h-8 text-accent-green" /> },
-    { title: "Better Insights", description: "Extract valuable data from images and videos", icon: <BarChart3 className="w-8 h-8 text-accent-green" /> }
+    { title: "Increased Efficiency", description: "Automate repetitive tasks to boost productivity" },
+    { title: "Cost Savings", description: "Reduce operational costs through smart automation" },
+    { title: "Enhanced Safety", description: "Minimize human exposure to dangerous environments" },
+    { title: "Real-time Processing", description: "Make instant decisions with edge AI capabilities" }
   ]
 
   const industries = [
     {
       name: "Manufacturing",
-      icon: <Target className="w-6 h-6 text-accent-green" />,
-      useCase: "Quality control and defect detection on production lines"
+      icon: <Factory className="w-6 h-6 text-accent-green" />,
+      useCase: "Automated production lines and quality control systems"
+    },
+    {
+      name: "Transportation",
+      icon: <Car className="w-6 h-6 text-accent-green" />,
+      useCase: "Autonomous vehicles and fleet management solutions"
     },
     {
       name: "Healthcare",
       icon: <Shield className="w-6 h-6 text-accent-green" />,
-      useCase: "Medical image analysis and diagnostic assistance"
+      useCase: "Surgical robots and patient care automation"
     },
     {
-      name: "Retail",
-      icon: <Sparkles className="w-6 h-6 text-accent-green" />,
-      useCase: "Inventory management and customer behavior analysis"
+      name: "Logistics",
+      icon: <Settings className="w-6 h-6 text-accent-green" />,
+      useCase: "Warehouse automation and inventory management"
+    }
+  ]
+
+  const edgeSolutions = [
+    {
+      title: "Vision AI Solutions",
+      description: "Computer vision systems for intelligent visual perception",
+      href: "/services/robotics-edge-ai/vision-ai",
+      icon: <Brain className="w-5 h-5" />
     },
     {
-      name: "Security",
-      icon: <Scan className="w-6 h-6 text-accent-green" />,
-      useCase: "Surveillance and threat detection systems"
+      title: "Edge AI Platform",
+      description: "Comprehensive edge computing infrastructure",
+      href: "/services/robotics-edge-ai/edge-ai",
+      icon: <Cpu className="w-5 h-5" />
+    },
+    {
+      title: "Robotic Automation",
+      description: "End-to-end robotic process automation",
+      href: "/solutions/ai-automation",
+      icon: <Cog className="w-5 h-5" />
     }
   ]
 
@@ -74,17 +95,17 @@ const VisionAIPage = () => {
         <div className="w-full relative z-10">
           <div className="w-full text-center px-6 lg:px-12">
             <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-6 py-3 rounded-full text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <Eye className="w-4 h-4 mr-2" />
-              Computer Vision • Visual Intelligence
+              <Bot className="w-4 h-4 mr-2" />
+              Robotics • Edge AI • Automation
             </div>
 
             <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <span className="text-accent-green">Vision</span>
-              <span className="block text-white">AI</span>
+              <span className="text-accent-green">Robotics</span>
+              <span className="block text-white">& Edge AI</span>
             </h1>
 
             <p className="text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              Transform your business with intelligent computer vision solutions that see, understand, and act on visual data
+              Intelligent robotic systems powered by edge AI for real-time automation and decision-making
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
@@ -94,8 +115,8 @@ const VisionAIPage = () => {
                 asChild
               >
                 <Link href="/book-discovery-call?type=consultation">
-                  Start Vision AI Project
-                  <Eye className="ml-2 h-5 w-5" />
+                  Start Robotics Project
+                  <Bot className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button
@@ -104,28 +125,28 @@ const VisionAIPage = () => {
                 className="border-white/30 text-white hover:bg-white hover:text-charcoal text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
                 asChild
               >
-                <Link href="#solutions">View Solutions</Link>
+                <Link href="#solutions">Explore All Solutions</Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Vision Solutions Section */}
-      <section id="solutions" className="py-20 bg-gray-50">
+      {/* Robotics Solutions Section */}
+      <section className="py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                Vision AI Solutions
+                Robotics & Edge AI Solutions
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                Comprehensive computer vision capabilities to automate visual tasks and extract insights from images and videos
+                Advanced robotic systems and edge computing solutions for intelligent automation
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {visionSolutions.map((solution, index) => (
+              {roboticsSolutions.map((solution, index) => (
                 <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
                   <CardHeader>
                     <div className="flex items-center mb-4">
@@ -160,10 +181,10 @@ const VisionAIPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                Why Choose Vision AI?
+                Why Choose Robotics & Edge AI?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                Transform your operations with the power of computer vision
+                Transform your operations with intelligent automation
               </p>
             </div>
 
@@ -171,11 +192,49 @@ const VisionAIPage = () => {
               {benefits.map((benefit, index) => (
                 <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    {benefit.icon}
+                    <TrendingUp className="w-8 h-8 text-accent-green" />
                   </div>
                   <h3 className="text-lg font-bold text-charcoal mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Grid */}
+      <section id="solutions" className="py-20 bg-gray-50">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                Specialized AI Solutions
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Discover our comprehensive suite of robotics and edge AI technologies
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {edgeSolutions.map((solution, index) => (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-accent-green/20 transition-all">
+                      {solution.icon}
+                    </div>
+                    <CardTitle className="text-xl">{solution.title}</CardTitle>
+                    <CardDescription>{solution.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <Button asChild variant="outline" className="group-hover:bg-accent-green group-hover:text-white transition-all">
+                      <Link href={solution.href}>
+                        Learn More
+                        <ChevronRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -191,7 +250,7 @@ const VisionAIPage = () => {
                 Industry Applications
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                Vision AI solutions tailored for your industry's specific needs
+                Robotics and edge AI solutions tailored for your industry
               </p>
             </div>
 
@@ -215,10 +274,10 @@ const VisionAIPage = () => {
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              Ready to See the Difference?
+              Ready to Automate Your Future?
             </h2>
             <p className="text-xl mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Let AIdeology help you implement computer vision solutions that transform how you see and understand your visual data.
+              Partner with AIdeology to build intelligent robotic systems that transform your operations and drive innovation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Button 
@@ -237,7 +296,7 @@ const VisionAIPage = () => {
                 className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
                 asChild
               >
-                <Link href="/solutions/robotics-edge-ai">
+                <Link href="/solutions">
                   Explore All Solutions
                 </Link>
               </Button>
@@ -249,4 +308,4 @@ const VisionAIPage = () => {
   )
 }
 
-export default VisionAIPage
+export default RoboticsEdgeAIPage

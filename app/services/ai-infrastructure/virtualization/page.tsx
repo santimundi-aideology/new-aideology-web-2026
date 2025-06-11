@@ -116,18 +116,18 @@ export default function VirtualizationPage() {
             <div className="text-center lg:text-left">
               <Badge
                 variant="outline"
-                className="mb-4 border-accent-green/30 text-accent-green bg-accent-green/20 text-sm py-1 px-3"
+                className="mb-4 border-accent-green/30 text-accent-green bg-accent-green/20 text-sm py-1 px-3 animate-fade-in-up" style={{ animationDelay: '100ms' }}
               >
                 AI Infrastructure
               </Badge>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 tracking-tight">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 tracking-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 AI & GPU <span className="text-accent-green">Virtualization</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 Enable flexible, efficient utilization of GPU resources across diverse AI, VDI, and graphics workloads
                 with AIdeology's advanced virtualization solutions.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <Button
                   size="lg"
                   className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
@@ -148,7 +148,7 @@ export default function VirtualizationPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative hidden lg:block">
+            <div className="relative hidden lg:block animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <Image
                 src="/ai-server-configuration.png"
                 alt="GPU Virtualization Infrastructure"
@@ -168,10 +168,10 @@ export default function VirtualizationPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               The <span className="text-accent-green">Value</span> of GPU Virtualization
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               GPU virtualization transforms how organizations deploy and manage accelerated computing resources,
               unlocking unprecedented flexibility, efficiency, and scalability.
             </p>
@@ -181,7 +181,8 @@ export default function VirtualizationPage() {
             {capabilities.map((capability, index) => (
               <Card
                 key={index}
-                className="border-l-4 border-accent-green bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+                className="border-l-4 border-accent-green bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
               >
                 <CardContent className="p-6 pt-8">
                   {capability.icon}
@@ -198,31 +199,27 @@ export default function VirtualizationPage() {
       <section id="services" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              AIdeology's GPU <span className="text-accent-green">Virtualization Services</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Our Virtualization Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Comprehensive virtualization solutions designed to maximize the value of your GPU investments and
-              accelerate your AI initiatives.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Comprehensive GPU virtualization solutions designed to maximize resource efficiency and enable scalable AI deployment.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card
-                key={index}
-                className="bg-gray-50 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
-              >
+              <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
                 <CardHeader className="pb-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-accent-green/10 rounded-lg text-accent-green transition-transform duration-300 group-hover:scale-110">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-lg bg-accent-green/10 mr-4">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-xl font-semibold text-gray-900 mt-1">{service.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold text-gray-900">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                <CardContent className="pt-0">
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -272,59 +269,58 @@ export default function VirtualizationPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key <span className="text-accent-green">Benefits</span> of Our Virtualization Solutions
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Benefits of GPU Virtualization
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Partnering with AIdeology for GPU virtualization offers tangible advantages for your organization.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Unlock the full potential of your GPU investments with enterprise-grade virtualization solutions.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
-              >
-                <CardContent className="p-6 text-center">
-                  <div className="p-4 bg-accent-green/10 rounded-full w-fit mx-auto mb-4 text-accent-green">
-                    {benefit.icon}
+              <Card key={index} className="bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 p-3 rounded-lg bg-accent-green/10 mr-4">
+                    <div className="text-accent-green">{benefit.icon}</div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
-                </CardContent>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
+                    <p className="text-gray-600 text-sm">{benefit.description}</p>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
+      {/* Call to Action */}
+      <section className="py-16 md:py-24 bg-accent-green text-charcoal">
         <div className="container mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Maximize Your GPU Investments Today</h2>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Transform your AI infrastructure with AIdeology's expert GPU virtualization solutions. Let's discuss how we
-            can tailor a strategy to your unique needs.
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            Ready to Optimize Your GPU Infrastructure?
+          </h2>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            Let AIdeology design and implement a virtualized GPU solution that maximizes resource efficiency and accelerates your AI initiatives.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button
               size="lg"
-              className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
+              className="bg-charcoal text-white hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
               asChild
             >
               <Link href="/contact">
-                Contact AIdeology
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <Link href="/solutions/ai-infrastructure">View AI Infrastructure Solutions</Link>
+              <Link href="/services/ai-infrastructure">Explore More Services</Link>
             </Button>
           </div>
         </div>
