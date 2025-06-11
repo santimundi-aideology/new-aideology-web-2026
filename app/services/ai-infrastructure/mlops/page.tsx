@@ -24,18 +24,24 @@ export default function MlopsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Button 
+                asChild
                 size="lg" 
                 className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href="#contact">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                asChild
               >
-                Learn More
+                <Link href="#mlops-services">
+                  Learn More
+                </Link>
               </Button>
             </div>
           </div>
@@ -135,7 +141,7 @@ export default function MlopsPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20">
+      <section id="mlops-services" className="py-20">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -316,32 +322,34 @@ export default function MlopsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-charcoal text-white">
+      <section id="contact" className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Transform Your AI Development Lifecycle?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-xl text-charcoal mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Transform your AI development lifecycle with robust MLOps infrastructure. Contact AIdeology to learn how
               our MLOps solutions can accelerate your AI initiatives and ensure production success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Button 
-                size="lg" 
-                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
                 asChild
+                size="lg" 
+                className="bg-charcoal text-white font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
-                <Link href="/contact">
-                  Contact Us
+                <Link href="/book-discovery-call?type=consultation">
+                  Schedule a Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
                 asChild
               >
-                <Link href="/services">View All Services</Link>
+                <Link href="/services">
+                  View All Services
+                </Link>
               </Button>
             </div>
           </div>

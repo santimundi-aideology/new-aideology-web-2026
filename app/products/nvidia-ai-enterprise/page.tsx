@@ -78,7 +78,7 @@ const industrySolutions = [
       "Improve fraud detection, risk management, and customer analytics with high-performance data processing and machine learning.",
     image: "/ai-in-finance.png",
     alt: "Financial data analytics dashboard with AI insights",
-    link: "https://www.nvidia.com/en-us/industries/financial-services/",
+    link: "https://www.nvidia.com/en-us/industries/finance/",
   },
   {
     name: "Retail & E-commerce",

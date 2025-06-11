@@ -132,7 +132,7 @@ export default function AcceleratedComputingPage() {
                   className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal shadow-lg transition-transform hover:scale-105"
                   asChild
                 >
-                  <Link href="/contact">
+                  <Link href="#consultation">
                     Get Started <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -289,7 +289,7 @@ export default function AcceleratedComputingPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-accent-green text-charcoal">
+      <section id="consultation" className="py-16 md:py-24 bg-accent-green text-charcoal">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             Ready to Accelerate Your Computing Infrastructure?
@@ -314,7 +314,9 @@ export default function AcceleratedComputingPage() {
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white shadow-lg transition-transform hover:scale-105"
               asChild
             >
-              <Link href="/services/ai-infrastructure">Explore More Services</Link>
+              <Link href="/services">
+                Explore More Services
+              </Link>
             </Button>
           </div>
         </div>

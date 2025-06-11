@@ -153,7 +153,7 @@ export default function StorageSystemsPage() {
             className="bg-charcoal text-white hover:bg-accent-green hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
           >
             <Link
-              href="https://www.nvidia.com/en-us/data-center/dgx-systems/storage/"
+              href="https://www.nvidia.com/en-au/data-center/resources/pure-storage-airi-reference-architecture/"
               target="_blank"
               rel="noopener noreferrer"
             >

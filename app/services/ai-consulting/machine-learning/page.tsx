@@ -26,16 +26,22 @@ export default function MachineLearningPage() {
               <Button
                 size="lg"
                 className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
               >
-                Build ML Solutions
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href="#consultation">
+                  Build ML Solutions
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
               >
-                View Case Studies
+                <Link href="#capabilities">
+                  See Capabilities
+                </Link>
               </Button>
             </div>
           </div>
@@ -117,7 +123,7 @@ export default function MachineLearningPage() {
               </div>
             </div>
 
-            <div className="text-center mb-16">
+            <div className="text-center mb-16" id="capabilities">
               <h2 className="text-4xl font-bold text-charcoal mb-4">Machine Learning Capabilities</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Comprehensive ML solutions for every business challenge
@@ -358,17 +364,17 @@ export default function MachineLearningPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-charcoal text-white">
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Leverage Machine Learning?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-charcoal mb-8 max-w-3xl mx-auto leading-relaxed">
             Partner with AIdeology to build machine learning solutions that drive innovation and deliver tangible
             business value.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+              className="bg-charcoal text-white font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
               asChild
             >
               <Link href="/book-discovery-call?type=consultation">
@@ -379,9 +385,12 @@ export default function MachineLearningPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              Explore Services
+              <Link href="/#solutions">
+                Explore All Solutions
+              </Link>
             </Button>
           </div>
         </div>

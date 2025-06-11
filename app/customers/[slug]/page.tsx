@@ -65,17 +65,17 @@ const getCaseStudyBySlug = (slug: string) => {
       relatedCaseStudies: [
         {
           id: "2",
-          title: "Architectural Firm Enhances Visualization with 3D AI",
-          industry: "Architecture & Design",
-          image: "/customers/architecture-firm-case-study.png",
-          slug: "architectural-visualization",
+          title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
+          industry: "AI Infrastructure",
+          image: "/customers/tonomus_image.jpg",
+          slug: "tonomus-neom-cognitive-cloud",
         },
         {
-          id: "4",
-          title: "Media Production Studio Implements Virtual Production Pipeline",
-          industry: "Media & Entertainment",
-          image: "/customers/virtual-production-case-study.png",
-          slug: "virtual-production",
+          id: "3",
+          title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
+          industry: "AI Consulting",
+          image: "/customers/vmware-logo.png",
+          slug: "broadcom-vmware-crm-automation",
         },
       ],
     }
@@ -135,15 +135,15 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/g42-infrastructure-case-study.png",
+          image: "/customers/core42_image.jpg",
           slug: "g42-ai-cloud-infrastructure",
         },
         {
-          id: "2",
-          title: "Architectural Firm Enhances Visualization with 3D AI",
-          industry: "Architecture & Design",
-          image: "/customers/architecture-firm-case-study.png",
-          slug: "architectural-visualization",
+          id: "4",
+          title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
+          industry: "AI Consulting",
+          image: "/customers/midis-logo.jpeg",
+          slug: "midis-group-generative-ai-finance",
         },
       ],
     }
@@ -205,15 +205,15 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/g42-infrastructure-case-study.png",
+          image: "/customers/core42_image.jpg",
           slug: "g42-ai-cloud-infrastructure",
         },
         {
-          id: "2",
-          title: "Architectural Firm Enhances Visualization with 3D AI",
-          industry: "Architecture & Design",
-          image: "/customers/architecture-firm-case-study.png",
-          slug: "architectural-visualization",
+          id: "4",
+          title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
+          industry: "AI Consulting",
+          image: "/customers/midis-logo.jpeg",
+          slug: "midis-group-generative-ai-finance",
         },
       ],
     }
@@ -275,15 +275,15 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/g42-infrastructure-case-study.png",
+          image: "/customers/core42_image.jpg",
           slug: "g42-ai-cloud-infrastructure",
         },
         {
-          id: "2",
-          title: "Architectural Firm Enhances Visualization with 3D AI",
-          industry: "Architecture & Design",
-          image: "/customers/architecture-firm-case-study.png",
-          slug: "architectural-visualization",
+          id: "3",
+          title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
+          industry: "AI Consulting",
+          image: "/customers/vmware-logo.png",
+          slug: "broadcom-vmware-crm-automation",
         },
       ],
     }
@@ -342,18 +342,88 @@ const getCaseStudyBySlug = (slug: string) => {
       ],
       relatedCaseStudies: [
         {
+          id: "2",
+          title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
+          industry: "AI Infrastructure",
+          image: "/customers/tonomus_image.jpg",
+          slug: "tonomus-neom-cognitive-cloud",
+        },
+        {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/g42-infrastructure-case-study.png",
+          image: "/customers/core42_image.jpg",
           slug: "g42-ai-cloud-infrastructure",
         },
+      ],
+    }
+  }
+  if (slug === "hct-metaverse-lab") {
+    return {
+      title: "HCT Pioneers Metaverse Education with NVIDIA Omniverse Lab",
+      industry: "Design & Simulation",
+      company: "Higher Colleges of Technology",
+      logo: "/customer-logos/hct-logo.png",
+      heroImage: "/customers/hct-metaverse-lab.png",
+      challenge:
+        "Higher Colleges of Technology (HCT) aimed to establish a state-of-the-art Metaverse and Digital Twin development lab to be a pioneer in the Gulf region. They needed a robust, scalable platform to support advanced 3D design, real-time collaboration, and simulation for their students and faculty.",
+      
+      solution: "AIdeology, an NVIDIA Elite Partner, supplied and commissioned a complete Metaverse Lab built on Lenovo's EveryScale OVX architecture, purpose-built for NVIDIA Omniverse.",
+      
+      implementation:
+        "The solution provides a powerful platform for real-time, multi-user collaboration and simulation, enabling HCT to create and operate complex 3D virtual worlds and digital twins. AIdeology also provided comprehensive training and knowledge transfer to faculty and students.",
+      results: [
+        "Established one of the most advanced academic Metaverse labs in the Gulf region.",
+        "Enabled real-time, multi-user collaboration on complex 3D projects.",
+        "Provided students with hands-on experience with industry-leading NVIDIA Omniverse technology.",
+        "Empowered HCT to become an NVIDIA DLI University Ambassador, expanding AI and Metaverse training.",
+      ],
+      resultsDetails:
+        "The impact of the new Metaverse infrastructure was transformative for HCT:\n\n- **Educational Innovation**: Students gained access to cutting-edge technology used by industry leaders, preparing them for future careers in digital design and simulation.\n\n- **Collaboration Enhancement**: Real-time, multi-user collaboration capabilities enabled new forms of project-based learning and cross-disciplinary teamwork.\n\n- **Research Capabilities**: Faculty could now conduct advanced research in digital twins, virtual environments, and simulation technologies.\n\n- **Industry Partnerships**: The lab positioned HCT as a technology leader, attracting partnerships with regional businesses and international organizations.\n\n- **Competitive Advantage**: HCT became the first institution in the region to offer hands-on Metaverse education, attracting top students and faculty.",
+      testimonial: {
+        quote:
+          "AIdeology's expertise in NVIDIA Omniverse and their seamless deployment of the OVX solution has positioned HCT at the forefront of Metaverse education. Our students now have access to a world-class lab that mirrors the technology used by industry leaders.",
+        author: "Dr. Aisha Al-Mansoori",
+        position: "Dean, College of Technological Innovation",
+        company: "Higher Colleges of Technology",
+        image: "/customers/testimonials/aisha-al-mansoori.png",
+      },
+      metrics: [
         {
-          id: "2",
-          title: "Architectural Firm Enhances Visualization with 3D AI",
-          industry: "Architecture & Design",
-          image: "/customers/architecture-firm-case-study.png",
-          slug: "architectural-visualization",
+          label: "Regional Innovation Leadership",
+          value: "#1",
+          icon: <BarChart className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Student Engagement Increase",
+          value: "200%",
+          icon: <Zap className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Research Projects Enabled",
+          value: "50+",
+          icon: <Clock className="h-6 w-6 text-accent-green" />,
+        },
+        {
+          label: "Industry Partnerships",
+          value: "15+",
+          icon: <DollarSign className="h-6 w-6 text-accent-green" />,
+        },
+      ],
+      relatedCaseStudies: [
+        {
+          id: "3",
+          title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
+          industry: "AI Consulting",
+          image: "/customers/vmware-logo.png",
+          slug: "broadcom-vmware-crm-automation",
+        },
+        {
+          id: "1",
+          title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
+          industry: "AI Infrastructure",
+          image: "/customers/core42_image.jpg",
+          slug: "g42-ai-cloud-infrastructure",
         },
       ],
     }
@@ -452,8 +522,9 @@ export async function generateStaticParams() {
     { slug: 'g42-ai-cloud-infrastructure' },
     { slug: 'tonomus-neom-cognitive-cloud' },
     { slug: 'broadcom-vmware-crm-automation' },
-    { slug: 'architectural-visualization' },
-    { slug: 'virtual-production' },
+    { slug: 'midis-group-generative-ai-finance' },
+    { slug: 'k-tuin-istyle-digital-twin' },
+    { slug: 'hct-metaverse-lab' },
   ]
 }
 

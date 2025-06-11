@@ -115,7 +115,7 @@ const RoboticsPage = () => {
                 className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
                 asChild
               >
-                <Link href="/book-discovery-call?type=consultation">
+                <Link href="#consultation">
                   Get Started with Robotics
                   <Bot className="ml-2 h-5 w-5" />
                 </Link>
@@ -271,7 +271,7 @@ const RoboticsPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent-green text-charcoal">
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -297,7 +297,7 @@ const RoboticsPage = () => {
                 className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
                 asChild
               >
-                <Link href="/solutions/robotics-edge-ai">
+                <Link href="/#solutions">
                   Explore All Solutions
                 </Link>
               </Button>

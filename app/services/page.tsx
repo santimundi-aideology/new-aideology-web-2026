@@ -58,7 +58,7 @@ export default function ServicesPage() {
           "Performance benchmarking",
           "Scalable architecture design",
         ],
-        image: "/services/gpu-cluster.png",
+        image: "/services/gpu-cluster.webp",
       },
       {
         title: "High-Performance Storage Solutions",
@@ -71,7 +71,7 @@ export default function ServicesPage() {
           "Cache optimization",
           "Distributed storage architecture",
         ],
-        image: "/services/storage-solutions.png",
+        image: "/services/hpc_storage.webp",
       },
       {
         title: "Network Architecture Optimization",
@@ -84,7 +84,7 @@ export default function ServicesPage() {
           "Latency reduction strategies",
           "Bandwidth allocation",
         ],
-        image: "/services/network-architecture.png",
+        image: "/services/network.webp",
       },
       {
         title: "Infrastructure Management & Monitoring",
@@ -97,7 +97,7 @@ export default function ServicesPage() {
           "Predictive maintenance",
           "Cost optimization",
         ],
-        image: "/services/infrastructure-management.png",
+        image: "/services/infrastructure.webp",
       },
       {
         title: "Hybrid Cloud AI Infrastructure",
@@ -110,7 +110,7 @@ export default function ServicesPage() {
           "Cost management",
           "Security integration",
         ],
-        image: "/services/hybrid-cloud.png",
+        image: "/services/hybrid_cloud.webp",
       },
     ],
     "3d-ai": [
@@ -125,7 +125,7 @@ export default function ServicesPage() {
           "Interactive visualization",
           "IoT sensor integration",
         ],
-        image: "/services/digital-twin.png",
+        image: "/services/digital_twin.webp",
       },
       {
         title: "3D Rendering & Visualization",
@@ -138,7 +138,7 @@ export default function ServicesPage() {
           "Lighting optimization",
           "Interactive visualization tools",
         ],
-        image: "/services/3d-rendering.png",
+        image: "/services/rendering.webp",
       },
       {
         title: "Virtual Production Pipelines",
@@ -151,7 +151,7 @@ export default function ServicesPage() {
           "Virtual set design",
           "Asset management",
         ],
-        image: "/services/virtual-production.png",
+        image: "/services/virtual_production.webp",
       },
       {
         title: "Simulation Environments",
@@ -164,7 +164,7 @@ export default function ServicesPage() {
           "Model validation",
           "Performance benchmarking",
         ],
-        image: "/services/simulation-environments.png",
+        image: "/services/simulation.webp",
       },
       {
         title: "Generative 3D Content",
@@ -177,7 +177,7 @@ export default function ServicesPage() {
           "Texture synthesis",
           "Procedural generation",
         ],
-        image: "/services/generative-3d.png",
+        image: "/services/gen_ai.webp",
       },
     ],
     "ai-consulting": [
@@ -192,7 +192,7 @@ export default function ServicesPage() {
           "Implementation roadmap",
           "Risk mitigation strategies",
         ],
-        image: "/services/ai-strategy.png",
+        image: "/services/strategy.webp",
       },
       {
         title: "Model Integration & Deployment",
@@ -205,7 +205,7 @@ export default function ServicesPage() {
           "Deployment automation",
           "Monitoring setup",
         ],
-        image: "/services/model-integration.png",
+        image: "/services/integration.webp",
       },
       {
         title: "MLOps Implementation",
@@ -218,7 +218,7 @@ export default function ServicesPage() {
           "Drift detection",
           "Infrastructure as code",
         ],
-        image: "/services/mlops.png",
+        image: "/services/mlops.webp",
       },
       {
         title: "AI Agent Development",
@@ -231,7 +231,7 @@ export default function ServicesPage() {
           "Reasoning layer development",
           "Governance implementation",
         ],
-        image: "/services/ai-agent.png",
+        image: "/services/ai_agent.webp",
       },
       {
         title: "Team Enablement & Training",
@@ -244,7 +244,7 @@ export default function ServicesPage() {
           "Technical mentorship",
           "Knowledge transfer",
         ],
-        image: "/services/team-enablement.png",
+        image: "/services/training.webp",
       },
     ],
   }
@@ -317,7 +317,7 @@ export default function ServicesPage() {
                       key={index}
                       className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
                     >
-                      <div className="relative h-[300px] rounded-lg overflow-hidden shadow-lg">
+                      <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
                         <Image
                           src={service.image || `/placeholder.svg?height=600&width=800&query=${service.title}`}
                           alt={service.title}
@@ -470,7 +470,7 @@ export default function ServicesPage() {
             size="lg" 
             className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
-            <Link href="#contact">Schedule a Consultation</Link>
+            <Link href="/book-discovery-call?type=consultation">Schedule a Consultation</Link>
           </Button>
         </div>
       </section>

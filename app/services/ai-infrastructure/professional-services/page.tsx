@@ -375,21 +375,32 @@ export default function AiInfrastructureProfessionalServicesPage() {
         </div>
       </section>
 
-      <section id="contact-section" className="py-16 md:py-20 bg-accent-green/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center bg-white p-12 rounded-lg shadow-lg">
-            <h2 className="text-3xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Build Your AI Future?</h2>
-            <p className="text-lg text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Our Professional Services team is ready to help. Contact us for a detailed consultation.
-            </p>
+      {/* CTA Section */}
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
+        <div className="w-full px-6 lg:px-12 text-center">
+          <h2 className="text-5xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Accelerate Your Computing Infrastructure?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            Let AIdeology design and implement a GPU-accelerated infrastructure solution that transforms your organization's computational capabilities.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button
-              asChild
               size="lg"
-              className="bg-accent-green text-white hover:bg-charcoal hover:text-white font-bold text-xl px-12 py-6 rounded-xl hover:scale-110 transition-all duration-300 ease-in-out shadow-2xl border-4 border-accent-green hover:border-charcoal animate-fade-in-up" style={{ animationDelay: '300ms' }}
+              className="bg-charcoal text-white hover:bg-white hover:text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
             >
-              <Link href="/contact" className="inline-flex items-center">
-                <Mail className="mr-3 h-6 w-6" />
-                Contact an Expert
+              <Link href="/book-discovery-call?type=consultation">
+                Schedule Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
+            >
+              <Link href="/services">
+                Explore More Services
               </Link>
             </Button>
           </div>

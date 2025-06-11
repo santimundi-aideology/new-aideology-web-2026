@@ -56,16 +56,20 @@ export default function GenerativeAiPage() {
               <Button
                 size="lg"
                 className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
               >
-                Start Creating
-                <Sparkles className="ml-2 h-5 w-5" />
+                <Link href="#consultation">
+                  Start Creating
+                  <Sparkles className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white hover:text-charcoal text-lg px-10 py-5 rounded-2xl backdrop-blur-sm hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
               >
-                Explore Examples
+                <Link href="#creative-potential">Explore Examples</Link>
               </Button>
             </div>
           </div>
@@ -73,7 +77,7 @@ export default function GenerativeAiPage() {
       </section>
 
       {/* Creative Showcase */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="creative-potential" className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -357,7 +361,7 @@ export default function GenerativeAiPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent-green text-charcoal">
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12 text-center">
           <h2 className="text-5xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Create the Future?</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -380,8 +384,8 @@ export default function GenerativeAiPage() {
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
               asChild
             >
-              <Link href="/solutions">
-                Explore Use Cases
+              <Link href="/#solutions">
+                Explore All Solutions
               </Link>
             </Button>
           </div>

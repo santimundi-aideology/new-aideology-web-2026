@@ -133,7 +133,7 @@ export default function VirtualizationPage() {
                   className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal transition-all duration-300 transform hover:scale-105"
                   asChild
                 >
-                  <Link href="/contact">
+                  <Link href="#consultation">
                     Get Started
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -256,7 +256,7 @@ export default function VirtualizationPage() {
                 className="border-accent-green text-accent-green hover:bg-accent-green hover:text-charcoal transition-colors"
                 asChild
               >
-                <Link href="/products/nvidia-ai-enterprise">
+                <Link href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/" target="_blank" rel="noopener noreferrer">
                   Explore NVIDIA AI Enterprise <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -296,7 +296,7 @@ export default function VirtualizationPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-accent-green text-charcoal">
+      <section id="consultation" className="py-16 md:py-24 bg-accent-green text-charcoal">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             Ready to Optimize Your GPU Infrastructure?
@@ -320,7 +320,7 @@ export default function VirtualizationPage() {
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <Link href="/services/ai-infrastructure">Explore More Services</Link>
+              <Link href="/services">Explore More Services</Link>
             </Button>
           </div>
         </div>

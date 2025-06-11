@@ -27,16 +27,22 @@ export default function AiAgentsPage() {
               <Button
                 size="lg"
                 className="bg-accent-green text-charcoal font-semibold text-lg px-8 py-4 hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
               >
-                Deploy AI Agents
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href="#consultation">
+                  Deploy AI Agents
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-charcoal text-lg px-8 py-4 hover:scale-105 transition-all duration-300 ease-in-out"
+                asChild
               >
-                See Capabilities
+                <Link href="#capabilities">
+                  See Capabilities
+                </Link>
               </Button>
             </div>
           </div>
@@ -118,7 +124,7 @@ export default function AiAgentsPage() {
               </div>
             </div>
 
-            <div className="text-center mb-16">
+            <div className="text-center mb-16" id="capabilities">
               <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>AI Agent Capabilities</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 Comprehensive autonomous systems for every business challenge
@@ -357,55 +363,85 @@ export default function AiAgentsPage() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
+        <div className="w-full px-6 lg:px-12 text-center">
+          <h2 className="text-5xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Deploy AI Agents?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            Transform your operations with autonomous AI agents that work 24/7 to solve complex business challenges.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <Button
+              size="lg"
+              className="bg-charcoal text-white hover:bg-white hover:text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
+            >
+              <Link href="/book-discovery-call?type=consultation">
+                Schedule a Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
+            >
+              <Link href="/#solutions">
+                Explore All Solutions
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Related Services */}
-      <section className="bg-charcoal text-white flex-grow flex flex-col pt-16">
+      <section className="py-16 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
-          <h3 className="text-3xl font-bold text-white mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Related AI Consulting Services</h3>
-          <div className="rounded-2xl p-8 max-w-6xl mx-auto mb-16">
-            <div className="grid md:grid-cols-3 gap-8">
-              <Link href="/services/ai-consulting/conversational-ai" className="group animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full border-0 shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
-                      Conversational AI
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      Transform customer interactions with intelligent, natural language interfaces
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/ai-consulting/generative-ai" className="group animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full border-0 shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
-                      Generative AI
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      Create content, enhance creativity, and automate complex tasks with generative AI
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/ai-consulting/machine-learning" className="group animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 h-full border-0 shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
-                      Machine Learning
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      End-to-end machine learning solutions from development to deployment
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
+          <h3 className="text-3xl font-bold text-charcoal mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Related AI Consulting Services</h3>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Link href="/services/ai-consulting/conversational-ai" className="group animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                    Conversational AI
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">
+                    Transform customer interactions with intelligent, natural language interfaces
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/services/ai-consulting/generative-ai" className="group animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                    Generative AI
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">
+                    Create content, enhance creativity, and automate complex tasks with generative AI
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/services/ai-consulting/machine-learning" className="group animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <Card className="hover-lift h-full border-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="group-hover:text-accent-green transition-colors text-xl">
+                    Machine Learning
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">
+                    End-to-end machine learning solutions from development to deployment
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>

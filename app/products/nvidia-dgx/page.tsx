@@ -355,7 +355,7 @@ export default function NvidiaDGXPage() {
             variant="outline"
             className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
           >
-            <Link href="https://www.nvidia.com/en-us/data-center/dgx/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.nvidia.com/en-us/data-center/dgx-platform/" target="_blank" rel="noopener noreferrer">
               Explore NVIDIA DGX Technical Specs
             </Link>
           </Button>

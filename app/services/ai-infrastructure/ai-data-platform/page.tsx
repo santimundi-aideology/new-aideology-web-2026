@@ -198,18 +198,24 @@ export default function AiDataPlatformPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <Button 
+                asChild
                 size="lg" 
                 className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
-                Design Your Data Platform
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href="#consultation">
+                  Design Your Data Platform
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                asChild
               >
-                Explore Use Cases
+                <Link href="#platform-services">
+                  Explore Use Cases
+                </Link>
               </Button>
             </div>
           </div>
@@ -272,7 +278,7 @@ export default function AiDataPlatformPage() {
       </section>
 
       {/* Platform Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="platform-services" className="py-20 bg-gray-50">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -439,11 +445,11 @@ export default function AiDataPlatformPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-charcoal text-white">
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
         <div className="w-full px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to Build Your AI Data Foundation?</h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-xl text-charcoal mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Let AIdeology be your trusted partner in designing and implementing a high-performance AI data platform.
               Contact our experts today to discuss your project and unlock the true power of your data.
             </p>
@@ -451,7 +457,7 @@ export default function AiDataPlatformPage() {
               <Button 
                 asChild
                 size="lg" 
-                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                className="bg-charcoal text-white font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
               >
                 <Link href="/book-discovery-call?type=consultation">
                   Schedule a Consultation
@@ -461,9 +467,12 @@ export default function AiDataPlatformPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
+                asChild
               >
-                Download Our Whitepaper
+                <Link href="/services">
+                  Explore more services
+                </Link>
               </Button>
             </div>
           </div>

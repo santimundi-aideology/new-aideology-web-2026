@@ -96,7 +96,7 @@ const EdgeAIPage = () => {
                 className="bg-accent-green text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
                 asChild
               >
-                <Link href="/book-discovery-call?type=consultation">
+                <Link href="#consultation">
                   Configure Edge AI
                   <Cpu className="ml-2 h-5 w-5" />
                 </Link>
@@ -296,6 +296,38 @@ const EdgeAIPage = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="consultation" className="py-20 bg-accent-green text-charcoal">
+        <div className="w-full px-6 lg:px-12 text-center">
+          <h2 className="text-5xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to See the Difference?</h2>
+          <p className="text-xl mb-12 max-w-3xl mx-auto text-charcoal animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            Let AIdeology help you implement edge AI solutions that transform how you process and understand your data in real-time.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <Button
+              size="lg"
+              className="bg-charcoal text-white hover:bg-white hover:text-charcoal font-semibold text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
+            >
+              <Link href="/book-discovery-call?type=consultation">
+                Schedule Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+              asChild
+            >
+              <Link href="/#solutions">
+                Explore All Solutions
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

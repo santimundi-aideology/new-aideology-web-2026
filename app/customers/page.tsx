@@ -304,12 +304,12 @@ export default function CustomersPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Success Stories by GTM</h2>
 
           <Tabs defaultValue={gtmCategories[0]} className="w-full">
-            <TabsList className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 w-full max-w-4xl mx-auto mb-8 justify-center">
+            <TabsList className="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-5xl mx-auto mb-12 bg-transparent p-2">
               {gtmCategories.map((category) => (
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="text-sm md:text-base data-[state=active]:bg-accent-green data-[state=active]:text-charcoal"
+                  className="text-sm md:text-base px-4 md:px-6 py-2 md:py-3 data-[state=active]:bg-accent-green data-[state=active]:text-charcoal bg-gray-100 text-charcoal hover:bg-gray-200 transition-all duration-200 rounded-lg min-w-fit whitespace-nowrap"
                 >
                   {category}
                 </TabsTrigger>
