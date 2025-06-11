@@ -54,7 +54,7 @@ export default function AiDataPlatformPage() {
       description:
         "AIdeology designs and implements scalable, high-throughput storage solutions tailored for AI. We leverage parallel file systems (e.g., Lustre, GPFS), high-performance object storage, and all-flash arrays, optimized with technologies like NVIDIA GPUDirect Storage for direct GPU access. Our solutions ensure low-latency data access for demanding AI training and inference workloads.",
       icon: <Database className="w-6 h-6 text-accent-green mb-4" />,
-      image: "/placeholder-ecldt.png",
+      image: "/solutions/hpc_data_storage.webp",
       alt: "High-Performance Data Storage Infrastructure",
       points: [
         "Parallel file systems (Lustre, GPFS, BeeGFS)",
@@ -113,11 +113,11 @@ export default function AiDataPlatformPage() {
 
   const keyTechnologies = [
     { name: "NVIDIA DGX Systems", logo: "/nvidia-dgx-logo.png" },
-    { name: "NVIDIA RAPIDS", logo: "/placeholder.svg?width=150&height=80" },
-    { name: "NVIDIA Magnum IO", logo: "/placeholder.svg?width=150&height=80" },
-    { name: "Apache Spark", logo: "/placeholder.svg?width=150&height=80" },
-    { name: "Kubernetes", logo: "/placeholder.svg?width=150&height=80" },
-    { name: "Leading Storage Vendors (DDN, VAST, Weka)", logo: "/placeholder.svg?width=150&height=80" },
+    { name: "NVIDIA RAPIDS", logo: "/solutions/rapids-logo.webp" },
+    { name: "NVIDIA Magnum IO", logo: "/solutions/nvidia_magnum_io.webp" },
+    { name: "Apache Spark", logo: "/solutions/apache_spark.webp" },
+    { name: "Kubernetes", logo: "/solutions/kubernetes_logo.webp" },
+    { name: "Leading Storage Vendors (DDN, VAST, Weka)", logo: "/solutions/storage_vendors.webp" },
   ]
 
   const industryApplications = [
@@ -230,7 +230,7 @@ export default function AiDataPlatformPage() {
               scalability, and reliability.
             </p>
             <Image
-              src="/placeholder.svg?width=800&height=400"
+              src="/solutions/ai_data_platform.webp"
               alt="AI Data Platform Architecture Diagram"
               width={800}
               height={400}
@@ -420,7 +420,7 @@ export default function AiDataPlatformPage() {
             </div>
             <div className="mt-16 text-center">
               <Image
-                src="/placeholder.svg?width=800&height=400"
+                src="/solutions/ai_hub.webp"
                 alt="AIdeology Team Collaboration"
                 width={800}
                 height={400}

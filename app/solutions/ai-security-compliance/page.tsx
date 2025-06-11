@@ -98,9 +98,9 @@ export default function AISecurityCompliancePage() {
                   </li>
                 </ul>
               </div>
-              <div className="relative h-64 md:h-96 rounded-lg overflow-hidden animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <div className="relative h-72 md:h-[28rem] rounded-lg overflow-hidden animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <Image
-                  src="/ai-security-placeholder.jpg"
+                  src="/solutions/ai_security.webp"
                   alt="AI Security Concept"
                   layout="fill"
                   objectFit="cover"
@@ -220,17 +220,17 @@ export default function AISecurityCompliancePage() {
                 <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                   <h3 className="text-2xl font-bold mb-3">GDPR</h3>
                   <p className="text-charcoal/70 mb-4">Ensuring data protection and privacy for users in the European Union.</p>
-                  <Image src="/logos/gdpr.svg" alt="GDPR Logo" width={80} height={40} />
+                  <Image src="/solutions/gdpr-logo.webp" alt="GDPR Logo" width={80} height={40} />
                 </div>
                 <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                   <h3 className="text-2xl font-bold mb-3">HIPAA</h3>
                   <p className="text-charcoal/70 mb-4">Protecting sensitive patient health information in the United States.</p>
-                  <Image src="/logos/hipaa.svg" alt="HIPAA Logo" width={80} height={40} />
+                  <Image src="/solutions/hipaa-logo.webp" alt="HIPAA Logo" width={80} height={40} />
                 </div>
                 <div className="bg-gray-50 rounded-lg p-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                   <h3 className="text-2xl font-bold mb-3">AI Act</h3>
                   <p className="text-charcoal/70 mb-4">Adhering to the upcoming European Union regulations for artificial intelligence.</p>
-                   <Image src="/logos/eu_ai_act.svg" alt="AI Act Logo" width={80} height={40} />
+                   <Image src="/solutions/ai_act.webp" alt="AI Act Logo" width={80} height={40} />
                 </div>
               </div>
             </div>

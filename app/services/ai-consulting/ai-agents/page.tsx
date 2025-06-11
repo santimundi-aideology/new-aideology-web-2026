@@ -293,7 +293,7 @@ export default function AiAgentsPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative group">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/solutions/ai_agent.webp"
                   alt="AI agent operations dashboard"
                   width={600}
                   height={400}

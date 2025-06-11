@@ -303,7 +303,7 @@ export default function MlopsPage() {
               </div>
               <div className="relative">
                 <Image
-                  src="/ai-server-room-gpus.png"
+                  src="/solutions/mlops.webp"
                   alt="MLOps infrastructure and automation"
                   width={600}
                   height={400}

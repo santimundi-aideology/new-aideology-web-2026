@@ -108,7 +108,7 @@ export default function MachineLearningPage() {
               </div>
               <div className="relative group">
                 <Image
-                  src="/placeholder.svg?height=500&width=600"
+                  src="/solutions/machine_learning.webp"
                   alt="Machine Learning Development"
                   width={600}
                   height={500}

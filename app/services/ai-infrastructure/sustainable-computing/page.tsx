@@ -112,10 +112,10 @@ export default function SustainableComputingPage() {
             </div>
             <div className="relative hidden lg:block">
               <Image
-                src="/data-center.webp"
+                src="/solutions/sustainable_computing.webp"
                 alt="A modern, sustainable data center with green ambient lighting"
-                width={600}
-                height={400}
+                width={400}
+                height={100}
                 className="rounded-lg shadow-2xl"
               />
             </div>
@@ -199,7 +199,7 @@ export default function SustainableComputingPage() {
                 </p>
               </div>
               <div className="md:col-span-2 bg-accent-green/5 p-8 flex items-center justify-center">
-                <Image src="/nvidia-logo.png" alt="NVIDIA Logo" width={200} height={100} className="object-contain" />
+                <Image src="/partner-logos/nvidia-logo.webp" alt="NVIDIA Logo" width={200} height={100} className="object-contain" />
               </div>
             </div>
           </Card>

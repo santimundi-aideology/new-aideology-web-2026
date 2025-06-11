@@ -150,10 +150,10 @@ export default function VirtualizationPage() {
             </div>
             <div className="relative hidden lg:block">
               <Image
-                src="/ai-server-configuration.png"
+                src="/solutions/gpu_virtualization.webp"
                 alt="GPU Virtualization Infrastructure"
-                width={600}
-                height={400}
+                width={500}
+                height={200}
                 className="rounded-lg shadow-2xl object-cover"
                 priority
               />
@@ -236,7 +236,7 @@ export default function VirtualizationPage() {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative order-2 lg:order-1 mt-8 lg:mt-0">
               <Image
-                src="/nvidia-ai-enterprise-stack.png" // Assuming you have this or a similar image
+                src="/solutions/software-stack.webp" // Assuming you have this or a similar image
                 alt="NVIDIA AI Enterprise Stack"
                 width={500}
                 height={450}
