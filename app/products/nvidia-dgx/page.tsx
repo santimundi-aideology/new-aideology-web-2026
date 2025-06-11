@@ -20,7 +20,7 @@ export default function NvidiaDGXPage() {
         </p>
         <div className="relative h-[500px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/products/nvidia_dgx_products.jpg"
+            src="/products/nvidia_dgx_systems.webp"
             alt="NVIDIA DGX AI supercomputing systems in enterprise data center environment"
             fill
             className="object-cover"
@@ -221,7 +221,7 @@ export default function NvidiaDGXPage() {
             </div>
             <div className="lg:w-1/2 relative h-64 lg:h-auto">
               <Image
-                src="/products/dgx_gh200_image.jpg"
+                src="/products/nvidia_dgx_gh200.webp"
                 alt="NVIDIA DGX GH200 AI supercomputer installation at enterprise scale"
                 fill
                 className="object-cover"
@@ -239,7 +239,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/products/dgx_basepod_image.jpeg"
+                src="/products/dgx_basepod_image.webp"
                 alt="DGX BasePOD modular AI infrastructure deployment"
                 fill
                 className="object-cover"
@@ -261,7 +261,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/products/dgx_superpod_image.jpg"
+                src="/products/dgx_superpod_image.webp"
                 alt="DGX SuperPOD large-scale AI data center infrastructure"
                 fill
                 className="object-cover"
@@ -305,7 +305,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
               <Image
-                src="/products/prof_services_image.png"
+                src="/products/prof_deployment.webp"
                 alt="Professional DGX system deployment and integration"
                 fill
                 className="object-cover"
@@ -321,7 +321,7 @@ export default function NvidiaDGXPage() {
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
               <Image
-                src="/products/comp_support_image.png"
+                src="/products/comprehensive_support.webp"
                 alt="Ongoing DGX system support and optimization"
                 fill
                 className="object-cover"

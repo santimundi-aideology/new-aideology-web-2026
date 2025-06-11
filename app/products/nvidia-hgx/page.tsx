@@ -20,7 +20,7 @@ export default function NvidiaHGXPage() {
         </p>
         <div className="relative h-[500px] rounded-lg overflow-hidden mb-8">
           <Image
-            src="/products/nvidia_hgx_products.jpg"
+            src="/products/nvidia_hgx_systems.webp"
             alt="NVIDIA HGX GPU-accelerated computing systems in a modern data center"
             fill
             className="object-cover"
@@ -126,9 +126,9 @@ export default function NvidiaHGXPage() {
       <div className="container mx-auto px-4 mb-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
           <div className="w-full lg:w-1/2">
-            <div className="relative h-[300px] rounded-lg overflow-hidden">
+            <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/products/hgx_b200.png"
+                src="/products/hgx_b200.webp"
                 alt="NVIDIA HGX B200 Blackwell 8-GPU board with advanced cooling and NVLink connectivity"
                 fill
                 className="object-cover"
@@ -168,7 +168,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/products/hgx_b300.jpg"
+                src="/products/hgx_b300.webp"
                 alt="NVIDIA HGX B300 NVL16 Blackwell Ultra 16-GPU board in enterprise server configuration"
                 fill
                 className="object-cover"
@@ -208,7 +208,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/products/hgx_h200.jpg"
+                src="/products/hgx_h200.webp"
                 alt="NVIDIA HGX H200 Hopper+ 8-GPU board with enhanced memory capacity"
                 fill
                 className="object-cover"
@@ -248,7 +248,7 @@ export default function NvidiaHGXPage() {
           <div className="w-full lg:w-1/2">
             <div className="relative h-[300px] rounded-lg overflow-hidden">
               <Image
-                src="/products/hgx_h100.jpeg"
+                src="/products/hgx_h100.webp"
                 alt="NVIDIA HGX H100 Hopper 8-GPU board - the proven workhorse for AI training and inference"
                 fill
                 className="object-cover"
@@ -293,7 +293,7 @@ export default function NvidiaHGXPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6 text-center">
             <Image
-              src="/products/poweredge.avif"
+              src="/products/poweredge_xe_series.webp"
               alt="Dell PowerEdge XE Series"
               width={120}
               height={60}

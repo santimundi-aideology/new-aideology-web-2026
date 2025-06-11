@@ -50,7 +50,7 @@ const features = [
     title: "Enterprise-Grade Support",
     description:
       "Benefit from NVIDIA's enterprise support, including security patches, maintenance, and direct access to AI experts for mission-critical deployments.",
-    image: "/technical-support-collaboration.png",
+    image: "/products/comprehensive_support.webp",
     alt: "Team of support engineers collaborating",
   },
 ]
@@ -104,7 +104,7 @@ export default function NvidiaAIEnterprisePage() {
         </p>
         <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
           <Image
-            src="/nvidia-ai-enterprise-platform.png"
+            src="/products/ai_enterprise.webp"
             alt="Abstract visualization of NVIDIA AI Enterprise platform"
             fill
             className="object-cover"
@@ -119,7 +119,7 @@ export default function NvidiaAIEnterprisePage() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <Image
-                src="/products/software-stack.png"
+                src="/products/software-stack.webp"
                 alt="Diagram of NVIDIA AI Enterprise software stack"
                 width={600}
                 height={450}
@@ -185,7 +185,7 @@ export default function NvidiaAIEnterprisePage() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="md:w-1/2">
               <Image
-                src="/runai-gpu-dashboard.png"
+                src="/products/run-ai-dashboard.webp"
                 alt="Run:ai platform dashboard showing GPU utilization and workload management"
                 width={600}
                 height={450}
@@ -246,7 +246,7 @@ export default function NvidiaAIEnterprisePage() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <Image
-                src="/products/base_command.png"
+                src="/products/base_command.webp"
                 alt="NVIDIA Base Command Manager interface showing cluster management tools"
                 width={600}
                 height={450}
@@ -412,7 +412,7 @@ export default function NvidiaAIEnterprisePage() {
             </div>
             <div className="md:w-1/2">
               <Image
-                src="/ai-consulting-meeting.png"
+                src="/products/ai-consulting-meeting.webp"
                 alt="AIdeology team discussing an AI solution with a client"
                 width={600}
                 height={450}
