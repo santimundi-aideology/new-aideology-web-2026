@@ -16,7 +16,7 @@ const productCategories = [
     href: "/products/nvidia-dgx",
     description:
       "Unlock transformative AI with NVIDIA DGX systems, the universal platform for AI infrastructure. From individual workstations to large-scale supercomputers like DGX SuperPOD, these systems provide unparalleled performance for training, inference, and data analytics. AIdeology helps you deploy and manage DGX solutions tailored to your enterprise needs, ensuring you have the power to tackle any AI challenge.",
-    image: "/services/gpu-cluster.png", // Image for DGX Systems
+    image: "/products/nvidia_dgx_systems.webp", // Image for DGX Systems
     alt: "NVIDIA DGX system in a data center environment, showcasing its powerful AI computing capabilities.",
   },
   {
@@ -24,7 +24,7 @@ const productCategories = [
     href: "/products/nvidia-hgx",
     description:
       "Power the most demanding AI and HPC workloads with NVIDIA HGX platforms. Combining high-performance NVIDIA GPUs, NVLink, and InfiniBand networking, HGX delivers extreme scalability and efficiency for complex model training and large-scale simulations. AIdeology offers custom HGX server solutions, architected to accelerate your most ambitious AI projects.",
-    image: "/ai-server-room-gpus.png", // Image for HGX Systems
+    image: "/products/nvidia_hgx_systems.webp", // Image for HGX Systems
     alt: "Close-up of an NVIDIA HGX system with multiple GPUs, highlighting its dense computing power for AI.",
   },
   {
@@ -32,7 +32,7 @@ const productCategories = [
     href: "/products/storage-systems",
     description:
       "Fuel your AI data pipelines with high-performance, scalable storage. AIdeology partners with leading vendors like DDN, NetApp, VAST Data, and Weka to deliver optimized storage solutions. These systems are designed to handle the massive datasets and intense I/O demands of AI training and inference, ensuring no bottlenecks in your workflow and rapid access to your critical data.",
-    image: "/services/storage-solutions.png", // Image for Storage
+    image: "/products/ai_storage.webp", // Image for Storage
     alt: "Illustration of a modern, high-capacity storage system array for AI and big data.",
   },
   {

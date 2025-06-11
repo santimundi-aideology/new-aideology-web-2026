@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { toast } from 'sonner';
@@ -74,9 +75,15 @@ const groupedTopics = topics.reduce((acc, topic) => {
 }, {} as Record<string, typeof topics>);
 
 export default function BookDiscoveryCall() {
-  // Static defaults for static export
-  const type: 'discovery-call' | 'demo' | 'consultation' | 'assessment' = 'discovery-call';
-  const fromPage = '';
+  const searchParams = useSearchParams();
+  const typeParam = searchParams.get('type');
+  const fromPageParam = searchParams.get('from');
+  
+  const type: 'discovery-call' | 'demo' | 'consultation' | 'assessment' = 
+    (typeParam === 'demo' || typeParam === 'consultation' || typeParam === 'assessment') 
+      ? typeParam 
+      : 'discovery-call';
+  const fromPage = fromPageParam || '';
 
   const getHeadingText = () => {
     if (fromPage) {
@@ -99,7 +106,7 @@ export default function BookDiscoveryCall() {
       case 'demo':
         return 'Schedule a personalized demo with our experts to see our AI solutions in action and discover how they can transform your business.';
       case 'consultation':
-        return 'Book a consultation with our experts to discuss your AI infrastructure needs and explore tailored solutions for your organization.';
+        return 'Book a consultation with our experts to discuss your AI needs and explore tailored solutions for your organization.';
       case 'assessment':
         return 'Schedule a comprehensive assessment with our security experts to evaluate your AI systems and identify potential vulnerabilities and compliance gaps.';
       default:

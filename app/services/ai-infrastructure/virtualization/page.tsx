@@ -310,7 +310,7 @@ export default function VirtualizationPage() {
               className="bg-charcoal text-white hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <Link href="/contact">
+              <Link href="/book-discovery-call?type=consultation">
                 Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

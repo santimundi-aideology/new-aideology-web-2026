@@ -304,7 +304,7 @@ export default function AcceleratedComputingPage() {
               className="bg-charcoal text-white hover:bg-gray-800 shadow-lg transition-transform hover:scale-105"
               asChild
             >
-              <Link href="/contact">
+              <Link href="/book-discovery-call?type=consultation">
                 Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
