@@ -1,5 +1,5 @@
 import type React from "react"
-import { Shell } from "@/components/shell"
+import ServiceLayout from "@/components/layouts/service-layout"
 
 const breadcrumbs = [
   { href: "/", label: "Home" },
@@ -32,8 +32,8 @@ export default function DesignSimulationLayout({
   children: React.ReactNode
 }) {
   return (
-    <Shell title="Design & Simulation" breadcrumbs={breadcrumbs} sidebarNavItems={sidebarNavItems}>
+    <ServiceLayout title="Design & Simulation" breadcrumbs={breadcrumbs} sidebarNavItems={sidebarNavItems}>
       {children}
-    </Shell>
+    </ServiceLayout>
   )
 }
