@@ -7,22 +7,28 @@ const breadcrumbs = [
   { href: "/services/design-simulation", label: "Design & Simulation" },
 ]
 
-const sidebarNavItems = [
+const navigationItems = [
+  { href: "/services/3d-ai", label: "Design & Simulation" },
   {
-    title: "Design Visualization",
-    href: "/services/design-simulation/design-visualization",
-  },
-  {
-    title: "Robotic Simulation",
-    href: "/services/design-simulation/robotic-simulation",
-  },
-  {
-    title: "Extended Reality",
-    href: "/services/design-simulation/extended-reality",
-  },
-  {
-    title: "Digital Twins",
-    href: "/services/design-simulation/digital-twins",
+    label: "Services",
+    children: [
+      {
+        href: "/services/3d-ai/design-visualization",
+        label: "Design Visualization",
+      },
+      {
+        href: "/services/3d-ai/robotic-simulation",
+        label: "Robotic Simulation",
+      },
+      {
+        href: "/services/3d-ai/extended-reality",
+        label: "Extended Reality",
+      },
+      {
+        href: "/services/3d-ai/digital-twins",
+        label: "Digital Twins",
+      },
+    ],
   },
 ]
 
@@ -32,7 +38,7 @@ export default function DesignSimulationLayout({
   children: React.ReactNode
 }) {
   return (
-    <ServiceLayout title="Design & Simulation" breadcrumbs={breadcrumbs} sidebarNavItems={sidebarNavItems}>
+    <ServiceLayout title="Design & Simulation" breadcrumbs={breadcrumbs} sidebarNavItems={navigationItems}>
       {children}
     </ServiceLayout>
   )

@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductLayout from "@/components/layouts/product-layout"
+import ScrollAnimations from "@/components/scroll-animations"
 
 export const metadata = {
   title: "AI Networking Solutions | High-Performance Connectivity | AIdeology",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function NetworkingPage() {
   return (
     <ProductLayout>
+      <ScrollAnimations />
       <div className="container mx-auto px-4 mb-12">
         <h1 className="text-4xl font-bold mb-6 text-charcoal">AI Networking Solutions</h1>
         <p className="text-xl text-gray-600 mb-8">

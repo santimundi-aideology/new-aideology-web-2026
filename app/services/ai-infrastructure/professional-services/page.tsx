@@ -242,11 +242,11 @@ export default function AiInfrastructureProfessionalServicesPage() {
       <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-16 md:py-20 shadow-xl">
         <div className="absolute inset-0 opacity-10">
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold max-w-3xl animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             {heroTitle}
           </h1>
-          <p className="mt-4 text-lg text-gray-300 max-w-3xl mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             {heroSubtitle}
           </p>
           <Button 
@@ -277,48 +277,47 @@ export default function AiInfrastructureProfessionalServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="w-full px-6 lg:px-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Professional AI Infrastructure Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                Expert consulting and implementation services for enterprise-grade AI infrastructure
-              </p>
-            </div>
+      <section className="pt-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-charcoal mb-4">Professional AI Infrastructure Services</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Expert consulting, deployment, and optimization services for your AI infrastructure needs
+            </p>
+          </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {[
-                {
-                  icon: <Brain className="w-8 h-8 text-accent-green" />,
-                  title: "AI Strategy Consulting",
-                  description: "Develop comprehensive AI strategies aligned with business objectives and technical capabilities"
-                },
-                {
-                  icon: <Zap className="w-8 h-8 text-accent-green" />,
-                  title: "Infrastructure Assessment",
-                  description: "Evaluate current infrastructure and recommend optimized AI-ready solutions"
-                },
-                {
-                  icon: <Shield className="w-8 h-8 text-accent-green" />,
-                  title: "Security & Compliance",
-                  description: "Ensure AI systems meet security requirements and regulatory compliance standards"
-                }
-              ].map((service, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
-                  <div className="flex items-center mb-4">
-                    {service.icon}
-                    <h3 className="text-xl font-bold ml-3">{service.title}</h3>
-                  </div>
-                  <p className="text-gray-600">{service.description}</p>
-                </Card>
-              ))}
-            </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: <Brain className="w-8 h-8 text-accent-green" />,
+                title: "AI Strategy Consulting",
+                description: "Develop comprehensive AI strategies aligned with business objectives and technical capabilities"
+              },
+              {
+                icon: <Zap className="w-8 h-8 text-accent-green" />,
+                title: "Infrastructure Assessment",
+                description: "Evaluate current infrastructure and recommend optimized AI-ready solutions"
+              },
+              {
+                icon: <Shield className="w-8 h-8 text-accent-green" />,
+                title: "Security & Compliance",
+                description: "Ensure AI systems meet security requirements and regulatory compliance standards"
+              }
+            ].map((service, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <div className="flex items-center mb-4">
+                  {service.icon}
+                  <h3 className="text-xl font-bold ml-3">{service.title}</h3>
+                </div>
+                <p className="text-gray-600">{service.description}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -349,7 +348,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Why Partner with AIdeology?</h2>

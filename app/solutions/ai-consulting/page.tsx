@@ -193,7 +193,7 @@ export default function AIConsultingPage() {
             </div>
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
-              <Image src="/ai-consulting-client-meeting.png" alt="AI Consulting" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
+              <Image src="/ai-consulting-client-meeting.webp" alt="AI Consulting" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
             </div>
           </div>
         </div>

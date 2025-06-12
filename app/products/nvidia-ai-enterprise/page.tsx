@@ -13,6 +13,7 @@ import {
   SlidersHorizontal,
   TerminalSquare,
 } from "lucide-react" // Added SlidersHorizontal and TerminalSquare
+import ScrollAnimations from "@/components/scroll-animations"
 
 export const metadata = {
   title: "NVIDIA AI Enterprise | Comprehensive AI Software Suite | AIdeology",
@@ -26,7 +27,7 @@ const features = [
     title: "AI Frameworks & SDKs",
     description:
       "Access enterprise-grade versions of leading AI frameworks like PyTorch and TensorFlow, plus NVIDIA SDKs such as TensorRT, Triton Inference Server, and RAPIDS.",
-    image: "/ai-frameworks-logos.png",
+    image: "/ai-frameworks-logos.webp",
     alt: "Logos of AI frameworks and SDKs",
   },
   {
@@ -93,28 +94,44 @@ const industrySolutions = [
 export default function NvidiaAIEnterprisePage() {
   return (
     <ProductLayout>
+      <ScrollAnimations />
+      {/* Continue adding animations to all sections */}
       {/* Hero Section */}
-      <section className="mb-16 text-center">
-        <h1 className="text-5xl font-bold mb-6 text-charcoal leading-tight">
-          NVIDIA AI Enterprise: Powering the Future of AI
-        </h1>
-        <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-          AIdeology brings you NVIDIA AI Enterprise, an end-to-end, cloud-native software platform that accelerates data
-          science pipelines and streamlines the development and deployment of production AI.
-        </p>
-        <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-          <Image
-            src="/products/ai_enterprise.webp"
-            alt="Abstract visualization of NVIDIA AI Enterprise platform"
-            fill
-            className="object-cover"
-            priority
-          />
+      <section className="mb-16 animate-fade-in-up">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6 text-charcoal leading-tight">
+              NVIDIA AI Enterprise: Powering the Future of AI
+            </h1>
+            <p className="text-xl text-gray-700 mb-8">
+              AIdeology brings you NVIDIA AI Enterprise, an end-to-end, cloud-native software platform that accelerates data
+              science pipelines and streamlines the development and deployment of production AI.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild 
+                size="lg"
+                className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+              >
+                <Link href="/contact">Get Started Today</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+              >
+                <Link href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/" target="_blank" rel="noopener noreferrer">
+                  Learn More
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* What is NVIDIA AI Enterprise? */}
-      <section className="mb-16 py-12 bg-gray-50 rounded-lg">
+      <section className="mb-16 py-12 bg-gray-50 rounded-lg animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
@@ -158,29 +175,37 @@ export default function NvidiaAIEnterprisePage() {
       </section>
 
       {/* Key Features & Components */}
-      <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-12 text-center text-charcoal">Core Components of NVIDIA AI Enterprise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300"
-            >
-              <div className="flex items-center mb-4">
-                {feature.icon}
-                <h3 className="text-2xl font-semibold ml-4 text-charcoal">{feature.title}</h3>
+      <section className="mb-16 animate-fade-in-up">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 text-center text-charcoal">Core Components of NVIDIA AI Enterprise</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-xl p-8 hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-fade-in-up h-full"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <div className="flex items-center mb-4">
+                  {feature.icon}
+                  <h3 className="text-2xl font-semibold ml-4 text-charcoal">{feature.title}</h3>
+                </div>
+                <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
+                <div className="relative h-64 rounded-md overflow-hidden">
+                  <Image 
+                    src={feature.image || "/placeholder.svg"} 
+                    alt={feature.alt} 
+                    fill 
+                    className="object-contain hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
-              <div className="relative h-48 rounded-md overflow-hidden">
-                <Image src={feature.image || "/placeholder.svg"} alt={feature.alt} fill className="object-cover" />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Run:ai Section */}
-      <section className="mb-16 py-12 bg-gray-50 rounded-lg">
+      <section className="mb-16 py-12 bg-gray-50 rounded-lg animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="md:w-1/2">
@@ -241,7 +266,7 @@ export default function NvidiaAIEnterprisePage() {
       </section>
 
       {/* NVIDIA Base Command Manager Section */}
-      <section className="mb-16 py-12 rounded-lg">
+      <section className="mb-16 py-12 rounded-lg animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
@@ -307,7 +332,7 @@ export default function NvidiaAIEnterprisePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="mb-16 py-12 bg-charcoal text-white rounded-lg">
+      <section className="mb-16 py-12 bg-charcoal text-white rounded-lg animate-fade-in-up">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-accent-green">
             Unlock Transformative AI Capabilities
@@ -354,30 +379,41 @@ export default function NvidiaAIEnterprisePage() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="mb-16">
+      <section className="mb-16 animate-fade-in-up">
         <h2 className="text-4xl font-bold mb-12 text-center text-charcoal">Tailored AI Solutions Across Industries</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {industrySolutions.map((solution, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
-              <div className="relative h-56 w-full">
-                <Image src={solution.image || "/placeholder.svg"} alt={solution.alt} fill className="object-cover" />
+        <div className="w-full max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {industrySolutions.map((solution, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <div className="relative h-80 w-full">
+                  <Image 
+                    src={solution.image || "/placeholder.svg"} 
+                    alt={solution.alt} 
+                    fill 
+                    className="object-cover hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+                <div className="p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-semibold mb-4 text-charcoal">{solution.name}</h3>
+                  <p className="text-gray-600 leading-relaxed flex-grow mb-6">{solution.description}</p>
+                  <Button asChild variant="outline" className="border-accent-green text-accent-green hover:bg-accent-green hover:text-white hover:scale-105 transition-all duration-300 ease-in-out self-start">
+                    <Link href={solution.link || "#"} target="_blank" rel="noopener noreferrer">
+                      Learn More on NVIDIA
+                    </Link>
+                  </Button>
+                </div>
               </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold mb-3 text-charcoal">{solution.name}</h3>
-                <p className="text-gray-600 leading-relaxed flex-grow mb-4">{solution.description}</p>
-                <Button asChild variant="link" className="text-accent-green p-0 self-start hover:underline">
-                  <Link href={solution.link || "#"} target="_blank" rel="noopener noreferrer">
-                    Learn More on NVIDIA
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* AIdeology & NVIDIA AI Enterprise */}
-      <section className="mb-16 py-12 bg-gray-100 rounded-lg">
+      <section className="mb-16 py-12 bg-gray-100 rounded-lg animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
@@ -424,7 +460,7 @@ export default function NvidiaAIEnterprisePage() {
       </section>
 
       {/* Call to Action */}
-      <section className="text-center py-16 bg-accent-green/10 rounded-lg">
+      <section className="text-center py-16 bg-accent-green/10 rounded-lg animate-fade-in-up">
         <Users className="h-16 w-16 text-accent-green mx-auto mb-6" />
         <h2 className="text-4xl font-bold mb-6 text-charcoal">Ready to Revolutionize Your Business with AI?</h2>
         <p className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">

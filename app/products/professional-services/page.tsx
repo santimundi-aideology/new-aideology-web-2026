@@ -123,7 +123,7 @@ export default function ProfessionalServicesPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {serviceOfferings.map((service) => (
-              <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div key={service.title} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center md:justify-start mb-4">{service.icon}</div>
                 <h3 className="text-2xl font-bold text-charcoal mb-3 text-center md:text-left">{service.title}</h3>
                 <p className="text-gray-600 mb-4 text-center md:text-left">{service.description}</p>
@@ -151,7 +151,7 @@ export default function ProfessionalServicesPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {whyChooseUs.map((reason) => (
-              <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md">
+              <div key={reason.title} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <div className="flex items-start">
                   {reason.icon}
                   <div>

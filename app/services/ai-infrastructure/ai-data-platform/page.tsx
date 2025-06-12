@@ -54,7 +54,7 @@ export default function AiDataPlatformPage() {
       description:
         "AIdeology designs and implements scalable, high-throughput storage solutions tailored for AI. We leverage parallel file systems (e.g., Lustre, GPFS), high-performance object storage, and all-flash arrays, optimized with technologies like NVIDIA GPUDirect Storage for direct GPU access. Our solutions ensure low-latency data access for demanding AI training and inference workloads.",
       icon: <Database className="w-6 h-6 text-accent-green mb-4" />,
-      image: "/solutions/hpc_data_storage.webp",
+      image: "/products/ai-storage.webp",
       alt: "High-Performance Data Storage Infrastructure",
       points: [
         "Parallel file systems (Lustre, GPFS, BeeGFS)",
@@ -268,7 +268,7 @@ export default function AiDataPlatformPage() {
                   style={{ animationDelay: `${300 + index * 100}ms` }}
                 >
                   <div className="flex justify-center mb-4">{challenge.icon}</div>
-                  <h3 className="text-xl font-bold text-charcoal mb-3">{challenge.title}</h3>
+                  <h3 className="text-xl font-bold text-charcoal mb-3 text-center">{challenge.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{challenge.description}</p>
                 </Card>
               ))}
@@ -392,7 +392,7 @@ export default function AiDataPlatformPage() {
                   style={{ animationDelay: `${300 + index * 100}ms` }}
                 >
                   <div className="flex justify-center">{application.icon}</div>
-                  <h3 className="text-xl font-bold text-charcoal mb-3">{application.title}</h3>
+                  <h3 className="text-xl font-bold text-charcoal mb-3 text-center">{application.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{application.description}</p>
                 </Card>
               ))}

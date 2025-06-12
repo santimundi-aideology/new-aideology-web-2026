@@ -154,7 +154,7 @@ export default function AIInfrastructurePage() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '500ms' }}>
               <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
               <Image src="/data-center.webp" alt="AI Infrastructure" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
             </div>
@@ -178,7 +178,7 @@ export default function AIInfrastructurePage() {
             {services.map((service, index) => (
               <Card 
                 key={service.title} 
-                className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg animate-fade-in-up" 
+                className="group hover:shadow-2xl hover:scale-105 transition-all duration-300 border-0 shadow-lg animate-fade-in-up" 
                 style={{ animationDelay: `${300 + index * 100}ms` }}
               >
                 <CardHeader className="pb-4">
@@ -273,7 +273,7 @@ export default function AIInfrastructurePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div 
-              className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg order-last lg:order-first animate-fade-in-up"
+              className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg order-last lg:order-first animate-fade-in-up hover:scale-105 transition-all duration-300"
               style={{ animationDelay: '200ms' }}
             >
               <Image 

@@ -107,7 +107,7 @@ export default function ThreeDimensionalAIPage() {
                 <Cube className="w-4 h-4 mr-2" />
                 Advanced 3D Technologies
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white animate-fade-in-up" style={{ animationDelay: '200ms' }}>3D AI Solutions</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white animate-fade-in-up" style={{ animationDelay: '200ms' }}>Design & Simulation</h1>
               <p className="text-xl mb-8 text-gray-300 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                 End-to-end metaverse & digital-twins implementation, from rendering to simulation, powered by
                 cutting-edge AI technologies.
@@ -115,7 +115,7 @@ export default function ThreeDimensionalAIPage() {
               <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <Button size="lg" className="bg-accent-green text-charcoal hover:bg-white hover:text-charcoal font-semibold px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300" asChild>
                   <Link href="#contact">
-                    Explore 3D AI possibilities
+                    Explore Design & Simulation possibilities
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -133,7 +133,7 @@ export default function ThreeDimensionalAIPage() {
             </div>
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
-              <Image src="/3d-ai.webp" alt="3D AI Solutions" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
+              <Image src="/3d-ai.webp" alt="Design & Simulation Solutions" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
             </div>
           </div>
         </div>
@@ -144,10 +144,10 @@ export default function ThreeDimensionalAIPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              Comprehensive 3D AI Services
+              Comprehensive Design & Simulation Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Discover our full spectrum of 3D AI solutions from design visualization to robotic simulation.
+              Discover our full spectrum of Design & Simulation solutions from design visualization to robotic simulation.
             </p>
           </div>
 
@@ -200,7 +200,7 @@ export default function ThreeDimensionalAIPage() {
       {/* Capabilities Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>3D AI Capabilities</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Design & Simulation Capabilities</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((capability, index) => (
@@ -223,7 +223,7 @@ export default function ThreeDimensionalAIPage() {
       {/* Use Cases Section */}
       <section className="py-20 bg-[#f4f4f4]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>3D AI Use Cases</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Design & Simulation Use Cases</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
@@ -243,7 +243,7 @@ export default function ThreeDimensionalAIPage() {
                 title: "Virtual Production",
                 description:
                   "Real-time 3D environments for film and media production, powered by AI rendering technologies.",
-                image: "/virtual-production-studio.png",
+                image: "/virtual-production-studio.webp",
               },
               {
                 title: "Immersive Training",
@@ -272,7 +272,7 @@ export default function ThreeDimensionalAIPage() {
       {/* Technology Section */}
       <section className="py-20 bg-charcoal text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our 3D AI Technology Stack</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Design & Simulation Technology Stack</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {[
@@ -309,7 +309,7 @@ export default function ThreeDimensionalAIPage() {
       {/* Partners Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our 3D AI Partners</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Design & Simulation Partners</h2>
           {relevantPartners.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center">
               {relevantPartners.map((partner, index) => (
@@ -341,7 +341,7 @@ export default function ThreeDimensionalAIPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>Ready to bring your 3D vision to life?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-charcoal/80 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            Let's discuss how our 3D AI solutions can transform your ideas into immersive digital experiences.
+            Let's discuss how our Design & Simulation solutions can transform your ideas into immersive digital experiences.
           </p>
           <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">

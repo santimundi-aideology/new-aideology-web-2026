@@ -450,13 +450,13 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 {item.label}
               </Link>
             ))}
-            <SheetFooter>
-              <Button asChild className="mt-4">
-                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="mt-4">
+              <Button asChild>
+                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Contact Us
                 </Link>
               </Button>
-            </SheetFooter>
+            </div>
           </nav>
         </div>
       )}

@@ -26,7 +26,7 @@ export default function SolutionsSection() {
       ],
     },
     {
-      title: "3D AI",
+      title: "Design & Simulation",
       description: "End-to-end metaverse and digital twins implementation with cutting-edge rendering technologies.",
       icon: (
         <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
