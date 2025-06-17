@@ -11,7 +11,7 @@ export default function SolutionsSection() {
   const solutions = [
     {
       title: "AI Infrastructure",
-      description: "High-performance computing solutions designed for AI workloads and machine learning operations.",
+      description: "Designing and deploying AI Infrastructure. We assist customers in determining the most suitable hardware and software for their specific AI needs.",
       icon: (
         <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
@@ -27,7 +27,7 @@ export default function SolutionsSection() {
     },
     {
       title: "Design & Simulation",
-      description: "End-to-end metaverse and digital twins implementation with cutting-edge rendering technologies.",
+      description: "We offer our expertise in helping customers implement metaverse or digital twins value propositions.",
       icon: (
         <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
@@ -112,8 +112,8 @@ export default function SolutionsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Solutions</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive AI solutions tailored to your business needs
+          <p className="text-xl text-gray-600 max-w-8xl mt-10 mx-auto">
+          <b>AIdeology</b> specializes in value-added solutions as an as an <b>NVIDIA Solution Provider</b> and we have contractual partnerships with Lenovo, HPE and Supermicro. Our offerings span <b>Artificial Intelligence</b> specialized solutions, <b>High-Performance Computing Infrastructure</b> solutions, and <b>Design & Simulation</b>, providing <b>end-to-end services</b> from planning to execution.
           </p>
         </div>
 
