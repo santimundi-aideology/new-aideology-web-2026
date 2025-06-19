@@ -1,7 +1,6 @@
-// Stub for static export - replace with actual server action for production
-import { z } from "zod"
+import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
 
-// Define the schema for form validation using Zod
 const ContactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
@@ -10,38 +9,26 @@ const ContactFormSchema = z.object({
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 })
 
-export type State = {
-  errors?: {
-    name?: string[]
-    email?: string[]
-    company?: string[]
-    subject?: string[]
-    message?: string[]
-  }
-  message?: string | null
-  success: boolean
-}
-
-export async function submitContactForm(prevState: State, formData: FormData): Promise<State> {
-  const validatedFields = ContactFormSchema.safeParse({
-    name: formData.get("name"),
-    email: formData.get("email"),
-    company: formData.get("company"),
-    subject: formData.get("subject"),
-    message: formData.get("message"),
-  })
-
-  if (!validatedFields.success) {
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: "Validation failed. Please check the form fields.",
-      success: false,
-    }
-  }
-
-  const webhookUrl = "https://hooks.zapier.com/hooks/catch/22856089/uywgpwx/"
-  
+export async function POST(request: NextRequest) {
   try {
+    const body = await request.json()
+    
+    // Validate the form data
+    const validatedFields = ContactFormSchema.safeParse(body)
+
+    if (!validatedFields.success) {
+      return NextResponse.json(
+        {
+          errors: validatedFields.error.flatten().fieldErrors,
+          message: "Validation failed. Please check the form fields.",
+          success: false,
+        },
+        { status: 400 }
+      )
+    }
+
+    const webhookUrl = "https://hooks.zapier.com/hooks/catch/22856089/uywgpwx/"
+    
     // Send data to webhook as JSON
     const response = await fetch(webhookUrl, {
       method: "POST",
@@ -66,15 +53,18 @@ export async function submitContactForm(prevState: State, formData: FormData): P
     const result = await response.json()
     console.log("Webhook response:", result)
 
-    return { 
+    return NextResponse.json({ 
       message: "Thank you for your message! We'll get back to you soon.", 
       success: true 
-    }
+    })
   } catch (error) {
     console.error("Error sending to webhook:", error)
-    return {
-      message: "There was an error sending your message. Please try again or contact us directly.",
-      success: false,
-    }
+    return NextResponse.json(
+      {
+        message: "There was an error sending your message. Please try again or contact us directly.",
+        success: false,
+      },
+      { status: 500 }
+    )
   }
-}
+} 
