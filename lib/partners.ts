@@ -33,6 +33,12 @@ const partners = [
     categories: ["design-simulation"],
     website: "https://www.unrealengine.com/",
   },
+  {
+    name: "NVIDIA Omniverse",
+    logo: "/partner-logos/omniverse-logo.webp",
+    categories: ["design-simulation"],
+    website: "https://www.nvidia.com/en-us/omniverse/",
+  },
   // Infra AI Partners
   {
     name: "Supermicro",
@@ -46,7 +52,6 @@ const partners = [
     categories: ["infra-ai"],
     website: "https://www.hpe.com/",
   },
-  { name: "Dell", logo: "/partner-logos/dell-logo.webp", categories: ["infra-ai"], website: "https://www.dell.com/" },
   {
     name: "Lenovo",
     logo: "/partner-logos/lenovo-logo.webp",
@@ -82,18 +87,18 @@ const partners = [
     categories: ["gen-ai"],
     website: "https://huggingface.co/",
   },
+  {
+    name: "NVIDIA NEMO",
+    logo: "/partner-logos/nemo-logo.webp",
+    categories: ["gen-ai"],
+    website: "https://www.nvidia.com/en-us/ai-data-science/generative-ai/nemo-framework/",
+  },
   // Cross-Category Partners
   {
     name: "TheCliff",
     logo: "/partner-logos/thecliff-logo.webp",
     categories: ["design-simulation", "infra-ai"],
     website: "https://the-cliff.com/",
-  },
-  {
-    name: "NVIDIA Omniverse",
-    logo: "/partner-logos/omniverse-logo.webp",
-    categories: ["design-simulation", "gen-ai"],
-    website: "https://www.nvidia.com/en-us/omniverse/",
   },
   {
     name: "Run:ai",
@@ -113,18 +118,6 @@ const partners = [
     logo: "/partner-logos/maind-logo.webp",
     categories: ["design-simulation", "infra-ai", "gen-ai"],
     website: "https://maind.pro/",
-  },
-  {
-    name: "NVIDIA",
-    logo: "/partner-logos/nvidia-logo.webp",
-    categories: ["design-simulation", "infra-ai", "gen-ai"],
-    website: "https://www.nvidia.com/",
-  },
-  {
-    name: "NVIDIA NEMO",
-    logo: "/partner-logos/nemo-logo.webp",
-    categories: ["infra-ai", "gen-ai"],
-    website: "https://www.nvidia.com/en-us/ai-data-science/generative-ai/nemo-framework/",
   },
 ]
 

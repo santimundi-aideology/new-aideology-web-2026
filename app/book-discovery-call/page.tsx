@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
@@ -28,7 +28,7 @@ const availableTimeSlots = [
 const topics = [
   // Products
   { id: 'nvidia-dgx', label: 'NVIDIA DGX Systems', category: 'Products' },
-  { id: 'nvidia-hgx', label: 'NVIDIA HGX Systems', category: 'Products' },
+  { id: 'nvidia-hgx', label: 'Enterprise AI Platforms', category: 'Products' },
   { id: 'professional-services', label: 'Professional Services', category: 'Products' },
   { id: 'storage-systems', label: 'Storage Systems', category: 'Products' },
   { id: 'nvidia-ai-enterprise', label: 'NVIDIA AI Enterprise', category: 'Products' },
@@ -74,7 +74,7 @@ const groupedTopics = topics.reduce((acc, topic) => {
   return acc;
 }, {} as Record<string, typeof topics>);
 
-export default function BookDiscoveryCall() {
+function BookDiscoveryCallContent() {
   const searchParams = useSearchParams();
   const typeParam = searchParams.get('type');
   const fromPageParam = searchParams.get('from');
@@ -443,5 +443,13 @@ export default function BookDiscoveryCall() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BookDiscoveryCall() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BookDiscoveryCallContent />
+    </Suspense>
   );
 }

@@ -213,7 +213,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     ],
     Products: [
       { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
-      { href: "/products/nvidia-hgx", label: "NVIDIA HGX Systems" },
+      { href: "/products/nvidia-hgx", label: "Enterprise AI Platforms" },
       { href: "/products/storage-systems", label: "Storage Systems" },
       { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
     ],

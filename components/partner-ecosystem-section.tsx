@@ -11,9 +11,12 @@ import { allPartners, partnerCategories } from "@/lib/partners"
 export default function PartnerEcosystemSection() {
   const [activeCategory, setActiveCategory] = useState("all")
 
-  // Simple filtering logic
+  // Simple filtering logic - exclude NVIDIA specific products from "all" view
   const partnersToShow = activeCategory === "all" 
-    ? allPartners 
+    ? allPartners.filter(partner => 
+        partner.name !== "NVIDIA Omniverse" && 
+        partner.name !== "NVIDIA NEMO"
+      )
     : allPartners.filter(partner => partner.categories.includes(activeCategory))
 
   const handleCategoryChange = (newCategory: string) => {
@@ -33,6 +36,25 @@ export default function PartnerEcosystemSection() {
           </p>
         </div>
 
+        {/* NVIDIA Logo Section */}
+        <div className="flex flex-col items-center mb-16 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+          <Link
+            href="https://www.nvidia.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white border-2 border-gray-200 p-8 rounded-lg shadow-lg flex justify-center items-center min-h-[180px] w-[330px] hover:border-accent-green/50 hover:shadow-xl transition-all duration-300 hover:scale-105 mb-4"
+          >
+            <img
+              src="/partner-logos/nvidia-logo.webp"
+              alt="NVIDIA logo"
+              className="h-30 w-auto object-contain"
+            />
+          </Link>
+          <p className="text-lg text-charcoal/80 font-medium text-center ">
+              Built on NVIDIA: Powering our AI Foundation
+          </p>
+        </div>
+
         <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <Tabs value={activeCategory} onValueChange={handleCategoryChange} className="w-full flex justify-center">
             <TabsList>
@@ -49,7 +71,7 @@ export default function PartnerEcosystemSection() {
           </Tabs>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-20">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {partnersToShow.map((partner, index) => (
             <Link
               key={`${partner.name}-${activeCategory}`}
@@ -67,7 +89,7 @@ export default function PartnerEcosystemSection() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className="max-h-12 w-auto object-contain opacity-100 visible"
+                className={`${partner.name === "NVIDIA NEMO" || partner.name === "Run:ai" ? "max-h-16" : "max-h-12"} w-auto object-contain opacity-100 visible`}
                 style={{
                   display: 'block',
                   visibility: 'visible',
@@ -77,65 +99,6 @@ export default function PartnerEcosystemSection() {
             </Link>
           ))}
         </div>
-        
-        {/* NVIDIA Certifications Section */}
-        
-          <h3 className="text-2xl md:text-3xl font-bold text-charcoal text-center mb-12 animate-fade-in-up">NVIDIA Certifications</h3>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-stretch">
-            {/* Elite Partner Section */}
-            <a 
-              href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&limit=15&name=aideology-plc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 animate-fade-in-up hover:no-underline hover:scale-105"
-            >
-              <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
-                 <img 
-                   src="/elite-partner.webp" 
-                   alt="NVIDIA Elite Partner" 
-                   className="w-28 h-auto md:w-32 mb-4 md:mb-0 md:mr-5 rounded"
-                 />
-                 <div>
-                   <h4 className="text-xl lg:text-2xl font-bold text-charcoal mb-2">Elite Partner</h4>
-                   <p className="text-gray-700 mb-1 text-sm">Demonstrating the highest level of expertise and commitment.</p>
-                 </div>
-               </div>
-               <div className="flex-grow">
-                 <h5 className="text-md font-semibold text-charcoal mb-3 border-b pb-1">Elite Competencies:</h5>
-                 <ul className="list-disc list-inside space-y-2 text-gray-600 text-sm">
-                   <li>Networking</li>
-                   <li>DGX AI Compute Systems</li>
-                 </ul>
-               </div>
-            </a>
-            {/* Preferred Partner Section */}
-            <a 
-              href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&limit=15&name=aideology-plc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 animate-fade-in-up hover:no-underline hover:scale-105"
-            >
-               <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-start mb-6">
-                 <img 
-                   src="/preferred-partner.webp" 
-                   alt="NVIDIA Preferred Partner" 
-                   className="w-28 h-auto md:w-32 mb-4 md:mb-0 md:mr-5 rounded"
-                 />
-                 <div>
-                   <h4 className="text-xl lg:text-2xl font-bold text-charcoal mb-2">Preferred Partner</h4>
-                   <p className="text-gray-700 mb-1 text-sm">Recognized for specialization and capability in specific NVIDIA technologies.</p>
-                 </div>
-               </div>
-               <div className="flex-grow">
-                 <h5 className="text-md font-semibold text-charcoal mb-3 border-b pb-1">Preferred Competencies:</h5>
-                 <ul className="list-disc list-inside space-y-2 text-gray-600 text-sm">
-                   <li>DGX Cloud</li>
-                 </ul>
-               </div>
-            </a>
-          </div>
-        
       </div>
     </section>
   )

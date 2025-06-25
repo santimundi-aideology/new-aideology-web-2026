@@ -5,18 +5,13 @@ import ProductLayout from "@/components/layouts/product-layout"
 import ScrollAnimations from "@/components/scroll-animations"
 
 export const metadata = {
-  title: "NVIDIA HGX Systems | GPU-Accelerated Computing | AIdeology",
+  title: "Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems) | GPU-Accelerated Computing | AIdeology",
   description:
-    "AIdeology offers the complete range of NVIDIA HGX platforms, from HGX B200 Blackwell to HGX H100 Hopper systems for AI training, inference, and HPC workloads.",
+    "AIdeology offers the complete range of Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems), from HGX B200 Blackwell to HGX H100 Hopper systems for AI training, inference, and HPC workloads.",
 }
 
 export default function NvidiaHGXPage() {
   const partners = [
-    {
-      name: 'Dell',
-      logo: '/partner-logos/dell-logo.webp',
-      description: 'Authorized Partner'
-    },
     {
       name: 'HPE',
       logo: '/partner-logos/hpe-logo.webp',
@@ -39,7 +34,7 @@ export default function NvidiaHGXPage() {
       <ScrollAnimations />
       <div className="w-full px-6 lg:px-12 mb-12">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6 text-charcoal animate-fade-in-up">NVIDIA HGX Systems</h1>
+          <h1 className="text-4xl font-bold mb-6 text-charcoal animate-fade-in-up">Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems)</h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             The foundation for AI infrastructure - high-performance GPU-accelerated computing platforms designed for the
             most demanding AI and HPC workloads.
@@ -60,7 +55,7 @@ export default function NvidiaHGXPage() {
           <h2 className="text-3xl font-bold mb-4 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>The Evolution of AI Computing</h2>
           <p className="mb-4 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             NVIDIA HGX is the foundational GPU-accelerated platform that powers the world's leading AI systems. From the
-            latest Blackwell architecture to proven Hopper designs, HGX platforms combine cutting-edge GPUs, high-speed
+            latest Blackwell architecture to proven Hopper designs, Enterprise AI Platforms combine cutting-edge GPUs, high-speed
             NVLink interconnects, and optimized system designs to deliver exceptional performance for AI training,
             inference, and high-performance computing workloads.
           </p>
@@ -81,7 +76,7 @@ export default function NvidiaHGXPage() {
                 <p className="text-lg text-gray-700 mb-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                   As an authorized AI consulting and reseller partner, AIdeology works directly with leading server
                   manufacturers to deliver NVIDIA HGX-based solutions tailored to your specific requirements. Our
-                  partnerships with HPE, Dell, Supermicro, and Lenovo ensure you receive certified, enterprise-grade
+                  partnerships with HPE, Supermicro, and Lenovo ensure you receive certified, enterprise-grade
                   systems backed by comprehensive support.
                 </p>
                 <p className="text-gray-600 mb-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
@@ -105,7 +100,7 @@ export default function NvidiaHGXPage() {
                 </div>
               </div>
               <div className="w-full lg:w-1/3 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                <div className="grid grid-cols-1 gap-6 mt-12">
                   {partners.map((partner) => (
                     <div 
                       key={partner.name}
@@ -122,7 +117,6 @@ export default function NvidiaHGXPage() {
                           />
                         </div>
                         <div className="mt-auto text-center">
-                          <h3 className="text-lg font-medium text-charcoal">{partner.name}</h3>
                           <p className="text-sm text-gray-500 mt-2">{partner.description}</p>
                         </div>
                       </div>
@@ -138,154 +132,148 @@ export default function NvidiaHGXPage() {
       {/* 2x2 Grid Layout for HGX Products */}
       <div className="w-full px-6 lg:px-12 mb-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-charcoal text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>HGX Platform Family</h2>
+          <h2 className="text-3xl font-bold mb-8 text-charcoal text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Enterprise AI Platform Family</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column - HGX B200 and HGX H200 */}
-            <div className="space-y-8">
-              {/* HGX B200 Section */}
-              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX B200 (Blackwell, 8-GPU Board)</h3>
-                <div className="relative h-[320px] rounded-lg overflow-hidden bg-black mb-6">
-                  <Image
-                    src="/products/hgx-b200.webp"
-                    alt="NVIDIA HGX B200 Blackwell 8-GPU board with advanced cooling and NVLink connectivity"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Latest generation HGX platform featuring eight B200 GPUs linked by 5th-generation NVLink switches for unprecedented performance.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>144 PFLOPS FP4</strong> compute capability
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>1.44 TB</strong> pooled HBM3e memory
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>5th-gen NVLink</strong> switches
-                    </span>
-                  </div>
-                </div>
+            {/* HGX B200 Section */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up flex flex-col" style={{ animationDelay: '200ms' }}>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX B200 (Blackwell, 8-GPU Board)</h3>
+              <div className="relative h-[320px] rounded-lg overflow-hidden bg-black mb-6">
+                <Image
+                  src="/products/hgx-b200.webp"
+                  alt="NVIDIA HGX B200 Blackwell 8-GPU board with advanced cooling and NVLink connectivity"
+                  fill
+                  className="object-contain"
+                />
               </div>
-
-              {/* HGX H200 Section */}
-              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up " style={{ animationDelay: '400ms' }}>
-                <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX H200 (Hopper+, 8-GPU Board)</h3>
-                <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
-                  <Image
-                    src="/products/hgx-h200.webp"
-                    alt="NVIDIA HGX H200 Hopper+ 8-GPU board with enhanced memory capacity"
-                    fill
-                    className="object-cover"
-                  />
+              <p className="text-gray-600 mb-4 flex-grow">
+                Latest generation Enterprise AI Platform featuring eight B200 GPUs linked by 5th-generation NVLink switches for unprecedented performance.
+              </p>
+              <div className="space-y-3 mt-auto">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>144 PFLOPS FP4</strong> compute capability
+                  </span>
                 </div>
-                <p className="text-gray-600 mb-4">
-                  Enhanced Hopper architecture with significantly increased memory capacity for large language models and complex AI workloads.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>1.1 TB</strong> aggregate memory capacity
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>~1.9× faster</strong> Llama-2 70B inference vs H100
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>Drop-in compatible</strong> with Hopper servers
-                    </span>
-                  </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>1.44 TB</strong> pooled HBM3e memory
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>5th-gen NVLink</strong> switches
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - HGX B300 and HGX H100 */}
-            <div className="space-y-8">
-              {/* HGX B300 Section */}
-              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up " style={{ animationDelay: '300ms' }}>
-                <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX B300 NVL16 (Blackwell Ultra, 16-GPU Board)</h3>
-                <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
-                  <Image
-                    src="/products/hgx_b300.webp"
-                    alt="NVIDIA HGX B300 NVL16 Blackwell Ultra 16-GPU board in enterprise server configuration"
-                    fill
-                    className="object-cover"
-                  />
+            {/* HGX B300 Section */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up flex flex-col" style={{ animationDelay: '300ms' }}>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX B300 NVL16 (Blackwell Ultra, 16-GPU Board)</h3>
+              <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
+                <Image
+                  src="/products/hgx_b300.webp"
+                  alt="NVIDIA HGX B300 NVL16 Blackwell Ultra 16-GPU board in enterprise server configuration"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Most powerful Enterprise AI Platform with sixteen Blackwell Ultra GPUs wired into a single NVLink-5 domain for maximum performance.
+              </p>
+              <div className="space-y-3 mt-auto">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>2.3 TB HBM3e</strong> on board
+                  </span>
                 </div>
-                <p className="text-gray-600 mb-4">
-                  Most powerful HGX platform with sixteen Blackwell Ultra GPUs wired into a single NVLink-5 domain for maximum performance.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>2.3 TB HBM3e</strong> on board
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>≈11× faster</strong> LLM inference vs HGX H100
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>1.8 TB/s</strong> NVLink interconnect bandwidth
-                    </span>
-                  </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>≈11× faster</strong> LLM inference vs HGX H100
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>1.8 TB/s</strong> NVLink interconnect bandwidth
+                  </span>
                 </div>
               </div>
+            </div>
 
-              {/* HGX H100 Section */}
-              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up " style={{ animationDelay: '500ms' }}>
-                <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX H100 (Hopper, 4- or 8-GPU Board)</h3>
-                <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
-                  <Image
-                    src="/products/hgx-h100.webp"
-                    alt="NVIDIA HGX H100 Hopper 8-GPU board - the proven workhorse for AI training and inference"
-                    fill
-                    className="object-cover"
-                  />
+            {/* HGX H200 Section */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up flex flex-col" style={{ animationDelay: '400ms' }}>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX H200 (Hopper+, 8-GPU Board)</h3>
+              <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
+                <Image
+                  src="/products/hgx-h200.webp"
+                  alt="NVIDIA HGX H200 Hopper+ 8-GPU board with enhanced memory capacity"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Enhanced Hopper architecture with significantly increased memory capacity for large language models and complex AI workloads.
+              </p>
+              <div className="space-y-3 mt-auto">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>1.1 TB</strong> aggregate memory capacity
+                  </span>
                 </div>
-                <p className="text-gray-600 mb-4">
-                  Proven workhorse for AI training and inference with broad ecosystem support across all major OEM platforms.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>640 GB HBM3</strong> total capacity
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>Widely certified</strong> across every Tier-1 OEM
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
-                    <span className="text-sm text-gray-700">
-                      <strong>3rd-generation</strong> NVLink across board
-                    </span>
-                  </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>~1.9× faster</strong> Llama-2 70B inference vs H100
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>Drop-in compatible</strong> with Hopper servers
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* HGX H100 Section */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up flex flex-col" style={{ animationDelay: '500ms' }}>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX H100 (Hopper, 4- or 8-GPU Board)</h3>
+              <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
+                <Image
+                  src="/products/hgx-h100.webp"
+                  alt="NVIDIA HGX H100 Hopper 8-GPU board - the proven workhorse for AI training and inference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Proven workhorse for AI training and inference with broad ecosystem support across all major OEM platforms.
+              </p>
+              <div className="space-y-3 mt-auto">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>640 GB HBM3</strong> total capacity
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>Widely certified</strong> across every Tier-1 OEM
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-accent-green rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">
+                    <strong>3rd-generation</strong> NVLink across board
+                  </span>
                 </div>
               </div>
             </div>
@@ -302,19 +290,7 @@ export default function NvidiaHGXPage() {
             specific AI infrastructure requirements.
           </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-48 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            <div className="flex-1 flex items-center justify-center">
-              <Image
-                src="/products/poweredge_xe_series.webp"
-                alt="Dell PowerEdge XE Series"
-                width={120}
-                height={60}
-                className="object-contain"
-              />
-            </div>
-            <p className="text-sm text-gray-600 mt-4">PowerEdge XE Series</p>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-48 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <div className="flex-1 flex items-center justify-center">
               <Image 
@@ -363,7 +339,7 @@ export default function NvidiaHGXPage() {
             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <h3 className="text-xl font-semibold mb-3 text-charcoal">Flexible Deployment</h3>
               <p className="text-gray-600">
-                HGX platforms integrate into diverse server designs, allowing organizations to choose the optimal form
+                Enterprise AI Platforms integrate into diverse server designs, allowing organizations to choose the optimal form
                 factor and features for their specific AI workloads and infrastructure requirements.
               </p>
             </div>
@@ -443,7 +419,7 @@ export default function NvidiaHGXPage() {
           <div className="bg-accent-green/10 rounded-lg p-8 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <h2 className="text-3xl font-bold mb-4 text-charcoal">Build Your AI Infrastructure with HGX</h2>
             <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
-              Contact our team to discuss your AI computing requirements and learn how NVIDIA HGX systems can provide the
+              Contact our team to discuss your AI computing requirements and learn how Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems) can provide the
               optimal foundation for your AI infrastructure, from single nodes to large-scale deployments.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

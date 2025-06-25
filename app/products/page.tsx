@@ -21,10 +21,10 @@ const productCategories = [
     alt: "NVIDIA DGX system in a data center environment, showcasing its powerful AI computing capabilities.",
   },
   {
-    name: "NVIDIA HGX Systems",
+    name: "Enterprise AI Platforms",
     href: "/products/nvidia-hgx",
     description:
-      "Power the most demanding AI and HPC workloads with NVIDIA HGX platforms. Combining high-performance NVIDIA GPUs, NVLink, and InfiniBand networking, HGX delivers extreme scalability and efficiency for complex model training and large-scale simulations. AIdeology offers custom HGX server solutions, architected to accelerate your most ambitious AI projects.",
+      "Power the most demanding AI and HPC workloads with Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems). Combining high-performance NVIDIA GPUs, NVLink, and InfiniBand networking, HGX delivers extreme scalability and efficiency for complex model training and large-scale simulations. AIdeology offers custom HGX server solutions, architected to accelerate your most ambitious AI projects.",
     image: "/products/nvidia_hgx_systems.webp", // Image for HGX Systems
     alt: "Close-up of an NVIDIA HGX system with multiple GPUs, highlighting its dense computing power for AI.",
   },

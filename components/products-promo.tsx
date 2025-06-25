@@ -10,7 +10,7 @@ export default function ProductsPromo() {
 
   const productCategories = [
     { name: "NVIDIA DGX Systems", href: "/products/nvidia-dgx", icon: Server },
-    { name: "NVIDIA HGX Systems", href: "/products/nvidia-hgx", icon: Cpu },
+    { name: "Enterprise AI Platforms", href: "/products/nvidia-hgx", icon: Cpu },
     { name: "Storage Systems", href: "/products/storage-systems", icon: HardDrive },
     { name: "NVIDIA AI Enterprise", href: "/products/nvidia-ai-enterprise", icon: BrainCog },
   ]
@@ -43,7 +43,7 @@ export default function ProductsPromo() {
             style={{ animationDelay: '300ms' }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">
-              Cutting-Edge AI Products to Power Your Vision
+             Pioneering AI Products to Power Your Vision
             </h2>
             <p className="text-lg text-gray-700 mb-6">
               AIdeology offers a curated selection of industry-leading AI hardware and software. Equip your organization

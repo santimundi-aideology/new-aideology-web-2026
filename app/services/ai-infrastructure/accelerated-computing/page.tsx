@@ -232,7 +232,7 @@ export default function AcceleratedComputingPage() {
               <h3 className="text-3xl font-bold mb-4">Leveraging NVIDIA's Ecosystem</h3>
               <p className="text-gray-300 mb-6 text-lg">
                 AIdeology harnesses NVIDIA's comprehensive accelerated computing portfolio, including A100 & H100 Tensor
-                Core GPUs, DGX systems, and HGX platforms. These technologies form the bedrock of our high-performance
+                Core GPUs, DGX systems, and Enterprise AI Platforms. These technologies form the bedrock of our high-performance
                 solutions, delivering unparalleled performance for AI training, inference, and HPC.
               </p>
               <Button

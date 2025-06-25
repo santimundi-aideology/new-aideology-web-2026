@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Cpu, Wrench, Shield, Zap, Factory, Car, Brain, Cog, Bot, Settings, ChevronRight, CheckCircle, TrendingUp } from "lucide-react"
+import { ArrowRight, Cpu, Wrench, Shield, Zap, Factory, Car, Brain, Cog, Bot, Settings, ChevronRight, CheckCircle, TrendingUp, DollarSign, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import Footer from "@/components/footer"
 
 const RoboticsEdgeAIPage = () => {
   const roboticsSolutions = [
@@ -12,12 +13,6 @@ const RoboticsEdgeAIPage = () => {
       title: "Industrial Automation",
       description: "Smart robotic systems that optimize manufacturing processes and increase production efficiency.",
       applications: ["Assembly line automation", "Quality inspection", "Material handling"]
-    },
-    {
-      icon: <Car className="w-8 h-8 text-accent-green" />,
-      title: "Autonomous Vehicles",
-      description: "AI-powered navigation and control systems for self-driving vehicles and autonomous mobile robots.",
-      applications: ["Self-driving cars", "Warehouse robots", "Delivery drones"]
     },
     {
       icon: <Bot className="w-8 h-8 text-accent-green" />,
@@ -34,10 +29,26 @@ const RoboticsEdgeAIPage = () => {
   ]
 
   const benefits = [
-    { title: "Increased Efficiency", description: "Automate repetitive tasks to boost productivity" },
-    { title: "Cost Savings", description: "Reduce operational costs through smart automation" },
-    { title: "Enhanced Safety", description: "Minimize human exposure to dangerous environments" },
-    { title: "Real-time Processing", description: "Make instant decisions with edge AI capabilities" }
+    { 
+      title: "Increased Efficiency", 
+      description: "Automate repetitive tasks to boost productivity",
+      icon: <TrendingUp className="w-8 h-8 text-accent-green" />
+    },
+    { 
+      title: "Cost Savings", 
+      description: "Reduce operational costs through smart automation",
+      icon: <DollarSign className="w-8 h-8 text-accent-green" />
+    },
+    { 
+      title: "Enhanced Safety", 
+      description: "Minimize human exposure to dangerous environments",
+      icon: <Shield className="w-8 h-8 text-accent-green" />
+    },
+    { 
+      title: "Real-time Processing", 
+      description: "Make instant decisions with edge AI capabilities",
+      icon: <Zap className="w-8 h-8 text-accent-green" />
+    }
   ]
 
   const industries = [
@@ -50,11 +61,6 @@ const RoboticsEdgeAIPage = () => {
       name: "Transportation",
       icon: <Car className="w-6 h-6 text-accent-green" />,
       useCase: "Autonomous vehicles and fleet management solutions"
-    },
-    {
-      name: "Healthcare",
-      icon: <Shield className="w-6 h-6 text-accent-green" />,
-      useCase: "Surgical robots and patient care automation"
     },
     {
       name: "Logistics",
@@ -77,9 +83,9 @@ const RoboticsEdgeAIPage = () => {
       icon: <Cpu className="w-5 h-5" />
     },
     {
-      title: "Robotic Automation",
-      description: "End-to-end robotic process automation",
-      href: "/solutions/ai-automation",
+      title: "Robotics Solutions",
+      description: "End-to-end robotics solutions design and implementation",
+      href: "/services/robotics-edge-ai/robotics/",
       icon: <Cog className="w-5 h-5" />
     }
   ]
@@ -145,7 +151,7 @@ const RoboticsEdgeAIPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {roboticsSolutions.map((solution, index) => (
                 <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
                   <CardHeader>
@@ -192,7 +198,7 @@ const RoboticsEdgeAIPage = () => {
               {benefits.map((benefit, index) => (
                 <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="w-8 h-8 text-accent-green" />
+                    {benefit.icon}
                   </div>
                   <h3 className="text-lg font-bold text-charcoal mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
@@ -218,15 +224,15 @@ const RoboticsEdgeAIPage = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {edgeSolutions.map((solution, index) => (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
-                  <CardHeader className="text-center">
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up flex flex-col" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                  <CardHeader className="text-center flex-grow">
                     <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-accent-green/20 transition-all">
                       {solution.icon}
                     </div>
                     <CardTitle className="text-xl">{solution.title}</CardTitle>
-                    <CardDescription>{solution.description}</CardDescription>
+                    <CardDescription className="flex-grow">{solution.description}</CardDescription>
                   </CardHeader>
-                  <CardContent className="text-center">
+                  <CardContent className="text-center mt-auto">
                     <Button asChild variant="outline" className="group-hover:bg-accent-green group-hover:text-white transition-all">
                       <Link href={solution.href}>
                         Learn More
@@ -254,7 +260,7 @@ const RoboticsEdgeAIPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {industries.map((industry, index) => (
                 <div key={index} className="bg-gray-800 rounded-2xl p-8 animate-fade-in-up" style={{ animationDelay: `${300 + index * 150}ms` }}>
                   <div className="flex items-center mb-4">
@@ -304,6 +310,8 @@ const RoboticsEdgeAIPage = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }
