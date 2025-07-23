@@ -4,9 +4,9 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { toast } from 'sonner';
-import { Loader2, ArrowRight, ArrowLeft, CalendarIcon } from 'lucide-react';
+import { Loader2, ArrowRight, ArrowLeft, CalendarIcon, Clock } from 'lucide-react';
 import { format } from 'date-fns';
+import SubmissionStatusModal from '@/components/submission-status-modal';
 
 interface BookingFormData {
   name: string;
@@ -127,6 +127,13 @@ function BookDiscoveryCallContent() {
     selectedTime: '',
   });
 
+  // Modal state
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    isSuccess: false,
+    message: "",
+  });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -163,27 +170,69 @@ function BookDiscoveryCallContent() {
     setIsSubmitting(true);
 
     try {
-      // TODO: Implement actual booking logic here
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast.success(`Your ${type === 'demo' ? 'demo' : type === 'consultation' ? 'consultation' : type === 'assessment' ? 'assessment' : 'discovery call'} has been scheduled! You will receive a confirmation email shortly.`);
-      // Reset form and go back to step 1
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        jobTitle: '',
-        projectDescription: '',
-        selectedTopics: [],
-        selectedDate: undefined,
-        selectedTime: '',
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          selectedDate: formData.selectedDate ? format(formData.selectedDate, 'yyyy-MM-dd') : '',
+          type: type,
+          fromPage: fromPage,
+        }),
       });
-      setStep(1);
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success modal
+        setModalState({
+          isOpen: true,
+          isSuccess: true,
+          message: result.message,
+        });
+        
+        // Reset form and go back to step 1
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          jobTitle: '',
+          projectDescription: '',
+          selectedTopics: [],
+          selectedDate: undefined,
+          selectedTime: '',
+        });
+        setStep(1);
+      } else {
+        // Show error modal
+        setModalState({
+          isOpen: true,
+          isSuccess: false,
+          message: result.message,
+        });
+      }
     } catch (error) {
-      toast.error('There was an error scheduling your call. Please try again.');
+      console.error('Error submitting booking:', error);
+      
+      // Show error modal
+      setModalState({
+        isOpen: true,
+        isSuccess: false,
+        message: "There was an error scheduling your call. Please try again or contact us directly.",
+      });
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleModalClose = () => {
+    setModalState({
+      isOpen: false,
+      isSuccess: false,
+      message: "",
+    });
   };
 
   const canProceedToStep2 = formData.name && formData.email && formData.company && formData.jobTitle;
@@ -191,37 +240,17 @@ function BookDiscoveryCallContent() {
   const canSubmit = formData.selectedDate && formData.selectedTime;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{getHeadingText()}</h1>
-          <p className="text-lg text-gray-600">
-            {getDescriptionText()}
-          </p>
-        </div>
-
-        {/* Progress Steps */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center">
-            {[1, 2, 3].map((stepNumber) => (
-              <div key={stepNumber} className="flex-1">
-                <div
-                  className={`h-2 ${
-                    stepNumber < step
-                      ? 'bg-accent-green'
-                      : stepNumber === step
-                      ? 'bg-accent-green/60'
-                      : 'bg-gray-200'
-                  } transition-all duration-300`}
-                />
-                <div className="mt-2 text-sm text-gray-600 text-center">
-                  {stepNumber === 1 ? 'Basic Info' : stepNumber === 2 ? 'Project Details' : 'Schedule'}
-                </div>
-              </div>
-            ))}
+    <>
+      <div className="min-h-screen bg-gray-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{getHeadingText()}</h1>
+            <p className="text-lg text-gray-600">
+              {getDescriptionText()}
+            </p>
           </div>
-        </div>
 
+<<<<<<< HEAD
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             {step === 1 && (
@@ -238,9 +267,31 @@ function BookDiscoveryCallContent() {
                     value={formData.name}
                     onChange={handleChange}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
+=======
+          {/* Progress Steps */}
+          <div className="mb-8">
+            <div className="flex justify-between items-center">
+              {[1, 2, 3].map((stepNumber) => (
+                <div key={stepNumber} className="flex-1">
+                  <div
+                    className={`h-2 ${
+                      stepNumber < step
+                        ? 'bg-accent-green'
+                        : stepNumber === step
+                        ? 'bg-accent-green/60'
+                        : 'bg-gray-200'
+                    } transition-all duration-300`}
+>>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
                   />
+                  <div className="mt-2 text-sm text-gray-600 text-center">
+                    {stepNumber === 1 ? 'Basic Info' : stepNumber === 2 ? 'Project Details' : 'Schedule'}
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
+<<<<<<< HEAD
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Work Email *
@@ -285,19 +336,73 @@ function BookDiscoveryCallContent() {
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                   />
                 </div>
+=======
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {step === 1 && (
+                <div className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    />
+                  </div>
 
-                <Button
-                  type="button"
-                  onClick={() => setStep(2)}
-                  disabled={!canProceedToStep2}
-                  className="w-full flex justify-center items-center py-3 px-4 text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                >
-                  Next Step
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            )}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                      Work Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    />
+                  </div>
 
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-700">
+                      Company Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      id="company"
+                      required
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    />
+                  </div>
+>>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
+
+                  <div>
+                    <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">
+                      Job Title *
+                    </label>
+                    <input
+                      type="text"
+                      name="jobTitle"
+                      id="jobTitle"
+                      required
+                      value={formData.jobTitle}
+                      onChange={handleChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    />
+                  </div>
+
+<<<<<<< HEAD
             {step === 2 && (
               <div className="space-y-6">
                 <div>
@@ -347,27 +452,21 @@ function BookDiscoveryCallContent() {
                 </div>
 
                 <div className="flex gap-4">
+=======
+>>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
                   <Button
                     type="button"
-                    onClick={() => setStep(1)}
-                    className="flex-1 flex justify-center items-center py-3 px-4 border border-accent-green text-accent-green hover:bg-accent-green hover:text-white transition-all duration-300"
-                  >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Previous
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setStep(3)}
-                    disabled={!canProceedToStep3}
-                    className="flex-1 flex justify-center items-center py-3 px-4 text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    onClick={() => setStep(2)}
+                    disabled={!canProceedToStep2}
+                    className="w-full flex justify-center items-center py-3 px-4 text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     Next Step
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
-              </div>
-            )}
+              )}
 
+<<<<<<< HEAD
             {step === 3 && (
               <div className="space-y-6">
                 <div>
@@ -394,6 +493,118 @@ function BookDiscoveryCallContent() {
                     <div>
                       <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Time (GST)</h4>
                       <div className="bg-white border border-gray-300 rounded-lg p-4 max-h-80 overflow-y-auto">
+=======
+              {step === 2 && (
+                <div className="space-y-6">
+                  <div>
+                    <label htmlFor="projectDescription" className="block text-sm font-medium text-gray-700">
+                      Tell us about your project and what you'd like to discuss *
+                    </label>
+                    <textarea
+                      name="projectDescription"
+                      id="projectDescription"
+                      required
+                      rows={6}
+                      value={formData.projectDescription}
+                      onChange={handleChange}
+                      placeholder="Please include any specific areas you'd like to discuss, current challenges, and your goals."
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                      Select Topics of Interest *
+                    </label>
+                    {Object.entries(groupedTopics).map(([category, categoryTopics]) => (
+                      <div key={category} className="mb-6">
+                        <h3 className="text-sm font-semibold text-gray-900 mb-2">{category}</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                          {categoryTopics.map((topic) => (
+                            <button
+                              key={topic.id}
+                              type="button"
+                              onClick={() => handleTopicToggle(topic.id)}
+                              className={`p-3 rounded-lg text-sm text-left transition-all duration-300 ${
+                                formData.selectedTopics.includes(topic.id)
+                                  ? 'bg-accent-green text-charcoal'
+                                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                              }`}
+                            >
+                              {topic.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                    {formData.selectedTopics.length === 0 && (
+                      <p className="mt-2 text-sm text-gray-500">Please select at least one topic</p>
+                    )}
+                  </div>
+
+                  <div className="flex gap-4">
+                    <Button
+                      type="button"
+                      onClick={() => setStep(1)}
+                      className="flex-1 flex justify-center items-center py-3 px-4 border border-accent-green text-accent-green hover:bg-accent-green hover:text-white transition-all duration-300"
+                    >
+                      <ArrowLeft className="mr-2 h-4 w-4" />
+                      Previous
+                    </Button>
+                    <Button
+                      type="button"
+                      onClick={() => setStep(3)}
+                      disabled={!canProceedToStep3}
+                      className="flex-1 flex justify-center items-center py-3 px-4 text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    >
+                      Next Step
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+              {step === 3 && (
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-4">
+                      Select a Date and Time for Your Call *
+                    </label>
+                    
+                    {/* Timezone Information */}
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
+                      <div className="flex items-center">
+                        <Clock className="h-5 w-5 text-blue-500 mr-2" />
+                        <div>
+                          <p className="text-sm font-medium text-blue-800">
+                            Time Zone: Gulf Standard Time (GST)
+                          </p>
+                          <p className="text-sm text-blue-700">
+                            All times are displayed in Dubai time (UTC+4). Please select a time that works for you in this timezone.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div>
+                        <Calendar
+                          mode="single"
+                          selected={formData.selectedDate}
+                          onSelect={handleDateSelect}
+                          className="rounded-md border"
+                          disabled={(date) => 
+                            date < new Date() || // Past dates
+                            date.getDay() === 0 || // Sunday
+                            date.getDay() === 6    // Saturday
+                          }
+                        />
+                      </div>
+                      <div>
+                        <div className="mb-3">
+                          <p className="text-sm font-medium text-gray-700">Available Times (GST)</p>
+                        </div>
+>>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
                         <div className="grid grid-cols-2 gap-2">
                           {availableTimeSlots.map((time) => (
                             <Button
@@ -401,10 +612,17 @@ function BookDiscoveryCallContent() {
                               type="button"
                               variant="outline"
                               onClick={() => handleTimeSelect(time)}
+<<<<<<< HEAD
                               className={`transition-all duration-200 ${
                                 formData.selectedTime === time
                                   ? 'bg-accent-green text-charcoal border-accent-green hover:bg-accent-green/90'
                                   : 'border-gray-300 text-gray-700 hover:border-accent-green hover:bg-accent-green/10'
+=======
+                              className={`${
+                                formData.selectedTime === time
+                                  ? 'bg-accent-green text-charcoal border-accent-green'
+                                  : 'border-gray-300 text-gray-700 hover:border-accent-green'
+>>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
                               }`}
                             >
                               {time}
@@ -414,6 +632,7 @@ function BookDiscoveryCallContent() {
                       </div>
                     </div>
                   </div>
+<<<<<<< HEAD
                   {formData.selectedDate && formData.selectedTime && (
                     <div className="mt-4 p-4 bg-accent-green/10 border border-accent-green/30 rounded-lg">
                       <p className="text-sm text-charcoal">
@@ -422,40 +641,52 @@ function BookDiscoveryCallContent() {
                     </div>
                   )}
                 </div>
+=======
+>>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
 
-                <div className="flex gap-4">
-                  <Button
-                    type="button"
-                    onClick={() => setStep(2)}
-                    className="flex-1 flex justify-center items-center py-3 px-4 border border-accent-green text-accent-green hover:bg-accent-green hover:text-white transition-all duration-300"
-                  >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Previous
-                  </Button>
-                  <Button
-                    type="submit"
-                    disabled={!canSubmit || isSubmitting}
-                    className="flex-1 flex justify-center items-center py-3 px-4 text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Scheduling...
-                      </>
-                    ) : (
-                      <>
-                        Schedule Call
-                        <CalendarIcon className="ml-2 h-4 w-4" />
-                      </>
-                    )}
-                  </Button>
+                  <div className="flex gap-4">
+                    <Button
+                      type="button"
+                      onClick={() => setStep(2)}
+                      className="flex-1 flex justify-center items-center py-3 px-4 border border-accent-green text-accent-green hover:bg-accent-green hover:text-white transition-all duration-300"
+                    >
+                      <ArrowLeft className="mr-2 h-4 w-4" />
+                      Previous
+                    </Button>
+                    <Button
+                      type="submit"
+                      disabled={!canSubmit || isSubmitting}
+                      className="flex-1 flex justify-center items-center py-3 px-4 text-charcoal bg-accent-green hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Scheduling...
+                        </>
+                      ) : (
+                        <>
+                          Schedule Call
+                          <CalendarIcon className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            )}
-          </form>
+              )}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Submission Status Modal */}
+      <SubmissionStatusModal
+        isOpen={modalState.isOpen}
+        isSuccess={modalState.isSuccess}
+        message={modalState.message}
+        onClose={handleModalClose}
+        autoCloseDelay={5000}
+      />
+    </>
   );
 }
 

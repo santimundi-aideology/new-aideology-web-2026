@@ -228,7 +228,7 @@
 @keyframes scaleIn {
   0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   100% {
     opacity: 1;
@@ -238,47 +238,39 @@
 
 /* Animation Classes - Start hidden and animate on scroll */
 .animate-fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-fade-in-up.animate-in-view {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .animate-slide-in-left {
   opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-slide-in-left.animate-in-view {
-  opacity: 1;
-  transform: translateX(0);
+  animation: slideInLeft 0.6s ease-out;
 }
 
 .animate-slide-in-right {
   opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-slide-in-right.animate-in-view {
-  opacity: 1;
-  transform: translateX(0);
+  animation: slideInRight 0.6s ease-out;
 }
 
 .animate-scale-in {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-scale-in.animate-in-view {
-  opacity: 1;
-  transform: scale(1);
+  animation: scaleIn 0.6s ease-out;
 }
 
 /* Smooth scrolling */
@@ -288,12 +280,11 @@ html {
 
 /* Enhanced hover effects */
 .hover-glow {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .hover-glow:hover {
-  box-shadow: 0 10px 30px rgba(164, 228, 115, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(164, 228, 115, 0.3); /* Using accent-green */
 }
 
 /* 3D Card Flip Animations */
@@ -303,7 +294,7 @@ html {
 
 .card-front, .card-back {
   backface-visibility: hidden;
-  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
 .card-back {
@@ -337,36 +328,81 @@ body {
 
 /* Custom Button Hover Effects */
 .btn-hover-primary {
-  @apply transition-all duration-300 ease-in-out;
+  transition: all 0.3s ease;
 }
 .btn-hover-primary:hover {
-  @apply bg-white text-black;
+  transform: translateY(-2px) scale(1.02);
 }
 
 .btn-white-hover {
-  @apply transition-all duration-300 ease-in-out bg-white text-black;
+  transition: all 0.3s ease;
 }
 .btn-white-hover:hover {
-  @apply bg-black text-white;
+  background-color: white !important;
 }
 
 .btn-green-hover-dark-bg {
-  @apply transition-all duration-300 ease-in-out bg-green-500 text-white;
+  transition: all 0.3s ease;
 }
 .btn-green-hover-dark-bg:hover {
-  @apply bg-white text-black;
+  background-color: #A4E473 !important;
 }
 
 .btn-green-hover-light-bg {
-  @apply transition-all duration-300 ease-in-out bg-green-500 text-white;
+  transition: all 0.3s ease;
 }
 .btn-green-hover-light-bg:hover {
-  @apply bg-black text-white;
+  background-color: #A4E473 !important;
 }
 
 .btn-colored-hover {
-  @apply transition-all duration-300 ease-in-out;
+  transition: all 0.3s ease;
 }
 .btn-colored-hover:hover {
-  @apply bg-black text-white;
+  background-color: #A4E473 !important;
+}
+
+/* Modal Animation Styles */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-scale-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-modal-fade-in {
+  animation: modal-fade-in 0.3s ease-out;
+}
+
+.animate-modal-scale-in {
+  animation: modal-scale-in 0.3s ease-out;
+}
+
+.animate-modal-bounce-in {
+  animation: modal-bounce-in 0.6s ease-out;
 }
