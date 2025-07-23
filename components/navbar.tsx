@@ -74,7 +74,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     forceDarkLogo ||
     pathname.startsWith("/services/") ||
     pathname.startsWith("/products/") ||
-    pathname === "/customers" ||
+    // pathname === "/customers" || // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line when customers page is restored
     pathname === "/news"
 
   // Handle scroll effects
@@ -170,12 +170,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   }
 
   const navItems = [
-    { href: "/", label: "Home", sectionId: "hero" },
+    { href: "/", label: "Home", sectionId: "" },
     { href: { pathname: "/", hash: "#solutions" }, label: "Solutions", sectionId: "solutions" },
     { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
-    { href: { pathname: "/", hash: "#products" }, label: "Products", sectionId: "products" },
-    { href: "/customers", label: "Customers", sectionId: "" },
+    { href: "/products", label: "Products", sectionId: "" },
     { href: "/news", label: "News", sectionId: "" },
+    // { href: "/customers", label: "Customers", sectionId: "" }, // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line and remove this comment when customers page is restored
   ]
 
   const submenuItems: Record<string, { href: string; label: string }[]> = {

@@ -237,7 +237,7 @@ function BookDiscoveryCallContent() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                   />
                 </div>
 
@@ -252,7 +252,7 @@ function BookDiscoveryCallContent() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                   />
                 </div>
 
@@ -267,7 +267,7 @@ function BookDiscoveryCallContent() {
                     required
                     value={formData.company}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                   />
                 </div>
 
@@ -282,7 +282,7 @@ function BookDiscoveryCallContent() {
                     required
                     value={formData.jobTitle}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ function BookDiscoveryCallContent() {
                     value={formData.projectDescription}
                     onChange={handleChange}
                     placeholder="Please include any specific areas you'd like to discuss, current challenges, and your goals."
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                   />
                 </div>
 
@@ -376,38 +376,51 @@ function BookDiscoveryCallContent() {
                   </label>
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
-                      <Calendar
-                        mode="single"
-                        selected={formData.selectedDate}
-                        onSelect={handleDateSelect}
-                        className="rounded-md border"
-                        disabled={(date) => 
-                          date < new Date() || // Past dates
-                          date.getDay() === 0 || // Sunday
-                          date.getDay() === 6    // Saturday
-                        }
-                      />
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Date</h4>
+                      <div className="bg-white border border-gray-300 rounded-lg p-4">
+                        <Calendar
+                          mode="single"
+                          selected={formData.selectedDate}
+                          onSelect={handleDateSelect}
+                          className="rounded-md"
+                          disabled={(date) => 
+                            date < new Date() || // Past dates
+                            date.getDay() === 0 || // Sunday
+                            date.getDay() === 6    // Saturday
+                          }
+                        />
+                      </div>
                     </div>
                     <div>
-                      <div className="grid grid-cols-2 gap-2">
-                        {availableTimeSlots.map((time) => (
-                          <Button
-                            key={time}
-                            type="button"
-                            variant="outline"
-                            onClick={() => handleTimeSelect(time)}
-                            className={`${
-                              formData.selectedTime === time
-                                ? 'bg-accent-green text-charcoal border-accent-green'
-                                : 'border-gray-300 text-gray-700 hover:border-accent-green'
-                            }`}
-                          >
-                            {time}
-                          </Button>
-                        ))}
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Time (GST)</h4>
+                      <div className="bg-white border border-gray-300 rounded-lg p-4 max-h-80 overflow-y-auto">
+                        <div className="grid grid-cols-2 gap-2">
+                          {availableTimeSlots.map((time) => (
+                            <Button
+                              key={time}
+                              type="button"
+                              variant="outline"
+                              onClick={() => handleTimeSelect(time)}
+                              className={`transition-all duration-200 ${
+                                formData.selectedTime === time
+                                  ? 'bg-accent-green text-charcoal border-accent-green hover:bg-accent-green/90'
+                                  : 'border-gray-300 text-gray-700 hover:border-accent-green hover:bg-accent-green/10'
+                              }`}
+                            >
+                              {time}
+                            </Button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
+                  {formData.selectedDate && formData.selectedTime && (
+                    <div className="mt-4 p-4 bg-accent-green/10 border border-accent-green/30 rounded-lg">
+                      <p className="text-sm text-charcoal">
+                        <strong>Selected:</strong> {format(formData.selectedDate, 'EEEE, MMMM d, yyyy')} at {formData.selectedTime} GST
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex gap-4">

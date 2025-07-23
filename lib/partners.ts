@@ -59,6 +59,12 @@ const partners = [
     website: "https://www.lenovo.com/",
   },
   {
+    name: "Dell",
+    logo: "/partner-logos/dell-logo.webp",
+    categories: ["infra-ai"],
+    website: "https://www.dell.com/",
+  },
+  {
     name: "NetApp",
     logo: "/partner-logos/netapp-logo.webp",
     categories: ["infra-ai"],
@@ -78,9 +84,26 @@ const partners = [
     categories: ["infra-ai"],
     website: "https://www.vastdata.com/",
   },
+  {
+    name: "Commscope",
+    logo: "/partner-logos/commscope-logo.webp",
+    categories: ["infra-ai"],
+    website: "https://www.commscope.com/",
+  },
+  {
+    name: "Corning",
+    logo: "/partner-logos/corning-logo.webp",
+    categories: ["infra-ai"],
+    website: "https://www.corning.com/",
+  },
+  {
+    name: "WWT",
+    logo: "/partner-logos/wwt-logo.webp",
+    categories: ["infra-ai"],
+    website: "https://www.wwt.com/",
+  },
   // Gen AI Partners
   { name: "OpenAI", logo: "/partner-logos/openai-logo.webp", categories: ["gen-ai"], website: "https://openai.com/" },
-  { name: "Google", logo: "/partner-logos/google-logo.webp", categories: ["gen-ai"], website: "https://ai.google/" },
   {
     name: "Hugging Face",
     logo: "/partner-logos/huggingface-logo.webp",

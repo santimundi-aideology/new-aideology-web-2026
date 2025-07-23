@@ -268,7 +268,12 @@ export default function AIInfrastructurePage() {
         </div>
       </section>
 
-      {/* G42 Case Study Section */}
+      {/* G42 Case Study Section - HIDDEN */}
+      {/* 
+      TODO: RESTORE G42 CASE STUDY SECTION 
+      To restore this case study block, uncomment the entire section below.
+      This includes the hero image, title, description, and bullet points.
+      
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -288,7 +293,7 @@ export default function AIInfrastructurePage() {
               <p className="text-lg mb-6 text-charcoal/80">
                 AIdeology deployed an NVIDIA DGX SuperPOD for G42, establishing the #1 ranked supercomputer in the Gulf region and achieving 25th position globally on the TOP500 list.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-6">
                 {[
                   "159 NVIDIA DGX servers forming the SuperPOD",
                   "1,272 cutting-edge NVIDIA H100 GPUs",
@@ -308,6 +313,7 @@ export default function AIInfrastructurePage() {
           </div>
         </div>
       </section>
+      */}
       
       {/* Partners Section - Ensure this section remains if needed, or remove if G42 case study replaces general partner display here */}
       <section className="py-20 bg-[#f4f4f4]"> {/* Changed background for visual separation */}

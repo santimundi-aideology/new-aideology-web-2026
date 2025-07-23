@@ -95,11 +95,20 @@ export default function CustomerLogosSection() {
         </div>
 
         <div className="text-center mt-10 animate-fade-in-up" style={{animationDelay: '400ms'}}>
+          {/* TODO: RESTORE CUSTOMERS PAGE - Uncomment the button/link below when customers page is restored */}
+          {/* 
           <Button asChild variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-charcoal transition-all duration-300 hover:scale-105 px-6 py-3">
             <Link href="/customers" className="flex items-center">
               View customer success stories
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
+          </Button>
+          */}
+          <Button disabled variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white/50 cursor-not-allowed px-6 py-3">
+            <span className="flex items-center">
+              View customer success stories (Coming Soon)
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </span>
           </Button>
         </div>
       </div>

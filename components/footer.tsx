@@ -61,8 +61,7 @@ export default function Footer() {
   const quickLinks = [
     { href: "/", label: "Home" },
     { href: "/#solutions", label: "Solutions" },
-    { href: "/customers", label: "Customers" },
-    { href: "/#partners", label: "Partners" },
+    // { href: "/customers", label: "Customers" }, // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line when customers page is restored
     { href: "/news", label: "News" },
     { href: "/#products", label: "Products" }
   ];

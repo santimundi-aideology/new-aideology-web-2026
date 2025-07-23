@@ -89,7 +89,17 @@ export default function PartnerEcosystemSection() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className={`${partner.name === "NVIDIA NEMO" || partner.name === "Run:ai" ? "max-h-16" : "max-h-12"} w-auto object-contain opacity-100 visible`}
+                className={`${
+                  partner.name === "NVIDIA NEMO" || 
+                  partner.name === "Run:ai" || 
+                  partner.name === "VAST" || 
+                  partner.name === "Supermicro" || 
+                  partner.name === "TheCliff" || 
+                  partner.name === "Hugging Face" || 
+                  partner.name === "Cerebras" || 
+                  partner.name === "DDN" 
+                    ? "max-h-16" : "max-h-12"
+                } w-auto object-contain opacity-100 visible`}
                 style={{
                   display: 'block',
                   visibility: 'visible',

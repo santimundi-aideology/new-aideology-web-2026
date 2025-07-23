@@ -133,13 +133,6 @@ function DualVideoBackground() {
       >
         <source src="/homepage-video-2.mp4" type="video/mp4" />
       </video>
-
-      {/* Debug indicator (remove in production) */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="absolute top-4 right-4 z-50 text-white text-sm bg-black/50 p-2 rounded">
-          Video: {currentVideo} | V2 Loaded: {video2Loaded ? 'Yes' : 'No'}
-        </div>
-      )}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductLayout from "@/components/layouts/product-layout"
 import ScrollAnimations from "@/components/scroll-animations"
+import { Zap, ShieldCheck, Award } from "lucide-react"
 
 export const metadata = {
   title: "NVIDIA DGX Systems | Enterprise AI Supercomputers | AIdeology",
@@ -90,21 +91,30 @@ export default function NvidiaDGXPage() {
           <h2 className="text-3xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Why Choose DGX Systems</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <h3 className="text-xl font-semibold mb-3 text-charcoal">Accelerated Performance</h3>
+              <h3 className="text-xl font-semibold mb-3 text-charcoal flex items-center">
+                <Zap className="h-6 w-6 text-accent-green mr-2" />
+                Accelerated Performance
+              </h3>
               <p className="text-gray-600">
                 Purpose-built for AI with optimized hardware, software, and networking to deliver maximum performance for
                 training and inference workloads.
               </p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <h3 className="text-xl font-semibold mb-3 text-charcoal">Enterprise Ready</h3>
+              <h3 className="text-xl font-semibold mb-3 text-charcoal flex items-center">
+                <ShieldCheck className="h-6 w-6 text-accent-green mr-2" />
+                Enterprise Ready
+              </h3>
               <p className="text-gray-600">
                 Enterprise-grade reliability, security, and support with comprehensive software stack including NVIDIA AI
                 Enterprise and management tools.
               </p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <h3 className="text-xl font-semibold mb-3 text-charcoal">Proven Innovation</h3>
+              <h3 className="text-xl font-semibold mb-3 text-charcoal flex items-center">
+                <Award className="h-6 w-6 text-accent-green mr-2" />
+                Proven Innovation
+              </h3>
               <p className="text-gray-600">
                 Trusted by leading AI researchers and enterprises worldwide for breakthrough discoveries and production AI
                 deployments at scale.

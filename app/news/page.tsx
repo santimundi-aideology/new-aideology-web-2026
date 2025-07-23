@@ -197,9 +197,9 @@ export default function NewsPage() {
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-grow px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-accent-green"
+              className="flex-grow px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-accent-green h-12"
             />
-            <Button className="bg-accent-green text-charcoal hover:bg-accent-green/90">Subscribe</Button>
+            <Button className="bg-accent-green text-charcoal hover:bg-accent-green/90 hover:scale-105 transition-all duration-300 h-12">Subscribe</Button>
           </div>
         </div>
       </section>

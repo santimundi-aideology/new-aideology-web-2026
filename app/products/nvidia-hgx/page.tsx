@@ -39,13 +39,14 @@ export default function NvidiaHGXPage() {
             The foundation for AI infrastructure - high-performance GPU-accelerated computing platforms designed for the
             most demanding AI and HPC workloads.
           </p>
-          <div className="relative h-[500px] rounded-lg overflow-hidden mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <div className="relative h-[500px] rounded-lg overflow-hidden mb-8 animate-fade-in-up hover:scale-105 transition-all duration-300 cursor-pointer group" style={{ animationDelay: '200ms' }}>
             <Image
               src="/products/nvidia_hgx_systems.webp"
               alt="NVIDIA HGX GPU-accelerated computing systems in a modern data center"
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-110 transition-transform duration-300"
             />
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
       </div>
@@ -172,7 +173,7 @@ export default function NvidiaHGXPage() {
 
             {/* HGX B300 Section */}
             <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up flex flex-col" style={{ animationDelay: '300ms' }}>
-              <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX B300 NVL16 (Blackwell Ultra, 16-GPU Board)</h3>
+              <h3 className="text-2xl font-bold mb-4 text-charcoal">HGX B300 NVL16 (Blackwell Ultra, 16GPUs)</h3>
               <div className="relative h-[320px] rounded-lg overflow-hidden mb-6">
                 <Image
                   src="/products/hgx_b300.webp"
@@ -291,37 +292,37 @@ export default function NvidiaHGXPage() {
           </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-48 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-72 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <div className="flex-1 flex items-center justify-center">
               <Image 
                 src="/products/apollo_proliant.webp" 
                 alt="Apollo & ProLiant Series" 
-                width={120} 
-                height={60} 
+                width={240} 
+                height={120} 
                 className="object-contain" 
               />
             </div>
             <p className="text-sm text-gray-600 mt-4">Apollo & ProLiant Series</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-48 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-72 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <div className="flex-1 flex items-center justify-center">
               <Image 
                 src="/products/Thinksystem.webp" 
                 alt="ThinkSystem Series" 
-                width={120} 
-                height={60} 
+                width={240} 
+                height={120} 
                 className="object-contain" 
               />
             </div>
             <p className="text-sm text-gray-600 mt-4">ThinkSystem Series</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-48 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+          <div className="bg-white rounded-lg shadow p-6 text-center flex flex-col justify-between h-72 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             <div className="flex-1 flex items-center justify-center">
               <Image
                 src="/products/supermicro.webp"
                 alt="SYS & BigTwin Series"
-                width={120}
-                height={60}
+                width={240}
+                height={120}
                 className="object-contain"
               />
             </div>

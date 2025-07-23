@@ -127,23 +127,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
                 dangerouslySetInnerHTML={{ __html: article.content }}
               />
 
-              {/* Share Links */}
-              <div className="mt-12 pt-6 border-t border-accent-green/10">
-                <h3 className="text-lg font-bold mb-4 flex items-center">
-                  <Share2 className="mr-2 h-5 w-5 text-accent-green" />
-                  Share this article
-                </h3>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="flex items-center gap-2">
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex items-center gap-2">
-                    <Twitter className="h-4 w-4" />
-                    Twitter
-                  </Button>
-                </div>
-              </div>
+              {/* Share section removed */}
             </div>
 
             {/* Sidebar */}
