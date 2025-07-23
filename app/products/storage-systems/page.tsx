@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductLayout from "@/components/layouts/product-layout"
 import ScrollAnimations from "@/components/scroll-animations"
+import { Zap, ArrowUpDown, Database } from "lucide-react"
 
 export const metadata = {
   title: "AI Storage Systems | High-Performance Data Solutions | AIdeology",
@@ -53,8 +54,20 @@ export default function StorageSystemsPage() {
         <h2 className="text-3xl font-bold mb-4 text-charcoal animate-fade-in-up">Our Storage Solutions</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 animate-fade-in-up">
-          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-2 text-charcoal animate-fade-in-up">DDN AI Storage</h3>
+          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up relative">
+            <div className="absolute top-4 right-4">
+              <div className="relative w-16 h-8">
+                <Image
+                  src="/partner-logos/ddn-logo.webp"
+                  alt="DDN Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-2xl font-bold text-charcoal animate-fade-in-up">DDN AI Storage</h3>
+            </div>
             <p className="text-gray-600 mb-4 animate-fade-in-up">
               Industry-leading storage solutions specifically designed for AI and high-performance computing
               environments.
@@ -68,8 +81,20 @@ export default function StorageSystemsPage() {
             </ul>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-2 text-charcoal animate-fade-in-up">VAST Data</h3>
+          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up relative">
+            <div className="absolute top-4 right-4">
+              <div className="relative w-16 h-8">
+                <Image
+                  src="/partner-logos/vast_logo.webp"
+                  alt="VAST Data Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-2xl font-bold text-charcoal animate-fade-in-up">VAST Data</h3>
+            </div>
             <p className="text-gray-600 mb-4 animate-fade-in-up">
               All-flash storage platform that combines the performance of flash with archive economics.
             </p>
@@ -84,8 +109,20 @@ export default function StorageSystemsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
-          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-2 text-charcoal animate-fade-in-up">Weka Data Platform</h3>
+          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up relative">
+            <div className="absolute top-4 right-4">
+              <div className="relative w-16 h-8">
+                <Image
+                  src="/partner-logos/weka-logo.webp"
+                  alt="Weka Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-2xl font-bold text-charcoal animate-fade-in-up">Weka Data Platform</h3>
+            </div>
             <p className="text-gray-600 mb-4 animate-fade-in-up">
               High-performance, scalable file system designed for data-intensive applications and AI workloads.
             </p>
@@ -98,8 +135,20 @@ export default function StorageSystemsPage() {
             </ul>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-2 text-charcoal animate-fade-in-up">NetApp AI Solutions</h3>
+          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up relative">
+            <div className="absolute top-4 right-4">
+              <div className="relative w-16 h-8">
+                <Image
+                  src="/partner-logos/netapp-logo.webp"
+                  alt="NetApp Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-2xl font-bold text-charcoal animate-fade-in-up">NetApp AI Solutions</h3>
+            </div>
             <p className="text-gray-600 mb-4 animate-fade-in-up">
               Enterprise-grade storage solutions with advanced data management capabilities for AI workflows.
             </p>
@@ -120,21 +169,30 @@ export default function StorageSystemsPage() {
           <h2 className="text-3xl font-bold mb-4 text-charcoal animate-fade-in-up">Key Considerations for AI Storage</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">
           <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-xl font-semibold mb-2 text-charcoal animate-fade-in-up">Performance</h3>
+            <div className="flex items-center mb-3">
+              <Zap className="h-6 w-6 text-accent-green mr-3" />
+              <h3 className="text-xl font-semibold text-charcoal animate-fade-in-up">Performance</h3>
+            </div>
             <p className="text-gray-600 animate-fade-in-up">
               AI workloads require exceptional throughput and IOPs to prevent GPUs from waiting for data. Our solutions
               deliver the performance needed to keep AI systems running at peak efficiency.
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-xl font-semibold mb-2 text-charcoal animate-fade-in-up">Scalability</h3>
+            <div className="flex items-center mb-3">
+              <ArrowUpDown className="h-6 w-6 text-accent-green mr-3" />
+              <h3 className="text-xl font-semibold text-charcoal animate-fade-in-up">Scalability</h3>
+            </div>
             <p className="text-gray-600 animate-fade-in-up">
               AI datasets are growing exponentially. Our storage solutions scale seamlessly from terabytes to petabytes,
               allowing your infrastructure to grow with your AI initiatives.
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up">
-            <h3 className="text-xl font-semibold mb-2 text-charcoal animate-fade-in-up">Data Management</h3>
+            <div className="flex items-center mb-3">
+              <Database className="h-6 w-6 text-accent-green mr-3" />
+              <h3 className="text-xl font-semibold text-charcoal animate-fade-in-up">Data Management</h3>
+            </div>
             <p className="text-gray-600 animate-fade-in-up">
               Effective AI requires sophisticated data management. Our solutions include tools for data versioning,
               cataloging, and lifecycle management to streamline AI workflows.

@@ -9,6 +9,7 @@ import LatestNewsSection from "@/components/latest-news-section"
 import NewsletterSignup from "@/components/newsletter-signup"
 import Footer from "@/components/footer"
 import ProductsPromo from "@/components/products-promo"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -17,6 +18,31 @@ export default function Home() {
       <SolutionsSection />
       <WhyAIdeologySection />
       <ProductsPromo />
+      
+      {/* Liquid Model Section */}
+      <section className="py-5 bg-white relative">
+        {/* Top green line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-green to-transparent"></div>
+        
+        <div className="w-full px-0">
+          <div className="w-full text-center">
+            <div className="relative w-full animate-fade-in-up no-image-hover">
+              <Image
+                src="/liquid-model.webp"
+                alt="Liquid AI Model Visualization"
+                width={1920}
+                height={800}
+                className="w-full h-auto object-cover"
+                priority={false}
+              />
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom green line */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-green to-transparent"></div>
+      </section>
+
       <GlobalPresenceSection />
       <CustomerLogosSection />
       <PartnerEcosystemSection />
@@ -25,7 +51,7 @@ export default function Home() {
 
       {/* Newsletter Signup Section */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-md">
+        <div className="container mx-auto px-4 max-w-md animate-fade-in-up">
           <NewsletterSignup />
         </div>
       </section>

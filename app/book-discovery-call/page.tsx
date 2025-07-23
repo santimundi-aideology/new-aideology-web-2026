@@ -28,7 +28,7 @@ const availableTimeSlots = [
 const topics = [
   // Products
   { id: 'nvidia-dgx', label: 'NVIDIA DGX Systems', category: 'Products' },
-  { id: 'nvidia-hgx', label: 'Enterprise AI Platforms', category: 'Products' },
+      { id: 'enterprise-ai', label: 'Enterprise AI Platforms', category: 'Products' },
   { id: 'professional-services', label: 'Professional Services', category: 'Products' },
   { id: 'storage-systems', label: 'Storage Systems', category: 'Products' },
   { id: 'nvidia-ai-enterprise', label: 'NVIDIA AI Enterprise', category: 'Products' },

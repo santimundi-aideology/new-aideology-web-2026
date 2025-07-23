@@ -22,7 +22,7 @@ const productCategories = [
   },
   {
     name: "Enterprise AI Platforms",
-    href: "/products/nvidia-hgx",
+    href: "/products/enterprise-ai",
     description:
       "Power the most demanding AI and HPC workloads with Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems). Combining high-performance NVIDIA GPUs, NVLink, and InfiniBand networking, HGX delivers extreme scalability and efficiency for complex model training and large-scale simulations. AIdeology offers custom HGX server solutions, architected to accelerate your most ambitious AI projects.",
     image: "/products/nvidia_hgx_systems.webp", // Image for HGX Systems
@@ -72,8 +72,8 @@ export default function ProductsPage() {
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } items-center gap-8 md:gap-12 lg:gap-16`}
             >
-              <div className="w-full md:w-5/12 animate-fade-in-up" style={{ animationDelay: `${100 + index * 100}ms` }}>
-                <div className="relative aspect-[4/3] rounded-lg shadow-xl overflow-hidden bg-gray-100 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <div className="w-full md:w-6/12 animate-fade-in-up" style={{ animationDelay: `${100 + index * 100}ms` }}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src={
                       category.image ||
@@ -81,11 +81,11 @@ export default function ProductsPage() {
                     }
                     alt={category.alt}
                     fill
-                    className="object-contain p-4" // Changed to object-contain and added padding for logos/diagrams
+                    className="object-contain hover:scale-110 transition-transform duration-300 rounded-lg"
                   />
                 </div>
               </div>
-              <div className="w-full md:w-7/12 animate-fade-in-up" style={{ animationDelay: `${200 + index * 100}ms` }}>
+              <div className="w-full md:w-6/12 animate-fade-in-up" style={{ animationDelay: `${200 + index * 100}ms` }}>
                 <h2 className="text-3xl font-bold mb-4 text-charcoal">{category.name}</h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">{category.description}</p>
                 <Button
@@ -108,21 +108,21 @@ export default function ProductsPage() {
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 my-16 hover:shadow-2xl transition-all duration-300 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <h2 className="text-3xl font-bold mb-6 text-charcoal text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>Why Choose AIdeology for AI Hardware?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center md:text-left animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <div className="text-center md:text-left animate-fade-in-up hover:bg-gray-50 p-4 rounded-lg transition-all duration-300 hover:scale-105" style={{ animationDelay: '300ms' }}>
               <h3 className="text-xl font-semibold mb-2 text-charcoal">Expert Consultation</h3>
               <p className="text-gray-600">
                 Our AI infrastructure specialists provide tailored guidance, helping you design the optimal hardware and
                 software stack for your specific AI workloads and strategic goals.
               </p>
             </div>
-            <div className="text-center md:text-left animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            <div className="text-center md:text-left animate-fade-in-up hover:bg-gray-50 p-4 rounded-lg transition-all duration-300 hover:scale-105" style={{ animationDelay: '400ms' }}>
               <h3 className="text-xl font-semibold mb-2 text-charcoal">End-to-End Integration</h3>
               <p className="text-gray-600">
                 We manage the entire lifecycle, from procurement and deployment to configuration and ongoing support,
                 ensuring a seamless integration into your existing environment.
               </p>
-            </div>
-            <div className="text-center md:text-left animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+                          </div>
+            <div className="text-center md:text-left animate-fade-in-up hover:bg-gray-50 p-4 rounded-lg transition-all duration-300 hover:scale-105" style={{ animationDelay: '500ms' }}>
               <h3 className="text-xl font-semibold mb-2 text-charcoal">Certified Partnerships</h3>
               <p className="text-gray-600">
                 As an NVIDIA Elite Partner and certified provider for leading technologies, we offer direct access to
@@ -134,21 +134,20 @@ export default function ProductsPage() {
       </div>
 
       <div className="bg-accent-green">
-        <div className="container mx-auto px-4">
-          <div className="rounded-lg shadow-xl p-8 md:p-12 text-center text-charcoal">
-            <h2 className="text-3xl font-bold mb-4">Ready to Build Your AI Infrastructure?</h2>
-            <p className="text-xl text-charcoal mb-8 max-w-2xl mx-auto">
-              Contact our team today to discuss your AI hardware and software requirements. Let us help you architect a
-              customized, high-performance solution proposal.
-            </p>
-            <Button
-              asChild
-              className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
-              size="lg"
-            >
-              <Link href="/contact">Contact us</Link>
-            </Button>
-          </div>
+        <div className="container mx-auto px-4 py-16 text-center text-charcoal">
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Ready to Build Your AI Infrastructure?</h2>
+          <p className="text-xl text-charcoal mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '100ms'}}>
+            Contact our team today to discuss your AI hardware and software requirements. Let us help you architect a
+            customized, high-performance solution proposal.
+          </p>
+          <Button
+            asChild
+            className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out animate-fade-in-up"
+            style={{animationDelay: '200ms'}}
+            size="lg"
+          >
+            <Link href="/contact">Contact us</Link>
+          </Button>
         </div>
       </div>
       <Footer />

@@ -441,7 +441,7 @@ export default function AIAgentComponentsPage() {
                     {component.deliverables.map((deliverable, i) => (
                       <div
                         key={i}
-                        className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent-green deliverable-card hover:shadow-lg transition-shadow"
+                        className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent-green deliverable-card hover:shadow-xl hover:scale-105 transition-all duration-300"
                       >
                         <h4 className="text-lg font-bold mb-3">{deliverable.name}</h4>
                         <p className="text-charcoal/80">{deliverable.description}</p>
@@ -484,7 +484,7 @@ export default function AIAgentComponentsPage() {
                       {integrationsComponent.deliverables.map((deliverable, i) => (
                         <div
                           key={i}
-                          className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent-green/50 hover:shadow-lg transition-shadow"
+                          className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent-green/50 hover:shadow-xl hover:scale-105 transition-all duration-300"
                         >
                           <h4 className="text-lg font-bold mb-3">{deliverable.name}</h4>
                           <p className="text-charcoal/80">{deliverable.description}</p>

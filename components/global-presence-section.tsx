@@ -62,6 +62,13 @@ export default function GlobalPresenceSection() {
       coords: { x: 72, y: 49 },
       description: "Our Dubai hub serves as our headquarters and main operations center for the Middle East region.",
     },
+    {
+      id: "nairobi",
+      name: "Nairobi",
+      timezone: "Africa/Nairobi",
+      coords: { x: 60, y: 65 },
+      description: "Our Nairobi office serves clients across East Africa with comprehensive AI solutions.",
+    },
   ]
 
   // Update times every second
@@ -105,47 +112,35 @@ export default function GlobalPresenceSection() {
         <div className="relative">
           {/* Map Container */}
           <div className="relative w-full max-w-5xl mx-auto mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
-            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-accent-green/10 bg-[#f4f4f4] hover-glow">
-              {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <LoadingSkeleton variant="image" className="w-full h-full" />
-                </div>
-              )}
-              
-              {/* World Map Image with Lazy Loading */}
-              <Image
+                        <div 
+              className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-accent-green/10 bg-[#f4f4f4] hover-glow transition-all duration-300 hover:scale-105"
+              style={{
+                backgroundImage: 'url(/world-map.webp)',
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            >
+              {/* Fallback image in case background doesn't load */}
+              <img
                 src="/world-map.webp"
                 alt="AIdeology Global Presence Map"
-                fill
-                className={`object-contain transition-all duration-500 hover:scale-105 ${
-                  imageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                priority={false}
-                loading="lazy"
+                className="w-full h-full object-contain opacity-0"
                 onLoad={() => setImageLoaded(true)}
-                onError={(e) => {
-                  // Fallback to a placeholder if the specific map image doesn't load
-                  e.currentTarget.src =
-                    "/placeholder.svg?height=600&width=1000&query=World map showing Europe and Middle East"
+                onError={() => {
+                  console.warn('World map image failed to load')
                   setImageLoaded(true)
                 }}
               />
-              
-              {/* Loading overlay with spinner */}
-              {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#f4f4f4]">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent-green"></div>
-                </div>
-              )}
             </div>
           </div>
 
           {/* Real-time Clocks */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+          <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
             {locations.map((location, index) => (
               <Card 
                 key={location.id} 
-                className="bg-white border border-accent-green/20 hover-lift hover:border-accent-green/40 hover:shadow-lg transition-all duration-300 animate-fade-in-up"
+                className="bg-white border border-accent-green/20 hover:border-accent-green/40 hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fade-in-up group"
                 style={{
                   animationDelay: `${400 + index * 100}ms`,
                   animationFillMode: 'both'
@@ -153,12 +148,12 @@ export default function GlobalPresenceSection() {
               >
                 <CardContent className="p-4 text-center">
                   <div className="flex items-center justify-center mb-2">
-                    <Clock className="h-4 w-4 text-accent-green mr-2 transition-transform duration-300 group-hover:rotate-12" />
-                    <h3 className="font-bold text-sm text-charcoal transition-colors duration-300 hover:text-accent-green">{location.name}</h3>
+                    <Clock className="h-4 w-4 text-accent-green mr-2" />
+                    <h3 className="font-bold text-sm text-charcoal group-hover:text-accent-green transition-colors duration-300">{location.name}</h3>
                   </div>
-                  <div className="text-xl md:text-2xl font-mono font-bold text-charcoal transition-all duration-300 hover:scale-110">
+                  <div className="text-lg md:text-xl font-mono font-bold text-charcoal">
                     {!timesLoaded ? (
-                      <div className="animate-pulse bg-gray-200 h-8 rounded"></div>
+                      <div className="animate-pulse bg-gray-200 h-6 rounded"></div>
                     ) : (
                       <span className="text-charcoal">
                         {currentTimes[location.id] || "00:00:00"}

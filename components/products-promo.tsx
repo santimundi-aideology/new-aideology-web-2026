@@ -6,77 +6,56 @@ import { Button } from "@/components/ui/button"
 import { Server, Database, Network, Shield, Cpu, HardDrive, BrainCog } from "lucide-react"
 
 export default function ProductsPromo() {
-  const imageUrl = "/ai-products.webp";
-
-  const productCategories = [
-    { name: "NVIDIA DGX Systems", href: "/products/nvidia-dgx", icon: Server },
-    { name: "Enterprise AI Platforms", href: "/products/nvidia-hgx", icon: Cpu },
-    { name: "Storage Systems", href: "/products/storage-systems", icon: HardDrive },
-    { name: "NVIDIA AI Enterprise", href: "/products/nvidia-ai-enterprise", icon: BrainCog },
-  ]
-
   return (
-    <section id="products" className="py-20 bg-white">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div 
-            className="w-full md:w-1/2 animate-fade-in-up transition-transform duration-300 ease-in-out hover:scale-110"
-            style={{
-              animationDelay: '100ms',
-            }}
-          >
-            <div className="relative w-full">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="lg:w-1/2">
+            <div className="relative w-full h-[563px] md:h-[656px] lg:h-[750px] rounded-lg group cursor-pointer animate-fade-in-up">
               <Image
-                src={imageUrl}
-                alt="Advanced AI data center with high-performance GPU server racks and cooling infrastructure"
-                width={0}
-                height={0}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="rounded-lg shadow-lg"
-                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                src="/ai-products.webp"
+                alt="Advanced AI Products and Infrastructure Solutions"
+                fill
+                className="object-contain group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
-
-          <div 
-            className="w-full md:w-1/2 animate-fade-in-up"
-            style={{ animationDelay: '300ms' }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">
-             Pioneering AI Products to Power Your Vision
+          
+          <div className="lg:w-1/2">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in-up">
+              Pioneering AI Products to Power Your Vision
             </h2>
-            <p className="text-lg text-gray-700 mb-6">
-              AIdeology offers a curated selection of industry-leading AI hardware and software. Equip your organization
-              with the best tools to accelerate innovation, from powerful GPU systems to enterprise-grade AI software
-              and robust infrastructure components.
+            <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{animationDelay: '100ms'}}>
+              Aideology offers a curated selection of industry-leading AI hardware and software. Equip your organization with the best tools to accelerate innovation, from powerful GPU systems to enterprise-grade AI software and robust infrastructure components.
             </p>
-
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3 text-charcoal">Our Product Categories</h3>
-              <ul className="space-y-3">
-                {productCategories.map((category) => {
-                  const IconComponent = category.icon
-                  return (
-                    <li key={category.name}>
-                      <Link
-                        href={category.href}
-                        className="text-gray-700 hover:text-accent-green flex items-center group"
-                      >
-                        <IconComponent className="mr-3 h-5 w-5 text-gray-500 group-hover:text-accent-green" />
-                        {category.name}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
+            
+            <div className="mb-8 animate-fade-in-up" style={{animationDelay: '150ms'}}>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Product Categories</h3>
+              <div className="space-y-4">
+                <Link href="/products/nvidia-dgx" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300">
+                  <Server className="h-5 w-5 text-accent-green" />
+                  <span className="text-gray-700 font-medium hover:text-accent-green">NVIDIA DGX Systems</span>
+                </Link>
+                <Link href="/products/enterprise-ai" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300">
+                  <Cpu className="h-5 w-5 text-accent-green" />
+                  <span className="text-gray-700 font-medium hover:text-accent-green">Enterprise AI Platforms</span>
+                </Link>
+                <Link href="/products/storage-systems" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300">
+                  <HardDrive className="h-5 w-5 text-accent-green" />
+                  <span className="text-gray-700 font-medium hover:text-accent-green">Storage Systems</span>
+                </Link>
+                <Link href="/products/nvidia-ai-enterprise" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300">
+                  <Shield className="h-5 w-5 text-accent-green" />
+                  <span className="text-gray-700 font-medium hover:text-accent-green">NVIDIA AI Enterprise</span>
+                </Link>
+              </div>
             </div>
-
-            <Button 
-              asChild 
-              className="bg-charcoal text-white hover:bg-accent-green hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
-            >
-              <Link href="/products">Explore Products</Link>
-            </Button>
+            
+            <div className="animate-fade-in-up" style={{animationDelay: '200ms'}}>
+              <Button asChild className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-300">
+                <Link href="/products">Explore Products</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function NvidiaDGXPage() {
   return (
     <ProductLayout>
       <ScrollAnimations />
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 mb-16">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-charcoal animate-fade-in-up">NVIDIA DGX Systems</h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -33,7 +33,7 @@ export default function NvidiaDGXPage() {
         </div>
       </div>
 
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 pt-8 mb-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Enterprise-Scale DGX Infrastructure</h2>
 
@@ -86,7 +86,7 @@ export default function NvidiaDGXPage() {
       </div>
 
       {/* Key Benefits Section */}
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 pt-8 mb-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Why Choose DGX Systems</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -124,7 +124,7 @@ export default function NvidiaDGXPage() {
         </div>
       </div>
 
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 pt-8 mb-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Next-Generation DGX Portfolio</h2>
           <p className="text-lg mb-8 text-gray-600 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -303,7 +303,7 @@ export default function NvidiaDGXPage() {
       </div>
 
       {/* Why Choose AIdeology */}
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 pt-8 mb-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Why Choose AIdeology for NVIDIA DGX</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

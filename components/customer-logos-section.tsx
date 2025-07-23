@@ -32,28 +32,49 @@ export default function CustomerLogosSection() {
 
     let animationId: number
     let position = 0
-    const totalWidth = scrollElement.scrollWidth
-    const visibleWidth = scrollElement.clientWidth
-
+    const speed = 0.5 // Even slower, smoother speed
+    
     const animate = () => {
+      const totalWidth = scrollElement.scrollWidth
+      const visibleWidth = scrollElement.clientWidth
+      
       if (totalWidth <= visibleWidth) return
 
-      position += 0.5
+      position += speed
+      
+      // Reset position smoothly when we've scrolled through half the content
       if (position >= totalWidth / 2) {
         position = 0
       }
 
       if (scrollElement) {
-        scrollElement.style.transform = `translateX(${-position}px)`
+        scrollElement.style.transform = `translateX(-${position}px)`
+        scrollElement.style.willChange = 'transform'
       }
 
       animationId = requestAnimationFrame(animate)
     }
 
-    animationId = requestAnimationFrame(animate)
+    // Ensure the animation starts smoothly
+    const startAnimation = () => {
+      // Force initial layout calculation
+      if (scrollElement) {
+        scrollElement.offsetHeight
+      }
+      animationId = requestAnimationFrame(animate)
+    }
+
+    // Start animation after elements are rendered
+    const startDelay = setTimeout(startAnimation, 300)
 
     return () => {
-      cancelAnimationFrame(animationId)
+      clearTimeout(startDelay)
+      if (animationId) {
+        cancelAnimationFrame(animationId)
+      }
+      if (scrollElement) {
+        scrollElement.style.willChange = 'auto'
+      }
     }
   }, [])
 
@@ -79,14 +100,14 @@ export default function CustomerLogosSection() {
               {[...customers, ...customers].map((customer, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 p-4 bg-white rounded-lg border border-gray-200 hover:border-accent-green/50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="flex-shrink-0 p-4 bg-white rounded-lg border border-gray-200 hover:border-accent-green transition-all duration-300 hover:scale-105 hover:shadow-lg group no-image-hover"
                 >
                   <Image
                     src={customer.logo || "/placeholder.svg"}
                     alt={`${customer.name} logo`}
                     width={160}
                     height={80}
-                    className="h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    className="h-16 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               ))}

@@ -320,19 +320,19 @@ export default function NetworkingPage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6 text-center">
+          <div className="bg-white rounded-lg shadow p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
             <h3 className="text-lg font-semibold mb-2 text-charcoal">Design & Architecture</h3>
             <p className="text-gray-600 text-sm">
               Custom network fabric design optimized for your specific AI workloads and performance requirements.
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow p-6 text-center">
+          <div className="bg-white rounded-lg shadow p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
             <h3 className="text-lg font-semibold mb-2 text-charcoal">Implementation & Deployment</h3>
             <p className="text-gray-600 text-sm">
               Professional installation, configuration, and optimization services for maximum performance.
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow p-6 text-center">
+          <div className="bg-white rounded-lg shadow p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
             <h3 className="text-lg font-semibold mb-2 text-charcoal">Support & Maintenance</h3>
             <p className="text-gray-600 text-sm">
               Ongoing monitoring, maintenance, and performance optimization to ensure peak operation.

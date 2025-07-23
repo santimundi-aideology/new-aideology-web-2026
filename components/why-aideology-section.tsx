@@ -49,7 +49,7 @@ export default function WhyAIdeologySection() {
               {kpis.map((kpi, index) => (
                 <Card
                   key={index}
-                  className={`${kpi.color} border text-charcoal hover-lift transition-all duration-300 hover:scale-105 animate-fade-in-up`}
+                  className={`${kpi.color} border text-charcoal hover-lift transition-all duration-300 hover:scale-110 hover:-translate-y-3 hover:shadow-xl animate-fade-in-up cursor-pointer group`}
                   style={{
                     animationDelay: `${200 + index * 150}ms`,
                     animationFillMode: "both",
@@ -65,7 +65,7 @@ export default function WhyAIdeologySection() {
 
             {/* NVIDIA Elite Partner Certification */}
             <div className="animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-              <div className="bg-white p-6 rounded-lg shadow-lg w-full">
+              <div className="bg-white p-6 rounded-lg shadow-lg w-full hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer">
                 <div className="flex items-start gap-6 mb-4">
                   <img 
                     src="/elite-partner.webp" 

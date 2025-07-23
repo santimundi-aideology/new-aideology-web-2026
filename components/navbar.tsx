@@ -213,7 +213,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     ],
     Products: [
       { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
-      { href: "/products/nvidia-hgx", label: "Enterprise AI Platforms" },
+                        { href: "/products/enterprise-ai", label: "Enterprise AI Platforms" },
       { href: "/products/storage-systems", label: "Storage Systems" },
       { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
     ],
@@ -319,12 +319,12 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               </Link>
               {showSubmenu && selectedSubmenu === item.label && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+                  className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 z-50 submenu-no-hover"
                   onMouseEnter={() => handleSubmenuEnter(item.label)}
                   onMouseLeave={handleSubmenuLeave}
                 >
                   {selectedSubmenu === "Solutions" ? (
-                    <div className="flex w-[700px]">
+                    <div className="flex w-[600px]">
                       {/* Left Column */}
                       <div className="w-1/2 p-4 border-r border-gray-200">
                         <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Server, Zap, Users, Cpu, ArrowRight } from "lucide-react"
+import { Server, Zap, Users, Cpu, ArrowRight, Sparkles } from "lucide-react"
 
 export default function SolutionsSection() {
   const [visibleCards, setVisibleCards] = useState<number[]>([])
@@ -64,6 +64,7 @@ export default function SolutionsSection() {
         <Cpu className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
       link: "/solutions/robotics-edge-ai",
+      isNew: true,
       subpages: [
         { name: "Edge AI", path: "/services/robotics-edge-ai/edge-ai" },
         { name: "Vision AI", path: "/services/robotics-edge-ai/vision-ai" },
@@ -126,7 +127,15 @@ export default function SolutionsSection() {
               style={{ animationDelay: `${100 + index * 150}ms` }}
             >
               <CardHeader>
-                <div className="mb-4">{solution.icon}</div>
+                <div className="flex items-center justify-between mb-4">
+                  <div>{solution.icon}</div>
+                  {(solution as any).isNew && (
+                    <div className="flex items-center bg-accent-green text-charcoal px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                      <Sparkles className="h-3 w-3 mr-1" />
+                      NEW
+                    </div>
+                  )}
+                </div>
                 <CardTitle className="text-2xl group-hover:text-accent-green transition-colors duration-300">
                   {solution.title}
                 </CardTitle>
