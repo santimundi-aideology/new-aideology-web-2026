@@ -128,9 +128,9 @@ export default function Footer() {
           <div className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
             <h3 className="text-xl font-bold mb-6 text-white">Contact Us</h3>
             <div className="space-y-4">
-              <a href="tel:+971509637367" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
+              <a href="tel:+971529345717" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
                 <Phone className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                <p className="text-white/70 group-hover:text-white transition-colors duration-300">+971 50 963 7367</p>
+                <p className="text-white/70 group-hover:text-white transition-colors duration-300">+971 529345717</p>
               </a>
               <a href="mailto:aideology@aideology.ai" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
                 <Mail className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0" />

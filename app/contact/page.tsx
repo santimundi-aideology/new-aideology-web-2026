@@ -19,9 +19,9 @@ const contactDetails = [
   },
   {
     icon: Phone,
-    label: "Call Us",
-    value: "+971 50 963 7367",
-    href: "tel:+971509637367",
+    label: "Call Us", 
+    value: "+971 529345717",
+    href: "tel:+971529345717",
   },
   {
     icon: MapPin,
