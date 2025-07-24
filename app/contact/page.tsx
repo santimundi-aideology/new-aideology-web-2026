@@ -26,8 +26,8 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Our Office",
-    value: "101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE",
-    href: "https://maps.app.goo.gl/sqD6d6guPDFGigUN8",
+    value: "Abdullah Omran Taryam St - Al Sufouh - Al Sufouh 2 - Dubai - UAE",
+    href: "https://maps.app.goo.gl/AVNuWtct1mzRrL8d9",
   },
 ]
 
@@ -140,9 +140,9 @@ export default function ContactPage() {
                 {
                   id: "dubai-hq",
                   name: "AIdeology HQ",
-                  coords: { lat: 25.121226, lng: 55.390008 },
+                  coords: { lat: 25.089, lng: 55.151 },
                   description:
-                    "101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE. Visit us for cutting-edge AI solutions.",
+                    "Abdullah Omran Taryam St - Al Sufouh - Al Sufouh 2 - Dubai - UAE. Visit us for cutting-edge AI solutions.",
                 },
               ]}
               height="100%"

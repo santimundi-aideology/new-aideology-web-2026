@@ -360,9 +360,9 @@ export default function AiDataPlatformPage() {
                   <Image
                     src={tech.logo}
                     alt={tech.name}
-                    width={120}
-                    height={60}
-                    className="max-h-12 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    width={160}
+                    height={80}
+                    className="max-h-20 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </Card>
               ))}

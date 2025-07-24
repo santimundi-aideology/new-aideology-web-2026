@@ -28,7 +28,7 @@ const availableTimeSlots = [
 const topics = [
   // Products
   { id: 'nvidia-dgx', label: 'NVIDIA DGX Systems', category: 'Products' },
-      { id: 'enterprise-ai', label: 'Enterprise AI Platforms', category: 'Products' },
+  { id: 'enterprise-ai', label: 'Enterprise AI Platforms', category: 'Products' },
   { id: 'professional-services', label: 'Professional Services', category: 'Products' },
   { id: 'storage-systems', label: 'Storage Systems', category: 'Products' },
   { id: 'nvidia-ai-enterprise', label: 'NVIDIA AI Enterprise', category: 'Products' },
@@ -250,24 +250,6 @@ function BookDiscoveryCallContent() {
             </p>
           </div>
 
-<<<<<<< HEAD
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {step === 1 && (
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
-=======
           {/* Progress Steps */}
           <div className="mb-8">
             <div className="flex justify-between items-center">
@@ -281,7 +263,6 @@ function BookDiscoveryCallContent() {
                         ? 'bg-accent-green/60'
                         : 'bg-gray-200'
                     } transition-all duration-300`}
->>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
                   />
                   <div className="mt-2 text-sm text-gray-600 text-center">
                     {stepNumber === 1 ? 'Basic Info' : stepNumber === 2 ? 'Project Details' : 'Schedule'}
@@ -291,52 +272,6 @@ function BookDiscoveryCallContent() {
             </div>
           </div>
 
-<<<<<<< HEAD
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Work Email *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700">
-                    Company Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    id="company"
-                    required
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">
-                    Job Title *
-                  </label>
-                  <input
-                    type="text"
-                    name="jobTitle"
-                    id="jobTitle"
-                    required
-                    value={formData.jobTitle}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
-                  />
-                </div>
-=======
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
               {step === 1 && (
@@ -352,7 +287,7 @@ function BookDiscoveryCallContent() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                     />
                   </div>
 
@@ -367,7 +302,7 @@ function BookDiscoveryCallContent() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                     />
                   </div>
 
@@ -382,10 +317,9 @@ function BookDiscoveryCallContent() {
                       required
                       value={formData.company}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                     />
                   </div>
->>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
 
                   <div>
                     <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">
@@ -398,62 +332,10 @@ function BookDiscoveryCallContent() {
                       required
                       value={formData.jobTitle}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                     />
                   </div>
 
-<<<<<<< HEAD
-            {step === 2 && (
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="projectDescription" className="block text-sm font-medium text-gray-700">
-                    Tell us about your project and what you'd like to discuss *
-                  </label>
-                  <textarea
-                    name="projectDescription"
-                    id="projectDescription"
-                    required
-                    rows={6}
-                    value={formData.projectDescription}
-                    onChange={handleChange}
-                    placeholder="Please include any specific areas you'd like to discuss, current challenges, and your goals."
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Select Topics of Interest *
-                  </label>
-                  {Object.entries(groupedTopics).map(([category, categoryTopics]) => (
-                    <div key={category} className="mb-6">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-2">{category}</h3>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {categoryTopics.map((topic) => (
-                          <button
-                            key={topic.id}
-                            type="button"
-                            onClick={() => handleTopicToggle(topic.id)}
-                            className={`p-3 rounded-lg text-sm text-left transition-all duration-300 ${
-                              formData.selectedTopics.includes(topic.id)
-                                ? 'bg-accent-green text-charcoal'
-                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                            }`}
-                          >
-                            {topic.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                  {formData.selectedTopics.length === 0 && (
-                    <p className="mt-2 text-sm text-gray-500">Please select at least one topic</p>
-                  )}
-                </div>
-
-                <div className="flex gap-4">
-=======
->>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
                   <Button
                     type="button"
                     onClick={() => setStep(2)}
@@ -466,34 +348,6 @@ function BookDiscoveryCallContent() {
                 </div>
               )}
 
-<<<<<<< HEAD
-            {step === 3 && (
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-4">
-                    Select a Date and Time for Your Call *
-                  </label>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Date</h4>
-                      <div className="bg-white border border-gray-300 rounded-lg p-4">
-                        <Calendar
-                          mode="single"
-                          selected={formData.selectedDate}
-                          onSelect={handleDateSelect}
-                          className="rounded-md"
-                          disabled={(date) => 
-                            date < new Date() || // Past dates
-                            date.getDay() === 0 || // Sunday
-                            date.getDay() === 6    // Saturday
-                          }
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Time (GST)</h4>
-                      <div className="bg-white border border-gray-300 rounded-lg p-4 max-h-80 overflow-y-auto">
-=======
               {step === 2 && (
                 <div className="space-y-6">
                   <div>
@@ -508,7 +362,7 @@ function BookDiscoveryCallContent() {
                       value={formData.projectDescription}
                       onChange={handleChange}
                       placeholder="Please include any specific areas you'd like to discuss, current challenges, and your goals."
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-green focus:ring-accent-green py-3 px-4"
                     />
                   </div>
 
@@ -542,7 +396,7 @@ function BookDiscoveryCallContent() {
                     )}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex space-x-4">
                     <Button
                       type="button"
                       onClick={() => setStep(1)}
@@ -588,63 +442,55 @@ function BookDiscoveryCallContent() {
                     
                     <div className="grid md:grid-cols-2 gap-8">
                       <div>
-                        <Calendar
-                          mode="single"
-                          selected={formData.selectedDate}
-                          onSelect={handleDateSelect}
-                          className="rounded-md border"
-                          disabled={(date) => 
-                            date < new Date() || // Past dates
-                            date.getDay() === 0 || // Sunday
-                            date.getDay() === 6    // Saturday
-                          }
-                        />
+                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Date</h4>
+                        <div className="bg-white border border-gray-300 rounded-lg p-4">
+                          <Calendar
+                            mode="single"
+                            selected={formData.selectedDate}
+                            onSelect={handleDateSelect}
+                            className="rounded-md"
+                            disabled={(date) => 
+                              date < new Date() || // Past dates
+                              date.getDay() === 0 || // Sunday
+                              date.getDay() === 6    // Saturday
+                            }
+                          />
+                        </div>
                       </div>
                       <div>
-                        <div className="mb-3">
-                          <p className="text-sm font-medium text-gray-700">Available Times (GST)</p>
-                        </div>
->>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
-                        <div className="grid grid-cols-2 gap-2">
-                          {availableTimeSlots.map((time) => (
-                            <Button
-                              key={time}
-                              type="button"
-                              variant="outline"
-                              onClick={() => handleTimeSelect(time)}
-<<<<<<< HEAD
-                              className={`transition-all duration-200 ${
-                                formData.selectedTime === time
-                                  ? 'bg-accent-green text-charcoal border-accent-green hover:bg-accent-green/90'
-                                  : 'border-gray-300 text-gray-700 hover:border-accent-green hover:bg-accent-green/10'
-=======
-                              className={`${
-                                formData.selectedTime === time
-                                  ? 'bg-accent-green text-charcoal border-accent-green'
-                                  : 'border-gray-300 text-gray-700 hover:border-accent-green'
->>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
-                              }`}
-                            >
-                              {time}
-                            </Button>
-                          ))}
+                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Time (GST)</h4>
+                        <div className="bg-white border border-gray-300 rounded-lg p-4 max-h-80 overflow-y-auto">
+                          <div className="grid grid-cols-2 gap-2">
+                            {availableTimeSlots.map((time) => (
+                              <Button
+                                key={time}
+                                type="button"
+                                variant="outline"
+                                onClick={() => handleTimeSelect(time)}
+                                className={`transition-all duration-200 ${
+                                  formData.selectedTime === time
+                                    ? 'bg-accent-green text-charcoal border-accent-green hover:bg-accent-green/90'
+                                    : 'border-gray-300 text-gray-700 hover:border-accent-green hover:bg-accent-green/10'
+                                }`}
+                              >
+                                {time}
+                              </Button>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
+                    
+                    {formData.selectedDate && formData.selectedTime && (
+                      <div className="mt-4 p-4 bg-accent-green/10 border border-accent-green/30 rounded-lg">
+                        <p className="text-sm text-charcoal">
+                          <strong>Selected:</strong> {format(formData.selectedDate, 'EEEE, MMMM d, yyyy')} at {formData.selectedTime} GST
+                        </p>
+                      </div>
+                    )}
                   </div>
-<<<<<<< HEAD
-                  {formData.selectedDate && formData.selectedTime && (
-                    <div className="mt-4 p-4 bg-accent-green/10 border border-accent-green/30 rounded-lg">
-                      <p className="text-sm text-charcoal">
-                        <strong>Selected:</strong> {format(formData.selectedDate, 'EEEE, MMMM d, yyyy')} at {formData.selectedTime} GST
-                      </p>
-                    </div>
-                  )}
-                </div>
-=======
->>>>>>> 52b8b660d0413766a671e79f2fa9a71ff5485895
 
-                  <div className="flex gap-4">
+                  <div className="flex space-x-4">
                     <Button
                       type="button"
                       onClick={() => setStep(2)}

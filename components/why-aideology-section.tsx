@@ -22,36 +22,36 @@ export default function WhyAIdeologySection() {
   return (
     <section className="py-20 bg-[#f4f4f4] relative">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Text */}
-          <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-charcoal">Why AIdeology?</h2>
-            <div className="space-y-4 text-gray-600">
-              <p className="text-lg">
-                As an <span className="text-electric-green font-semibold">NVIDIA Elite Solution Provider</span> with
-                certified architects, we bring unparalleled expertise to your AI infrastructure needs.
-              </p>
-              <p className="text-lg">
-                Our strategic contracts with industry leaders like Lenovo, HPE & Supermicro ensure you get the
-                best hardware configurations optimized for your specific workloads.
-              </p>
-              <p className="text-lg">
-                We don't just build systems—we architect solutions that accelerate your AI journey from concept to
-                production, with measurable performance improvements.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Column - KPIs and Elite Partner */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left Column */}
           <div className="space-y-8">
+            {/* Text Content */}
+            <div className="animate-fade-in-up">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-charcoal">Why AIdeology?</h2>
+              <div className="space-y-4 text-gray-600">
+                <p className="text-lg">
+                  As an <span className="text-electric-green font-semibold">NVIDIA Elite Solution Provider</span> with
+                  certified architects, we bring unparalleled expertise to your AI infrastructure needs.
+                </p>
+                <p className="text-lg">
+                  Our strategic contracts with industry leaders like Lenovo, HPE & Supermicro ensure you get the
+                  best hardware configurations optimized for your specific workloads.
+                </p>
+                <p className="text-lg">
+                  We don't just build systems—we architect solutions that accelerate your AI journey from concept to
+                  production, with measurable performance improvements.
+                </p>
+              </div>
+            </div>
+
             {/* KPIs */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               {kpis.map((kpi, index) => (
                 <Card
                   key={index}
                   className={`${kpi.color} border text-charcoal hover-lift transition-all duration-300 hover:scale-110 hover:-translate-y-3 hover:shadow-xl animate-fade-in-up cursor-pointer group`}
                   style={{
-                    animationDelay: `${200 + index * 150}ms`,
+                    animationDelay: `${400 + index * 150}ms`,
                     animationFillMode: "both",
                   }}
                 >
@@ -62,9 +62,12 @@ export default function WhyAIdeologySection() {
                 </Card>
               ))}
             </div>
+          </div>
 
+          {/* Right Column */}
+          <div className="space-y-8">
             {/* NVIDIA Elite Partner Certification */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+            <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <div className="bg-white p-6 rounded-lg shadow-lg w-full hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer">
                 <div className="flex items-start gap-6 mb-4">
                   <img 
@@ -84,6 +87,34 @@ export default function WhyAIdeologySection() {
                     <li>DGX AI Compute Systems</li>
                     <li>DGX Cloud</li>
                   </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Midis Group - Our Investor */}
+            <div className="animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+              <div className="bg-white p-6 rounded-lg shadow-lg w-full hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+                <div className="flex items-start gap-6 mb-4">
+                  <img 
+                    src="/partner-logos/midis-group-logo.webp" 
+                    alt="Midis Group" 
+                    className="w-36 h-auto rounded flex-shrink-0"
+                  />
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-charcoal mb-2">Midis Group - our investor</h4>
+                    <p className="text-gray-700 text-sm">
+                      Midis Group is a globally recognized leader in the technology and{" "}
+                      <span className="underline">IT solutions sector</span>, with a strong presence across the Middle East, Africa, Europe, and Central and Eastern Europe.
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full">
+                  <p className="text-gray-600 text-sm mb-3">
+                    Established over 50 years ago, Midis Group has evolved into a vast network of more than{" "}
+                    <span className="font-semibold text-charcoal">170 companies</span> operating in{" "}
+                    <span className="font-semibold text-charcoal">70 countries</span>, with{" "}
+                    <span className="font-semibold text-charcoal">+5,000 employees</span> consistently delivering cutting-edge technology solutions and services.
+                  </p>
                 </div>
               </div>
             </div>

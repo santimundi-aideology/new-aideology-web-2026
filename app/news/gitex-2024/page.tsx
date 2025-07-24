@@ -7,9 +7,10 @@ import "keen-slider/keen-slider.min.css"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter, Maximize2 } from "lucide-react"
+import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import ImageGallery from "@/components/image-gallery"
 
 // This would typically come from a database or CMS
 const getArticleBySlug = (slug: string) => {
@@ -23,54 +24,42 @@ const getArticleBySlug = (slug: string) => {
       "/news_images/gitex-2024-image_3.webp"
     ],
     content: `
-      <p class="mb-8">We are thrilled to share with you the excitement and insights from this year's GITEX GLOBAL, the largest tech and startup show in the world. We were honored to showcase our cutting-edge Gen AI platform, Maind, alongside other innovative technologies that are shaping the future of industries.</p>
+      <p>From October 14 to 18, 2024, AIdeology was proud to participate in GITEX GLOBAL 2024, one of the world's most influential technology conferences. This year's event was particularly significant as we showcased our latest advancements in AI infrastructure and digital transformation solutions.</p>
 
-      <p class="mb-8">The past few days have been an exhilarating experience, filled with engaging discussions, thought-provoking debates, and awe-inspiring demonstrations of what's possible when technology meets human ingenuity. We were delighted to connect with like-minded individuals from around the globe, exploring the vast potential of AI, robotics, digital twins, and high-performance computing.</p>
+      <h2 class="text-2xl font-semibold mt-10 mb-6">Our Participation</h2>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-6">Showcasing Maind at GITEX</h2>
+      <p>At GITEX GLOBAL 2024, we had the opportunity to present our cutting-edge AI solutions to a diverse audience of industry professionals, technology enthusiasts, and potential partners. Our booth became a hub of innovation, featuring live demonstrations of our enterprise AI platforms and digital twin technologies.</p>
 
-      <p class="mb-8">At our booth with Lenovo (H6-B30), we shared our vision for Maind, a revolutionary Gen AI platform that is poised to transform industries by providing unparalleled scalability, flexibility, and performance. Our team was thrilled to see the interest and enthusiasm from attendees who were eager to learn more about how Maind can help solve real-world problems.</p>
+      <h2 class="text-2xl font-semibold mt-10 mb-6">Key Highlights</h2>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-6">Digital Twins and Physical AI Innovation</h2>
+      <p>This year's GITEX was marked by several groundbreaking announcements and partnerships that will shape the future of AI adoption across industries:</p>
 
-      <p class="mb-8">We also had the opportunity to collaborate with Mindware (H2-A30), where we showcased Digital Twins and Physical AI. Through this collaboration, we demonstrated how Digital Twins drive operational efficiencies, enabling Real-time monitoring, Predictive maintenance, and Streamlined processes.</p>
+      <ul class="list-disc pl-6 mb-8 space-y-2">
+        <li><strong>AI Infrastructure Showcase:</strong> We demonstrated our latest AI infrastructure solutions, including high-performance computing clusters optimized for machine learning workloads.</li>
+        <li><strong>Digital Twin Technology:</strong> Our interactive digital twin demonstrations attracted significant attention, showcasing applications across manufacturing, healthcare, and smart city development.</li>
+        <li><strong>Strategic Partnerships:</strong> We announced new partnerships with leading technology providers to expand our AI ecosystem and enhance our service offerings.</li>
+        <li><strong>Client Success Stories:</strong> We shared compelling case studies of how our AI solutions have transformed operations for clients across various industries.</li>
+      </ul>
 
-      <p class="mb-8">Our showcase of Physical AI emphasized how these advancements are bridging the gap between digital and physical worlds, presenting robust solutions for robotics, autonomous systems, and interactive environments.</p>
+      <h2 class="text-2xl font-semibold mt-10 mb-6">Innovation in Action</h2>
 
-      <h2 class="text-2xl font-semibold mt-10 mb-6">Looking Ahead</h2>
+      <p>The week was filled with engaging presentations, interactive demonstrations, and meaningful connections with industry leaders. We showcased how our AI solutions are not just theoretical concepts but practical tools that are already making a difference in real-world applications.</p>
 
-      <p class="mb-8">This year's GITEX GLOBAL has been a resounding success, and we're grateful to have had the chance to be a part of it. As we look ahead to the next chapter in our journey, we're more confident than ever that our technologies will make a meaningful impact on industries worldwide.</p>
+      <p>Our team engaged with hundreds of visitors, from startups looking to implement their first AI solutions to enterprise clients seeking to scale their existing AI initiatives. The diversity of interests and applications discussed reinforced our belief that AI is truly becoming the cornerstone of digital transformation across all sectors.</p>
 
-      <p class="mb-8">We'd like to extend our heartfelt thanks to everyone who visited us at GITEX GLOBAL, shared their insights and ideas with us, and supported our mission to revolutionize the future of tech. We can't wait to see what the future holds for Maind and our partners!</p>
+      <h2 class="text-2xl font-semibold mt-10 mb-6">Looking Forward</h2>
 
-      <p class="mb-8">Stay tuned for more updates as we continue to push the boundaries of innovation and excellence in AI and beyond!</p>
-    `,
-    relatedArticles: [
-      {
-        id: "1",
-        title: "Driving Enterprise AI Adoption at LEAP 2025: From Data to Decisions with Intelligent Agents",
-        snippet: "Our latest showcase of AI solutions and innovations at LEAP 2025 in Riyadh.",
-        date: "April 16, 2025",
-        image: "/news_images/image_1.webp",
-        category: "Events",
-        slug: "leap-2025",
-      },
-      {
-        id: "3",
-        title: "AIdeology Embarks on New Chapter with Midis Group: A Partnership for Accelerated Innovation",
-        snippet: "Strategic partnership announcement with Midis Group to scale AI solutions across the Middle East.",
-        date: "October 10, 2024",
-        image: "/news_images/image_3.webp",
-        category: "Partnerships",
-        slug: "midis-and-aideology",
-      },
-    ],
+      <p>GITEX GLOBAL 2024 has set the stage for an exciting year ahead. The connections made, partnerships formed, and insights gained will undoubtedly contribute to advancing the AI landscape in the region and beyond.</p>
+
+      <p>We want to thank everyone who visited our booth, participated in our demonstrations, and engaged with our team. Your interest and feedback continue to drive our innovation and commitment to delivering exceptional AI solutions.</p>
+
+      <p>As we look toward the future, we remain committed to pushing the boundaries of what's possible with AI technology, ensuring that our clients and partners are equipped with the tools they need to thrive in an increasingly digital world.</p>
+    `
   }
 }
 
 export default function NewsArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [currentImage, setCurrentImage] = useState(0)
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -79,6 +68,12 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
       setCurrentImage(s.track.details.rel)
     },
   })
+
+  // Prepare images for the gallery component
+  const galleryImages = article.imageGallery.map((src, index) => ({
+    src,
+    alt: `GITEX 2024 image ${index + 1}`
+  }))
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
@@ -115,40 +110,13 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Image Carousel */}
-              <div className="mb-4">
-                <div ref={sliderRef} className="keen-slider rounded-lg overflow-hidden">
-                  {article.imageGallery.map((src, index) => (
-                    <div 
-                      key={index} 
-                      className="keen-slider__slide relative h-[300px] md:h-[400px] group cursor-pointer" 
-                      onClick={() => setSelectedImage(src)}
-                    >
-                      <Image
-                        src={src}
-                        alt={`GITEX 2024 image ${index + 1}`}
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-lg">
-                        <div className="absolute top-2 right-2 p-2 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <Maximize2 className="w-5 h-5 text-white" />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {/* Pagination dots */}
-                <div className="flex justify-center items-center gap-2 mt-4">
-                  {article.imageGallery.map((_, idx) => (
-                    <button
-                      key={idx}
-                      aria-label={`Go to image ${idx + 1}`}
-                      className={`w-3 h-3 rounded-full border border-accent-green transition-all duration-200 ${currentImage === idx ? 'bg-accent-green' : 'bg-white'}`}
-                      onClick={() => instanceRef.current?.moveToIdx(idx)}
-                    />
-                  ))}
-                </div>
+              {/* Image Gallery */}
+              <div className="mb-8">
+                <ImageGallery 
+                  images={galleryImages}
+                  gridCols="grid-cols-1 sm:grid-cols-3"
+                  className="mb-4"
+                />
               </div>
 
               <div
@@ -177,77 +145,46 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <h3 className="text-xl font-bold mb-6">Related Articles</h3>
-                <div className="space-y-6">
-                  {article.relatedArticles.map((related) => (
-                    <Card key={related.id} className="border border-accent-green/20 hover-lift">
-                      <CardContent className="p-0">
-                        <div className="relative h-40">
-                          <Image
-                            src={related.image}
-                            alt={related.title}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="p-4">
-                          <div className="flex items-center mb-2">
-                            <span className="text-xs font-semibold bg-accent-green/10 text-electric-green px-2 py-1 rounded-full">
-                              {related.category}
-                            </span>
-                            <span className="text-xs text-charcoal/60 ml-2 flex items-center">
-                              <Calendar className="h-3 w-3 mr-1 text-accent-green" />
-                              {related.date}
-                            </span>
-                          </div>
-                          <h4 className="font-bold mb-2">{related.title}</h4>
-                          <p className="text-sm text-charcoal/60 mb-2">{related.snippet}</p>
-                          <Link
-                            href={`/news/${related.slug}`}
-                            className="text-electric-green hover:text-electric-green/80 text-sm flex items-center"
-                          >
-                            Read article
-                          </Link>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+              <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 className="text-xl font-bold mb-4">Related Articles</h3>
+                <div className="space-y-4">
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold text-sm mb-2">
+                        <Link href="/news/leap-2024" className="hover:text-accent-green">
+                          LEAP 2024: Showcasing AI Innovation
+                        </Link>
+                      </h4>
+                      <p className="text-xs text-charcoal/60">March 15, 2024</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold text-sm mb-2">
+                        <Link href="/news/gitex-global" className="hover:text-accent-green">
+                          GITEX Global: Partnership Success
+                        </Link>
+                      </h4>
+                      <p className="text-xs text-charcoal/60">October 20, 2023</p>
+                    </CardContent>
+                  </Card>
                 </div>
+              </div>
 
-                <div className="mt-8 bg-accent-green/10 rounded-lg p-6">
-                  <h3 className="text-xl font-bold mb-4">Need AI Infrastructure Solutions?</h3>
-                  <p className="text-charcoal/80 mb-4">
-                    Discover how AIdeology can help you design, deploy, and operate cutting-edge AI infrastructure
-                    tailored to your specific needs.
-                  </p>
-                  <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
-                    <Link href="/contact">Contact Us</Link>
-                  </Button>
-                </div>
+              <div className="bg-accent-green/10 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4">Need AI Infrastructure Solutions?</h3>
+                <p className="text-charcoal/80 mb-4">
+                  Discover how AIdeology can help you design, deploy, and operate cutting-edge AI infrastructure
+                  tailored to your specific needs.
+                </p>
+                <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 cursor-pointer"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative w-full max-w-6xl h-[80vh]">
-            <Image
-              src={selectedImage}
-              alt="Enlarged view"
-              fill
-              className="object-contain"
-              quality={100}
-            />
-          </div>
-        </div>
-      )}
 
       <Footer />
     </main>

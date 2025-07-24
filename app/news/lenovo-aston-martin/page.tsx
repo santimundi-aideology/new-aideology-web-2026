@@ -4,43 +4,24 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter, Maximize2 } from "lucide-react"
+import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import ImageGallery from "@/components/image-gallery"
 import { useState } from "react"
 
 const getArticleBySlug = (slug: string) => {
   return {
-    title: "AIdeology at the Circuit of Catalunya with Lenovo and Aston Martin",
-    date: "September 15, 2023",
+    title: "AIdeology & Lenovo present to the Aston Martin Racing team Digital Twins built with NVIDIA Omniverse",
+    date: "November 15, 2023",
     category: "Partnerships",
-    image: "/news_images/image_7.webp",
-    relatedArticles: [
-      {
-        id: "1",
-        title: "GITEX 2024: A Week of Innovation",
-        snippet: "Our latest showcase at GITEX GLOBAL 2024, featuring cutting-edge AI solutions and partnerships.",
-        date: "October 17, 2024",
-        image: "/news_images/image_2.webp",
-        category: "Events",
-        slug: "gitex-2024",
-      },
-      {
-        id: "2",
-        title: "AIdeology at LEAP 2024, KSA",
-        snippet: "Showcasing our latest AI innovations at LEAP 2024 in Riyadh.",
-        date: "April 5, 2024",
-        image: "/news_images/image_5.webp",
-        category: "Events",
-        slug: "leap-2024",
-      },
-    ],
+    image: "/news_images/astonmartin-image_1.webp",
+    content: `<p>We had the privilege to support Lenovo in presenting their OVX Everyscale solution paired with NVIDIA Omniverse to the Aston Martin Racing team. This was a remarkable opportunity to showcase how cutting-edge technology is revolutionizing the automotive industry.</p>`
   }
 }
 
 export default function NewsArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   const images = [
     {
@@ -94,63 +75,32 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
-              <div className="prose prose-lg max-w-none text-charcoal/80">
-                <h2 className="text-2xl font-semibold mt-10 mb-6">We went to showcase Aston Martin's Digital Twin with Lenovo and Varjo</h2>
+            <div className="lg:col-span-2 space-y-6 text-charcoal/80 prose prose-lg max-w-none">
+              <p className="mb-8">We had the privilege to support Lenovo in presenting their OVX Everyscale solution paired with NVIDIA Omniverse to the Aston Martin Racing team. This was a remarkable opportunity to showcase how cutting-edge technology is revolutionizing the automotive industry.</p>
 
-                <p className="mb-8">We joined forces with the Lenovo team again to showcase the prowess of Aston Martin's high-performance DBX in human-eye resolution VR and XR powered by the Lenovo ThinkStation P7 with NVIDIA RTX A6000 and the latest Varjo XR-3.</p>
+              <p className="mb-8">The demonstration highlighted how digital twins can transform racing car development, from aerodynamic testing to engine optimization, providing Aston Martin with unprecedented insights into vehicle performance.</p>
 
-                <p className="mb-8">In that private event, we supported Lenovo with the installation and implementation of the workstation and digital twin, providing a seamless XR experience to all the team.</p>
+              {/* Image Gallery */}
+              <ImageGallery 
+                images={images}
+                gridCols="grid-cols-2"
+                className="my-8"
+              />
 
-                <p className="mb-8">The event was held at the famous F1 Circuit of Catalunya, where Aston Martin showed alongside their Digital Twin, their two main cars, the Aston Martin DBX and the Aston Martin DBS.</p>
+              <p className="mb-8">Supporting Lenovo in those projects was always a nice experience. Its always nice working with our partners, who are at the technological forefront, exploring new ways to experience things and pushing the boundaries of tech and innovation.</p>
 
-                {/* 2x2 Grid Image Layout */}
-                <div className="grid grid-cols-2 gap-4 my-8">
-                  {images.map((image, index) => (
-                    <div 
-                      key={index} 
-                      className="relative w-full aspect-square group cursor-pointer" 
-                      onClick={() => setSelectedImage(image.src)}
-                    >
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-lg">
-                        <div className="absolute top-2 right-2 p-2 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <Maximize2 className="w-5 h-5 text-white" />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <h2 className="text-2xl font-semibold mt-10 mb-6">What were the reasons that led Aston Martin to create a digital twin of their DBX model?</h2>
 
-                <p className="mb-8">Supporting Lenovo in those projects was always a nice experience. Its always nice working with our partners, who are at the technological forefront, exploring new ways to experience things and pushing the boundaries of tech and innovation.</p>
+              <p className="mb-8">Digital twins offer unprecedented opportunities for automotive manufacturers to optimize their vehicles before physical prototypes are built. For Aston Martin, creating a digital twin of their DBX model represents a strategic investment in advanced simulation and testing capabilities.</p>
 
-                <h2 className="text-2xl font-semibold mt-10 mb-6">What were the reasons that led Aston Martin to create a digital twin of their DBX model?</h2>
+              <p className="mb-8">The key benefits include:</p>
 
-                <p className="mb-8">Creating a digital twin of the DBX model was a strategic move by Aston Martin to enhance customer engagement and streamline design processes. Collaborating with Lenovo and Varjo, they've leveraged virtual and mixed reality technologies to offer a detailed and interactive experience of their luxury SUV. This initiative addresses the challenges of the pandemic, which limited in-person interactions at dealerships and collaborative design efforts.</p>
-
-                <p className="mb-8">The digital twin not only facilitates a better customer experience but also aids in remote collaboration among designers. Aston Martin's use of these technologies is set to expand into other areas such as dealer training and marketing, demonstrating their commitment to innovation and customer service.</p>
-
-                {/* YouTube Video Embed */}
-                <div className="my-10">
-                  <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
-                    <iframe
-                      src="https://www.youtube.com/embed/EJxchAvXkpo"
-                      title="Aston Martin Digital Twin"
-                      width="100%"
-                      height="100%"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
+              <ul className="list-disc pl-6 mb-8 space-y-2">
+                <li><strong>Accelerated Development:</strong> Reduced time-to-market through virtual testing and validation</li>
+                <li><strong>Cost Efficiency:</strong> Minimized physical prototyping and testing expenses</li>
+                <li><strong>Performance Optimization:</strong> Real-time analysis and refinement of vehicle dynamics</li>
+                <li><strong>Risk Mitigation:</strong> Early identification and resolution of potential issues</li>
+              </ul>
 
               {/* Share Links */}
               <div className="mt-12 pt-6 border-t border-accent-green/10">
@@ -173,77 +123,46 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <h3 className="text-xl font-bold mb-6">Related Articles</h3>
-                <div className="space-y-6">
-                  {article.relatedArticles.map((related) => (
-                    <Card key={related.id} className="border border-accent-green/20 hover-lift">
-                      <CardContent className="p-0">
-                        <div className="relative h-40">
-                          <Image
-                            src={related.image}
-                            alt={related.title}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="p-4">
-                          <div className="flex items-center mb-2">
-                            <span className="text-xs font-semibold bg-accent-green/10 text-electric-green px-2 py-1 rounded-full">
-                              {related.category}
-                            </span>
-                            <span className="text-xs text-charcoal/60 ml-2 flex items-center">
-                              <Calendar className="h-3 w-3 mr-1 text-accent-green" />
-                              {related.date}
-                            </span>
-                          </div>
-                          <h4 className="font-bold mb-2">{related.title}</h4>
-                          <p className="text-sm text-charcoal/60 mb-2">{related.snippet}</p>
-                          <Link
-                            href={`/news/${related.slug}`}
-                            className="text-electric-green hover:text-electric-green/80 text-sm flex items-center"
-                          >
-                            Read article
-                          </Link>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+              <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 className="text-xl font-bold mb-4">Related Articles</h3>
+                <div className="space-y-4">
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold text-sm mb-2">
+                        <Link href="/news/gitex-global" className="hover:text-accent-green">
+                          GITEX Global Partnership Success
+                        </Link>
+                      </h4>
+                      <p className="text-xs text-charcoal/60">October 20, 2023</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold text-sm mb-2">
+                        <Link href="/news/lenovo-emea-2023" className="hover:text-accent-green">
+                          Lenovo EMEA 2023 Kick Off
+                        </Link>
+                      </h4>
+                      <p className="text-xs text-charcoal/60">April 15, 2023</p>
+                    </CardContent>
+                  </Card>
                 </div>
+              </div>
 
-                <div className="mt-8 bg-accent-green/10 rounded-lg p-6">
-                  <h3 className="text-xl font-bold mb-4">Need AI Infrastructure Solutions?</h3>
-                  <p className="text-charcoal/80 mb-4">
-                    Discover how AIdeology can help you design, deploy, and operate cutting-edge AI infrastructure
-                    tailored to your specific needs.
-                  </p>
-                  <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
-                    <Link href="/contact">Contact Us</Link>
-                  </Button>
-                </div>
+              <div className="bg-accent-green/10 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4">Need AI Infrastructure Solutions?</h3>
+                <p className="text-charcoal/80 mb-4">
+                  Discover how AIdeology can help you design, deploy, and operate cutting-edge AI infrastructure
+                  tailored to your specific needs.
+                </p>
+                <Button asChild className="bg-accent-green text-charcoal hover:bg-accent-green/90 w-full">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 cursor-pointer"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative w-full max-w-6xl h-[80vh]">
-            <Image
-              src={selectedImage}
-              alt="Enlarged view"
-              fill
-              className="object-contain"
-              quality={100}
-            />
-          </div>
-        </div>
-      )}
 
       <Footer />
     </main>
