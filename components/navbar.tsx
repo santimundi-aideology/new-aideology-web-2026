@@ -437,29 +437,47 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white text-charcoal absolute top-full left-0 w-full h-screen p-4">
-          <nav className="flex flex-col space-y-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={getLinkHref(item.href)}
-                onClick={(e) => handleNavigation(e, item.href)}
-                className="text-lg font-medium hover:text-accent-green"
-              >
-                {item.label}
+      <div className={`lg:hidden bg-white text-charcoal absolute top-full left-0 w-full transition-all duration-300 ease-in-out overflow-hidden ${
+        isMobileMenuOpen 
+          ? 'h-screen opacity-100 translate-y-0' 
+          : 'h-0 opacity-0 -translate-y-4'
+      }`}>
+        <nav className={`flex flex-col space-y-4 p-4 transition-all duration-300 delay-100 ${
+          isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+        }`}>
+          {navItems.map((item, index) => (
+            <Link
+              key={item.label}
+              href={getLinkHref(item.href)}
+              onClick={(e) => handleNavigation(e, item.href)}
+              className={`text-lg font-medium hover:text-accent-green transition-all duration-300 transform ${
+                isMobileMenuOpen 
+                  ? 'translate-x-0 opacity-100' 
+                  : 'translate-x-4 opacity-0'
+              }`}
+              style={{
+                transitionDelay: isMobileMenuOpen ? `${150 + index * 50}ms` : '0ms'
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className={`mt-4 transition-all duration-300 transform ${
+            isMobileMenuOpen 
+              ? 'translate-x-0 opacity-100' 
+              : 'translate-x-4 opacity-0'
+          }`}
+          style={{
+            transitionDelay: isMobileMenuOpen ? `${150 + navItems.length * 50}ms` : '0ms'
+          }}>
+            <Button asChild className="w-full bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300">
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                Contact Us
               </Link>
-            ))}
-            <div className="mt-4">
-              <Button asChild>
-                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Contact Us
-                </Link>
-              </Button>
-            </div>
-          </nav>
-        </div>
-      )}
+            </Button>
+          </div>
+        </nav>
+      </div>
     </header>
   )
 }
