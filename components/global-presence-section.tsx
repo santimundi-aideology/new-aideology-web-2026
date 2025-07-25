@@ -101,6 +101,7 @@ export default function GlobalPresenceSection() {
 
   return (
     <section id="global-presence" className="py-20 bg-white">
+      {/* Title Section - Always has container */}
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Presence</h2>
@@ -108,24 +109,19 @@ export default function GlobalPresenceSection() {
             Strategically located hubs to serve clients worldwide
           </p>
         </div>
+      </div>
 
-        <div className="relative">
-          {/* Map Container */}
+      {/* Desktop Map - Has container */}
+      <div className="hidden lg:block relative">
+        <div className="container mx-auto px-4">
           <div className="relative w-full max-w-5xl mx-auto mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
-                        <div 
-              className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-accent-green/10 bg-[#f4f4f4] hover-glow transition-all duration-300 hover:scale-105"
-              style={{
-                backgroundImage: 'url(/world-map.webp)',
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
-            >
-              {/* Fallback image in case background doesn't load */}
-              <img
+            <div className="relative h-[600px] rounded-lg overflow-hidden border border-accent-green/10 bg-white hover-glow transition-all duration-300 hover:scale-105">
+              <Image
                 src="/world-map.webp"
                 alt="AIdeology Global Presence Map"
-                className="w-full h-full object-contain opacity-0"
+                fill
+                className="object-contain"
+                sizes="1200px"
                 onLoad={() => setImageLoaded(true)}
                 onError={() => {
                   console.warn('World map image failed to load')
@@ -134,36 +130,56 @@ export default function GlobalPresenceSection() {
               />
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Real-time Clocks */}
-          <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {locations.map((location, index) => (
-              <Card 
-                key={location.id} 
-                className="bg-white border border-accent-green/20 hover:border-accent-green/40 hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fade-in-up group"
-                style={{
-                  animationDelay: `${400 + index * 100}ms`,
-                  animationFillMode: 'both'
-                }}
-              >
-                <CardContent className="p-4 text-center">
-                  <div className="flex items-center justify-center mb-2">
-                    <Clock className="h-4 w-4 text-accent-green mr-2" />
-                    <h3 className="font-bold text-sm text-charcoal group-hover:text-accent-green transition-colors duration-300">{location.name}</h3>
-                  </div>
-                  <div className="text-lg md:text-xl font-mono font-bold text-charcoal">
-                    {!timesLoaded ? (
-                      <div className="animate-pulse bg-gray-200 h-6 rounded"></div>
-                    ) : (
-                      <span className="text-charcoal">
-                        {currentTimes[location.id] || "00:00:00"}
-                      </span>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Mobile Map - No container, full width */}
+      <div className="block lg:hidden relative w-full mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
+        <div className="relative w-full h-[500px] md:h-[600px] bg-white">
+          <Image
+            src="/world-map-vertical.webp"
+            alt="AIdeology Global Presence Map"
+            fill
+            className="object-contain"
+            sizes="100vw"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => {
+              console.warn('Vertical world map image failed to load')
+              setImageLoaded(true)
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Real-time Clocks - Always has container */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
+          {locations.map((location, index) => (
+            <Card 
+              key={location.id} 
+              className="bg-white border border-accent-green/20 hover:border-accent-green/40 hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fade-in-up group"
+              style={{
+                animationDelay: `${400 + index * 100}ms`,
+                animationFillMode: 'both'
+              }}
+            >
+              <CardContent className="p-4 text-center">
+                <div className="flex items-center justify-center mb-2">
+                  <Clock className="h-4 w-4 text-accent-green mr-2" />
+                  <h3 className="font-bold text-sm text-charcoal group-hover:text-accent-green transition-colors duration-300">{location.name}</h3>
+                </div>
+                <div className="text-lg md:text-xl font-mono font-bold text-charcoal">
+                  {!timesLoaded ? (
+                    <div className="animate-pulse bg-gray-200 h-6 rounded"></div>
+                  ) : (
+                    <span className="text-charcoal">
+                      {currentTimes[location.id] || "00:00:00"}
+                    </span>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

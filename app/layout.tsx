@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, Montserrat } from "next/font/google"
 import "./globals.css"
 // import ScrollToTop from "@/components/scroll-to-top" // Commented out
@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   generator: "v0.dev",
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 }
 
 export default function RootLayout({

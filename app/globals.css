@@ -42,6 +42,13 @@
   * {
     @apply border-border;
   }
+  
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
   body {
     /* bg-background and text-foreground will now always refer to the light theme defaults */
     /* Explicit default body background is set in layout.tsx */

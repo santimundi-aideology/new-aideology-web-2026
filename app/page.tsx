@@ -24,7 +24,8 @@ export default function Home() {
         {/* Top green line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-green to-transparent"></div>
         
-        <div className="w-full px-0">
+        {/* Desktop Version - Original image */}
+        <div className="hidden lg:block w-full px-0">
           <div className="w-full text-center">
             <div className="relative w-full animate-fade-in-up no-image-hover">
               <Image
@@ -36,6 +37,45 @@ export default function Home() {
                 priority={false}
               />
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Version - Vertical images in sequence */}
+        <div className="block lg:hidden w-full">
+          {/* Image 1 */}
+          <div className="relative w-full animate-fade-in-up no-image-hover">
+            <Image
+              src="/liquid-model-vertical-1.webp"
+              alt="Liquid AI Model Visualization - Part 1"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover"
+              priority={false}
+            />
+          </div>
+          
+          {/* Image 2 */}
+          <div className="relative w-full animate-fade-in-up no-image-hover" style={{animationDelay: '200ms'}}>
+            <Image
+              src="/liquid-model-vertical-2.webp"
+              alt="Liquid AI Model Visualization - Part 2"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover"
+              priority={false}
+            />
+          </div>
+          
+          {/* Image 3 */}
+          <div className="relative w-full animate-fade-in-up no-image-hover" style={{animationDelay: '400ms'}}>
+            <Image
+              src="/liquid-model-vertical-3.webp"
+              alt="Liquid AI Model Visualization - Part 3"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover"
+              priority={false}
+            />
           </div>
         </div>
         
