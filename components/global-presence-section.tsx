@@ -153,7 +153,7 @@ export default function GlobalPresenceSection() {
 
       {/* Real-time Clocks - Always has container */}
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {locations.map((location, index) => (
             <Card 
               key={location.id} 
@@ -163,14 +163,14 @@ export default function GlobalPresenceSection() {
                 animationFillMode: 'both'
               }}
             >
-              <CardContent className="p-4 text-center">
+              <CardContent className="p-3 md:p-4 text-center">
                 <div className="flex items-center justify-center mb-2">
-                  <Clock className="h-4 w-4 text-accent-green mr-2" />
-                  <h3 className="font-bold text-sm text-charcoal group-hover:text-accent-green transition-colors duration-300">{location.name}</h3>
+                  <Clock className="h-4 w-4 md:h-4 md:w-4 text-accent-green mr-1 md:mr-2" />
+                  <h3 className="font-bold text-base md:text-lg text-charcoal group-hover:text-accent-green transition-colors duration-300 truncate">{location.name}</h3>
                 </div>
-                <div className="text-lg md:text-xl font-mono font-bold text-charcoal">
+                <div className="text-lg md:text-xl lg:text-2xl font-mono font-bold text-charcoal">
                   {!timesLoaded ? (
-                    <div className="animate-pulse bg-gray-200 h-6 rounded"></div>
+                    <div className="animate-pulse bg-gray-200 h-6 md:h-7 rounded"></div>
                   ) : (
                     <span className="text-charcoal">
                       {currentTimes[location.id] || "00:00:00"}

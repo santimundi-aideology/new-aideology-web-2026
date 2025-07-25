@@ -57,12 +57,12 @@ export default function PartnerEcosystemSection() {
 
                  <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
           <Tabs value={activeCategory} onValueChange={handleCategoryChange} className="w-full flex justify-center">
-            <TabsList>
+            <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full max-w-lg md:max-w-none h-auto md:h-10 gap-1 md:gap-0">
               {partnerCategories.map(category => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="text-sm md:text-base data-[state=active]:bg-accent-green data-[state=active]:text-charcoal"
+                  className="text-base md:text-xl data-[state=active]:bg-accent-green data-[state=active]:text-charcoal h-10 md:h-auto px-2 md:px-4"
                 >
                   {category.name}
                 </TabsTrigger>
