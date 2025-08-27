@@ -213,7 +213,7 @@ export default function HeroSection() {
             {isTyping && <span className="animate-pulse">|</span>}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90 animate-fade-in-up">
-            Simplify and transform ideas into rational systems engineering artificial intelligence solutions
+            Simplifying and transforming ideas into rational, systems-engineered AI solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 

@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 import Footer from "@/components/footer"
-import { Server, Database, Network, Cpu, Shield, ArrowRight, Zap, Globe, Settings, CheckCircle } from "lucide-react"
+import { Server, Database, Network, Cpu, Shield, ArrowRight, Zap, Globe, Settings, CheckCircle, ChevronRight } from "lucide-react"
 import { allPartners } from "@/lib/partners"
 
 export default function AIInfrastructurePage() {
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "AI Infrastructure" }
+  ];
+
   const features = [
     {
       icon: <Server className="h-8 w-8 text-accent-green" />,
@@ -50,7 +55,7 @@ export default function AIInfrastructurePage() {
         "Implementation and deployment support",
         "Ongoing optimization and maintenance"
       ],
-      link: "/services/ai-infrastructure/professional-services"
+      link: "/solutions/ai-infrastructure/professional-services"
     },
     {
       icon: <Database className="w-12 h-12 text-accent-green" />,
@@ -62,7 +67,7 @@ export default function AIInfrastructurePage() {
         "AI-optimized data architectures",
         "Scalable analytics infrastructure"
       ],
-      link: "/services/ai-infrastructure/ai-data-platform"
+      link: "/solutions/ai-infrastructure/ai-data-platform"
     },
     {
       icon: <Settings className="w-12 h-12 text-accent-green" />,
@@ -74,7 +79,7 @@ export default function AIInfrastructurePage() {
         "Continuous integration and deployment",
         "Performance monitoring and optimization"
       ],
-      link: "/services/ai-infrastructure/mlops"
+      link: "/solutions/ai-infrastructure/mlops"
     },
     {
       icon: <Zap className="w-12 h-12 text-accent-green" />,
@@ -86,7 +91,7 @@ export default function AIInfrastructurePage() {
         "Performance optimization services",
         "Workload-specific acceleration"
       ],
-      link: "/services/ai-infrastructure/accelerated-computing"
+      link: "/solutions/ai-infrastructure/accelerated-computing"
     },
     {
       icon: <Globe className="w-12 h-12 text-accent-green" />,
@@ -98,7 +103,7 @@ export default function AIInfrastructurePage() {
         "Multi-tenant infrastructure solutions",
         "Virtual desktop infrastructure for AI"
       ],
-      link: "/services/ai-infrastructure/virtualization"
+      link: "/solutions/ai-infrastructure/virtualization"
     },
     {
       icon: <Shield className="w-12 h-12 text-accent-green" />,
@@ -110,7 +115,7 @@ export default function AIInfrastructurePage() {
         "Carbon footprint reduction",
         "Sustainable infrastructure practices"
       ],
-      link: "/services/ai-infrastructure/sustainable-computing"
+      link: "/solutions/ai-infrastructure/sustainable-computing"
     }
   ]
 
@@ -119,10 +124,28 @@ export default function AIInfrastructurePage() {
   ).sort((a, b) => a.name.localeCompare(b.name)); // Ensure filtered list is also sorted for display
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-screen text-charcoal">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <nav className="mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+        </nav>
+      </div>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
+      <section className="py-20 md:py-32 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -154,9 +177,9 @@ export default function AIInfrastructurePage() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '500ms' }}>
+            <div className="relative h-[300px] md:h-[400px] rounded-lg shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
-              <Image src="/data-center.webp" alt="AI Infrastructure" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
+              <Image src="/data-center.webp" alt="AI Infrastructure" fill className="object-cover relative z-10 rounded-2xl shadow-2xl transition-transform duration-300 ease-out hover:scale-105" />
             </div>
           </div>
         </div>
@@ -322,21 +345,20 @@ export default function AIInfrastructurePage() {
           {relevantPartners.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center"> {/* Adjusted columns for better fit if many partners */}
               {relevantPartners.map((partner, index) => (
-                <Card
-                  key={partner.name} // Use partner name or unique ID for key
-                  className="bg-white border border-accent-green/10 rounded-md p-6 flex items-center justify-center w-full h-32 group transition-all duration-300 hover:border-accent-green/50 hover:shadow-lg hover:scale-105 animate-fade-in-up"
+                <Link
+                  key={partner.name}
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-lg flex items-center justify-center w-full h-32 hover:border-accent-green/50 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up group"
                   style={{ animationDelay: `${200 + index * 100}ms` }}
                 >
-                  <Link href={partner.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
-                    <Image
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      width={140} // Slightly reduced max size for consistency
-                      height={70}
-                      className="h-auto w-auto max-h-[70px] max-w-[140px] object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
-                    />
-                  </Link>
-                </Card>
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="h-auto w-auto max-h-[84px] max-w-[168px] object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  />
+                </Link>
               ))}
             </div>
           ) : (

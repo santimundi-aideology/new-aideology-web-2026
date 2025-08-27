@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronRight } from "lucide-react"
 import Footer from "@/components/footer"
 import ScrollAnimations from "@/components/scroll-animations"
 
@@ -47,24 +47,51 @@ const productCategories = [
 ]
 
 export default function ProductsPage() {
+  type BreadcrumbItem = { name: string; href?: string }
+  const breadcrumbPath: BreadcrumbItem[] = [
+    { name: "Products" }
+  ];
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen">
       <ScrollAnimations />
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 pt-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal animate-fade-in-up">Enterprise AI Hardware & Software</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            AIdeology delivers a comprehensive suite of cutting-edge AI infrastructure solutions. Explore our curated
-            selection of powerful computing platforms, high-performance networking, scalable storage, and
-            enterprise-grade AI software designed to accelerate your AI journey.
-          </p>
+      
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white py-6 pt-24">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
         </div>
       </div>
+      
+      <div className="bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 pt-16">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal animate-fade-in-up">Enterprise AI Hardware & Software</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              AIdeology delivers a comprehensive suite of cutting-edge AI infrastructure solutions. Explore our curated
+              selection of powerful computing platforms, high-performance networking, scalable storage, and
+              enterprise-grade AI software designed to accelerate your AI journey.
+            </p>
+          </div>
+        </div>
 
-      {productCategories.map((category, index) => (
-        <section
-          key={category.name}
-          className={`py-12 md:py-16 ${index < productCategories.length - 1 ? "border-b border-gray-200" : ""}`}
+        {productCategories.map((category, index) => (
+          <section
+            key={category.name}
+            className={`${index < productCategories.length - 1 ? "border-b border-gray-200" : ""}`}
         >
           <div className="container mx-auto px-4">
             <div
@@ -73,7 +100,7 @@ export default function ProductsPage() {
               } items-center gap-8 md:gap-12 lg:gap-16`}
             >
               <div className="w-full md:w-6/12 animate-fade-in-up" style={{ animationDelay: `${100 + index * 100}ms` }}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <div className="relative aspect-[4/3] rounded-lg overflow-visible">
                   <Image
                     src={
                       category.image ||
@@ -82,6 +109,7 @@ export default function ProductsPage() {
                     alt={category.alt}
                     fill
                     className="object-contain hover:scale-110 transition-transform duration-300 rounded-lg"
+                    style={{ zIndex: 10 }}
                   />
                 </div>
               </div>
@@ -101,11 +129,12 @@ export default function ProductsPage() {
               </div>
             </div>
           </div>
-        </section>
-      ))}
+          </section>
+        ))}
+      </div>
 
       <div className="container mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 my-16 hover:shadow-2xl transition-all duration-300 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+        <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 my-6 hover:shadow-2xl transition-all duration-300 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <h2 className="text-3xl font-bold mb-6 text-charcoal text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>Why Choose AIdeology for AI Hardware?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center md:text-left animate-fade-in-up hover:bg-gray-50 p-4 rounded-lg transition-all duration-300 hover:scale-105" style={{ animationDelay: '300ms' }}>
@@ -134,7 +163,7 @@ export default function ProductsPage() {
       </div>
 
       <div className="bg-accent-green">
-        <div className="container mx-auto px-4 py-16 text-center text-charcoal">
+        <div className="container mx-auto px-4 py-12 text-center text-charcoal">
           <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Ready to Build Your AI Infrastructure?</h2>
           <p className="text-xl text-charcoal mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '100ms'}}>
             Contact our team today to discuss your AI hardware and software requirements. Let us help you architect a

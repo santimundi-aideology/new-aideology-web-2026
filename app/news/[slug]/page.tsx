@@ -28,7 +28,7 @@ const getArticleBySlug = (slug: string) => {
         <li>Collaborative go-to-market strategies to reach more enterprise clients</li>
       </ul>
       
-      <p>"This partnership with NVIDIA represents a significant milestone in our mission to simplify and transform ideas into rational systems-engineering AI solutions," said the CEO of AIdeology. "By combining NVIDIA's cutting-edge technology with our expertise in AI infrastructure design and deployment, we can help our clients accelerate their AI initiatives and achieve better results."</p>
+      <p>"This partnership with NVIDIA represents a significant milestone in our mission of simplifying and transforming ideas into rational, systems-engineered AI solutions," said the CEO of AIdeology. "By combining NVIDIA's cutting-edge technology with our expertise in AI infrastructure design and deployment, we can help our clients accelerate their AI initiatives and achieve better results."</p>
       
       <p>The partnership will initially focus on solutions for the visual effects, architectural visualization, and manufacturing industries, with plans to expand to additional sectors in the future.</p>
       
@@ -86,10 +86,6 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-4">
-            <span className="bg-accent-green/10 text-electric-green px-3 py-1 rounded-full text-sm font-medium flex items-center">
-              <Tag className="mr-1 h-4 w-4 text-accent-green" />
-              {article.category}
-            </span>
             <span className="text-charcoal/60 flex items-center text-sm">
               <Calendar className="mr-1 h-4 w-4 text-accent-green" />
               {article.date}

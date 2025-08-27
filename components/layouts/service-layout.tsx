@@ -14,7 +14,7 @@ export default function ServiceLayout({
   backText = "Back to Services",
 }: ServiceLayoutProps) {
   return (
-    <div className="bg-white pt-20">
+    <div className="bg-white">
       {/* Children are now responsible for their own width, centering, and prose styling internally */}
       {children}
     </div>

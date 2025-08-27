@@ -17,7 +17,7 @@ export default function MissionQuoteSection() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Our Mission</h2>
             <div className="relative">
               <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-white max-w-4xl mx-auto relative z-10 font-montserrat">
-                Our mission is to simplify and transform ideas into rational systems-engineering AI solutions.
+                Our mission is simplifying and transforming ideas into rational, systems-engineered AI solutions.
               </p>
             </div>
           </div>

@@ -139,7 +139,7 @@ const partners = [
   {
     name: "Maind",
     logo: "/partner-logos/maind-logo.webp",
-    categories: ["design-simulation", "infra-ai", "gen-ai"],
+    categories: ["gen-ai"],
     website: "https://maind.pro/",
   },
 ]

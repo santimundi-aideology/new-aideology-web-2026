@@ -4,9 +4,15 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Footer from "@/components/footer"
-import { Shield, Lock, FileText, CheckCircle, ArrowRight, Eye, AlertTriangle, Users, Code, Radar, Database, Key, Zap, Cpu, Globe } from "lucide-react"
+import { Shield, Lock, FileText, CheckCircle, ArrowRight, Eye, AlertTriangle, Users, Code, Radar, Database, Key, Zap, Cpu, Globe, ChevronRight } from "lucide-react"
 
 const AISecurityCompliancePage = () => {
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "AI Consulting", href: "/solutions/ai-consulting" },
+    { name: "AI Security & Compliance" }
+  ];
+
   const securitySolutions = [
     {
       icon: <Shield className="w-8 h-8 text-accent-green" />,
@@ -76,6 +82,26 @@ const AISecurityCompliancePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-32">
         <div className="absolute inset-0 opacity-20">

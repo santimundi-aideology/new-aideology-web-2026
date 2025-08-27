@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, CheckCircle, Quote } from "lucide-react"
+import { ArrowRight, CheckCircle, Quote, ChevronRight } from "lucide-react"
 
 import Footer from "@/components/footer"
 import type { StaticImageData } from "next/image"
@@ -31,6 +31,10 @@ interface UseCase {
 }
 
 export default function CustomersPage() {
+  const breadcrumbPath = [
+    { name: "Customers" }
+  ];
+  
   // Sample use cases data
   const useCases: UseCase[] = [
     {
@@ -190,7 +194,28 @@ export default function CustomersPage() {
   const gtmCategories = ["AI Infrastructure", "Design & Simulation", "AI Consulting"]
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal pt-20">
+    <main className="min-h-screen text-charcoal pt-20">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-4 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      
       {/* Hero Section */}
       <section className="pb-16 bg-white">
         <div className="container mx-auto px-4">

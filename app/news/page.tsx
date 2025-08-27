@@ -105,7 +105,7 @@ export default function NewsPage() {
     }
   ]
 
-  const categories = Array.from(new Set(newsItems.map((item) => item.category)))
+
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
@@ -126,24 +126,7 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <section className="py-8 bg-white border-b border-accent-green/10">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-3">
-            <Button variant="outline" className="bg-accent-green text-charcoal hover:bg-accent-green/90">
-              All News
-            </Button>
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant="outline"
-                className="border-accent-green/20 hover:border-accent-green/50 hover:bg-accent-green/10"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -160,9 +143,6 @@ export default function NewsPage() {
                 <Link href={item.link} className="relative z-10 p-4 bg-gradient-to-t from-black/80 to-transparent h-full flex flex-col justify-end">
                   <CardHeader className="flex-shrink-0 p-0">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-semibold text-white bg-accent-green/20 px-2 py-1 rounded-full">
-                        {item.category}
-                      </span>
                       <span className="text-sm text-white flex items-center">
                         <Calendar className="h-4 w-4 mr-1 text-accent-green" />
                         {item.date}
@@ -187,22 +167,7 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-charcoal text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-          <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Stay informed about the latest developments in AI infrastructure, 3D AI, and our company updates.
-          </p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-grow px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-accent-green h-12"
-            />
-            <Button className="bg-accent-green text-charcoal hover:bg-accent-green/90 hover:scale-105 transition-all duration-300 h-12">Subscribe</Button>
-          </div>
-        </div>
-      </section>
+
 
       <Footer />
     </main>

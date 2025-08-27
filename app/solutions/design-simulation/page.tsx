@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 import Footer from "@/components/footer"
-import { CuboidIcon as Cube, Layers, Workflow, Zap, Wand2, ArrowRight, Eye, Globe, CheckCircle } from "lucide-react"
+import { CuboidIcon as Cube, Layers, Workflow, Zap, Wand2, ArrowRight, Eye, Globe, CheckCircle, ChevronRight } from "lucide-react"
 import { allPartners } from "@/lib/partners"
 
 export default function ThreeDimensionalAIPage() {
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "Design & Simulation" }
+  ];
+
   const capabilities = [
     {
       icon: <Cube className="h-8 w-8 text-accent-green" />,
@@ -51,7 +56,7 @@ export default function ThreeDimensionalAIPage() {
         "Interactive design environments",
         "AR/VR visualization experiences"
       ],
-      link: "/services/3d-ai/design-visualization"
+      link: "/solutions/design-simulation/design-visualization"
     },
     {
       icon: <Cube className="w-12 h-12 text-accent-green" />,
@@ -63,7 +68,7 @@ export default function ThreeDimensionalAIPage() {
         "Sensor simulation and validation",
         "Automated testing frameworks"
       ],
-      link: "/services/3d-ai/robotic-simulation"
+      link: "/solutions/design-simulation/robotic-simulation"
     },
     {
       icon: <Globe className="w-12 h-12 text-accent-green" />,
@@ -75,7 +80,7 @@ export default function ThreeDimensionalAIPage() {
         "Mixed reality environments",
         "Cross-platform XR development"
       ],
-      link: "/services/3d-ai/extended-reality"
+      link: "/solutions/design-simulation/extended-reality"
     },
     {
       icon: <Layers className="w-12 h-12 text-accent-green" />,
@@ -87,19 +92,39 @@ export default function ThreeDimensionalAIPage() {
         "IoT sensor integration",
         "Performance optimization tools"
       ],
-      link: "/services/3d-ai/digital-twins"
+      link: "/solutions/design-simulation/digital-twins"
     }
   ]
 
   const relevantPartners = allPartners.filter(partner => 
-    partner.categories.includes("3d-ai")
+    partner.categories.includes("design-simulation")
   ).sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-screen text-charcoal">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
+      <section className="py-24 md:py-32 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -131,9 +156,9 @@ export default function ThreeDimensionalAIPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+            <div className="relative h-[300px] md:h-[400px] rounded-lg shadow-lg animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <div className="absolute inset-0 bg-accent-green/10 rounded-3xl blur-3xl"></div>
-              <Image src="/3d-ai.webp" alt="Design & Simulation Solutions" fill className="object-cover relative z-10 rounded-2xl shadow-2xl" />
+              <Image src="/3d-ai.webp" alt="Design & Simulation Solutions" fill className="object-cover relative z-10 rounded-2xl shadow-2xl transition-transform duration-300 ease-out hover:scale-105" />
             </div>
           </div>
         </div>
@@ -313,21 +338,20 @@ export default function ThreeDimensionalAIPage() {
           {relevantPartners.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center">
               {relevantPartners.map((partner, index) => (
-                <Card
+                <Link
                   key={partner.name}
-                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-6 flex items-center justify-center w-full h-32 group transition-all duration-300 hover:border-accent-green/50 hover:shadow-lg hover:scale-105 animate-fade-in-up"
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-lg flex items-center justify-center w-full h-32 hover:border-accent-green/50 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up group"
                   style={{ animationDelay: `${200 + index * 100}ms` }}
                 >
-                  <Link href={partner.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
-                    <Image
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      width={140}
-                      height={70}
-                      className="h-auto w-auto max-h-[70px] max-w-[140px] object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
-                    />
-                  </Link>
-                </Card>
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="h-auto w-auto max-h-[84px] max-w-[168px] object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  />
+                </Link>
               ))}
             </div>
           ) : (

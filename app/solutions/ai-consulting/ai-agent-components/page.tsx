@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { ArrowRight, CheckCircle } from "lucide-react"
+import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -17,6 +17,11 @@ if (typeof window !== "undefined") {
 
 export default function AIAgentComponentsPage() {
   const [activeComponent, setActiveComponent] = useState(1)
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "AI Consulting", href: "/solutions/ai-consulting" },
+    { name: "AI Agent Components" }
+  ];
   const mainContainerRef = useRef<HTMLDivElement>(null)
   const componentsRef = useRef<HTMLDivElement[]>([])
   const diagramRef = useRef<HTMLDivElement>(null)
@@ -346,8 +351,29 @@ export default function AIAgentComponentsPage() {
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
       <Navbar />
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative bg-white">
+      <section className="pb-20 relative bg-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal font-montserrat">
             AI Agent Components & AIdeology Services

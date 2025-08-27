@@ -71,14 +71,14 @@ export default function PartnerEcosystemSection() {
           </Tabs>
         </div>
 
-                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
            {partnersToShow.map((partner, index) => (
                         <Link
               key={`${partner.name}-${activeCategory}`}
               href={partner.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white border-2 border-gray-200 p-4 rounded-lg shadow-lg flex flex-col justify-center items-center min-h-[100px] opacity-100 visible z-10 hover:border-accent-green/50 hover:shadow-xl transition-all duration-300 hover:scale-105 group no-image-hover"
+              className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-lg flex flex-col justify-center items-center h-32 opacity-100 visible z-10 hover:border-accent-green/50 hover:shadow-xl transition-all duration-300 hover:scale-105 group no-image-hover"
               style={{ 
                 display: 'flex',
                 visibility: 'visible',
@@ -88,17 +88,7 @@ export default function PartnerEcosystemSection() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className={`${
-                  partner.name === "NVIDIA NEMO" || 
-                  partner.name === "Run:ai" || 
-                  partner.name === "VAST" || 
-                  partner.name === "Supermicro" || 
-                  partner.name === "TheCliff" || 
-                  partner.name === "Hugging Face" || 
-                  partner.name === "Cerebras" || 
-                  partner.name === "DDN" 
-                    ? "max-h-16" : "max-h-12"
-                } w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300`}
+                className={`max-h-[84px] max-w-[168px] w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300`}
                 style={{
                   display: 'block',
                   visibility: 'visible'

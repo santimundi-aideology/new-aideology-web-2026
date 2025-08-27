@@ -12,6 +12,7 @@ import {
   Zap,
   SlidersHorizontal,
   TerminalSquare,
+  ChevronRight,
 } from "lucide-react" // Added SlidersHorizontal and TerminalSquare
 import ScrollAnimations from "@/components/scroll-animations"
 
@@ -20,6 +21,11 @@ export const metadata = {
   description:
     "Unlock enterprise AI with NVIDIA AI Enterprise, Run:ai, and NVIDIA Base Command. AIdeology provides this end-to-end suite for AI development, orchestration, and management.",
 }
+
+const breadcrumbPath = [
+  { name: "Products", href: "/products" },
+  { name: "NVIDIA AI Enterprise" }
+];
 
 const features = [
   {
@@ -95,9 +101,29 @@ export default function NvidiaAIEnterprisePage() {
   return (
     <ProductLayout>
       <ScrollAnimations />
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
       {/* Continue adding animations to all sections */}
       {/* Hero Section */}
-      <section className="mb-16 animate-fade-in-up">
+      <section className="mb-16 animate-fade-in-up pt-16">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl font-bold mb-6 text-charcoal leading-tight">
@@ -113,7 +139,7 @@ export default function NvidiaAIEnterprisePage() {
                 size="lg"
                 className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
               >
-                <Link href="/contact">Get Started Today</Link>
+                <Link href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/get-started/?ncid=no-ncid" target="_blank">Get Started Today</Link>
               </Button>
               <Button
                 asChild

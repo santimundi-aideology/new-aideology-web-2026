@@ -1,11 +1,17 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Cpu, Zap, Shield, Cloud, Sparkles, Wifi, Database, Activity, BarChart3, Globe, Factory, Monitor } from "lucide-react"
+import { ArrowRight, Cpu, Zap, Shield, Cloud, Sparkles, Wifi, Database, Activity, BarChart3, Globe, Factory, Monitor, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 const EdgeAIPage = () => {
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "Robotics & Edge AI", href: "/solutions/robotics-edge-ai" },
+    { name: "Edge AI" }
+  ];
+
   const hardwareSpecs = [
     {
       category: "NVIDIA Jetson Series",
@@ -56,7 +62,25 @@ const EdgeAIPage = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-24">
+      {/* Breadcrumb Navigation */}
+      <div className="hidden md:block mb-6">
+        <nav className="mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-500 flex items-center" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+        </nav>
+      </div>
       {/* Technical Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-charcoal via-gray-900 to-charcoal text-white py-32">
         <div className="absolute inset-0 opacity-20">

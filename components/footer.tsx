@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 import LinkedInIcon from "@/components/icons/linkedin-icon"
 import { usePathname, useRouter } from "next/navigation";
 
@@ -128,22 +128,19 @@ export default function Footer() {
           <div className="animate-fade-in-up" style={{animationDelay: '400ms'}}>
             <h3 className="text-xl font-bold mb-6 text-white">Contact Us</h3>
             <div className="space-y-4">
-              <a href="tel:+971529345717" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
-                <Phone className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                <p className="text-white/70 group-hover:text-white transition-colors duration-300">+971 529345717</p>
-              </a>
+
               <a href="mailto:aideology@aideology.ai" className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300">
                 <Mail className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0" />
                 <p className="text-white/70 group-hover:text-white transition-colors duration-300">aideology@aideology.ai</p>
               </a>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=AIdeology+Dubai+Silicon+Oasis"
+                href="https://maps.app.goo.gl/AVNuWtct1mzRrL8d9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start group hover:bg-white/5 p-2 rounded transition-colors duration-300"
               >
                 <MapPin className="h-5 w-5 text-accent-green mr-3 mt-0.5 flex-shrink-0" />
-                <p className="text-white/70 group-hover:text-white transition-colors duration-300">101 Building – Office A2 IFZA-11257, Dubai Silicon Oasis, UAE</p>
+                <p className="text-white/70 group-hover:text-white transition-colors duration-300">Abdullah Omran Taryam St - Al Sufouh - Al Sufouh 2 - Dubai - UAE</p>
               </a>
             </div>
           </div>

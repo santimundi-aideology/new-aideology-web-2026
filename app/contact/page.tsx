@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Building, MessageSquare } from "lucide-react"
+import { Mail, MapPin, Building, MessageSquare, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import ContactForm from "@/components/contact-form"
 import { InteractiveMap } from "@/components/interactive-map" // Using named import
@@ -17,12 +17,7 @@ const contactDetails = [
     value: "aideology@aideology.ai",
     href: "mailto:aideology@aideology.ai",
   },
-  {
-    icon: Phone,
-    label: "Call Us", 
-    value: "+971 529345717",
-    href: "tel:+971529345717",
-  },
+
   {
     icon: MapPin,
     label: "Our Office",
@@ -41,9 +36,33 @@ const socialLinks = [
 ]
 
 export default function ContactPage() {
+  const breadcrumbPath = [
+    { name: "Contact" }
+  ];
   return (
     <>
-      <main className="bg-gray-50 py-28 md:py-36">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      
+      <main className="bg-gray-50 py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <section className="text-center mb-16 md:mb-20">
@@ -140,9 +159,9 @@ export default function ContactPage() {
                 {
                   id: "dubai-hq",
                   name: "AIdeology HQ",
-                  coords: { lat: 25.089, lng: 55.151 },
+                  coords: { lat: 25.105916, lng: 55.168764 },
                   description:
-                    "Abdullah Omran Taryam St - Al Sufouh - Al Sufouh 2 - Dubai - UAE. Visit us for cutting-edge AI solutions.",
+                    "Office Park Building, Block E, Dubai - UAE. Visit us for cutting-edge AI solutions.",
                 },
               ]}
               height="100%"

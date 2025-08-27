@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Server, Database, Network, Shield, Cpu, HardDrive, BrainCog } from "lucide-react"
+import { Server, Database, Network, Cpu, HardDrive, BrainCog } from "lucide-react"
 
 export default function ProductsPromo() {
   return (
@@ -29,7 +29,7 @@ export default function ProductsPromo() {
             Pioneering AI Products to Power Your Vision
           </h2>
           <p className="text-lg text-gray-600 mb-6 animate-fade-in-up" style={{animationDelay: '100ms'}}>
-            Aideology offers a curated selection of industry-leading AI hardware and software. Equip your organization with the best tools to accelerate innovation, from powerful GPU systems to enterprise-grade AI software and robust infrastructure components.
+            AIdeology offers a curated selection of industry-leading AI hardware and software. Equip your organization with the best tools to accelerate innovation, from powerful GPU systems to enterprise-grade AI software and robust infrastructure components.
           </p>
           
           <div className="mb-6 animate-fade-in-up" style={{animationDelay: '150ms'}}>
@@ -47,17 +47,10 @@ export default function ProductsPromo() {
                 <HardDrive className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-gray-700 font-medium hover:text-accent-green text-base">Storage Systems</span>
               </Link>
-              <Link href="/products/networking" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300 group">
-                <Network className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-gray-700 font-medium hover:text-accent-green text-base">High-Performance Networking</span>
-              </Link>
+
               <Link href="/products/nvidia-ai-enterprise" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300 group">
                 <BrainCog className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-gray-700 font-medium hover:text-accent-green text-base">NVIDIA AI Enterprise</span>
-              </Link>
-              <Link href="/products/professional-services" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300 group">
-                <Shield className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-gray-700 font-medium hover:text-accent-green text-base">Professional Services</span>
               </Link>
             </div>
           </div>
@@ -100,7 +93,7 @@ export default function ProductsPromo() {
                 Pioneering AI Products to Power Your Vision
               </h2>
               <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{animationDelay: '100ms'}}>
-                Aideology offers a curated selection of industry-leading AI hardware and software. Equip your organization with the best tools to accelerate innovation, from powerful GPU systems to enterprise-grade AI software and robust infrastructure components.
+                AIdeology offers a curated selection of industry-leading AI hardware and software. Equip your organization with the best tools to accelerate innovation, from powerful GPU systems to enterprise-grade AI software and robust infrastructure components.
               </p>
               
               <div className="mb-8 animate-fade-in-up" style={{animationDelay: '150ms'}}>
@@ -118,17 +111,10 @@ export default function ProductsPromo() {
                     <HardDrive className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-gray-700 font-medium hover:text-accent-green text-lg">Storage Systems</span>
                   </Link>
-                  <Link href="/products/networking" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300 group">
-                    <Network className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 font-medium hover:text-accent-green text-lg">High-Performance Networking</span>
-                  </Link>
+
                   <Link href="/products/nvidia-ai-enterprise" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300 group">
                     <BrainCog className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-gray-700 font-medium hover:text-accent-green text-lg">NVIDIA AI Enterprise</span>
-                  </Link>
-                  <Link href="/products/professional-services" className="flex items-center gap-3 hover:text-accent-green transition-colors duration-300 group">
-                    <Shield className="h-5 w-5 text-accent-green group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-gray-700 font-medium hover:text-accent-green text-lg">Professional Services</span>
                   </Link>
                 </div>
               </div>

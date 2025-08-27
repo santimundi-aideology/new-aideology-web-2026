@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 import Footer from "@/components/footer"
-import { Lightbulb, BrainCircuit, GitBranch, BarChart, Users, CheckCircle, ArrowRight, Zap, MessageSquare, Bot, Shield } from "lucide-react"
+import { Lightbulb, BrainCircuit, GitBranch, BarChart, Users, CheckCircle, ArrowRight, Zap, MessageSquare, Bot, Shield, ChevronRight } from "lucide-react"
 import { allPartners } from "@/lib/partners"
 
 export default function AIConsultingPage() {
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "AI Consulting" }
+  ];
+
   const services = [
     {
       icon: <BrainCircuit className="h-8 w-8 text-accent-green" />,
@@ -157,9 +162,29 @@ export default function AIConsultingPage() {
 
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
+      <section className="py-24 md:py-32 relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -423,9 +448,9 @@ export default function AIConsultingPage() {
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
-                      width={140}
-                      height={70}
-                      className="h-auto w-auto max-h-[70px] max-w-[140px] object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                      width={168}
+                      height={84}
+                      className="h-auto w-auto max-h-[84px] max-w-[168px] object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
                     />
                   </Link>
                 </Card>

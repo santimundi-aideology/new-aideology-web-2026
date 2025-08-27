@@ -4,9 +4,10 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { Loader2, ArrowRight, ArrowLeft, CalendarIcon, Clock } from 'lucide-react';
+import { Loader2, ArrowRight, ArrowLeft, CalendarIcon, Clock, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import SubmissionStatusModal from '@/components/submission-status-modal';
+import Link from 'next/link';
 
 interface BookingFormData {
   name: string;
@@ -84,6 +85,11 @@ function BookDiscoveryCallContent() {
       ? typeParam 
       : 'discovery-call';
   const fromPage = fromPageParam || '';
+
+  type BreadcrumbItem = { name: string; href?: string }
+  const breadcrumbPath: BreadcrumbItem[] = [
+    { name: "Book Discovery Call" }
+  ];
 
   const getHeadingText = () => {
     if (fromPage) {
@@ -241,7 +247,28 @@ function BookDiscoveryCallContent() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      
+      <div className="min-h-screen bg-gray-50 pt-8 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">{getHeadingText()}</h1>

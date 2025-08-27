@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductLayout from "@/components/layouts/product-layout"
 import ScrollAnimations from "@/components/scroll-animations"
-import { Zap, ShieldCheck, Award } from "lucide-react"
+import { Zap, ShieldCheck, Award, ChevronRight } from "lucide-react"
 
 export const metadata = {
   title: "NVIDIA DGX Systems | Enterprise AI Supercomputers | AIdeology",
@@ -12,22 +12,47 @@ export const metadata = {
 }
 
 export default function NvidiaDGXPage() {
+  const breadcrumbPath = [
+    { name: "Products", href: "/products" },
+    { name: "NVIDIA DGX Systems" }
+  ];
+
   return (
     <ProductLayout>
       <ScrollAnimations />
-      <div className="w-full px-6 lg:px-12 mb-16">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      <div className="w-full px-6 lg:px-12 mb-16 pt-16">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-charcoal animate-fade-in-up">NVIDIA DGX Systems</h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             The world's most advanced AI supercomputing platform, engineered to accelerate breakthrough discoveries and
             transform industries through the power of artificial intelligence.
           </p>
-          <div className="relative h-[500px] rounded-lg overflow-hidden mb-8 animate-fade-in-up hover:scale-105 transition-all duration-300" style={{ animationDelay: '200ms' }}>
+          <div className="relative h-[500px] rounded-lg mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <Image
               src="/products/dgx-systems.webp"
               alt="NVIDIA DGX AI supercomputing systems in enterprise data center environment"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-300 ease-out hover:scale-105"
             />
           </div>
         </div>
@@ -39,12 +64,12 @@ export default function NvidiaDGXPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <div className="relative h-48 mb-6 rounded-lg">
                 <Image
                   src="/products/dgx-basepod.webp"
                   alt="DGX BasePOD modular AI infrastructure deployment"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 ease-out hover:scale-105"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-charcoal">DGX BasePOD</h3>
@@ -61,12 +86,12 @@ export default function NvidiaDGXPage() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <div className="relative h-48 mb-6 rounded-lg">
                 <Image
                   src="/products/dgx-superpod.webp"
                   alt="DGX SuperPOD large-scale AI infrastructure for enterprises"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 ease-out hover:scale-105"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-charcoal">DGX SuperPOD</h3>

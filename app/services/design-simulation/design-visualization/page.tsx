@@ -329,7 +329,7 @@ export default function DesignVisualizationPage() {
                 className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 px-8 py-3"
                 asChild
               >
-                <Link href="/services/3d-ai">
+                <Link href="/solutions/design-simulation">
                   Explore 3D AI Services
                 </Link>
               </Button>

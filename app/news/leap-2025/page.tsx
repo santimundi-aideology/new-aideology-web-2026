@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, ArrowLeft, Tag, Share2, Linkedin, Twitter } from "lucide-react"
+import { Calendar, ArrowLeft, Tag } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ImageGallery from "@/components/image-gallery"
@@ -71,10 +71,6 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-4">
-            <span className="bg-accent-green/10 text-electric-green px-3 py-1 rounded-full text-sm font-medium flex items-center">
-              <Tag className="mr-1 h-4 w-4 text-accent-green" />
-              {article.category}
-            </span>
             <span className="text-charcoal/60 flex items-center text-sm">
               <Calendar className="mr-1 h-4 w-4 text-accent-green" />
               {article.date}
@@ -119,24 +115,11 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
 
                 <p className="mb-8">Stay connected with us to learn more about how AI is transforming industries and to explore the innovative solutions we're developing to help organizations unlock their full potential. We're already looking forward to LEAP 2026!</p>
               </div>
+              
+              {/* Bottom spacing */}
+              <div className="mb-12"></div>
 
-              {/* Share Links */}
-              <div className="mt-12 pt-6 border-t border-accent-green/10">
-                <h3 className="text-lg font-bold mb-4 flex items-center">
-                  <Share2 className="mr-2 h-5 w-5 text-accent-green" />
-                  Share this article
-                </h3>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="flex items-center gap-2">
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex items-center gap-2">
-                    <Twitter className="h-4 w-4" />
-                    Twitter
-                  </Button>
-                </div>
-              </div>
+
             </div>
 
             {/* Sidebar */}

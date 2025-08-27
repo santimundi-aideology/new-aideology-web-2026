@@ -17,12 +17,12 @@ export default function SolutionsSection() {
       ),
       link: "/solutions/ai-infrastructure",
       subpages: [
-        { name: "Professional Services", path: "/services/ai-infrastructure/professional-services" },
-        { name: "AI Data Platform", path: "/services/ai-infrastructure/ai-data-platform" },
-        { name: "MLOps", path: "/services/ai-infrastructure/mlops" },
-        { name: "Accelerated Computing", path: "/services/ai-infrastructure/accelerated-computing" },
-        { name: "Virtualization", path: "/services/ai-infrastructure/virtualization" },
-        { name: "Sustainable Computing", path: "/services/ai-infrastructure/sustainable-computing" },
+        { name: "Professional Services", path: "/solutions/ai-infrastructure/professional-services" },
+        { name: "AI Data Platform", path: "/solutions/ai-infrastructure/ai-data-platform" },
+        { name: "MLOps", path: "/solutions/ai-infrastructure/mlops" },
+        { name: "Accelerated Computing", path: "/solutions/ai-infrastructure/accelerated-computing" },
+        { name: "Virtualization", path: "/solutions/ai-infrastructure/virtualization" },
+        { name: "Sustainable Computing", path: "/solutions/ai-infrastructure/sustainable-computing" },
       ],
     },
     {
@@ -31,12 +31,12 @@ export default function SolutionsSection() {
       icon: (
         <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/solutions/3d-ai",
+      link: "/solutions/design-simulation",
       subpages: [
-        { name: "Design Visualization", path: "/services/3d-ai/design-visualization" },
-        { name: "Robotic Simulation", path: "/services/3d-ai/robotic-simulation" },
-        { name: "Extended Reality", path: "/services/3d-ai/extended-reality" },
-        { name: "Digital Twins", path: "/services/3d-ai/digital-twins" },
+        { name: "Design Visualization", path: "/solutions/design-simulation/design-visualization" },
+        { name: "Robotic Simulation", path: "/solutions/design-simulation/robotic-simulation" },
+        { name: "Extended Reality", path: "/solutions/design-simulation/extended-reality" },
+        { name: "Digital Twins", path: "/solutions/design-simulation/digital-twins" },
       ],
     },
     {

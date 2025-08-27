@@ -1,12 +1,38 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles, FileText, ImageIcon, Video, Code, Palette, Zap } from "lucide-react"
+import { ArrowRight, Sparkles, FileText, ImageIcon, Video, Code, Palette, Zap, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 export default function GenerativeAiPage() {
+  const breadcrumbPath = [
+    { name: "Solutions", href: "/#solutions" },
+    { name: "AI Consulting", href: "/solutions/ai-consulting" },
+    { name: "Generative AI" }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+        </nav>
+        </div>
+      </div>
       {/* Animated Hero Section */}
       <section className="relative overflow-hidden bg-charcoal text-white py-32">
         <div className="absolute inset-0">

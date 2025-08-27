@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductLayout from "@/components/layouts/product-layout"
 import ScrollAnimations from "@/components/scroll-animations"
-import { Zap, ArrowUpDown, Database } from "lucide-react"
+import { Zap, ArrowUpDown, Database, ChevronRight } from "lucide-react"
 
 export const metadata = {
   title: "AI Storage Systems | High-Performance Data Solutions | AIdeology",
@@ -12,10 +12,35 @@ export const metadata = {
 }
 
 export default function StorageSystemsPage() {
+  const breadcrumbPath = [
+    { name: "Products", href: "/products" },
+    { name: "Storage Systems" }
+  ];
+
   return (
     <ProductLayout>
       <ScrollAnimations />
-      <div className="w-full px-6 lg:px-12 mb-12">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      <div className="w-full px-6 lg:px-12 mb-16 pt-16">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-charcoal animate-fade-in-up">AI Storage Systems</h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -33,7 +58,7 @@ export default function StorageSystemsPage() {
         </div>
       </div>
 
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 mb-16">
         <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-4 text-charcoal animate-fade-in-up">Storage for the AI Era</h2>
         <p className="mb-4 animate-fade-in-up">
@@ -49,7 +74,7 @@ export default function StorageSystemsPage() {
         </div>
       </div>
 
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 mb-16">
         <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-4 text-charcoal animate-fade-in-up">Our Storage Solutions</h2>
 
@@ -164,7 +189,7 @@ export default function StorageSystemsPage() {
         </div>
       </div>
 
-      <div className="w-full px-6 lg:px-12 mb-12">
+      <div className="w-full px-6 lg:px-12 mb-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-4 text-charcoal animate-fade-in-up">Key Considerations for AI Storage</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">

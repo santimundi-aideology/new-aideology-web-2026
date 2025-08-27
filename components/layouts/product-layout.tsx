@@ -14,7 +14,7 @@ export default function ProductLayout({
 }: ProductLayoutProps) {
   return (
     <>
-      <div className="pt-32 pb-12"> {/* Removed px-4 and container to allow full width */}
+      <div> {/* Removed px-4 and container to allow full width */}
         {/* The 'Back to Products' Link div has been removed */}
         {/* 
         <div className="mb-6">

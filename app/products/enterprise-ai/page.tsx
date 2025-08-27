@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductLayout from "@/components/layouts/product-layout"
 import ScrollAnimations from "@/components/scroll-animations"
+import { ChevronRight } from "lucide-react"
 
 export const metadata = {
   title: "Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems) | GPU-Accelerated Computing | AIdeology",
@@ -11,6 +12,11 @@ export const metadata = {
 }
 
 export default function NvidiaHGXPage() {
+  const breadcrumbPath = [
+    { name: "Products", href: "/products" },
+    { name: "Enterprise AI Platforms" }
+  ];
+
   const partners = [
     {
       name: 'Dell',
@@ -41,7 +47,27 @@ export default function NvidiaHGXPage() {
   return (
     <ProductLayout>
       <ScrollAnimations />
-      <div className="w-full px-6 lg:px-12 mb-12">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white pt-24 pb-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-700">Home</Link>
+            {breadcrumbPath.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />
+                {item.href ? (
+                  <Link href={item.href} className="hover:text-gray-700">
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      <div className="w-full px-6 lg:px-12 mb-16 pt-16">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-charcoal animate-fade-in-up">Enterprise AI Platforms Built by HPE, Lenovo, and Supermicro (NVIDIA HGX Systems)</h1>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -120,15 +146,13 @@ export default function NvidiaHGXPage() {
                      href={partner.website}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group"
+                                           className="bg-white border-2 border-gray-200 rounded-lg p-4 shadow-lg hover:border-accent-green/50 transition-colors duration-300 group"
                    >
                      <div className="relative h-16 mb-3 flex items-center justify-center">
-                       <Image
+                       <img
                          src={partner.logo}
                          alt={`${partner.name} logo`}
-                         width={partner.name === 'Dell' || partner.name === 'Lenovo' ? 100 : 120}
-                         height={partner.name === 'Dell' || partner.name === 'Lenovo' ? 50 : 60}
-                         className="object-contain group-hover:scale-110 transition-transform duration-300"
+                                                   className="object-contain h-auto w-auto max-h-[50px] max-w-[120px] opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out"
                        />
                      </div>
                      <div className="text-center">

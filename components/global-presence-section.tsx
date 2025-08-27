@@ -120,7 +120,7 @@ export default function GlobalPresenceSection() {
                 src="/world-map.webp"
                 alt="AIdeology Global Presence Map"
                 fill
-                className="object-contain"
+                className="object-contain rounded-lg"
                 sizes="1200px"
                 onLoad={() => setImageLoaded(true)}
                 onError={() => {
@@ -135,7 +135,7 @@ export default function GlobalPresenceSection() {
 
       {/* Mobile Map - No container, full width */}
       <div className="block lg:hidden relative w-full mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
-        <div className="relative w-full h-[500px] md:h-[600px] bg-white">
+        <div className="relative w-full h-[500px] md:h-[600px] bg-white rounded-lg overflow-hidden border border-accent-green/10">
           <Image
             src="/world-map-vertical.webp"
             alt="AIdeology Global Presence Map"

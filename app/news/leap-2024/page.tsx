@@ -100,10 +100,6 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-4">
-            <span className="bg-accent-green/10 text-electric-green px-3 py-1 rounded-full text-sm font-medium flex items-center">
-              <Tag className="mr-1 h-4 w-4 text-accent-green" />
-              {article.category}
-            </span>
             <span className="text-charcoal/60 flex items-center text-sm">
               <Calendar className="mr-1 h-4 w-4 text-accent-green" />
               {article.date}
@@ -173,6 +169,9 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
               <h2 className="text-2xl font-semibold">See you next year at LEAP25!</h2>
 
               <p>We are extremely grateful for the continued support from Lenovo and MDS who hosted us in their booths. It is always a privilege to collaborate with them. We look forward to continuing to innovate and collaborate with our partners and clients in the region, and hope to see everyone that visited us this time again next year!</p>
+              
+              {/* Bottom spacing */}
+              <div className="mb-16"></div>
             </div>
 
             {/* Sidebar */}
