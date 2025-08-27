@@ -129,7 +129,7 @@ importers:
         specifier: latest
         version: 6.8.6
       leaflet:
-        specifier: latest
+        specifier: ^1.9.4
         version: 1.9.4
       lucide-react:
         specifier: ^0.454.0
@@ -156,7 +156,7 @@ importers:
         specifier: ^7.54.2
         version: 7.54.2(react@19.0.0)
       react-leaflet:
-        specifier: latest
+        specifier: ^5.0.0
         version: 5.0.0(leaflet@1.9.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-resizable-panels:
         specifier: ^2.1.7
