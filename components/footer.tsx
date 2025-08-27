@@ -81,7 +81,7 @@ export default function Footer() {
                 className="h-12 w-auto transition-transform duration-300 hover:scale-105"
               />
             </Link>
-            <p className="text-white/80 mb-6">Elite AI Infrastructure & 3D AI Solutions Provider</p>
+            <p className="text-white/80 mb-6">Elite AI Infrastructure & Simulation Solutions Provider</p>
             <div className="flex space-x-2">
               {socialLinks.map((social, index) => (
                 <Link

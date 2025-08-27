@@ -450,7 +450,11 @@ export default function AIConsultingPage() {
                       alt={`${partner.name} logo`}
                       width={168}
                       height={84}
-                      className="h-auto w-auto max-h-[84px] max-w-[168px] object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                      className={`h-auto w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 ${
+                        partner.name === "Hugging Face" 
+                          ? "max-h-[120px] max-w-[240px]" 
+                          : "max-h-[84px] max-w-[168px]"
+                      }`}
                     />
                   </Link>
                 </Card>

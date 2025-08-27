@@ -114,7 +114,7 @@ export default function GlobalPresenceSection() {
       {/* Desktop Map - Has container */}
       <div className="hidden lg:block relative">
         <div className="container mx-auto px-4">
-          <div className="relative w-full max-w-5xl mx-auto mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
+          <div className="relative w-full max-w-4xl mx-auto mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
             <div className="relative h-[600px] rounded-lg overflow-hidden border border-accent-green/10 bg-white hover-glow transition-all duration-300 hover:scale-105">
               <Image
                 src="/world-map.webp"
@@ -133,21 +133,23 @@ export default function GlobalPresenceSection() {
         </div>
       </div>
 
-      {/* Mobile Map - No container, full width */}
-      <div className="block lg:hidden relative w-full mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
-        <div className="relative w-full h-[500px] md:h-[600px] bg-white rounded-lg overflow-hidden border border-accent-green/10">
-          <Image
-            src="/world-map-vertical.webp"
-            alt="AIdeology Global Presence Map"
-            fill
-            className="object-contain"
-            sizes="100vw"
-            onLoad={() => setImageLoaded(true)}
-            onError={() => {
-              console.warn('Vertical world map image failed to load')
-              setImageLoaded(true)
-            }}
-          />
+      {/* Mobile Map - Has container for consistent width */}
+      <div className="block lg:hidden relative mb-12 animate-scale-in" style={{animationDelay: '200ms'}}>
+        <div className="container mx-auto px-4">
+          <div className="relative w-full max-w-4xl mx-auto h-[500px] md:h-[600px] bg-white rounded-lg overflow-hidden border border-accent-green/10">
+            <Image
+              src="/world-map-vertical.webp"
+              alt="AIdeology Global Presence Map"
+              fill
+              className="object-contain"
+              sizes="100vw"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                console.warn('Vertical world map image failed to load')
+                setImageLoaded(true)
+              }}
+            />
+          </div>
         </div>
       </div>
 

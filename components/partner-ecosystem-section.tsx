@@ -88,7 +88,11 @@ export default function PartnerEcosystemSection() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className={`max-h-[84px] max-w-[168px] w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300`}
+                className={`w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ${
+                  partner.name === "Hugging Face" 
+                    ? "max-h-[120px] max-w-[240px]" 
+                    : "max-h-[84px] max-w-[168px]"
+                }`}
                 style={{
                   display: 'block',
                   visibility: 'visible'
