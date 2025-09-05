@@ -41,7 +41,7 @@ const features = [
     title: "Pre-trained Models",
     description:
       "Accelerate development with a vast catalog of pre-trained models for vision, speech, language, and recommenders, ready for fine-tuning and deployment.",
-    image: "/ai-model-network.png",
+    image: "/ai-model-network.webp",
     alt: "Visualization of a neural network or AI model",
   },
   {
@@ -49,7 +49,7 @@ const features = [
     title: "Optimized Performance",
     description:
       "Achieve maximum performance on NVIDIA GPUs with continuously optimized software, ensuring your AI applications run efficiently and at scale.",
-    image: "/gpu-accelerator-chip.png",
+    image: "/gpu-accelerator-chip.webp",
     alt: "Close-up of an NVIDIA GPU",
   },
   {
@@ -67,7 +67,7 @@ const industrySolutions = [
     name: "Healthcare & Life Sciences",
     description:
       "Accelerate drug discovery, medical imaging analysis, and genomics research with specialized AI tools and models.",
-    image: "/ai-medical-imaging.png",
+    image: "/ai-medical-imaging.webp",
     alt: "AI analyzing a medical scan",
     link: "https://www.nvidia.com/en-us/industries/healthcare/",
   },
@@ -75,7 +75,7 @@ const industrySolutions = [
     name: "Manufacturing & Industrials",
     description:
       "Enhance quality control, predictive maintenance, and robotics automation with robust vision AI and simulation capabilities.",
-    image: "/ai-in-manufacturing.png",
+    image: "/ai-in-manufacturing.webp",
     alt: "Robotic arms working in a smart factory",
     link: "https://www.nvidia.com/en-us/industries/manufacturing/",
   },
@@ -83,7 +83,7 @@ const industrySolutions = [
     name: "Financial Services",
     description:
       "Improve fraud detection, risk management, and customer analytics with high-performance data processing and machine learning.",
-    image: "/ai-in-finance.png",
+    image: "/ai-in-finance.webp",
     alt: "Financial data analytics dashboard with AI insights",
     link: "https://www.nvidia.com/en-us/industries/finance/",
   },
@@ -91,7 +91,7 @@ const industrySolutions = [
     name: "Retail & E-commerce",
     description:
       "Optimize supply chains, personalize customer experiences, and improve demand forecasting with advanced AI models.",
-    image: "/ai-in-retail.png",
+    image: "/ai-in-retail.webp",
     alt: "AI providing personalized recommendations in a retail setting",
     link: "https://www.nvidia.com/en-us/industries/retail/",
   },

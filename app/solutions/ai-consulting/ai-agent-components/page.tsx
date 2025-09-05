@@ -35,7 +35,7 @@ export default function AIAgentComponentsPage() {
         "The user interface provides an intuitive front-end for customers to interact with the AI agent through various channels including web, mobile, and voice interfaces.",
       detailedDescription:
         "The User Interface layer is the primary touchpoint between users and your AI system. It determines how users interact with your AI agent and shapes their overall experience. From conversational interfaces to immersive 3D avatars, the right UI can dramatically increase engagement and adoption of your AI solution. Our implementations focus on creating intuitive, responsive, and accessible interfaces that align with your brand identity while providing seamless AI interactions.",
-      image: "/ai-components/user-interface.png",
+      image: "/ai-components/user-interface.webp",
       deliverables: [
         {
           name: "Real Human Avatar",
@@ -68,7 +68,7 @@ export default function AIAgentComponentsPage() {
         "The reasoning layer enables smart selection of data and LLM options based on the input prompt, functioning as an intermediary coordinating interactions between LLMs and customer data.",
       detailedDescription:
         "The Reasoning Layer is the 'brain' of your AI agent, responsible for understanding user requests, determining intent, and orchestrating the appropriate actions. This layer makes critical decisions about which data sources to query, which models to use, and how to structure the final response. Our reasoning implementations can range from simple prompt-based systems to sophisticated multi-agent architectures that can handle complex, multi-step tasks while maintaining context across interactions.",
-      image: "/ai-components/reasoning-layer.png",
+      image: "/ai-components/reasoning-layer.webp",
       deliverables: [
         {
           name: "Enterprise Reasoning",
@@ -92,7 +92,7 @@ export default function AIAgentComponentsPage() {
         "Real-time monitoring, risk assessment, data privacy protection, and bias mitigation to maintain transparency and accountability throughout the AI system.",
       detailedDescription:
         "As AI systems become more integrated into critical business processes, governance and security become paramount. This layer ensures your AI operates within defined ethical boundaries, complies with relevant regulations, and protects sensitive data. Our governance implementations include comprehensive monitoring systems that track AI behavior, detect anomalies, and provide audit trails for all AI actions. We also implement robust security measures to protect against prompt injection, data leakage, and other AI-specific vulnerabilities.",
-      image: "/ai-components/governance-security.png",
+      image: "/ai-components/governance-security.webp",
       deliverables: [
         {
           name: "AI Observability",
@@ -117,7 +117,7 @@ export default function AIAgentComponentsPage() {
         "The AI Agent, with access to data, acquires context and information through Retrieval Augmented Generation to provide accurate and relevant responses.",
       detailedDescription:
         "The Data Processing layer is where your AI connects with your organization's knowledge and data. Through Retrieval Augmented Generation (RAG), your AI can access, process, and leverage information from various sources to provide accurate, contextual responses. Our RAG implementations include sophisticated document processing pipelines, vector database integrations, and custom retrieval strategies optimized for your specific data types and query patterns. This ensures your AI provides responses grounded in your organization's actual data rather than generic or potentially hallucinated information.",
-      image: "/ai-components/data-processing.png",
+      image: "/ai-components/data-processing.webp",
       deliverables: [
         {
           name: "Supervised Doc Ingestion",
@@ -148,7 +148,7 @@ export default function AIAgentComponentsPage() {
         "An LLM model processes the data and prompt, using its capabilities to interpret context and generate the most accurate and relevant response, ensuring it aligns with the user's intent.",
       detailedDescription:
         "The Large Language Model (LLM) is the core AI engine that powers your agent's understanding and generation capabilities. Selecting the right model—or combination of models—is crucial for balancing performance, cost, and capabilities. Our LLM implementations include comprehensive model evaluation, fine-tuning on your domain-specific data, and optimization for production deployment. We work with all major LLM providers and can help you navigate the rapidly evolving landscape of foundation models to find the optimal solution for your specific use case.",
-      image: "/ai-components/llm.png",
+      image: "/ai-components/llm.webp",
       deliverables: [
         {
           name: "Model Selection & Benchmark",
@@ -174,7 +174,7 @@ export default function AIAgentComponentsPage() {
         "Autonomously execute tasks by integrating with apps, systems, and workflows to perform actions based on user requests and AI understanding.",
       detailedDescription:
         "The Automations layer transforms your AI from a conversational tool into an action-oriented system that can perform real-world tasks. By connecting your AI agent to your business systems and workflows, it can execute actions on behalf of users or trigger automated processes based on specific conditions. Our automation implementations range from simple API integrations to complex workflow orchestration systems that can coordinate multi-step business processes across multiple systems. This capability is what elevates AI agents from information providers to true digital assistants that can get work done.",
-      image: "/ai-components/automations.png",
+      image: "/ai-components/automations.webp",
       deliverables: [
         {
           name: "Workflow Orchestration",
@@ -201,7 +201,7 @@ export default function AIAgentComponentsPage() {
         "Delivers responses in various formats including text-based NLP, audio and speech, reports and templates, and plots and graphics to suit different user needs.",
       detailedDescription:
         "The Response Format layer determines how your AI communicates its outputs to users. While simple text responses are sufficient for many use cases, more sophisticated formats can significantly enhance the user experience and effectiveness of your AI solution. Our response format implementations include multimodal outputs ranging from voice synthesis and audio generation to dynamic data visualizations and interactive 3D elements. We ensure your AI can communicate in the most effective format for each specific use case and user preference.",
-      image: "/ai-components/response-format.png",
+      image: "/ai-components/response-format.webp",
       deliverables: [
         {
           name: "S2T, T2S",
@@ -220,7 +220,7 @@ export default function AIAgentComponentsPage() {
         "Flexible deployment options including cloud (AWS, Azure, Google Cloud), on-premise solutions (HPE, NVIDIA), and hybrid cloud configurations to meet specific security and performance requirements.",
       detailedDescription:
         "The Hosting layer provides the infrastructure foundation for your AI system. The right hosting strategy balances performance, cost, security, and compliance requirements. Our hosting implementations include cloud-based deployments on major providers, on-premises solutions for organizations with strict data sovereignty requirements, and hybrid approaches that combine the benefits of both. We handle all aspects of infrastructure setup, including high-availability configurations, auto-scaling, and performance optimization specifically for AI workloads.",
-      image: "/ai-components/hosting.png",
+      image: "/ai-components/hosting.webp",
       deliverables: [
         {
           name: "Deploy in existing client Cloud",
@@ -246,7 +246,7 @@ export default function AIAgentComponentsPage() {
       "Connect your AI agent with third-party applications, services, and custom systems to extend functionality and access data.",
     detailedDescription:
       "The Integrations layer connects your AI agent to the broader ecosystem of applications and services your organization uses. Through these integrations, your AI can access data, trigger actions, and coordinate with existing systems to deliver a seamless experience. Our integration implementations include pre-built connectors for popular enterprise applications, custom adapters for proprietary systems, and API-based integrations that can connect virtually any service with an accessible interface.",
-    image: "/ai-components/integrations.png",
+    image: "/ai-components/integrations.webp",
     deliverables: [
       {
         name: "3rd Party Apps / services integration",
@@ -387,7 +387,7 @@ export default function AIAgentComponentsPage() {
           <div ref={diagramRef} className="relative w-full max-w-6xl mx-auto mt-12">
             <div className="relative h-[400px] md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-lg bg-white p-4">
               <Image
-                src="/ai-agent-detailed-diagram.png"
+                src="/ai-agent-detailed-diagram.webp"
                 alt="AI Agent Components Architecture Diagram"
                 fill
                 className="object-contain"

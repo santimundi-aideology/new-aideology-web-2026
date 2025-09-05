@@ -145,14 +145,14 @@ export default function AIConsultingPage() {
 
   const successStories = [
     {
-      image: "/manufacturing-ai.png",
+      image: "/manufacturing-ai.webp",
       alt: "Manufacturing AI",
       title: "Manufacturing Optimization",
       description: "Implemented predictive maintenance AI for a global manufacturer, reducing downtime by 37% and maintenance costs by 28%.",
       results: "$4.2M annual savings"
     },
     {
-      image: "/healthcare-ai-diagnostics.png",
+      image: "/healthcare-ai-diagnostics.webp",
       alt: "Healthcare AI",
       title: "Healthcare Diagnostics",
       description: "Developed and deployed an AI diagnostic system for a healthcare provider, improving early detection rates by 42%.",
@@ -342,7 +342,7 @@ export default function AIConsultingPage() {
 
           <div className="relative w-full max-w-5xl mx-auto h-[500px] md:h-[600px] mb-8 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-23%20at%2012.38.10-yECsTgQ6btsGyGfQBAfUZZaeMyOuc1.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-23%20at%2012.38.10-yECsTgQ6btsGyGfQBAfUZZaeMyOuc1.webp"
               alt="AI Agent Components Diagram"
               fill
               className="object-contain rounded-lg shadow-md"
@@ -437,11 +437,11 @@ export default function AIConsultingPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Key Technology Partners</h2>
           {relevantPartners.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8 justify-items-center">
               {relevantPartners.map((partner, index) => (
                 <Card
                   key={partner.name}
-                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-6 flex items-center justify-center w-full h-32 group transition-all duration-300 hover:border-accent-green/50 hover:shadow-lg hover:scale-105 animate-fade-in-up"
+                  className="bg-[#f4f4f4] border border-accent-green/10 rounded-md p-3 md:p-6 flex items-center justify-center w-full h-24 md:h-32 group transition-all duration-300 hover:border-accent-green/50 hover:shadow-lg hover:scale-105 animate-fade-in-up"
                   style={{ animationDelay: `${200 + index * 100}ms` }}
                 >
                   <Link href={partner.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
@@ -452,8 +452,8 @@ export default function AIConsultingPage() {
                       height={84}
                       className={`h-auto w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 ${
                         partner.name === "Hugging Face" 
-                          ? "max-h-[120px] max-w-[240px]" 
-                          : "max-h-[84px] max-w-[168px]"
+                          ? "max-h-[60px] max-w-[120px] md:max-h-[120px] md:max-w-[240px]" 
+                          : "max-h-[48px] max-w-[96px] md:max-h-[84px] md:max-w-[168px]"
                       }`}
                     />
                   </Link>

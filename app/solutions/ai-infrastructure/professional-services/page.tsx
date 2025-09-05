@@ -40,7 +40,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
       stage: "Initiation",
       title: "Project Initiation & Site Survey",
       icon: Users,
-      image: "/project-planning-meeting.png",
+      image: "/project-planning-meeting.webp",
       alt: "Team discussing project initiation for AI infrastructure",
       description:
         "Our meticulous initiation phase ensures your AI infrastructure project is set up for success from day one. We cover all bases, from governance to detailed site readiness.",
@@ -56,7 +56,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
       stage: "Delivery",
       title: "Hardware Delivery & Pre-Installation",
       icon: HardDrive,
-      image: "/server-racks-delivery.png",
+      image: "/server-racks-delivery.webp",
       alt: "Secure delivery of AI hardware components",
       description:
         "We manage the complex logistics of AI hardware delivery and ensure all pre-installation requisites are met for a smooth deployment.",
@@ -72,7 +72,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
       stage: "Implement/Test",
       title: "Onsite Deployment, Configuration & Testing",
       icon: Wrench,
-      image: "/ai-server-configuration.png",
+      image: "/ai-server-configuration.webp",
       alt: "Engineers performing onsite deployment and configuration of AI servers",
       description:
         "Our expert engineers handle the physical deployment, meticulous configuration, and rigorous testing of your AI infrastructure to ensure optimal performance.",
@@ -88,7 +88,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
       stage: "Handover",
       title: "Software Implementation & System Handover",
       icon: PackageCheck,
-      image: "/team-reviewing-docs.png",
+      image: "/team-reviewing-docs.webp",
       alt: "Team reviewing system documentation during project handover",
       description:
         "We ensure a seamless transition with thorough software implementation, comprehensive documentation, and knowledge transfer to your team.",
@@ -104,7 +104,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
       stage: "Operation",
       title: "Operational Enablement & Optimization",
       icon: Settings,
-      image: "/ai-cluster-dashboard.png",
+      image: "/ai-cluster-dashboard.webp",
       alt: "Dashboard showing AI cluster performance monitoring",
       description:
         "Post-handover, we focus on enabling your team to operate the AI infrastructure efficiently and provide ongoing optimization to maximize your ROI.",

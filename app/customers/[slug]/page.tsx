@@ -14,8 +14,8 @@ const getCaseStudyBySlug = (slug: string) => {
       title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
       industry: "AI Infrastructure",
       company: "Core42",
-      logo: "/customer-logos/core42-logo.png",
-      heroImage: "/customers/core42_image.jpg",
+      logo: "/customer-logos/core42-logo.webp",
+      heroImage: "/customers/core42_image.webp",
       challenge:
         "G42\'s Core42 needed to rapidly scale their AI cloud offering to meet growing demand for enterprise AI workloads across the Middle East and beyond. They required a high-performance, scalable infrastructure that could support diverse AI applications while maintaining enterprise-grade reliability and security.",
     
@@ -38,7 +38,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Talal Al Kaissi",
         position: "CEO",
         company: "Core42 (G42)",
-        image: "/customers/talal_image.jpeg",
+        image: "/customers/talal_image.webp",
       },
       metrics: [
         {
@@ -67,14 +67,14 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "2",
           title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
           industry: "AI Infrastructure",
-          image: "/customers/tonomus_image.jpg",
+          image: "/customers/tonomus_image.webp",
           slug: "tonomus-neom-cognitive-cloud",
         },
         {
           id: "3",
           title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
           industry: "AI Consulting",
-          image: "/customers/vmware-logo.png",
+          image: "/customers/vmware-logo.webp",
           slug: "broadcom-vmware-crm-automation",
         },
       ],
@@ -85,8 +85,8 @@ const getCaseStudyBySlug = (slug: string) => {
       title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
       industry: "AI Infrastructure",
       company: "NEOM",
-      logo: "/customers/neom-logo.png",
-      heroImage: "/customers/tonomus_image.jpg",
+      logo: "/customers/neom-logo.webp",
+      heroImage: "/customers/tonomus_image.webp",
       challenge:
         "Tonomus, the digital-infrastructure engine of the NEOM smart-city project, needed a high-density AI platform to power real-time analytics, digital-twin modelling, and generative-AI services for city-scale use cases across energy, mobility, and urban planning. They required extreme performance, multi-tenant isolation, and enterprise-grade security—delivered on an aggressive timeline.",
       solution:
@@ -106,7 +106,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       metrics: [
         {
@@ -135,14 +135,14 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/core42_image.jpg",
+          image: "/customers/core42_image.webp",
           slug: "g42-ai-cloud-infrastructure",
         },
         {
           id: "4",
           title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
           industry: "AI Consulting",
-          image: "/customers/midis-logo.jpeg",
+          image: "/customers/midis-logo.webp",
           slug: "midis-group-generative-ai-finance",
         },
       ],
@@ -153,8 +153,8 @@ const getCaseStudyBySlug = (slug: string) => {
       title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
       industry: "AI Consulting",
       company: "Broadcom",
-      logo: "/customers/broadcom-logo.png",
-      heroImage: "/customers/crm_ai_image.jpg",
+      logo: "/customers/broadcom-logo.webp",
+      heroImage: "/customers/crm_ai_image.webp",
       challenge:
         "Broadcom\'s Southern Europe and GCC teams were drowning in paperwork: more than 25 000 invoices and quotes each quarter (100 000+ per year) had to be keyed manually into separate VMware and Broadcom CRM instances. Constant licensing model changes (users → nodes), intricate long-tail contracts, and a \"hockey-stick\" surge of low-value renewals left 120 full-time employees struggling to keep up—driving delays, errors, and rising operating costs.",
       
@@ -176,7 +176,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       metrics: [
         {
@@ -205,14 +205,14 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/core42_image.jpg",
+          image: "/customers/core42_image.webp",
           slug: "g42-ai-cloud-infrastructure",
         },
         {
           id: "4",
           title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
           industry: "AI Consulting",
-          image: "/customers/midis-logo.jpeg",
+          image: "/customers/midis-logo.webp",
           slug: "midis-group-generative-ai-finance",
         },
       ],
@@ -223,8 +223,8 @@ const getCaseStudyBySlug = (slug: string) => {
       title: "Midis Group – Generative-AI Finance Agent for Real-Time Consolidation & Forecasting",
       industry: "AI Consulting",
       company: "Midis Group",
-      logo: "/customers/mindware-logo.png",
-      heroImage: "/customers/finance_agent_image.png",
+      logo: "/customers/mindware-logo.webp",
+      heroImage: "/customers/finance_agent_image.webp",
       challenge:
         "With dozens of operating companies spread across the Middle East & North Africa, Midis Group\'s finance team spent days each month reconciling spreadsheets, PDFs, and ERP exports to prepare group-level reports. Manual data entry introduced errors, template versions drifted, and late adjustments left decision-makers with out-of-date information. Midis needed a faster, more reliable way to aggregate data and generate forward-looking insights—without burdening regional controllers or expanding head-count.",
       
@@ -246,7 +246,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       metrics: [
         {
@@ -275,14 +275,14 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/core42_image.jpg",
+          image: "/customers/core42_image.webp",
           slug: "g42-ai-cloud-infrastructure",
         },
         {
           id: "3",
           title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
           industry: "AI Consulting",
-          image: "/customers/vmware-logo.png",
+          image: "/customers/vmware-logo.webp",
           slug: "broadcom-vmware-crm-automation",
         },
       ],
@@ -293,8 +293,8 @@ const getCaseStudyBySlug = (slug: string) => {
       title: "iStyle & K-Tuin – Digital-Twin Retail Analytics for 130+ Apple Stores",
       industry: "AI Consulting",
       company: "Midis Group",
-      logo: "/customers/mindware-logo.png",
-      heroImage: "/customers/digital_twins_image.png",
+      logo: "/customers/mindware-logo.webp",
+      heroImage: "/customers/digital_twins_image.webp",
       challenge:
         "iStyle and K-Tuin (Midis Group) operate more than 130 Apple Premium Reseller stores across Europe, the Middle East and Africa. Store managers lacked precise, real-time insight into how shoppers moved, waited and interacted with products, so layout tweaks, staffing levels and campaign decisions were driven largely by gut feel. They needed a privacy-safe way to capture granular customer-action data—at scale and in real time—to stay competitive in the high-margin Apple retail market.",
       
@@ -316,7 +316,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       metrics: [
         {
@@ -345,14 +345,14 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "2",
           title: "Tonomus – 20 × NVIDIA DGX A100 Cluster for NEOM Cognitive Cloud",
           industry: "AI Infrastructure",
-          image: "/customers/tonomus_image.jpg",
+          image: "/customers/tonomus_image.webp",
           slug: "tonomus-neom-cognitive-cloud",
         },
         {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/core42_image.jpg",
+          image: "/customers/core42_image.webp",
           slug: "g42-ai-cloud-infrastructure",
         },
       ],
@@ -363,8 +363,8 @@ const getCaseStudyBySlug = (slug: string) => {
       title: "HCT Pioneers Metaverse Education with NVIDIA Omniverse Lab",
       industry: "Design & Simulation",
       company: "Higher Colleges of Technology",
-      logo: "/customer-logos/hct-logo.png",
-      heroImage: "/customers/hct-metaverse-lab.png",
+      logo: "/customer-logos/hct-logo.webp",
+      heroImage: "/customers/hct-metaverse-lab.webp",
       challenge:
         "Higher Colleges of Technology (HCT) aimed to establish a state-of-the-art Metaverse and Digital Twin development lab to be a pioneer in the Gulf region. They needed a robust, scalable platform to support advanced 3D design, real-time collaboration, and simulation for their students and faculty.",
       
@@ -386,7 +386,7 @@ const getCaseStudyBySlug = (slug: string) => {
         author: "Dr. Aisha Al-Mansoori",
         position: "Dean, College of Technological Innovation",
         company: "Higher Colleges of Technology",
-        image: "/customers/testimonials/aisha-al-mansoori.png",
+        image: "/customers/testimonials/aisha-al-mansoori.webp",
       },
       metrics: [
         {
@@ -415,14 +415,14 @@ const getCaseStudyBySlug = (slug: string) => {
           id: "3",
           title: "Broadcom – VMware & Broadcom Invoice + CRM AI Automation",
           industry: "AI Consulting",
-          image: "/customers/vmware-logo.png",
+          image: "/customers/vmware-logo.webp",
           slug: "broadcom-vmware-crm-automation",
         },
         {
           id: "1",
           title: "Core42 Scales AI Cloud Infrastructure with NVIDIA DGX SuperPOD",
           industry: "AI Infrastructure",
-          image: "/customers/core42_image.jpg",
+          image: "/customers/core42_image.webp",
           slug: "g42-ai-cloud-infrastructure",
         },
       ],
@@ -434,8 +434,8 @@ const getCaseStudyBySlug = (slug: string) => {
     title: "VFX Studio Accelerates Rendering with AI Infrastructure",
     industry: "Media & Entertainment",
     company: "El Ranchito",
-    logo: "/customers/el-ranchito-logo.png",
-    heroImage: "/customers/vfx-studio-case-study-hero.png",
+    logo: "/customers/el-ranchito-logo.webp",
+    heroImage: "/customers/vfx-studio-case-study-hero.webp",
     challenge:
       "A leading VFX studio was struggling with long rendering times that were impacting project deadlines and increasing costs. They needed a high-performance computing solution that could handle complex 3D rendering workloads while being scalable and cost-effective.",
     challengeDetails:
@@ -460,7 +460,7 @@ const getCaseStudyBySlug = (slug: string) => {
       author: "Carlos Rodriguez",
       position: "CTO",
       company: "El Ranchito",
-      image: "/customers/testimonials/carlos-rodriguez.png",
+      image: "/customers/testimonials/carlos-rodriguez.webp",
     },
     metrics: [
       {
@@ -489,14 +489,14 @@ const getCaseStudyBySlug = (slug: string) => {
         id: "2",
         title: "Architectural Firm Enhances Visualization with 3D AI",
         industry: "Architecture & Design",
-        image: "/customers/architecture-firm-case-study.png",
+        image: "/customers/architecture-firm-case-study.webp",
         slug: "architectural-visualization",
       },
       {
         id: "4",
         title: "Media Production Studio Implements Virtual Production Pipeline",
         industry: "Media & Entertainment",
-        image: "/customers/virtual-production-case-study.png",
+        image: "/customers/virtual-production-case-study.webp",
         slug: "virtual-production",
       },
     ],

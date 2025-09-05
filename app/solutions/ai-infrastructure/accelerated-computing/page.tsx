@@ -175,7 +175,7 @@ export default function AcceleratedComputingPage() {
             </div>
             <div className="hidden md:block animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <Image
-                src="/gpu-server-racks.png"
+                src="/gpu-server-racks.webp"
                 alt="GPU Server Racks"
                 width={600}
                 height={450}
@@ -251,7 +251,7 @@ export default function AcceleratedComputingPage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               {/* You can use an actual NVIDIA logo image here if available */}
-              {/* <Image src="/nvidia-logo-white.png" alt="NVIDIA Logo" width={200} height={100} className="mb-6" /> */}
+              {/* <Image src="/nvidia-logo-white.webp" alt="NVIDIA Logo" width={200} height={100} className="mb-6" /> */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-green/20 text-accent-green border border-accent-green/50 mb-4 text-sm">
                 <Nvidia className="h-5 w-5 text-accent-green" /> {/* Using placeholder Nvidia icon */}
                 Powered by NVIDIA
@@ -274,7 +274,7 @@ export default function AcceleratedComputingPage() {
             </div>
             <div className="hidden md:block">
               <Image
-                src="/gpu-accelerator-chip.png" // Replace with a more specific NVIDIA tech image if available
+                src="/gpu-accelerator-chip.webp" // Replace with a more specific NVIDIA tech image if available
                 alt="NVIDIA GPU Technology"
                 width={500}
                 height={400}

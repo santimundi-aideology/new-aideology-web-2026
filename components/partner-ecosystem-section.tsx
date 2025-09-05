@@ -71,14 +71,14 @@ export default function PartnerEcosystemSection() {
           </Tabs>
         </div>
 
-                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
            {partnersToShow.map((partner, index) => (
                         <Link
               key={`${partner.name}-${activeCategory}`}
               href={partner.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-lg flex flex-col justify-center items-center h-32 opacity-100 visible z-10 hover:border-accent-green/50 hover:shadow-xl transition-all duration-300 hover:scale-105 group no-image-hover"
+              className="bg-white border-2 border-gray-200 p-3 md:p-6 rounded-lg shadow-lg flex flex-col justify-center items-center h-24 md:h-32 opacity-100 visible z-10 hover:border-accent-green/50 hover:shadow-xl transition-all duration-300 hover:scale-105 group no-image-hover"
               style={{ 
                 display: 'flex',
                 visibility: 'visible',
@@ -90,8 +90,8 @@ export default function PartnerEcosystemSection() {
                 alt={`${partner.name} logo`}
                 className={`w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ${
                   partner.name === "Hugging Face" 
-                    ? "max-h-[120px] max-w-[240px]" 
-                    : "max-h-[84px] max-w-[168px]"
+                    ? "max-h-[60px] max-w-[120px] md:max-h-[120px] md:max-w-[240px]" 
+                    : "max-h-[48px] max-w-[96px] md:max-h-[84px] md:max-w-[168px]"
                 }`}
                 style={{
                   display: 'block',

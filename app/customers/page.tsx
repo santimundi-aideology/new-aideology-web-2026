@@ -51,15 +51,15 @@ export default function CustomersPage() {
         "Massive scale AI cloud infrastructure operational",
         "Enhanced AI capabilities across the region",
       ],
-      image: "/customers/core42_image.jpg",
-      logo: "/customer-logos/core42-logo.png",
+      image: "/customers/core42_image.webp",
+      logo: "/customer-logos/core42-logo.webp",
       testimonial: {
         quote:
           "The partnership with AIdeology enabled us to rapidly deploy enterprise-grade AI infrastructure at scale. The DGX SuperPOD implementation has significantly enhanced our ability to serve AI workloads across diverse industries.",
         author: "Talal Al Kaissi",
         position: "CEO",
         company: "Core42 (G42)",
-        image: "/customers/talal_image.jpeg",
+        image: "/customers/talal_image.webp",
       },
       slug: "g42-ai-cloud-infrastructure",
     },
@@ -77,14 +77,14 @@ export default function CustomersPage() {
         "Supports real-time analytics for 1M+ IoT sensors",
         "Reduced model training time by 85% for urban planning",
       ],
-      image: "/customers/tonomus_image.jpg",
-      logo: "/customers/neom-logo.png",
+      image: "/customers/tonomus_image.webp",
+      logo: "/customers/neom-logo.webp",
       testimonial: {
         quote: "AIdeology delivered a secure, role-based AI finance agent that:",
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       slug: "tonomus-neom-cognitive-cloud",
     },
@@ -102,14 +102,14 @@ export default function CustomersPage() {
         "97.5 % data accuracy and near-zero manual rework",
         "1 200 % ROI in the first year, driven by labour savings and faster revenue recognition",
       ],
-      image: "/customers/vmware-logo.png",
-      logo: "/customers/broadcom-logo.png",
+      image: "/customers/vmware-logo.webp",
+      logo: "/customers/broadcom-logo.webp",
       testimonial: {
         quote: "AIdeology delivered a secure, role-based AI finance agent that:",
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       slug: "broadcom-vmware-crm-automation",
     },
@@ -127,14 +127,14 @@ export default function CustomersPage() {
         "Rapid adoption across subsidiaries—the chat UI required < 1 hour of training for most users",
         "Positioned Midis Group to scale seamlessly as new entities and reporting requirements are added",
       ],
-      image: "/customers/midis-logo.jpeg",
-      logo: "/customers/mindware-logo.png",
+      image: "/customers/midis-logo.webp",
+      logo: "/customers/mindware-logo.webp",
       testimonial: {
         quote: "AIdeology delivered a secure, role-based AI finance agent that:",
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       slug: "midis-group-generative-ai-finance",
     },
@@ -152,13 +152,13 @@ export default function CustomersPage() {
         "Privacy & compliance by design, meeting GDPR and internal Midis Group policies without intrusive cameras or manual tagging.",
       ],
       image: "istyle-ktuin-custom",
-      logo: "/customers/mindware-logo.png",
+      logo: "/customers/mindware-logo.webp",
       testimonial: {
         quote: 'AIdeology built a complete "store digital-twin" platform:',
         author: "Robert Thompson",
         position: "Grid Operations Manager",
         company: "PowerGrid Solutions",
-        image: "/customers/testimonials/robert-thompson.png",
+        image: "/customers/testimonials/robert-thompson.webp",
       },
       slug: "k-tuin-istyle-digital-twin",
     },
@@ -176,15 +176,15 @@ export default function CustomersPage() {
         "Provided students with hands-on experience with industry-leading NVIDIA Omniverse technology.",
         "Empowered HCT to become an NVIDIA DLI University Ambassador, expanding AI and Metaverse training.",
       ],
-      image: "/customers/hct-metaverse-lab.png",
-      logo: "/customer-logos/hct-logo.png",
+      image: "/customers/hct-metaverse-lab.webp",
+      logo: "/customer-logos/hct-logo.webp",
       testimonial: {
         quote:
           "AIdeology's expertise in NVIDIA Omniverse and their seamless deployment of the OVX solution has positioned HCT at the forefront of Metaverse education. Our students now have access to a world-class lab that mirrors the technology used by industry leaders.",
         author: "Dr. Aisha Al-Mansoori",
         position: "Dean, College of Technological Innovation",
         company: "Higher Colleges of Technology",
-        image: "/customers/testimonials/aisha-al-mansoori.png",
+        image: "/customers/testimonials/aisha-al-mansoori.webp",
       },
       slug: "hct-metaverse-lab",
     },
@@ -451,14 +451,14 @@ function CardImage({ useCase }: { useCase: UseCase }) {
     return (
       <div className="flex items-center justify-center h-full w-full bg-white px-4">
         <Image
-          src="/customers/ktuin_logo.png"
+          src="/customers/ktuin_logo.webp"
           alt="K-Tuin logo"
           width={100}
           height={60}
           className="object-contain h-12 w-auto mr-2"
         />
         <Image
-          src="/customers/istyle_logo.png"
+          src="/customers/istyle_logo.webp"
           alt="iStyle logo"
           width={100}
           height={60}

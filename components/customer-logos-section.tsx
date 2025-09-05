@@ -12,7 +12,7 @@ export default function CustomerLogosSection() {
   // Customer logos - Real customers only, sorted alphabetically
   const customers = [
     { name: "Broadcom", logo: "/customer-logos/broadcom-logo.webp" },
-    { name: "Core42", logo: "/customer-logos/core42-logo.png" },
+    { name: "Core42", logo: "/customer-logos/core42-logo.webp" },
     { name: "HCT", logo: "/customer-logos/hct-logo.webp" },
     { name: "KAUST", logo: "/customer-logos/kaust-logo.webp" },
     { name: "Nakheel", logo: "/customer-logos/nakheel-logo.webp" },

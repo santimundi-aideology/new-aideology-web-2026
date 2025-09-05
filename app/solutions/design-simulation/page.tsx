@@ -256,13 +256,13 @@ export default function ThreeDimensionalAIPage() {
                 title: "Industrial Digital Twins",
                 description:
                   "Virtual replicas of industrial equipment and processes for predictive maintenance and optimization.",
-                image: "/industrial-digital-twin.png",
+                image: "/industrial-digital-twin.webp",
               },
               {
                 title: "Architectural Visualization",
                 description:
                   "AI-enhanced 3D visualization for architectural projects with real-time rendering and interaction.",
-                image: "/architectural-visualization-ai.png",
+                image: "/architectural-visualization-ai.webp",
               },
               {
                 title: "Virtual Production",
@@ -336,14 +336,14 @@ export default function ThreeDimensionalAIPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Design & Simulation Partners</h2>
           {relevantPartners.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8 justify-items-center">
               {relevantPartners.map((partner, index) => (
                 <Link
                   key={partner.name}
                   href={partner.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-lg flex items-center justify-center w-full h-32 hover:border-accent-green/50 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up group"
+                  className="bg-white border-2 border-gray-200 p-3 md:p-6 rounded-lg shadow-lg flex items-center justify-center w-full h-24 md:h-32 hover:border-accent-green/50 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up group"
                   style={{ animationDelay: `${200 + index * 100}ms` }}
                 >
                   <img
@@ -351,8 +351,8 @@ export default function ThreeDimensionalAIPage() {
                     alt={`${partner.name} logo`}
                     className={`h-auto w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ${
                       partner.name === "Hugging Face" 
-                        ? "max-h-[120px] max-w-[240px]" 
-                        : "max-h-[84px] max-w-[168px]"
+                        ? "max-h-[60px] max-w-[120px] md:max-h-[120px] md:max-w-[240px]" 
+                        : "max-h-[48px] max-w-[96px] md:max-h-[84px] md:max-w-[168px]"
                     }`}
                   />
                 </Link>

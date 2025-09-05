@@ -69,7 +69,7 @@ export default function AiDataPlatformPage() {
       description:
         "We build GPU-accelerated data processing pipelines for ETL, feature engineering, and data augmentation. Utilizing NVIDIA RAPIDS, Apache Spark with GPU acceleration, and Dask, we significantly reduce data preparation times. Our expertise includes building efficient data lakes and data warehouses optimized for AI analytics.",
       icon: <Zap className="w-6 h-6 text-accent-green mb-4" />,
-      image: "/gpu-data-visualization.png",
+      image: "/gpu-data-visualization.webp",
       alt: "Accelerated Data Processing Pipeline",
       points: [
         "NVIDIA RAPIDS for GPU-accelerated data science",
@@ -84,7 +84,7 @@ export default function AiDataPlatformPage() {
       description:
         "AIdeology ensures your AI models are never starved for data. We implement high-speed data access layers using technologies like NVIDIA Magnum IO, RDMA, and InfiniBand/Ethernet networking. Our solutions optimize data loading and delivery to AI training clusters, minimizing I/O bottlenecks and maximizing GPU utilization.",
       icon: <Rocket className="w-6 h-6 text-accent-green mb-4" />,
-      image: "/high-speed-network-data.png",
+      image: "/high-speed-network-data.webp",
       alt: "Efficient Data Access and Delivery Network",
       points: [
         "NVIDIA Magnum IO integration",
@@ -99,7 +99,7 @@ export default function AiDataPlatformPage() {
       description:
         "We establish comprehensive data management frameworks, including metadata management, data lineage tracking, version control, and robust governance protocols. Our solutions ensure data quality, security, and compliance, incorporating tools for data cataloging, access control, and audit trails, essential for responsible AI development.",
       icon: <Shield className="w-6 h-6 text-accent-green mb-4" />,
-      image: "/data-governance-security-dashboard.png",
+      image: "/data-governance-security-dashboard.webp",
       alt: "Data Management and Governance Framework",
       points: [
         "Metadata management and data cataloging",
@@ -112,7 +112,7 @@ export default function AiDataPlatformPage() {
   ]
 
   const keyTechnologies = [
-    { name: "NVIDIA DGX Systems", logo: "/nvidia-dgx-logo.png" },
+    { name: "NVIDIA DGX Systems", logo: "/nvidia-dgx-logo.webp" },
     { name: "NVIDIA RAPIDS", logo: "/solutions/rapids-logo.webp" },
     { name: "NVIDIA Magnum IO", logo: "/solutions/nvidia_magnum_io.webp" },
     { name: "Apache Spark", logo: "/solutions/apache_spark.webp" },

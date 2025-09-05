@@ -196,7 +196,7 @@ export default function HeroSection() {
         
         {/* Fallback image if videos don't load */}
         <img
-          src="/gpu-server-racks.png"
+          src="/gpu-server-racks.webp"
           alt="AI Infrastructure"
           className="absolute inset-0 w-full h-full object-cover opacity-0"
           onError={(e) => {

@@ -72,7 +72,7 @@ export default function DesignVisualizationPage() {
             <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
               <div className="relative animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 <Image
-                  src="/architectural-visualization-ai.png"
+                  src="/architectural-visualization-ai.webp"
                   alt="Architectural Visualization"
                   width={600}
                   height={400}

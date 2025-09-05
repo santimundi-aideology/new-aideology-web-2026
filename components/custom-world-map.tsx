@@ -42,7 +42,7 @@ export default function CustomWorldMap({
         style={{ height }}
       >
         {/* World Map Image */}
-        <Image src="/world-map-blue.png" alt="World Map" fill className="object-cover opacity-90" priority />
+        <Image src="/world-map-blue.webp" alt="World Map" fill className="object-cover opacity-90" priority />
 
         {/* Location Markers */}
         {locations.map((location) => (
