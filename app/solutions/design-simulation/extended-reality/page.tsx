@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, ArrowRight, Eye, Layers, Building, Globe, Users, Search, Headphones, Monitor, ChevronRight } from "lucide-react"
+import { CheckCircle, ArrowRight, Eye, Layers, Building, Globe, Users, Search, Headphones, Monitor, ChevronRight, GraduationCap, UserCheck, Wrench, Settings } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "@/components/footer"
@@ -44,6 +44,7 @@ export default function ExtendedRealityPage() {
     {
       title: "Immersive Training Solutions",
       description: "We create VR training environments that enable employees to practice complex procedures, emergency responses, and specialized skills in safe, realistic virtual settings.",
+      icon: <GraduationCap className="w-8 h-8 text-accent-green" />,
       features: [
         "Emergency response training",
         "Equipment operation simulation", 
@@ -54,6 +55,7 @@ export default function ExtendedRealityPage() {
     {
       title: "Collaborative VR Environments", 
       description: "AIdeology implements multi-user virtual environments that enable teams to collaborate on 3D models, data visualization, and complex planning tasks regardless of physical location.",
+      icon: <UserCheck className="w-8 h-8 text-accent-green" />,
       features: [
         "Multi-user virtual workspaces",
         "3D model collaboration",
@@ -64,6 +66,7 @@ export default function ExtendedRealityPage() {
     {
       title: "AR for Enterprise",
       description: "We develop augmented reality solutions that overlay digital information on the physical world, enhancing maintenance procedures, assembly operations, and field service activities.",
+      icon: <Wrench className="w-8 h-8 text-accent-green" />,
       features: [
         "Maintenance guidance overlays",
         "Assembly instruction visualization",
@@ -74,6 +77,7 @@ export default function ExtendedRealityPage() {
     {
       title: "XR Infrastructure & Integration",
       description: "AIdeology designs and implements the technical infrastructure required to support enterprise XR deployments, including hardware, networking, and integration with existing systems.",
+      icon: <Settings className="w-8 h-8 text-accent-green" />,
       features: [
         "High-performance XR hardware setup",
         "Network optimization for XR",
@@ -109,29 +113,12 @@ export default function ExtendedRealityPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <Eye className="w-4 h-4 mr-2" />
-              3D AI
-            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Extended Reality <span className="text-accent-green">(XR)</span> Solutions
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Transform how organizations train, visualize, and collaborate with immersive virtual reality, augmented reality, and mixed reality experiences
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
-              >
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -149,13 +136,15 @@ export default function ExtendedRealityPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {xrCapabilities.map((capability, index) => (
-                <Card key={capability.title} className="hover-lift border-0 shadow-lg text-center animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <Card key={capability.title} className="hover-lift border-0 shadow-lg animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <CardHeader>
-                    <div className="text-4xl mb-4">{capability.icon}</div>
-                    <CardTitle className="text-xl">{capability.title}</CardTitle>
+                    <div className="flex items-center mb-4">
+                      {capability.icon}
+                      <CardTitle className="text-xl ml-3">{capability.title}</CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-center">
+                    <CardDescription>
                       {capability.description}
                     </CardDescription>
                   </CardContent>
@@ -181,7 +170,10 @@ export default function ExtendedRealityPage() {
               {services.map((service, index) => (
                 <Card key={service.title} className="hover-lift border-0 shadow-lg animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <CardHeader>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <div className="flex items-center mb-4">
+                      {service.icon}
+                      <CardTitle className="text-xl ml-3">{service.title}</CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="mb-4">

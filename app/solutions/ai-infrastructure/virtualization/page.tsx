@@ -347,7 +347,7 @@ export default function VirtualizationPage() {
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 transform hover:scale-105"
               asChild
             >
-              <Link href="/services">Explore More Services</Link>
+              <Link href="/#solutions">Explore More Solutions</Link>
             </Button>
           </div>
         </div>

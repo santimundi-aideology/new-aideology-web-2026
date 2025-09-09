@@ -37,10 +37,6 @@ export default function DesignVisualizationPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <Layers className="w-4 h-4 mr-2" />
-              3D AI
-            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Advanced <span className="text-accent-green">3D Design</span> & Visualization
             </h1>
@@ -48,19 +44,6 @@ export default function DesignVisualizationPage() {
               Transform how architects, designers, and creative professionals bring their visions to life with
               cutting-edge visualization technology
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold hover:scale-105 transition-all duration-300">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300"
-              >
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
       </section>

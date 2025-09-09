@@ -341,8 +341,8 @@ export default function AcceleratedComputingPage() {
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white shadow-lg transition-transform hover:scale-105"
               asChild
             >
-              <Link href="/services">
-                Explore More Services
+              <Link href="/#solutions">
+                Explore More Solutions
               </Link>
             </Button>
           </div>

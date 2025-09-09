@@ -373,7 +373,7 @@ export default function ThreeDimensionalAIPage() {
           </p>
           <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Button asChild size="lg" className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105">
-              <Link href="/book-discovery-call?type=demo">Schedule a demo</Link>
+              <Link href="/book-discovery-call?type=consultation">Schedule Consultation</Link>
             </Button>
           </div>
         </div>

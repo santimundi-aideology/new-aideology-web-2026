@@ -3,9 +3,8 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Calendar } from '@/components/ui/calendar';
-import { Loader2, ArrowRight, ArrowLeft, CalendarIcon, Clock, ChevronRight } from 'lucide-react';
-import { format } from 'date-fns';
+import { Loader2, ArrowRight, ArrowLeft, CalendarIcon, Clock, ChevronRight, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
+import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isSameDay, addMonths, subMonths, isToday } from 'date-fns';
 import SubmissionStatusModal from '@/components/submission-status-modal';
 import Link from 'next/link';
 
@@ -74,6 +73,129 @@ const groupedTopics = topics.reduce((acc, topic) => {
   acc[topic.category].push(topic);
   return acc;
 }, {} as Record<string, typeof topics>);
+
+// Custom Calendar Component
+interface CustomCalendarProps {
+  selected: Date | undefined;
+  onSelect: (date: Date | undefined) => void;
+}
+
+function CustomCalendar({ selected, onSelect }: CustomCalendarProps) {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  
+  const monthStart = startOfMonth(currentMonth);
+  const monthEnd = endOfMonth(currentMonth);
+  const days = eachDayOfInterval({ start: monthStart, end: monthEnd });
+  
+  // Get the first day of the week for the month (0 = Sunday, 1 = Monday, etc.)
+  const startDay = monthStart.getDay();
+  
+  // Create empty cells for days before the month starts
+  const emptyCells = Array(startDay).fill(null);
+  
+  const isDisabled = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const checkDate = new Date(date);
+    checkDate.setHours(0, 0, 0, 0);
+    
+    return checkDate < today || date.getDay() === 0 || date.getDay() === 6; // Past dates, Sundays, Saturdays
+  };
+  
+  const handleDateClick = (date: Date) => {
+    if (!isDisabled(date)) {
+      onSelect(date);
+    }
+  };
+  
+  const goToPreviousMonth = () => {
+    setCurrentMonth(subMonths(currentMonth, 1));
+  };
+  
+  const goToNextMonth = () => {
+    setCurrentMonth(addMonths(currentMonth, 1));
+  };
+  
+  return (
+    <div className="w-full max-w-sm mx-auto">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-4">
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={goToPreviousMonth}
+          className="p-2"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </Button>
+        <h2 className="text-lg font-semibold">
+          {format(currentMonth, 'MMMM yyyy')}
+        </h2>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={goToNextMonth}
+          className="p-2"
+        >
+          <ChevronRightIcon className="h-4 w-4" />
+        </Button>
+      </div>
+      
+      {/* Days of week header */}
+      <div className="grid grid-cols-7 gap-1 mb-2">
+        {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
+          <div key={day} className="text-center text-sm font-medium text-gray-500 p-2">
+            {day}
+          </div>
+        ))}
+      </div>
+      
+      {/* Calendar grid */}
+      <div className="grid grid-cols-7 gap-1">
+        {/* Empty cells for days before month starts */}
+        {emptyCells.map((_, index) => (
+          <div key={`empty-${index}`} className="p-2"></div>
+        ))}
+        
+        {/* Month days */}
+        {days.map((day) => {
+          const isSelectedDay = selected && isSameDay(day, selected);
+          const isTodayDay = isToday(day);
+          const isDisabledDay = isDisabled(day);
+          
+          return (
+            <Button
+              key={day.toISOString()}
+              type="button"
+              variant="ghost"
+              onClick={() => handleDateClick(day)}
+              disabled={isDisabledDay}
+              className={`
+                p-2 h-10 w-10 text-sm relative
+                ${isSelectedDay 
+                  ? 'bg-accent-green text-charcoal hover:bg-accent-green/90' 
+                  : 'hover:bg-gray-100'
+                }
+                ${isTodayDay && !isSelectedDay 
+                  ? 'bg-gray-100 font-semibold' 
+                  : ''
+                }
+                ${isDisabledDay 
+                  ? 'text-gray-300 cursor-not-allowed hover:bg-transparent' 
+                  : 'text-gray-900'
+                }
+              `}
+            >
+              {format(day, 'd')}
+            </Button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 function BookDiscoveryCallContent() {
   const searchParams = useSearchParams();
@@ -471,16 +593,9 @@ function BookDiscoveryCallContent() {
                       <div>
                         <h4 className="text-sm font-semibold text-gray-900 mb-3">Select Date</h4>
                         <div className="bg-white border border-gray-300 rounded-lg p-4">
-                          <Calendar
-                            mode="single"
+                          <CustomCalendar
                             selected={formData.selectedDate}
                             onSelect={handleDateSelect}
-                            className="rounded-md"
-                            disabled={(date) => 
-                              date < new Date() || // Past dates
-                              date.getDay() === 0 || // Sunday
-                              date.getDay() === 6    // Saturday
-                            }
                           />
                         </div>
                       </div>

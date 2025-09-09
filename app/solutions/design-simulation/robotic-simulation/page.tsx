@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, ArrowRight, Zap, Bot, BarChart3, Shield, Cpu, Gauge, Database, Settings, ChevronRight } from "lucide-react"
+import { CheckCircle, ArrowRight, Zap, Bot, BarChart3, Shield, Cpu, Gauge, Database, Settings, ChevronRight, Building, BrainCircuit, Copy, TestTube } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "@/components/footer"
@@ -44,6 +44,7 @@ export default function RoboticSimulationPage() {
     {
       title: "Simulation Environment Development",
       description: "We create physically accurate simulation environments tailored to your specific robotics applications, from warehouses and factories to outdoor environments and specialized settings.",
+      icon: <Building className="w-8 h-8 text-accent-green" />,
       features: [
         "Custom environment modeling",
         "Physically accurate simulations",
@@ -54,6 +55,7 @@ export default function RoboticSimulationPage() {
     {
       title: "AI Training Infrastructure",
       description: "AIdeology implements end-to-end infrastructure for training robotic AI using simulation, including synthetic data generation, reinforcement learning, and sim-to-real transfer.",
+      icon: <BrainCircuit className="w-8 h-8 text-accent-green" />,
       features: [
         "Reinforcement learning setup",
         "Synthetic data pipelines",
@@ -64,6 +66,7 @@ export default function RoboticSimulationPage() {
     {
       title: "Digital Twin Creation",
       description: "We develop digital twins of physical environments and robotic systems, enabling testing and validation in virtual replicas before deployment to the real world.",
+      icon: <Copy className="w-8 h-8 text-accent-green" />,
       features: [
         "Environment digital twins",
         "Robot system modeling",
@@ -74,6 +77,7 @@ export default function RoboticSimulationPage() {
     {
       title: "Simulation-Based Testing",
       description: "AIdeology creates comprehensive testing frameworks that leverage simulation to validate robotic system performance across thousands of scenarios and edge cases.",
+      icon: <TestTube className="w-8 h-8 text-accent-green" />,
       features: [
         "Automated testing suites",
         "Edge case simulation",
@@ -151,29 +155,12 @@ export default function RoboticSimulationPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <Bot className="w-4 h-4 mr-2" />
-              3D AI
-            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <span className="text-accent-green">Robotic Simulation</span> & AI
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Accelerate development, testing, and deployment of autonomous systems with advanced robotic simulation environments
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
-              >
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -191,13 +178,15 @@ export default function RoboticSimulationPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {simulationCapabilities.map((capability, index) => (
-                <Card key={capability.title} className="hover-lift border-0 shadow-lg text-center animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <Card key={capability.title} className="hover-lift border-0 shadow-lg animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <CardHeader>
-                    <div className="text-4xl mb-4">{capability.icon}</div>
-                    <CardTitle className="text-xl">{capability.title}</CardTitle>
+                    <div className="flex items-center mb-4">
+                      {capability.icon}
+                      <CardTitle className="text-xl ml-3">{capability.title}</CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-center">
+                    <CardDescription>
                       {capability.description}
                     </CardDescription>
                   </CardContent>
@@ -223,7 +212,10 @@ export default function RoboticSimulationPage() {
               {services.map((service, index) => (
                 <Card key={service.title} className="hover-lift border-0 shadow-lg animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <CardHeader>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <div className="flex items-center mb-4">
+                      {service.icon}
+                      <CardTitle className="text-xl ml-3">{service.title}</CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="mb-4">

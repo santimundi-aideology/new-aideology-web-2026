@@ -262,7 +262,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
             size="lg" 
             className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3 animate-fade-in-up" style={{ animationDelay: '300ms' }}
           >
-            <Link href="#contact-section" className="inline-flex items-center">
+            <Link href="/book-discovery-call?type=consultation" className="inline-flex items-center">
               <Mail className="mr-2 h-5 w-5" />
               Discuss Your Project
             </Link>
@@ -559,8 +559,8 @@ export default function AiInfrastructureProfessionalServicesPage() {
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white text-lg px-10 py-5 rounded-2xl hover:scale-105 transition-all duration-300 ease-in-out"
               asChild
             >
-              <Link href="/services">
-                Explore More Services
+              <Link href="/#solutions">
+                Explore More Solutions
               </Link>
             </Button>
           </div>

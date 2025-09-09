@@ -487,8 +487,8 @@ export default function AiDataPlatformPage() {
                 className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
                 asChild
               >
-                <Link href="/services">
-                  Explore more services
+                <Link href="/#solutions">
+                  Explore More Solutions
                 </Link>
               </Button>
             </div>

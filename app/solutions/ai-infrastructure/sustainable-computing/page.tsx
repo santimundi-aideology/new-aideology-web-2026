@@ -291,7 +291,7 @@ export default function SustainableComputingPage() {
               variant="outline"
               className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 hover:scale-105"
             >
-              <Link href="/services">Explore More Services</Link>
+              <Link href="/#solutions">Explore More Solutions</Link>
             </Button>
           </div>
         </div>

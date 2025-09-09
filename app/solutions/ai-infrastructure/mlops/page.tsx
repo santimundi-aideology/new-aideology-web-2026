@@ -48,28 +48,6 @@ export default function MlopsPage() {
             <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Streamline the entire machine learning lifecycle with robust infrastructure and automation pipelines
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Button 
-                asChild
-                size="lg" 
-                className="bg-accent-green text-charcoal font-semibold hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
-              >
-                <Link href="#contact">
-                  Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
-                asChild
-              >
-                <Link href="#mlops-services">
-                  Learn More
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -373,8 +351,8 @@ export default function MlopsPage() {
                 className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-3"
                 asChild
               >
-                <Link href="/services">
-                  View All Services
+                <Link href="/#solutions">
+                  Explore More Solutions
                 </Link>
               </Button>
             </div>

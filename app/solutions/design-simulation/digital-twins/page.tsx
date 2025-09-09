@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, ArrowRight, Layers, Monitor, ChevronRight } from "lucide-react"
+import { CheckCircle, ArrowRight, Layers, Monitor, ChevronRight, BarChart3, Brain, TestTube, Globe, Factory, Building, Wrench, Zap } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import Footer from "@/components/footer"
@@ -21,22 +21,22 @@ export default function DigitalTwinsPage() {
     {
       title: "Real-time Monitoring",
       description: "Monitor physical systems through their digital counterparts",
-      icon: "📊"
+      icon: <BarChart3 className="w-8 h-8 text-accent-green" />
     },
     {
       title: "Predictive Analytics",
       description: "Simulate future scenarios and predict outcomes",
-      icon: "🔮"
+      icon: <Brain className="w-8 h-8 text-accent-green" />
     },
     {
       title: "Virtual Testing",
       description: "Test changes virtually before implementing physically",
-      icon: "🧪"
+      icon: <TestTube className="w-8 h-8 text-accent-green" />
     },
     {
       title: "Remote Management",
       description: "Access and interact with systems from anywhere",
-      icon: "🌐"
+      icon: <Globe className="w-8 h-8 text-accent-green" />
     }
   ]
 
@@ -44,6 +44,7 @@ export default function DigitalTwinsPage() {
     {
       title: "Industrial Digital Twins",
       description: "We create digital replicas of manufacturing facilities, production lines, and industrial equipment that enable real-time monitoring, predictive maintenance, and process optimization.",
+      icon: <Factory className="w-8 h-8 text-accent-green" />,
       features: [
         "Manufacturing facility twins",
         "Production line optimization",
@@ -54,6 +55,7 @@ export default function DigitalTwinsPage() {
     {
       title: "Building & Infrastructure Twins",
       description: "AIdeology develops digital twins of buildings, campuses, and infrastructure that provide insights into energy usage, occupancy patterns, and system performance.",
+      icon: <Building className="w-8 h-8 text-accent-green" />,
       features: [
         "Smart building management",
         "Energy optimization systems",
@@ -64,6 +66,7 @@ export default function DigitalTwinsPage() {
     {
       title: "Product Digital Twins",
       description: "We implement digital twin solutions that track individual products throughout their lifecycle, from design and manufacturing to deployment and maintenance.",
+      icon: <Wrench className="w-8 h-8 text-accent-green" />,
       features: [
         "Product lifecycle tracking",
         "Performance analytics",
@@ -74,6 +77,7 @@ export default function DigitalTwinsPage() {
     {
       title: "AI-Enhanced Simulation",
       description: "AIdeology integrates AI and machine learning with digital twins to enable predictive analytics, anomaly detection, and autonomous optimization.",
+      icon: <Zap className="w-8 h-8 text-accent-green" />,
       features: [
         "Machine learning integration",
         "Anomaly detection systems",
@@ -118,29 +122,12 @@ export default function DigitalTwinsPage() {
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>
         <div className="w-full px-6 lg:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center bg-accent-green/20 text-accent-green px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <Monitor className="w-4 h-4 mr-2" />
-              3D AI
-            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <span className="text-accent-green">Digital Twin</span> Solutions
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Create sophisticated virtual replicas of physical assets, processes, and environments for real-time monitoring, simulation, and optimization
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <Button size="lg" className="bg-accent-green hover:bg-accent-green/90 text-charcoal font-semibold">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-charcoal"
-              >
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -158,13 +145,15 @@ export default function DigitalTwinsPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {twinCapabilities.map((capability, index) => (
-                <Card key={capability.title} className="hover-lift border-0 shadow-lg text-center animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
+                <Card key={capability.title} className="hover-lift border-0 shadow-lg animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <CardHeader>
-                    <div className="text-4xl mb-4">{capability.icon}</div>
-                    <CardTitle className="text-xl">{capability.title}</CardTitle>
+                    <div className="flex items-center mb-4">
+                      {capability.icon}
+                      <CardTitle className="text-xl ml-3">{capability.title}</CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-center">
+                    <CardDescription>
                       {capability.description}
                     </CardDescription>
                   </CardContent>
@@ -190,7 +179,10 @@ export default function DigitalTwinsPage() {
               {services.map((service, index) => (
                 <Card key={service.title} className="hover-lift border-0 shadow-lg animate-fade-in-up" style={{ animationDelay: `${300 + index * 100}ms` }}>
                   <CardHeader>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <div className="flex items-center mb-4">
+                      {service.icon}
+                      <CardTitle className="text-xl ml-3">{service.title}</CardTitle>
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="mb-4">

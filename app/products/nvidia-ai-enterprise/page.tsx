@@ -188,7 +188,7 @@ export default function NvidiaAIEnterprisePage() {
                 className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
               >
                 <Link
-                  href="https://www.nvidia.com/en-us/data-center/products/ai-enterprise/"
+                  href="https://docs.nvidia.com/ai-enterprise/index.html"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -358,9 +358,9 @@ export default function NvidiaAIEnterprisePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="mb-16 py-12 bg-charcoal text-white rounded-lg animate-fade-in-up">
+      <section className="mb-16 py-12 bg-gray-50 rounded-lg animate-fade-in-up">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center text-accent-green">
+          <h2 className="text-4xl font-bold mb-12 text-center text-charcoal">
             Unlock Transformative AI Capabilities
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -394,10 +394,14 @@ export default function NvidiaAIEnterprisePage() {
                 description: "Seamlessly scale your AI initiatives from pilot projects to enterprise-wide deployments.",
               },
             ].map((benefit, index) => (
-              <div key={index} className="p-6 bg-gray-700 rounded-lg shadow-md">
+              <div 
+                key={index} 
+                className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out hover:scale-105 animate-fade-in-up transform"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
                 <Lightbulb className="h-8 w-8 text-accent-green mb-3" />
-                <h3 className="text-xl font-semibold mb-2 text-white">{benefit.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-charcoal">{benefit.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -499,7 +503,7 @@ export default function NvidiaAIEnterprisePage() {
             size="lg" 
             className="bg-charcoal text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 ease-in-out"
           >
-            <Link href="/book-discovery-call?type=demo">Request a Demo</Link>
+            <Link href="/book-discovery-call?type=consultation">Schedule Consultation</Link>
           </Button>
           <Button
             asChild

@@ -269,7 +269,7 @@ export default function AIInfrastructurePage() {
       <section className="py-20 bg-[#f4f4f4]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>Our Infrastructure Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { number: "01", title: "Assessment", description: "We analyze your workloads and requirements" },
               { number: "02", title: "Design", description: "Custom architecture tailored to your needs" },
@@ -281,10 +281,10 @@ export default function AIInfrastructurePage() {
                 className="relative animate-fade-in-up"
                 style={{ animationDelay: `${200 + index * 100}ms` }}
               >
-                <div className="text-6xl font-bold text-accent-green">{step.number}</div>
-                <h3 className="text-xl font-bold mt-2">{step.title}</h3>
-                <p className="text-charcoal/70 mt-2">{step.description}</p>
-                {index < 3 && <ArrowRight className="hidden md:block absolute -right-3 top-8 text-accent-green/50" />}
+                <div className="text-6xl font-bold text-accent-green mb-4">{step.number}</div>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-charcoal/70">{step.description}</p>
+                {index < 3 && <ArrowRight className="hidden md:block absolute -right-4 top-12 text-accent-green/50" />}
               </div>
             ))}
           </div>
