@@ -15,6 +15,40 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
       <HeroSection />
+      
+      {/* Video Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
+                AIdeology in Action
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Discover how we're transforming industries with cutting-edge AI infrastructure and solutions
+              </p>
+            </div>
+            
+            <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                <video
+                  className="w-full h-full"
+                  controls
+                  preload="metadata"
+                  poster="/home-video-thumbnail.webp"
+                >
+                  <source src="/home-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Optional overlay for branding */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <SolutionsSection />
       <WhyAIdeologySection />
       <ProductsPromo />

@@ -58,7 +58,40 @@ export default function NvidiaDGXPage() {
         </div>
       </div>
 
-      <div className="w-full px-6 lg:px-12 pt-8 mb-16">
+      {/* Video Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
+                The World's Most Advanced AI Supercomputer
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Experience the power of NVIDIA DGX systems as they revolutionize AI research, training, and deployment across industries
+              </p>
+            </div>
+            
+            <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                <video
+                  className="w-full h-full"
+                  controls
+                  preload="metadata"
+                  poster="/dgx-video-thumbnail.webp"
+                >
+                  <source src="/dgx-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Optional overlay for branding */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full px-6 lg:px-12 pt-16 mb-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-charcoal animate-fade-in-up" style={{ animationDelay: '100ms' }}>Enterprise-Scale DGX Infrastructure</h2>
 

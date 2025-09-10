@@ -270,6 +270,39 @@ export default function AiInfrastructureProfessionalServicesPage() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
+                Professional Services Excellence
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                Watch our expert consultants deliver end-to-end AI infrastructure solutions from planning and design to deployment and optimization
+              </p>
+            </div>
+            
+            <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                <video
+                  className="w-full h-full"
+                  controls
+                  preload="metadata"
+                  poster="/professional-services-video-thumbnail.webp"
+                >
+                  <source src="/professional-services-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Optional overlay for branding */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
