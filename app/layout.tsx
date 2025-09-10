@@ -6,6 +6,7 @@ import "./globals.css"
 import ScrollAnimations from "@/components/scroll-animations"
 import Navbar from "@/components/navbar"
 import { Toaster } from 'sonner'
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
         <ScrollAnimations />
         {children}
         <Toaster position="top-right" />
+        <Analytics />
       </body>
     </html>
   )
