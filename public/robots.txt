@@ -1,14 +1,12 @@
-# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://aideology.com/sitemap.xml
+# Block access to CEO contact page
+Disallow: /jcolotto
+Disallow: /jcolotto/
 
-# Product pages
-Allow: /products/
-Allow: /products/nvidia-dgx/
-Allow: /products/nvidia-hgx/
-Allow: /products/networking/
-Allow: /products/storage-systems/
-Allow: /products/nvidia-ai-enterprise/
+# Block access to VCF file
+Disallow: /JorgeColotto.vcf
+
+# Sitemap
+Sitemap: https://aideology.ai/sitemap.xml
