@@ -6,6 +6,7 @@ import CustomerLogosSection from "@/components/customer-logos-section"
 import PartnerEcosystemSection from "@/components/partner-ecosystem-section"
 import MissionQuoteSection from "@/components/mission-quote-section"
 import LatestNewsSection from "@/components/latest-news-section"
+import VideoWithLoading from "@/components/video-with-loading"
 
 import Footer from "@/components/footer"
 import ProductsPromo from "@/components/products-promo"
@@ -29,22 +30,13 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-                <video
-                  className="w-full h-full"
-                  controls
-                  preload="metadata"
-                  poster="/home-video-thumbnail.webp"
-                >
-                  <source src="/home-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                
-                {/* Optional overlay for branding */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
+            <VideoWithLoading
+              src="/home-video.mp4"
+              poster="/thumbnail.webp"
+              className="w-full max-w-5xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: '400ms' }}
+              title="AIdeology in Action"
+            />
           </div>
         </div>
       </section>

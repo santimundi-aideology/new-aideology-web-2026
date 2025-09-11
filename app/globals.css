@@ -403,6 +403,38 @@ body {
   @apply text-foreground;
 }
 
+/* Video poster zoom fix - removes black bars by scaling thumbnails slightly */
+.video-poster-zoom video {
+  transform: scale(1.02);
+  transform-origin: center;
+}
+
+.video-poster-zoom video[poster] {
+  object-fit: cover;
+}
+
+/* Make video controls 10% smaller */
+.video-poster-zoom video::-webkit-media-controls-panel {
+  transform: scale(0.98);
+  transform-origin: bottom center;
+}
+
+.video-poster-zoom video::-webkit-media-controls-play-button,
+.video-poster-zoom video::-webkit-media-controls-timeline,
+.video-poster-zoom video::-webkit-media-controls-current-time-display,
+.video-poster-zoom video::-webkit-media-controls-time-remaining-display,
+.video-poster-zoom video::-webkit-media-controls-mute-button,
+.video-poster-zoom video::-webkit-media-controls-volume-slider,
+.video-poster-zoom video::-webkit-media-controls-fullscreen-button {
+  transform: scale(0.9);
+}
+
+/* Firefox video controls scaling */
+.video-poster-zoom video {
+  /* Custom property for Firefox */
+  --video-controls-scale: 0.9;
+}
+
 /* Custom Button Hover Effects */
 .btn-hover-primary {
   transition: all 0.3s ease;

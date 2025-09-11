@@ -201,12 +201,12 @@ export default function AcceleratedComputingPage() {
             </div>
             
             <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900 video-poster-zoom">
                 <video
                   className="w-full h-full"
                   controls
                   preload="metadata"
-                  poster="/accelerated-computing-video-thumbnail.webp"
+                  poster="/thumbnail.webp"
                 >
                   <source src="/accelerated-computing-video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
