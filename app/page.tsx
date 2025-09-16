@@ -22,7 +22,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
+              <h2 id="video" className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
                 AIdeology in Action
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -31,7 +31,6 @@ export default function Home() {
             </div>
             
             <Video
-              id="video"
               src="/home-video.mp4"
               poster="/thumbnail.webp"
               className="w-full max-w-5xl mx-auto animate-fade-in-up"
