@@ -413,10 +413,74 @@ body {
   object-fit: cover;
 }
 
+/* Prevent fullscreen stretching - maintain aspect ratio */
+.video-poster-zoom video:fullscreen {
+  object-fit: contain;
+  transform: none;
+}
+
+.video-poster-zoom video:-webkit-full-screen {
+  object-fit: contain;
+  transform: none;
+}
+
+.video-poster-zoom video:-moz-full-screen {
+  object-fit: contain;
+  transform: none;
+}
+
+/* Reset control scaling in fullscreen for proper edge coverage */
+.video-poster-zoom video:fullscreen::-webkit-media-controls-panel {
+  transform: scale(1) !important;
+}
+
+.video-poster-zoom video:-webkit-full-screen::-webkit-media-controls-panel {
+  transform: scale(1) !important;
+}
+
+.video-poster-zoom video:-moz-full-screen::-webkit-media-controls-panel {
+  transform: scale(1) !important;
+}
+
+/* Auto-hide controls in fullscreen after mouse inactivity */
+.video-poster-zoom video:fullscreen {
+  cursor: none;
+  transition: cursor 3s ease;
+}
+
+.video-poster-zoom video:fullscreen:hover {
+  cursor: default;
+}
+
+.video-poster-zoom video:-webkit-full-screen {
+  cursor: none;
+  transition: cursor 3s ease;
+}
+
+.video-poster-zoom video:-webkit-full-screen:hover {
+  cursor: default;
+}
+
+.video-poster-zoom video:-moz-full-screen {
+  cursor: none;
+  transition: cursor 3s ease;
+}
+
+.video-poster-zoom video:-moz-full-screen:hover {
+  cursor: default;
+}
+
 /* Make video controls 10% smaller */
 .video-poster-zoom video::-webkit-media-controls-panel {
   transform: scale(0.98);
   transform-origin: bottom center;
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .video-poster-zoom video::-webkit-media-controls-play-button,
@@ -427,6 +491,18 @@ body {
 .video-poster-zoom video::-webkit-media-controls-volume-slider,
 .video-poster-zoom video::-webkit-media-controls-fullscreen-button {
   transform: scale(0.9);
+}
+
+/* Ensure controls background stretches to edges but stays at bottom */
+.video-poster-zoom video::-webkit-media-controls-enclosure {
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  bottom: 0 !important;
 }
 
 /* Firefox video controls scaling */

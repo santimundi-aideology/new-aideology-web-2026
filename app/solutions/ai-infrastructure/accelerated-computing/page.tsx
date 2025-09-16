@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import Video from "@/components/video-player"
 import Footer from "@/components/footer"
 import {
   ArrowRight,
@@ -200,22 +201,13 @@ export default function AcceleratedComputingPage() {
               </p>
             </div>
             
-            <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900 video-poster-zoom">
-                <video
-                  className="w-full h-full"
-                  controls
-                  preload="metadata"
-                  poster="/thumbnail.webp"
-                >
-                  <source src="/accelerated-computing-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                
-                {/* Optional overlay for branding */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
+            <Video
+              id="video"
+              src="/accelerated-computing-video.mp4"
+              poster="/thumbnail.webp"
+              className="w-full max-w-5xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: '400ms' }}
+            />
           </div>
         </div>
       </section>

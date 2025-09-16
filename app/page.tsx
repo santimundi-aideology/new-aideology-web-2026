@@ -6,7 +6,7 @@ import CustomerLogosSection from "@/components/customer-logos-section"
 import PartnerEcosystemSection from "@/components/partner-ecosystem-section"
 import MissionQuoteSection from "@/components/mission-quote-section"
 import LatestNewsSection from "@/components/latest-news-section"
-import VideoWithLoading from "@/components/video-with-loading"
+import Video from "@/components/video-player"
 
 import Footer from "@/components/footer"
 import ProductsPromo from "@/components/products-promo"
@@ -30,7 +30,8 @@ export default function Home() {
               </p>
             </div>
             
-            <VideoWithLoading
+            <Video
+              id="video"
               src="/home-video.mp4"
               poster="/thumbnail.webp"
               className="w-full max-w-5xl mx-auto animate-fade-in-up"

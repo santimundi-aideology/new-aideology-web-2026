@@ -227,13 +227,17 @@ export default function AIAgentComponentsPage() {
           description: "Azure, GCP, AWS. Include deploy of two environments (pro and PRE) and end2end testing.",
         },
         {
-          name: "Deploy in existing Client On-Prem Server",
+          name: "Deploy in Client On-Prem Server",
           description: "Include configuration, deploy of two environments (pro and PRE) and end2end testing.",
         },
         {
           name: "Deploy in new client Cloud",
           description:
             "Azure, GCP, AWS. Include cloud configuration, deploy of two environments (pro and PRE) and end2end testing.",
+        },
+        {
+          name: "Hybrid Deployment",
+          description: "Combine cloud and on-premises infrastructure with secure connectivity, data synchronization, and unified management across both environments.",
         },
       ],
     },
@@ -384,8 +388,8 @@ export default function AIAgentComponentsPage() {
           </p>
 
           {/* Main Diagram */}
-          <div ref={diagramRef} className="relative w-full max-w-6xl mx-auto mt-12">
-            <div className="relative h-[400px] md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-lg bg-white p-4">
+          <div ref={diagramRef} className="relative w-full mx-auto mt-12">
+            <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
               <Image
                 src="/ai-agent-detailed-diagram.webp"
                 alt="AI Agent Components Architecture Diagram"
@@ -467,7 +471,7 @@ export default function AIAgentComponentsPage() {
                     {component.deliverables.map((deliverable, i) => (
                       <div
                         key={i}
-                        className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent-green deliverable-card hover:shadow-xl hover:scale-105 transition-all duration-300"
+                        className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent-green deliverable-card hover:shadow-xl transition-all duration-300"
                       >
                         <h4 className="text-lg font-bold mb-3">{deliverable.name}</h4>
                         <p className="text-charcoal/80">{deliverable.description}</p>

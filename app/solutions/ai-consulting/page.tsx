@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Video from "@/components/video-player"
 
 import Footer from "@/components/footer"
 import { Lightbulb, BrainCircuit, GitBranch, BarChart, Users, CheckCircle, ArrowRight, Zap, MessageSquare, Bot, Shield, ChevronRight } from "lucide-react"
@@ -152,7 +153,7 @@ export default function AIConsultingPage() {
       results: "$4.2M annual savings"
     },
     {
-      image: "/healthcare-ai-diagnostics.webp",
+      image: "/ai-medical-imaging.webp",
       alt: "Healthcare AI",
       title: "Healthcare Diagnostics",
       description: "Developed and deployed an AI diagnostic system for a healthcare provider, improving early detection rates by 42%.",
@@ -237,22 +238,13 @@ export default function AIConsultingPage() {
               </p>
             </div>
             
-            <div className="relative w-full max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900 video-poster-zoom">
-                <video
-                  className="w-full h-full"
-                  controls
-                  preload="metadata"
-                  poster="/thumbnail.webp"
-                >
-                  <source src="/ai-consulting-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                
-                {/* Optional overlay for branding */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
+            <Video
+              id="video"
+              src="/ai-consulting-video.mp4"
+              poster="/thumbnail.webp"
+              className="w-full max-w-5xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: '400ms' }}
+            />
           </div>
         </div>
       </section>
@@ -373,12 +365,12 @@ export default function AIConsultingPage() {
             </p>
           </div>
 
-          <div className="relative w-full max-w-5xl mx-auto h-[500px] md:h-[600px] mb-8 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+          <div className="relative w-full mx-auto h-[500px] md:h-[600px] mb-8 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-23%20at%2012.38.10-yECsTgQ6btsGyGfQBAfUZZaeMyOuc1.webp"
+              src="/ai-agent-detailed-diagram.webp"
               alt="AI Agent Components Diagram"
               fill
-              className="object-contain rounded-lg shadow-md"
+              className="object-contain"
             />
           </div>
 
@@ -403,7 +395,7 @@ export default function AIConsultingPage() {
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="border border-accent-green/20 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                className="border border-accent-green/20 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
                 style={{ animationDelay: `${200 + index * 100}ms` }}
               >
                 <CardContent className="p-6">
