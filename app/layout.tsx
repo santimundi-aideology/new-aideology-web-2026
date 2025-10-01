@@ -7,6 +7,7 @@ import ScrollAnimations from "@/components/scroll-animations"
 import Navbar from "@/components/navbar"
 import { Toaster } from 'sonner'
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
         {children}
         <Toaster position="top-right" />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
