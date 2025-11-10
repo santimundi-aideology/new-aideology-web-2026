@@ -1,6 +1,7 @@
-import type React from "react"
+import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Montserrat } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 // import ScrollToTop from "@/components/scroll-to-top" // Commented out
 import ScrollAnimations from "@/components/scroll-animations"
@@ -8,6 +9,17 @@ import Navbar from "@/components/navbar"
 import { Toaster } from 'sonner'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
+// Declare ElevenLabs custom element for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'elevenlabs-convai': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'agent-id': string;
+      };
+    }
+  }
+}
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,6 +64,13 @@ export default function RootLayout({
         <Toaster position="top-right" />
         <Analytics />
         <SpeedInsights />
+        {/* ElevenLabs Conversational AI Widget */}
+        {React.createElement('elevenlabs-convai', { 'agent-id': 'agent_0801k9pbn6hvfv8bwfw9rz5mybb6' })}
+        <Script 
+          src="https://unpkg.com/@elevenlabs/convai-widget-embed" 
+          strategy="lazyOnload"
+          type="text/javascript"
+        />
       </body>
     </html>
   )
