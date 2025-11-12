@@ -7,7 +7,7 @@ export default function BookingLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-dvh">
       <Navbar forceDarkLogo />
       {children}
       <Footer />

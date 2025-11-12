@@ -129,7 +129,7 @@ export default function ImageGallery({ images, className = "", gridCols = "grid-
 
             {/* Main Image */}
             <div
-              className="relative max-w-7xl max-h-[85vh] w-full h-full flex items-center justify-center"
+              className="relative max-w-7xl max-h-85dvh w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <Image

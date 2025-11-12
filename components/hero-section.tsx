@@ -115,7 +115,7 @@ function DualVideoBackground() {
         className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover transition-opacity duration-300 ${
           currentVideo === 1 ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "100vw", height: "100dvh" }}
       >
         <source src="/homepage-video-1.mp4" type="video/mp4" />
       </video>
@@ -129,7 +129,7 @@ function DualVideoBackground() {
         className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover transition-opacity duration-300 ${
           currentVideo === 2 ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "100vw", height: "100dvh" }}
       >
         <source src="/homepage-video-2.mp4" type="video/mp4" />
       </video>
@@ -170,7 +170,7 @@ export default function HeroSection() {
   }, [currentText, isTyping, fullText])
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 bg-charcoal text-white overflow-hidden">
+    <section className="relative min-h-dvh flex items-center pt-16 bg-charcoal text-white overflow-hidden">
       {/* Floating Particles Removed */}
       {/* {mounted && (
         <div className="absolute inset-0 z-0">

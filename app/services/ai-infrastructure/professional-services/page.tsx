@@ -220,7 +220,7 @@ export default function AiInfrastructureProfessionalServicesPage() {
   const heroImage = "/services/ai_infra_experts.webp";
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-dvh bg-white">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="mb-6 text-sm text-gray-500 flex items-center" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-gray-700">Home</Link>

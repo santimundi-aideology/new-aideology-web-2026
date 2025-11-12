@@ -188,7 +188,7 @@ export default function AiDataPlatformPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-white text-charcoal pt-24">
+      <div className="min-h-dvh bg-white text-charcoal pt-24">
         {/* Breadcrumb Navigation */}
         <div className="hidden md:block mb-6">
           <nav className="mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-500 flex items-center" aria-label="Breadcrumb">

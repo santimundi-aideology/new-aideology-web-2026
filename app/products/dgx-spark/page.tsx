@@ -148,7 +148,7 @@ export default function DGXSparkPage() {
             <div className="space-y-8 mb-12">
               {/* Top row - 2 larger boxes */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-gradient-to-br from-accent-green/10 to-accent-green/5 rounded-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                <div className="bg-gradient-to-br from-accent-green/10 to-accent-green/5 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                   <Server className="h-12 w-12 text-accent-green mb-4" />
                   <h3 className="text-xl font-bold mb-3 text-charcoal">AI Lab in a Box</h3>
                   <p className="text-gray-600 mb-4">
@@ -159,7 +159,7 @@ export default function DGXSparkPage() {
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                   <TrendingUp className="h-12 w-12 text-charcoal mb-4" />
                   <h3 className="text-xl font-bold mb-3 text-charcoal">Scale When Ready</h3>
                   <p className="text-gray-600 mb-4">
@@ -173,7 +173,7 @@ export default function DGXSparkPage() {
 
               {/* Bottom row - 2 smaller boxes */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                   <Shield className="h-10 w-10 text-charcoal mb-3" />
                   <h3 className="text-xl font-bold mb-3 text-charcoal">Sovereign AI Sandbox</h3>
                   <p className="text-gray-600 mb-3">
@@ -189,7 +189,7 @@ export default function DGXSparkPage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-accent-green/10 to-accent-green/5 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
+                <div className="bg-gradient-to-br from-accent-green/10 to-accent-green/5 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
                   <Database className="h-10 w-10 text-accent-green mb-3" />
                   <h3 className="text-xl font-bold mb-3 text-charcoal">Predictable Economics + Performance</h3>
                   <p className="text-gray-600">

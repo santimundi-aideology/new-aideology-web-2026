@@ -5,7 +5,7 @@ const RoboticsEdgeAIPage = () => {
   return (
     <div className="bg-white text-charcoal">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-charcoal to-charcoal/90 text-white overflow-hidden">
+      <section className="relative min-h-60dvh flex items-center justify-center bg-gradient-to-br from-charcoal to-charcoal/90 text-white overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{

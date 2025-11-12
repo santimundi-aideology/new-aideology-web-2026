@@ -101,7 +101,7 @@ export default function ThreeDimensionalAIPage() {
   ).sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <main className="min-h-screen text-charcoal">
+    <main className="min-h-dvh text-charcoal">
       {/* Breadcrumb Navigation */}
       <div className="bg-white pt-24 pb-6">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

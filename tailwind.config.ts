@@ -57,6 +57,17 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      minHeight: {
+        'dvh': '100dvh',
+        '60dvh': '60dvh',
+        '85dvh': '85dvh',
+      },
+      maxHeight: {
+        '85dvh': '85dvh',
+      },
+      height: {
+        'dvh': '100dvh',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

@@ -78,7 +78,7 @@ export default function ExtendedRealityPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-dvh bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-20">
         <div className="absolute inset-0 point-cloud-bg opacity-10"></div>

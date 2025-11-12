@@ -14,7 +14,7 @@ import Image from "next/image"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <HeroSection />
       
       {/* Video Section */}

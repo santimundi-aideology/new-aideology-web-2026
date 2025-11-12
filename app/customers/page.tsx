@@ -194,7 +194,7 @@ export default function CustomersPage() {
   const gtmCategories = ["AI Infrastructure", "Design & Simulation", "AI Consulting"]
 
   return (
-    <main className="min-h-screen text-charcoal pt-20">
+    <main className="min-h-dvh text-charcoal pt-20">
       {/* Breadcrumb Navigation */}
       <div className="bg-white pt-4 pb-6">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

@@ -102,7 +102,7 @@ export default function ConversationalAiPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-dvh bg-white">
       {/* Breadcrumb Navigation */}
       <div className="bg-white pt-24 pb-6">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

@@ -162,7 +162,7 @@ export default function AIConsultingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       {/* Breadcrumb Navigation */}
       <div className="bg-white pt-24 pb-6">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

@@ -107,7 +107,7 @@ export default function VirtualizationPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-dvh bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-gray-800 text-white py-24 md:py-32">
         <div className="absolute inset-0 bg-black/40"></div>

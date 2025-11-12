@@ -12,7 +12,7 @@ export default function AiAgentsPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-dvh flex flex-col">
       {/* Breadcrumb Navigation */}
       <div className="bg-white pt-24 pb-6">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

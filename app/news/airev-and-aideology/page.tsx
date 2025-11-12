@@ -64,7 +64,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
   const article = getArticleBySlug(params.slug)
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <Navbar />
 
       {/* Article Header */}

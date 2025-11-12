@@ -47,7 +47,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
   ]
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <Navbar />
 
       <section className="pt-32 pb-8 bg-white">

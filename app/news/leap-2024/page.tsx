@@ -86,7 +86,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
   })
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <Navbar />
 
       {/* Article Header */}
@@ -273,7 +273,7 @@ export default function NewsArticlePage({ params }: { params: { slug: string } }
 
             {/* Main Image */}
             <div 
-              className="relative max-w-7xl max-h-[85vh] w-full h-full flex items-center justify-center"
+              className="relative max-w-7xl max-h-85dvh w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <Image

@@ -352,7 +352,7 @@ export default function AIAgentComponentsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <Navbar />
 
       {/* Breadcrumb Navigation */}
@@ -430,7 +430,7 @@ export default function AIAgentComponentsPage() {
           <section
             key={component.id}
             ref={(el) => el && (componentsRef.current[index] = el)}
-            className="py-24 min-h-screen flex items-center"
+            className="py-24 min-h-dvh flex items-center"
             style={{
               backgroundColor: index % 2 === 0 ? "#f4f4f4" : "white",
             }}

@@ -125,7 +125,7 @@ export default function AIInfrastructurePage() {
   ).sort((a, b) => a.name.localeCompare(b.name)); // Ensure filtered list is also sorted for display
 
   return (
-    <main className="min-h-screen text-charcoal">
+    <main className="min-h-dvh text-charcoal">
       {/* Breadcrumb Navigation */}
       <div className="bg-white pt-24 pb-6">
         <nav className="mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-500 flex items-center hidden md:flex" aria-label="Breadcrumb">

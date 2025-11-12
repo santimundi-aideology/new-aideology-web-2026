@@ -537,7 +537,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   }
 
   return (
-    <main className="bg-white text-charcoal min-h-screen pt-28">
+    <main className="bg-white text-charcoal min-h-dvh pt-28">
       <Navbar />
 
       {/* Hero Section */}

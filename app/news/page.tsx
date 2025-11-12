@@ -108,7 +108,7 @@ export default function NewsPage() {
 
 
   return (
-    <main className="min-h-screen bg-[#f4f4f4] text-charcoal">
+    <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
 
 
       <section className="pt-32 pb-16 bg-white">

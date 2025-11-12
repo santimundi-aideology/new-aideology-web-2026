@@ -62,7 +62,7 @@ export default function ProductsPage() {
     { name: "Products" }
   ];
   return (
-    <div className="min-h-screen">
+    <div className="min-h-dvh">
       <ScrollAnimations />
       
       {/* Breadcrumb Navigation */}
