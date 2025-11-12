@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { ArrowRight, ChevronRight } from "lucide-react"
 import Footer from "@/components/footer"
 import ScrollAnimations from "@/components/scroll-animations"
@@ -12,6 +13,15 @@ export const metadata = {
 }
 
 const productCategories = [
+  {
+    name: "DGX Spark",
+    href: "/products/dgx-spark",
+    description:
+      "Your AI Lab in a Box – DGX Spark is a petaflop-class NVIDIA system that brings enterprise-grade AI capability into a compact form factor. Run your own copilots, RAG, and AI agents on your data, inside your perimeter. Perfect for pilots, labs, and secure environments. Fast to deploy, easy to scale into a full AI Factory with the same software stack throughout your journey.",
+    image: "/spark.png",
+    alt: "DGX Spark compact AI system - Your private AI lab in a box for enterprise AI development",
+    isNew: true,
+  },
   {
     name: "NVIDIA DGX Systems",
     href: "/products/nvidia-dgx",
@@ -114,7 +124,14 @@ export default function ProductsPage() {
                 </div>
               </div>
               <div className="w-full md:w-6/12 animate-fade-in-up" style={{ animationDelay: `${200 + index * 100}ms` }}>
-                <h2 className="text-3xl font-bold mb-4 text-charcoal">{category.name}</h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <h2 className="text-3xl font-bold text-charcoal">{category.name}</h2>
+                  {category.isNew && (
+                    <Badge className="bg-accent-green text-charcoal text-sm px-3 py-1 hover:bg-accent-green">
+                      NEW
+                    </Badge>
+                  )}
+                </div>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">{category.description}</p>
                 <Button
                   asChild

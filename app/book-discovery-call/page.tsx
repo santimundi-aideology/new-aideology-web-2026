@@ -27,6 +27,7 @@ const availableTimeSlots = [
 
 const topics = [
   // Products
+  { id: 'dgx-spark', label: 'DGX Spark', category: 'Products' },
   { id: 'nvidia-dgx', label: 'NVIDIA DGX Systems', category: 'Products' },
   { id: 'enterprise-ai', label: 'Enterprise AI Platforms', category: 'Products' },
   { id: 'professional-services', label: 'Professional Services', category: 'Products' },

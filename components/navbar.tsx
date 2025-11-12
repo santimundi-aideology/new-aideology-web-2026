@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { SheetFooter } from "@/components/ui/sheet"
@@ -212,8 +213,9 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
       { href: "/services/robotics-edge-ai/robotics", label: "Robotics" },
     ],
     Products: [
+      { href: "/products/dgx-spark", label: "DGX Spark", isNew: true },
       { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
-                        { href: "/products/enterprise-ai", label: "Enterprise AI Platforms" },
+      { href: "/products/enterprise-ai", label: "Enterprise AI Platforms" },
       { href: "/products/storage-systems", label: "Storage Systems" },
       { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
     ],
@@ -400,7 +402,14 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                             href={subItem.href}
                             className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
                           >
-                            {subItem.label}
+                            <span className="flex items-center gap-2">
+                              {subItem.label}
+                              {subItem.isNew && (
+                                <Badge className="bg-accent-green text-charcoal text-xs px-2 py-0 hover:bg-accent-green">
+                                  NEW
+                                </Badge>
+                              )}
+                            </span>
                           </Link>
                         ))}
                       </div>
