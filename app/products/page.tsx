@@ -113,12 +113,24 @@ export default function ProductsPage() {
                 <div className="relative aspect-[4/3] rounded-lg overflow-visible">
                   <Image
                     src={
+                      category.name === "DGX Spark" 
+                        ? "/spark-mobile.png" 
+                        : category.image ||
+                          "/placeholder.svg?width=800&height=600&query=" + encodeURIComponent(category.name)
+                    }
+                    alt={category.alt}
+                    fill
+                    className="object-contain hover:scale-110 transition-transform duration-300 rounded-lg md:hidden"
+                    style={{ zIndex: 10 }}
+                  />
+                  <Image
+                    src={
                       category.image ||
                       "/placeholder.svg?width=800&height=600&query=" + encodeURIComponent(category.name)
                     }
                     alt={category.alt}
                     fill
-                    className="object-contain hover:scale-110 transition-transform duration-300 rounded-lg"
+                    className="object-contain hover:scale-110 transition-transform duration-300 rounded-lg hidden md:block"
                     style={{ zIndex: 10 }}
                   />
                 </div>
@@ -135,12 +147,12 @@ export default function ProductsPage() {
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">{category.description}</p>
                 <Button
                   asChild
-                  className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+                  className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out w-full md:w-auto"
                   size="lg"
                 >
-                  <Link href={category.href} className="inline-flex items-center">
-                    Learn more about {category.name}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href={category.href} className="inline-flex items-center justify-center">
+                    <span className="truncate">Learn more about {category.name}</span>
+                    <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
                   </Link>
                 </Button>
               </div>
