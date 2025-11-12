@@ -87,8 +87,8 @@ export default function DGXSparkPage() {
                 </div>
               </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              {/* CTAs - visible on desktop */}
+              <div className="hidden lg:flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                 <Button 
                   asChild 
                   className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-6 text-lg"
@@ -100,15 +100,35 @@ export default function DGXSparkPage() {
 
             {/* Right column - image */}
             <div className="relative w-full animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+              {/* Desktop image */}
               <Image
                 src="/spark.png"
                 alt="DGX Spark - Compact AI Lab in a Box for enterprise AI development"
                 width={800}
                 height={450}
-                className="w-full h-auto rounded-lg transition-transform duration-300 ease-out hover:scale-105"
+                className="hidden lg:block w-full h-auto rounded-lg transition-transform duration-300 ease-out hover:scale-105"
+                priority
+              />
+              {/* Mobile image */}
+              <Image
+                src="/spark-mobile.png"
+                alt="DGX Spark - Compact AI Lab in a Box for enterprise AI development"
+                width={600}
+                height={800}
+                className="lg:hidden w-full h-auto rounded-lg transition-transform duration-300 ease-out hover:scale-105"
                 priority
               />
             </div>
+          </div>
+
+          {/* CTA button - visible on mobile below image */}
+          <div className="lg:hidden flex flex-col gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            <Button 
+              asChild 
+              className="bg-accent-green text-charcoal hover:bg-charcoal hover:text-white hover:scale-105 transition-all duration-300 ease-in-out px-8 py-6 text-lg w-full"
+            >
+              <Link href="/book-discovery-call">Book a DGX Spark Strategy Call</Link>
+            </Button>
           </div>
         </div>
       </div>
