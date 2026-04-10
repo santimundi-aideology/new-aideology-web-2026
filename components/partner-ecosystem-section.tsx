@@ -31,8 +31,8 @@ export default function PartnerEcosystemSection() {
              Partner Ecosystem
            </h2>
            <p className="text-lg text-charcoal/70 mb-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            Strategic partnerships with industry leaders across AI infrastructure,
-            generative AI, and 3D technologies
+            Strategic relationships that strengthen our ability to advise, architect, and deploy enterprise AI in
+            regulated and large-scale environments
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function PartnerEcosystemSection() {
             />
           </Link>
           <p className="text-lg text-charcoal/80 font-medium text-center ">
-              Built on NVIDIA: Powering our AI Foundation
+              NVIDIA expertise for production and sovereign AI deployments
           </p>
         </div>
 

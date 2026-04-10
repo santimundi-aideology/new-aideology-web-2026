@@ -34,9 +34,9 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "AIdeology | Elite AI Infrastructure & 3D AI Solutions",
+  title: "AIdeology | Enterprise AI Strategy, Delivery & Advisory",
   description:
-    "AIdeology is an NVIDIA Elite Solution Provider that designs, deploys, and operates AI & HPC infrastructure, 3D AI pipelines, and AI consulting services.",
+    "AIdeology helps enterprises adopt AI strategically through advisory, agentic AI delivery, and architecture guidance for scalable, sovereign, and production-ready deployments.",
   icons: {
     icon: "/favicon.ico",
   },

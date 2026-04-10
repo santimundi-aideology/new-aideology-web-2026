@@ -60,10 +60,10 @@ export default function Footer() {
 
   const quickLinks = [
     { href: "/", label: "Home" },
-    { href: "/#solutions", label: "Solutions" },
+    { href: "/#solutions", label: "Services" },
     // { href: "/customers", label: "Customers" }, // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line when customers page is restored
     { href: "/news", label: "News" },
-    { href: "/#products", label: "Products" }
+    { href: "/#partners", label: "Partners" }
   ];
 
   return (
@@ -81,7 +81,9 @@ export default function Footer() {
                 className="h-12 w-auto transition-transform duration-300 hover:scale-105"
               />
             </Link>
-            <p className="text-white/80 mb-6">Elite AI Infrastructure & Simulation Solutions Provider</p>
+            <p className="text-white/80 mb-6">
+              Enterprise AI strategy, delivery, and technology advisory for organizations scaling real AI operations
+            </p>
             <div className="flex space-x-2">
               {socialLinks.map((social, index) => (
                 <Link

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
@@ -84,7 +83,7 @@ export default function CustomerLogosSection() {
         <div className="text-center mb-10 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Customers</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Trusted by leading companies in VFX and creative industries
+            Trusted by enterprise, public-sector, and regional leaders building real AI capabilities
           </p>
         </div>
 

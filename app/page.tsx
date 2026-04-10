@@ -13,9 +13,33 @@ import ProductsPromo from "@/components/products-promo"
 import Image from "next/image"
 
 export default function Home() {
+  const businessOutcomes = [
+    "Identify the right AI use cases",
+    "Launch high-impact MVPs in 2-3 months",
+    "Move from pilot to production faster",
+    "Scale securely across enterprise operations",
+  ]
+
   return (
     <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <HeroSection />
+
+      <section className="py-14 md:py-16 bg-charcoal text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="text-sm uppercase tracking-[0.25em] text-accent-green mb-4 animate-fade-in-up">
+              Our approach
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+              We Build Systems, Not Just Agents
+            </h2>
+            <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+              We design the workflows, governance, integrations, and deployment model that turn AI into real
+              business operations.
+            </p>
+          </div>
+        </div>
+      </section>
       
       {/* Video Section */}
       <section className="py-16 md:py-20 bg-white">
@@ -23,10 +47,11 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 id="video" className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
-                AIdeology in Action
+                Enterprise AI in Action
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                Discover how we're transforming industries with cutting-edge AI infrastructure and solutions
+                See how AIdeology helps clients move from business opportunity and strategy to implemented AI use cases,
+                production architecture, and scalable deployment.
               </p>
             </div>
             
@@ -35,13 +60,46 @@ export default function Home() {
               poster="/thumbnail.webp"
               className="w-full max-w-5xl mx-auto animate-fade-in-up"
               style={{ animationDelay: '400ms' }}
-              title="AIdeology in Action"
+              title="Enterprise AI in Action"
             />
           </div>
         </div>
       </section>
       
       <SolutionsSection />
+
+      <section className="py-16 md:py-20 bg-[#f4f4f4]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center mb-12">
+            <p className="text-sm uppercase tracking-[0.25em] text-accent-green mb-4 animate-fade-in-up">
+              Business outcomes
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+              What clients get from working with AIdeology
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+              We connect strategic advisory with rapid execution so enterprise AI creates operational impact, not just
+              internal excitement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {businessOutcomes.map((outcome, index) => (
+              <div
+                key={outcome}
+                className="rounded-2xl border border-accent-green/20 bg-white px-6 py-8 text-center shadow-sm animate-fade-in-up"
+                style={{ animationDelay: `${250 + index * 100}ms` }}
+              >
+                <div className="w-10 h-10 rounded-full bg-accent-green/10 text-accent-green font-bold flex items-center justify-center mx-auto mb-4">
+                  {index + 1}
+                </div>
+                <p className="text-lg font-semibold text-charcoal">{outcome}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <WhyAIdeologySection />
       <ProductsPromo />
       
@@ -60,14 +118,13 @@ export default function Home() {
                 <div className="flex flex-col justify-center items-start py-8 animate-fade-in-up">
                   <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-charcoal">
                     Our<br />
-                    Talent Rings
+                    Delivery Model
                   </h2>
                   <div className="w-full h-1 bg-accent-green mb-6"></div>
                   <p className="text-lg leading-relaxed text-charcoal">
-                    We build <span className="font-bold text-charcoal">liquid teams</span> of<br />
-                    Companies + Digital Freelancers,<br />
-                    subcontracted and coordinated for<br />
-                    specific skills needs in each project.
+                    We assemble <span className="font-bold text-charcoal">specialist teams</span> across strategy,
+                    architecture, engineering, and delivery so each engagement gets the right blend of business and
+                    technical expertise.
                   </p>
                 </div>
                 
@@ -105,14 +162,12 @@ export default function Home() {
             {/* Text Section */}
             <div className="text-center mb-8 animate-fade-in-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">
-                Our Talent Rings
+                Our Delivery Model
               </h2>
               <div className="w-24 h-1 bg-accent-green mx-auto mb-6"></div>
               <p className="text-lg text-charcoal max-w-md mx-auto leading-relaxed">
-                We build <span className="font-bold text-charcoal">liquid teams</span> of
-                Companies + Digital Freelancers,
-                subcontracted and coordinated for
-                specific skills needs in each project.
+                We bring together strategy, architecture, engineering, and delivery capabilities to match each
+                enterprise AI program with the expertise it needs.
               </p>
             </div>
             

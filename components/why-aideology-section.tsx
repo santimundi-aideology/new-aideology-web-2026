@@ -4,17 +4,17 @@ export default function WhyAIdeologySection() {
   const kpis = [
     {
       value: "+500",
-      label: "NVIDIA Servers implemented",
+      label: "AI environments architected",
       color: "bg-accent-green/10 border-accent-green/30",
     },
     {
       value: "+50",
-      label: "projects",
+      label: "enterprise projects delivered",
       color: "bg-accent-green/20 border-accent-green/40",
     },
     {
       value: "+5,000",
-      label: "Petaflops (FP16)",
+      label: "petaflops designed for AI workloads",
       color: "bg-accent-green/30 border-accent-green/50",
     },
   ]
@@ -27,19 +27,22 @@ export default function WhyAIdeologySection() {
           <div className="space-y-6 lg:space-y-8">
             {/* Text Content */}
             <div className="animate-fade-in-up">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 text-charcoal">Why AIdeology?</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 text-charcoal">
+                We Build Systems, Not Just Agents
+              </h2>
               <div className="space-y-3 lg:space-y-4 text-gray-600">
                 <p className="text-base lg:text-lg">
-                  As an <span className="text-electric-green font-semibold">NVIDIA Elite Solution Provider</span> with
-                  certified architects, we bring unparalleled expertise to your AI infrastructure needs.
+                  AIdeology helps organizations move toward an AI operating system for their business, connecting
+                  strategy, user experience, agents, data, integrations, governance, and deployment into one
+                  executable model.
                 </p>
                 <p className="text-base lg:text-lg">
-                  Our strategic contracts with industry leaders like Lenovo, HPE & Supermicro ensure you get the
-                  best hardware configurations optimized for your specific workloads.
+                  We do not stop at strategy decks or isolated proofs of concept. We translate business needs into
+                  operational AI systems that can be implemented quickly and expanded across the enterprise.
                 </p>
                 <p className="text-base lg:text-lg">
-                  We don't just build systems—we architect solutions that accelerate your AI journey from concept to
-                  production, with measurable performance improvements.
+                  Backed by deep NVIDIA expertise and strong regional execution, we advise clients on the right
+                  architecture, platforms, and deployment decisions needed for secure, scalable AI adoption.
                 </p>
               </div>
             </div>
@@ -81,16 +84,17 @@ export default function WhyAIdeologySection() {
                 
                 {/* Description */}
                 <p className="text-gray-700 text-sm lg:text-base mb-4">
-                  Demonstrating the highest level of expertise and commitment.
+                  A strategic trust signal for enterprise AI architecture, sovereign deployments, and production-grade
+                  execution.
                 </p>
                 
                 {/* Elite Competencies */}
                 <div className="w-full">
-                  <h5 className="text-sm lg:text-base font-semibold text-charcoal mb-3 border-b pb-1">Elite Competencies:</h5>
+                  <h5 className="text-sm lg:text-base font-semibold text-charcoal mb-3 border-b pb-1">Why It Matters:</h5>
                   <ul className="list-disc list-inside space-y-1 lg:space-y-2 text-gray-600 text-sm lg:text-base">
-                    <li>Networking</li>
-                    <li>DGX AI Compute Systems</li>
-                    <li>DGX Cloud</li>
+                    <li>Advanced AI platform and deployment expertise</li>
+                    <li>Confidence in regulated and sovereign environments</li>
+                    <li>Strong alignment with production AI architecture decisions</li>
                   </ul>
                 </div>
               </div>
@@ -111,17 +115,16 @@ export default function WhyAIdeologySection() {
                 
                 {/* Description */}
                 <p className="text-gray-700 text-sm lg:text-base mb-4">
-                  Midis Group is a globally recognized leader in the technology and{" "}
-                  <span className="underline">IT solutions sector</span>, with a strong presence across the Middle East, Africa, Europe, and Central and Eastern Europe.
+                  Midis Group adds regional scale, ecosystem strength, and enterprise access across the Middle East,
+                  Africa, Europe, and Central and Eastern Europe.
                 </p>
                 
                 {/* Additional Info */}
                 <div className="w-full">
                   <p className="text-gray-600 text-sm lg:text-base mb-3">
-                    Established over 50 years ago, Midis Group has evolved into a vast network of more than{" "}
-                    <span className="font-semibold text-charcoal">170 companies</span> operating in{" "}
-                    <span className="font-semibold text-charcoal">70 countries</span>, with{" "}
-                    <span className="font-semibold text-charcoal">+5,000 employees</span> consistently delivering cutting-edge technology solutions and services.
+                    This gives AIdeology stronger reach across large enterprise, public sector, and sovereign AI
+                    opportunities, while reinforcing our ability to deliver with both strategic depth and execution
+                    capacity.
                   </p>
                 </div>
               </div>

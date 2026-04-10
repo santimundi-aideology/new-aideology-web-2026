@@ -334,6 +334,21 @@ img:hover {
   transform: none !important;
 }
 
+.building-process-perspective {
+  perspective: 1600px;
+  perspective-origin: center center;
+}
+
+.building-process-scene {
+  transform-style: preserve-3d;
+}
+
+.building-process-layer {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
 /* Standard card hover for consistent scaling */
 .hover-card {
   transition: all 0.3s ease;

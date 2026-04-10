@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Download, PhoneCall } from "lucide-react"
+import { ArrowRight, PhoneCall } from "lucide-react"
 
 // Dual Video Component for seamless playback
 function DualVideoBackground() {
@@ -138,57 +138,8 @@ function DualVideoBackground() {
 }
 
 export default function HeroSection() {
-  const [scrollY, setScrollY] = useState(0)
-  const [currentText, setCurrentText] = useState("")
-  const [isTyping, setIsTyping] = useState(true)
-  const [mounted, setMounted] = useState(false)
-  
-  const fullText = "One-stop-shop for Artificial Intelligence solutions"
-
-  // Ensure client-side only rendering for particles
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // Parallax scroll effect
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  // Typewriter effect
-  useEffect(() => {
-    if (isTyping && currentText.length < fullText.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(fullText.slice(0, currentText.length + 1))
-      }, 100)
-      return () => clearTimeout(timeout)
-    } else if (currentText.length === fullText.length) {
-      setIsTyping(false)
-    }
-  }, [currentText, isTyping, fullText])
-
   return (
     <section className="relative min-h-dvh flex items-center pt-16 bg-charcoal text-white overflow-hidden">
-      {/* Floating Particles Removed */}
-      {/* {mounted && (
-        <div className="absolute inset-0 z-0">
-          {Array.from({ length: 25 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-accent-green/30 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 20}s`,
-                animationDuration: `${15 + Math.random() * 10}s`
-              }}
-            />
-          ))}
-        </div>
-      )} */}
-
       {/* Dual Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-charcoal/70 z-10"></div>
@@ -197,7 +148,7 @@ export default function HeroSection() {
         {/* Fallback image if videos don't load */}
         <img
           src="/gpu-server-racks.webp"
-          alt="AI Infrastructure"
+          alt="Enterprise AI services background"
           className="absolute inset-0 w-full h-full object-cover opacity-0"
           onError={(e) => {
             e.currentTarget.style.opacity = "1"
@@ -207,13 +158,18 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white min-h-[1.2em]">
-            {currentText}
-            {isTyping && <span className="animate-pulse">|</span>}
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center rounded-full border border-accent-green/30 bg-charcoal/50 px-4 py-2 text-sm font-medium text-accent-green backdrop-blur-sm animate-fade-in-up">
+            Enterprise AI strategy, delivery, and advisory
+          </div>
+          <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white min-h-[1.2em]">
+            Enterprise AI Services for Real Operations
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 animate-fade-in-up">
-            Simplifying and transforming ideas into rational, systems-engineered AI solutions
+          <p className="max-w-3xl text-xl md:text-2xl mb-4 text-white/90 animate-fade-in-up">
+            We help organizations move from AI ambition to deployed enterprise systems.
+          </p>
+          <p className="max-w-3xl text-lg md:text-xl mb-8 text-white/80 animate-fade-in-up" style={{ animationDelay: "150ms" }}>
+            Strategy, rapid delivery, and architecture guidance for agent-enabled operations at scale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
@@ -223,7 +179,7 @@ export default function HeroSection() {
             >
               <Link href="/book-discovery-call" className="flex items-center">
                 <PhoneCall className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                Book a discovery call
+                Book a strategy session
               </Link>
             </Button>
             <Button
@@ -232,12 +188,15 @@ export default function HeroSection() {
               size="lg"
               className="border-white text-white hover:bg-white hover:text-charcoal bg-charcoal/50 font-medium transition-all duration-300 hover:scale-105"
             >
-              <Link href="/one-pager.pdf" target="_blank" className="flex items-center transition-transform hover:translate-x-1">
-                <Download className="mr-2 h-5 w-5" />
-                Download one-pager
+              <Link href="/#solutions" className="flex items-center transition-transform hover:translate-x-1">
+                <ArrowRight className="mr-2 h-5 w-5" />
+                Explore services
               </Link>
             </Button>
           </div>
+          <p className="mt-6 max-w-2xl text-sm md:text-base text-white/70 animate-fade-in-up" style={{ animationDelay: "250ms" }}>
+            Trusted across the Middle East for enterprise, public-sector, and sovereign AI engagements.
+          </p>
         </div>
       </div>
 

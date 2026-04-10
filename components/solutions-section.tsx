@@ -1,17 +1,45 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Server, Zap, Users, Cpu, ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, Cpu, Server, Users, Zap } from "lucide-react"
 
 export default function SolutionsSection() {
-  const [visibleCards, setVisibleCards] = useState<number[]>([])
-
   const solutions = [
     {
-      title: "AI Infrastructure",
-      description: "Designing and deploying AI Infrastructure. We assist customers in determining the most suitable hardware and software for their specific AI needs.",
+      title: "AI Strategy Consultancy",
+      description:
+        "Helping organizations identify the highest-value opportunities for AI and define a practical roadmap toward an agent-enabled enterprise.",
+      icon: (
+        <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
+      link: "/solutions/ai-consulting",
+      subpages: [
+        { name: "AI Security & Compliance", path: "/solutions/ai-security-compliance" },
+        { name: "Generative AI", path: "/services/ai-consulting/generative-ai" },
+        { name: "Machine Learning", path: "/services/ai-consulting/machine-learning" },
+        { name: "AI Data Platform", path: "/services/ai-consulting/ai-data-platform" },
+      ],
+    },
+    {
+      title: "Agentic AI Delivery",
+      description:
+        "Designing and implementing focused AI use cases that deliver measurable business outcomes in weeks, not years.",
+      icon: (
+        <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
+      link: "/services/ai-consulting/ai-agents",
+      subpages: [
+        { name: "AI Agents", path: "/services/ai-consulting/ai-agents" },
+        { name: "Conversational AI", path: "/services/ai-consulting/conversational-ai" },
+        { name: "Vision AI", path: "/services/robotics-edge-ai/vision-ai" },
+        { name: "Edge AI", path: "/services/robotics-edge-ai/edge-ai" },
+      ],
+    },
+    {
+      title: "AI Architecture & Technology Advisory",
+      description:
+        "Recommending the right compute, software, data, and deployment choices to support secure, scalable AI adoption.",
       icon: (
         <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
@@ -21,100 +49,34 @@ export default function SolutionsSection() {
         { name: "AI Data Platform", path: "/solutions/ai-infrastructure/ai-data-platform" },
         { name: "MLOps", path: "/solutions/ai-infrastructure/mlops" },
         { name: "Accelerated Computing", path: "/solutions/ai-infrastructure/accelerated-computing" },
-        { name: "Virtualization", path: "/solutions/ai-infrastructure/virtualization" },
-        { name: "Sustainable Computing", path: "/solutions/ai-infrastructure/sustainable-computing" },
       ],
     },
     {
-      title: "Design & Simulation",
-      description: "We offer our expertise in helping customers implement metaverse or digital twins value propositions.",
-      icon: (
-        <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
-      ),
-      link: "/solutions/design-simulation",
-      subpages: [
-        { name: "Design Visualization", path: "/solutions/design-simulation/design-visualization" },
-        { name: "Robotic Simulation", path: "/solutions/design-simulation/robotic-simulation" },
-        { name: "Extended Reality", path: "/solutions/design-simulation/extended-reality" },
-        { name: "Digital Twins", path: "/solutions/design-simulation/digital-twins" },
-      ],
-    },
-    {
-      title: "AI Consulting",
+      title: "Sovereign AI & Enterprise Deployment",
       description:
-        "Strategic AI guidance and implementation support to accelerate your artificial intelligence initiatives.",
-      icon: (
-        <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
-      ),
-      link: "/solutions/ai-consulting",
-      subpages: [
-        { name: "AI Security & Compliance", path: "/solutions/ai-security-compliance" },
-        { name: "Conversational AI", path: "/services/ai-consulting/conversational-ai" },
-        { name: "Generative AI", path: "/services/ai-consulting/generative-ai" },
-        { name: "AI Agents", path: "/services/ai-consulting/ai-agents" },
-        { name: "AI Data Platform", path: "/services/ai-consulting/ai-data-platform" },
-        { name: "Machine Learning", path: "/services/ai-consulting/machine-learning" },
-      ],
-    },
-    {
-      title: "Robotics & Edge AI",
-      description:
-        "Intelligent robotics and edge computing solutions for autonomous systems and real-time AI applications.",
+        "Building AI environments for regulated and large-scale organizations that require control, governance, and production readiness.",
       icon: (
         <Cpu className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/solutions/robotics-edge-ai",
-      isNew: true,
+      link: "/solutions/ai-security-compliance",
       subpages: [
-        { name: "Edge AI", path: "/services/robotics-edge-ai/edge-ai" },
-        { name: "Vision AI", path: "/services/robotics-edge-ai/vision-ai" },
-        { name: "Robotics", path: "/services/robotics-edge-ai/robotics" },
+        { name: "AI Security & Compliance", path: "/solutions/ai-security-compliance" },
+        { name: "Virtualization", path: "/solutions/ai-infrastructure/virtualization" },
+        { name: "AI Data Platform", path: "/solutions/ai-infrastructure/ai-data-platform" },
+        { name: "MLOps", path: "/solutions/ai-infrastructure/mlops" },
       ],
     },
   ]
-
-  // Progressive disclosure with intersection observer
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: "0px",
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const cardIndex = Number.parseInt(entry.target.getAttribute("data-card-index") || "0")
-          setVisibleCards((prev) => {
-            if (!prev.includes(cardIndex)) {
-              return [...prev, cardIndex]
-            }
-            return prev
-          })
-        }
-      })
-    }, observerOptions)
-
-    // Observe cards after component mounts
-    const cards = document.querySelectorAll("[data-card-index]")
-    cards.forEach((card) => {
-      if (card) observer.observe(card)
-    })
-
-    return () => {
-      cards.forEach((card) => {
-        if (card) observer.unobserve(card)
-      })
-      observer.disconnect()
-    }
-  }, [])
 
   return (
     <section id="solutions" className="py-20 relative bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Solutions</h2>
-          <p className="text-xl text-gray-600 max-w-8xl mt-10 mx-auto">
-          <b>AIdeology</b> specializes in value-added solutions as an as an <b>NVIDIA Solution Provider</b> and we have contractual partnerships with Lenovo, HPE and Supermicro. Our offerings span <b>Artificial Intelligence</b> specialized solutions, <b>High-Performance Computing Infrastructure</b> solutions, and <b>Design & Simulation</b>, providing <b>end-to-end services</b> from planning to execution.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Services</h2>
+          <p className="text-xl text-gray-600 max-w-5xl mt-10 mx-auto">
+            AIdeology helps organizations move from isolated AI ideas to practical enterprise execution. We combine
+            strategy, rapid delivery, and architecture advisory to identify the right use cases, implement them quickly,
+            and define the technology foundation required to scale.
           </p>
         </div>
 
@@ -129,12 +91,6 @@ export default function SolutionsSection() {
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <div>{solution.icon}</div>
-                  {(solution as any).isNew && (
-                    <div className="flex items-center bg-accent-green text-charcoal px-2 py-1 rounded-full text-xs font-bold animate-pulse">
-                      <Sparkles className="h-3 w-3 mr-1" />
-                      NEW
-                    </div>
-                  )}
                 </div>
                 <CardTitle className="text-2xl group-hover:text-accent-green transition-colors duration-300">
                   {solution.title}
@@ -172,6 +128,10 @@ export default function SolutionsSection() {
             </Card>
           ))}
         </div>
+        <p className="mt-12 text-center text-lg text-gray-600 max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: "400ms" }}>
+          We do not build isolated agents. We design the workflows, orchestration, integrations, governance, and
+          deployment model required for enterprise AI at scale.
+        </p>
       </div>
     </section>
   )

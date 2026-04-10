@@ -104,9 +104,9 @@ export default function GlobalPresenceSection() {
       {/* Title Section - Always has container */}
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Presence</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Strategically located hubs to serve clients worldwide
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Regional Presence, Enterprise Delivery</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Supporting enterprise, public-sector, and sovereign AI programs across the Middle East and beyond
           </p>
         </div>
       </div>

@@ -6,7 +6,6 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { SheetFooter } from "@/components/ui/sheet"
@@ -172,56 +171,46 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
 
   const navItems = [
     { href: "/", label: "Home", sectionId: "" },
-    { href: { pathname: "/", hash: "#solutions" }, label: "Solutions", sectionId: "solutions" },
+    { href: { pathname: "/", hash: "#solutions" }, label: "Services", sectionId: "solutions" },
+    { href: { pathname: "/", hash: "#advisory" }, label: "Advisory", sectionId: "advisory" },
     { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
-    { href: "/products", label: "Products", sectionId: "" },
     { href: "/news", label: "News", sectionId: "" },
     // { href: "/customers", label: "Customers", sectionId: "" }, // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line and remove this comment when customers page is restored
   ]
 
   const submenuItems: Record<string, { href: string; label: string }[]> = {
-    Solutions: [
-      { href: "/solutions/ai-infrastructure", label: "AI Infrastructure" },
-      { href: "/solutions/design-simulation", label: "Design & Simulation" },
-      { href: "/solutions/ai-consulting", label: "AI Consulting" },
-      { href: "/solutions/robotics-edge-ai", label: "Robotics & Edge AI" },
+    Services: [
+      { href: "/solutions/ai-consulting", label: "AI Strategy Consultancy" },
+      { href: "/services/ai-consulting/ai-agents", label: "Agentic AI Delivery" },
+      { href: "/solutions/ai-infrastructure", label: "AI Architecture & Technology Advisory" },
+      { href: "/solutions/ai-security-compliance", label: "Sovereign AI & Enterprise Deployment" },
     ],
-    "AI Infrastructure": [
-      { href: "/solutions/ai-infrastructure/professional-services", label: "Professional Services" },
+    "AI Strategy Consultancy": [
+      { href: "/solutions/ai-consulting", label: "Roadmapping and prioritization" },
+      { href: "/solutions/ai-security-compliance", label: "Governance and compliance" },
+      { href: "/services/ai-consulting/generative-ai", label: "Opportunity design" },
+      { href: "/services/ai-consulting/machine-learning", label: "Use-case assessment" },
+    ],
+    "Agentic AI Delivery": [
+      { href: "/services/ai-consulting/ai-agents", label: "AI Agents" },
+      { href: "/services/ai-consulting/conversational-ai", label: "Conversational AI" },
+      { href: "/services/robotics-edge-ai/vision-ai", label: "Vision AI" },
+      { href: "/services/robotics-edge-ai/edge-ai", label: "Edge AI" },
+    ],
+    "AI Architecture & Technology Advisory": [
       { href: "/solutions/ai-infrastructure/ai-data-platform", label: "AI Data Platform" },
       { href: "/solutions/ai-infrastructure/mlops", label: "MLOps" },
-      { href: "/solutions/ai-infrastructure/accelerated-computing", label: "Accelerated Computing" },
+      { href: "/solutions/ai-infrastructure/professional-services", label: "Platform advisory" },
       { href: "/solutions/ai-infrastructure/virtualization", label: "Virtualization" },
-      { href: "/solutions/ai-infrastructure/sustainable-computing", label: "Sustainable Computing" },
+      { href: "/solutions/ai-infrastructure/accelerated-computing", label: "Compute planning" },
     ],
-    "Design & Simulation": [
-      { href: "/solutions/design-simulation/design-visualization", label: "Design Visualization" },
-      { href: "/solutions/design-simulation/robotic-simulation", label: "Robotic Simulation" },
-      { href: "/solutions/design-simulation/extended-reality", label: "Extended Reality" },
-      { href: "/solutions/design-simulation/digital-twins", label: "Digital Twins" },
-    ],
-    "AI Consulting": [
+    "Sovereign AI & Enterprise Deployment": [
       { href: "/solutions/ai-security-compliance", label: "AI Security & Compliance" },
-      { href: "/services/ai-consulting/conversational-ai", label: "Conversational AI" },
-      { href: "/services/ai-consulting/generative-ai", label: "Generative AI" },
-      { href: "/services/ai-consulting/ai-agents", label: "AI Agents" },
-      { href: "/services/ai-consulting/machine-learning", label: "Machine Learning" },
-    ],
-    "Robotics & Edge AI": [
-      { href: "/services/robotics-edge-ai/edge-ai", label: "Edge AI" },
-      { href: "/services/robotics-edge-ai/vision-ai", label: "Vision AI" },
-      { href: "/services/robotics-edge-ai/robotics", label: "Robotics" },
-    ],
-    Products: [
-      { href: "/products/dgx-spark", label: "DGX Spark", isNew: true },
-      { href: "/products/nvidia-dgx", label: "NVIDIA DGX Systems" },
-      { href: "/products/enterprise-ai", label: "Enterprise AI Platforms" },
-      { href: "/products/storage-systems", label: "Storage Systems" },
-      { href: "/products/nvidia-ai-enterprise", label: "NVIDIA AI Enterprise" },
+      { href: "/solutions/ai-infrastructure/virtualization", label: "Private environments" },
+      { href: "/solutions/ai-infrastructure/mlops", label: "Secure MLOps" },
+      { href: "/solutions/ai-infrastructure/ai-data-platform", label: "Data residency planning" },
     ],
   }
-
-  const mainServices = ["AI Infrastructure", "3D AI", "AI Consulting", "Robotics & Edge AI"]
 
   const handleSubmenuEnter = (menu: string) => {
     if (submenuTimeoutRef.current) {
@@ -293,9 +282,9 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
               key={item.label}
               className="relative group"
               onMouseEnter={() =>
-                (item.label === "Solutions" || item.label === "Products") && handleSubmenuEnter(item.label)
+                item.label === "Services" && handleSubmenuEnter(item.label)
               }
-              onMouseLeave={() => (item.label === "Solutions" || item.label === "Products") && handleSubmenuLeave()}
+              onMouseLeave={() => item.label === "Services" && handleSubmenuLeave()}
             >
               <Link
                 href={getLinkHref(item.href)}
@@ -307,7 +296,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                 `}
               >
                 {item.label}
-                {(item.label === "Solutions" || item.label === "Products") && (
+                {item.label === "Services" && (
                   <ChevronDown
                     className={`h-4 w-4 ml-1 transition-all duration-300 ${
                       showSubmenu && selectedSubmenu === item.label ? "rotate-180" : ""
@@ -325,7 +314,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   onMouseEnter={() => handleSubmenuEnter(item.label)}
                   onMouseLeave={handleSubmenuLeave}
                 >
-                  {selectedSubmenu === "Solutions" ? (
+                  {selectedSubmenu === "Services" ? (
                     <div className="flex w-[600px]">
                       {/* Left Column */}
                       <div className="w-1/2 p-4 border-r border-gray-200">
@@ -372,10 +361,10 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                         ) : (
                           <>
                             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
-                              AI Infrastructure Services
+                              AI Strategy Consultancy
                             </h3>
                             <div className="flex flex-col">
-                              {submenuItems["AI Infrastructure"].map((flyoutItem) => (
+                              {submenuItems["AI Strategy Consultancy"].map((flyoutItem) => (
                                 <Link
                                   key={flyoutItem.label}
                                   href={flyoutItem.href}
@@ -389,32 +378,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                         )}
                       </div>
                     </div>
-                  ) : (
-                    /* Products - Single Column */
-                    <div className="w-[350px] p-4">
-                      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
-                        {selectedSubmenu}
-                      </h3>
-                      <div className="flex flex-col">
-                        {(submenuItems[selectedSubmenu] || []).map((subItem) => (
-                          <Link
-                            key={subItem.label}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
-                          >
-                            <span className="flex items-center gap-2">
-                              {subItem.label}
-                              {subItem.isNew && (
-                                <Badge className="bg-accent-green text-charcoal text-xs px-2 py-0 hover:bg-accent-green">
-                                  NEW
-                                </Badge>
-                              )}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  ) : null}
                 </div>
               )}
             </div>

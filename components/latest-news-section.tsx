@@ -35,9 +35,10 @@ export default function LatestNewsSection() {
     <section id="news" className="py-20 pb-10 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Latest News</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Stay informed with our latest insights and company updates.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Insights & News</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Follow our latest insights, partnerships, and market activity across enterprise AI, sovereign AI, and
+            agentic systems.
           </p>
         </div>
 
