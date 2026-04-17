@@ -2,69 +2,55 @@
 
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Cpu, Server, Users, Zap } from "lucide-react"
+import { ArrowRight, Server, Users, Zap } from "lucide-react"
 
 export default function SolutionsSection() {
   const solutions = [
     {
       title: "AI Strategy Consultancy",
       description:
-        "Helping organizations identify the highest-value opportunities for AI and define a practical roadmap toward an agent-enabled enterprise.",
+        "Identify where AI creates the highest impact and build an execution-ready roadmap toward an AI-native enterprise.",
+      highlights: [
+        "Readiness and capability assessment",
+        "Use-case prioritization",
+        "Governance and operating model",
+        "Phased plan with ROI milestones",
+      ],
       icon: (
         <Users className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
       link: "/solutions/ai-consulting",
-      subpages: [
-        { name: "AI Security & Compliance", path: "/solutions/ai-security-compliance" },
-        { name: "Generative AI", path: "/services/ai-consulting/generative-ai" },
-        { name: "Machine Learning", path: "/services/ai-consulting/machine-learning" },
-        { name: "AI Data Platform", path: "/services/ai-consulting/ai-data-platform" },
-      ],
     },
     {
       title: "Agentic AI Delivery",
       description:
-        "Designing and implementing focused AI use cases that deliver measurable business outcomes in weeks, not years.",
+        "Production-ready agentic solutions that deliver measurable impact in weeks, not months.",
+      highlights: [
+        "Process-to-workflow automation",
+        "Agent embedding in CRM, ERP & internal tools",
+        "Autonomous execution with human-in-the-loop",
+        "Modular architecture for rapid reuse",
+      ],
       icon: (
         <Zap className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
-      link: "/services/ai-consulting/ai-agents",
-      subpages: [
-        { name: "AI Agents", path: "/services/ai-consulting/ai-agents" },
-        { name: "Conversational AI", path: "/services/ai-consulting/conversational-ai" },
-        { name: "Vision AI", path: "/services/robotics-edge-ai/vision-ai" },
-        { name: "Edge AI", path: "/services/robotics-edge-ai/edge-ai" },
-      ],
+      link: "/building-process",
     },
     {
-      title: "AI Architecture & Technology Advisory",
+      title: "AI Architecture, Infrastructure & Sovereign Deployment",
       description:
-        "Recommending the right compute, software, data, and deployment choices to support secure, scalable AI adoption.",
+        "Design, deploy, and secure the right AI stack — from compute and networking to sovereign and regulated environments.",
+      highlights: [
+        "GPU & compute strategy (cloud, on-prem, hybrid)",
+        "HPC storage, data pipelines & AI-native networking",
+        "Model, platform & tooling selection",
+        "Private / sovereign deployment and data residency",
+        "Security, compliance & model governance",
+      ],
       icon: (
         <Server className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
       ),
       link: "/solutions/ai-infrastructure",
-      subpages: [
-        { name: "Professional Services", path: "/solutions/ai-infrastructure/professional-services" },
-        { name: "AI Data Platform", path: "/solutions/ai-infrastructure/ai-data-platform" },
-        { name: "MLOps", path: "/solutions/ai-infrastructure/mlops" },
-        { name: "Accelerated Computing", path: "/solutions/ai-infrastructure/accelerated-computing" },
-      ],
-    },
-    {
-      title: "Sovereign AI & Enterprise Deployment",
-      description:
-        "Building AI environments for regulated and large-scale organizations that require control, governance, and production readiness.",
-      icon: (
-        <Cpu className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
-      ),
-      link: "/solutions/ai-security-compliance",
-      subpages: [
-        { name: "AI Security & Compliance", path: "/solutions/ai-security-compliance" },
-        { name: "Virtualization", path: "/solutions/ai-infrastructure/virtualization" },
-        { name: "AI Data Platform", path: "/solutions/ai-infrastructure/ai-data-platform" },
-        { name: "MLOps", path: "/solutions/ai-infrastructure/mlops" },
-      ],
     },
   ]
 
@@ -73,14 +59,13 @@ export default function SolutionsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-charcoal">Services</h2>
-          <p className="text-xl text-gray-600 max-w-5xl mt-10 mx-auto">
-            AIdeology helps organizations move from isolated AI ideas to practical enterprise execution. We combine
-            strategy, rapid delivery, and architecture advisory to identify the right use cases, implement them quickly,
-            and define the technology foundation required to scale.
+          <p className="text-xl text-gray-600 max-w-3xl mt-10 mx-auto">
+            Strategy, rapid delivery, and architecture advisory — the three services that take enterprises from AI
+            ambition to production.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
             <Card
               key={index}
@@ -99,22 +84,16 @@ export default function SolutionsSection() {
               <CardContent className="flex-grow">
                 <CardDescription className="text-gray-500 text-base mb-4">{solution.description}</CardDescription>
 
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-500 mb-2">Explore Solutions:</h4>
-                  <ul className="space-y-1">
-                    {solution.subpages.map((subpage, subpageIndex) => (
-                      <li key={subpageIndex} className="flex items-center text-sm">
-                        <div className="w-1.5 h-1.5 bg-accent-green rounded-full mr-2"></div>
-                        <Link
-                          href={subpage.path}
-                          className="text-gray-600 hover:text-accent-green transition-colors duration-200"
-                        >
-                          {subpage.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-1.5 mb-4">
+                  {solution.highlights.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                      <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+
+
               </CardContent>
               <CardFooter>
                 <Link
@@ -128,10 +107,15 @@ export default function SolutionsSection() {
             </Card>
           ))}
         </div>
-        <p className="mt-12 text-center text-lg text-gray-600 max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: "400ms" }}>
-          We do not build isolated agents. We design the workflows, orchestration, integrations, governance, and
-          deployment model required for enterprise AI at scale.
-        </p>
+        <div className="mt-12 text-center animate-fade-in-up" style={{ animationDelay: "400ms" }}>
+          <Link
+            href="/building-process"
+            className="inline-flex items-center gap-2 text-base font-medium text-charcoal border border-charcoal/20 rounded-full px-6 py-3 hover:bg-charcoal hover:text-white hover:border-charcoal transition-all duration-300"
+          >
+            See our delivery process step by step
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   )

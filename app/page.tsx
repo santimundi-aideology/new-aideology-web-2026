@@ -9,20 +9,41 @@ import LatestNewsSection from "@/components/latest-news-section"
 import Video from "@/components/video-player"
 
 import Footer from "@/components/footer"
-import ProductsPromo from "@/components/products-promo"
 import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export default function Home() {
-  const businessOutcomes = [
-    "Identify the right AI use cases",
-    "Launch high-impact MVPs in 2-3 months",
-    "Move from pilot to production faster",
-    "Scale securely across enterprise operations",
-  ]
+  
 
   return (
     <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
       <HeroSection />
+
+      {/* Video Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 id="video" className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
+                End-to-End AI Delivery, One Partner
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                From strategy and agentic AI to HPC infrastructure and digital twins — we cover every layer of the AI
+                stack so you work with one team from roadmap to production.
+              </p>
+            </div>
+            
+            <Video
+              src="/home-video.mp4"
+              poster="/thumbnail.webp"
+              className="w-full max-w-5xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: '400ms' }}
+              title="End-to-End AI Delivery, One Partner"
+            />
+          </div>
+        </div>
+      </section>
 
       <section className="py-14 md:py-16 bg-charcoal text-white">
         <div className="container mx-auto px-4">
@@ -37,71 +58,23 @@ export default function Home() {
               We design the workflows, governance, integrations, and deployment model that turn AI into real
               business operations.
             </p>
-          </div>
-        </div>
-      </section>
-      
-      {/* Video Section */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 id="video" className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up">
-                Enterprise AI in Action
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                See how AIdeology helps clients move from business opportunity and strategy to implemented AI use cases,
-                production architecture, and scalable deployment.
-              </p>
-            </div>
-            
-            <Video
-              src="/home-video.mp4"
-              poster="/thumbnail.webp"
-              className="w-full max-w-5xl mx-auto animate-fade-in-up"
-              style={{ animationDelay: '400ms' }}
-              title="Enterprise AI in Action"
-            />
+            <Link
+              href="/building-process"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-green transition-colors hover:text-white animate-fade-in-up"
+              style={{ animationDelay: "300ms" }}
+            >
+              See how we build with clients
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
       
       <SolutionsSection />
 
-      <section className="py-16 md:py-20 bg-[#f4f4f4]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center mb-12">
-            <p className="text-sm uppercase tracking-[0.25em] text-accent-green mb-4 animate-fade-in-up">
-              Business outcomes
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-              What clients get from working with AIdeology
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              We connect strategic advisory with rapid execution so enterprise AI creates operational impact, not just
-              internal excitement.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {businessOutcomes.map((outcome, index) => (
-              <div
-                key={outcome}
-                className="rounded-2xl border border-accent-green/20 bg-white px-6 py-8 text-center shadow-sm animate-fade-in-up"
-                style={{ animationDelay: `${250 + index * 100}ms` }}
-              >
-                <div className="w-10 h-10 rounded-full bg-accent-green/10 text-accent-green font-bold flex items-center justify-center mx-auto mb-4">
-                  {index + 1}
-                </div>
-                <p className="text-lg font-semibold text-charcoal">{outcome}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <WhyAIdeologySection />
-      <ProductsPromo />
       
       {/* Talent Rings Section */}
       <section className="py-12 md:py-16 bg-white relative">

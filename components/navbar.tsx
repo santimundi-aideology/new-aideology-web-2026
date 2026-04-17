@@ -8,7 +8,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
 import { usePathname } from "next/navigation"
-import { SheetFooter } from "@/components/ui/sheet"
 
 interface NavbarProps {
   forceDarkLogo?: boolean
@@ -172,7 +171,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const navItems = [
     { href: "/", label: "Home", sectionId: "" },
     { href: { pathname: "/", hash: "#solutions" }, label: "Services", sectionId: "solutions" },
-    { href: { pathname: "/", hash: "#advisory" }, label: "Advisory", sectionId: "advisory" },
+    { href: "/building-process", label: "Process", sectionId: "" },
     { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
     { href: "/news", label: "News", sectionId: "" },
     // { href: "/customers", label: "Customers", sectionId: "" }, // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line and remove this comment when customers page is restored
@@ -181,34 +180,8 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
   const submenuItems: Record<string, { href: string; label: string }[]> = {
     Services: [
       { href: "/solutions/ai-consulting", label: "AI Strategy Consultancy" },
-      { href: "/services/ai-consulting/ai-agents", label: "Agentic AI Delivery" },
-      { href: "/solutions/ai-infrastructure", label: "AI Architecture & Technology Advisory" },
-      { href: "/solutions/ai-security-compliance", label: "Sovereign AI & Enterprise Deployment" },
-    ],
-    "AI Strategy Consultancy": [
-      { href: "/solutions/ai-consulting", label: "Roadmapping and prioritization" },
-      { href: "/solutions/ai-security-compliance", label: "Governance and compliance" },
-      { href: "/services/ai-consulting/generative-ai", label: "Opportunity design" },
-      { href: "/services/ai-consulting/machine-learning", label: "Use-case assessment" },
-    ],
-    "Agentic AI Delivery": [
-      { href: "/services/ai-consulting/ai-agents", label: "AI Agents" },
-      { href: "/services/ai-consulting/conversational-ai", label: "Conversational AI" },
-      { href: "/services/robotics-edge-ai/vision-ai", label: "Vision AI" },
-      { href: "/services/robotics-edge-ai/edge-ai", label: "Edge AI" },
-    ],
-    "AI Architecture & Technology Advisory": [
-      { href: "/solutions/ai-infrastructure/ai-data-platform", label: "AI Data Platform" },
-      { href: "/solutions/ai-infrastructure/mlops", label: "MLOps" },
-      { href: "/solutions/ai-infrastructure/professional-services", label: "Platform advisory" },
-      { href: "/solutions/ai-infrastructure/virtualization", label: "Virtualization" },
-      { href: "/solutions/ai-infrastructure/accelerated-computing", label: "Compute planning" },
-    ],
-    "Sovereign AI & Enterprise Deployment": [
-      { href: "/solutions/ai-security-compliance", label: "AI Security & Compliance" },
-      { href: "/solutions/ai-infrastructure/virtualization", label: "Private environments" },
-      { href: "/solutions/ai-infrastructure/mlops", label: "Secure MLOps" },
-      { href: "/solutions/ai-infrastructure/ai-data-platform", label: "Data residency planning" },
+      { href: "/building-process", label: "Agentic AI Delivery" },
+      { href: "/solutions/ai-infrastructure", label: "AI Architecture & Sovereign Deployment" },
     ],
   }
 
@@ -227,29 +200,10 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     }, 300) // 300ms delay before hiding
   }
 
-  const [flyoutSubmenu, setFlyoutSubmenu] = useState<string | null>(null)
-  const flyoutTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-
-  const handleFlyoutEnter = (menu: string) => {
-    if (flyoutTimeoutRef.current) {
-      clearTimeout(flyoutTimeoutRef.current)
-    }
-    setFlyoutSubmenu(menu)
-  }
-
-  const handleFlyoutLeave = () => {
-    flyoutTimeoutRef.current = setTimeout(() => {
-      setFlyoutSubmenu(null)
-    }, 300)
-  }
-
   useEffect(() => {
     return () => {
       if (submenuTimeoutRef.current) {
         clearTimeout(submenuTimeoutRef.current)
-      }
-      if (flyoutTimeoutRef.current) {
-        clearTimeout(flyoutTimeoutRef.current)
       }
     }
   }, [])
@@ -315,67 +269,20 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
                   onMouseLeave={handleSubmenuLeave}
                 >
                   {selectedSubmenu === "Services" ? (
-                    <div className="flex w-[600px]">
-                      {/* Left Column */}
-                      <div className="w-1/2 p-4 border-r border-gray-200">
-                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
-                          {selectedSubmenu}
-                        </h3>
-                        <div className="flex flex-col">
-                          {(submenuItems[selectedSubmenu] || []).map((subItem) => (
-                            <Link
-                              key={subItem.label}
-                              href={subItem.href}
-                              className={`flex justify-between items-center w-full text-left px-4 py-2 text-charcoal rounded-md whitespace-nowrap ${
-                                flyoutSubmenu === subItem.label
-                                  ? "bg-accent-green/10 font-semibold"
-                                  : "hover:bg-accent-green/10 hover:font-semibold"
-                              }`}
-                              onMouseEnter={() => handleFlyoutEnter(subItem.label)}
-                            >
-                              {subItem.label}
-                              {submenuItems[subItem.label] && <ArrowRight className="h-4 w-4 text-gray-400" />}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                      {/* Right Column */}
-                      <div className="w-1/2 p-4">
-                        {flyoutSubmenu && submenuItems[flyoutSubmenu] ? (
-                          <>
-                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
-                              {flyoutSubmenu} Services
-                            </h3>
-                            <div className="flex flex-col">
-                              {submenuItems[flyoutSubmenu].map((flyoutItem) => (
-                                <Link
-                                  key={flyoutItem.label}
-                                  href={flyoutItem.href}
-                                  className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
-                                >
-                                  {flyoutItem.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
-                              AI Strategy Consultancy
-                            </h3>
-                            <div className="flex flex-col">
-                              {submenuItems["AI Strategy Consultancy"].map((flyoutItem) => (
-                                <Link
-                                  key={flyoutItem.label}
-                                  href={flyoutItem.href}
-                                  className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md whitespace-nowrap"
-                                >
-                                  {flyoutItem.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </>
-                        )}
+                    <div className="w-[340px] p-4">
+                      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3 px-4">
+                        Services
+                      </h3>
+                      <div className="flex flex-col">
+                        {(submenuItems["Services"] || []).map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-charcoal hover:bg-accent-green/10 hover:font-semibold rounded-md"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   ) : null}
