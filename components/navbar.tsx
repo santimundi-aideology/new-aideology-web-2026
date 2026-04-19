@@ -181,6 +181,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     Services: [
       { href: "/solutions/ai-consulting", label: "AI Strategy Consultancy" },
       { href: "/building-process", label: "Agentic AI Delivery" },
+      { href: "/humanoid-robotics-process", label: "Humanoid Robotics Deployment" },
       { href: "/solutions/ai-infrastructure", label: "AI Architecture & Sovereign Deployment" },
     ],
   }

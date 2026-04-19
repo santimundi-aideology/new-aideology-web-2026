@@ -349,7 +349,10 @@ function FeasibilityAssessment() {
   }
 
   return (
-    <div className="overflow-hidden rounded-[1.75rem] border border-black/5 bg-[#f9f9f9] shadow-[0_8px_40px_rgba(0,0,0,0.06)]">
+    <div
+      data-feasibility-assessment
+      className="overflow-hidden rounded-[1.75rem] border border-black/5 bg-[#f9f9f9] shadow-[0_8px_40px_rgba(0,0,0,0.06)]"
+    >
 
       {/* chrome bar */}
       <div className="flex items-center gap-3 border-b border-black/5 bg-[#f3f3f3] px-5 py-3.5">
@@ -362,11 +365,12 @@ function FeasibilityAssessment() {
       </div>
 
       {/* two evaluation cards */}
-      <div className="grid gap-4 p-4 sm:grid-cols-2">
+      <div className="grid items-stretch gap-4 p-4 sm:grid-cols-2">
         {feasibilityTopics.map((t, idx) => (
           <div
             key={t.id}
-            className="flex flex-col gap-5 rounded-2xl border border-black/5 bg-white p-5 shadow-sm"
+            data-feasibility-card={idx}
+            className="flex h-full flex-col gap-5 rounded-2xl border border-black/5 bg-white p-5 shadow-sm"
           >
             {/* card header */}
             <div className="flex items-start justify-between gap-3">
@@ -438,7 +442,7 @@ function FeasibilityAssessment() {
             </div>
 
             {/* verdict strip */}
-            <div className={`rounded-xl px-4 py-3 ${idx === 0 ? "bg-accent-green/8" : "bg-amber-50/70"}`}>
+            <div className={`mt-auto rounded-xl px-4 py-3 ${idx === 0 ? "bg-accent-green/8" : "bg-amber-50/70"}`}>
               <p className={`text-[11px] font-semibold leading-relaxed ${idx === 0 ? "text-accent-green" : "text-amber-600"}`}>
                 {idx === 0
                   ? "Strong data foundation, minimal integrations — ready to build."
@@ -710,7 +714,7 @@ function Scene4MultiAgent({
             <Scene4ArrowConnector label="INGEST" />
 
             {/* AGENT (center) */}
-            <div className="flex flex-col gap-3 rounded-2xl border border-accent-green/30 bg-gradient-to-b from-[#f7f9f4] to-white p-4">
+            <div data-scene4-agent-panel className="flex flex-col gap-3 rounded-2xl border border-accent-green/30 bg-gradient-to-b from-[#f7f9f4] to-white p-4">
               <div className="flex items-center gap-3">
                 <div
                   data-scene4-avatar
@@ -1010,12 +1014,12 @@ function Scene5Experience({
                   <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">Your agents</span>
                   <span className="text-[10px] text-gray-400">5 working for you</span>
                 </div>
-                <div className="grid grid-cols-5 gap-2.5">
+                <div className="grid grid-cols-5 items-stretch gap-2.5">
                   {scene5Agents.map((a, i) => (
                     <div
                       key={a.id}
                       data-scene5-agent={i}
-                      className="relative flex flex-col items-center gap-1.5 rounded-2xl border border-black/5 bg-white px-2 py-3 shadow-sm opacity-0"
+                      className="relative flex h-full flex-col items-center gap-1.5 rounded-2xl border border-black/5 bg-white px-2 py-3 shadow-sm opacity-0"
                       style={{ transform: "translateY(10px)" }}
                     >
                       <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-accent-green/60 bg-charcoal">
@@ -1032,8 +1036,8 @@ function Scene5Experience({
                         </span>
                       </div>
                       <p className="text-[11px] font-semibold leading-tight text-charcoal">{a.name}</p>
-                      <p className="text-[9px] leading-tight text-gray-400">{a.role}</p>
-                      <div className="mt-0.5 h-0.5 w-full overflow-hidden rounded-full bg-black/5">
+                      <p className="text-center text-[9px] leading-tight text-gray-400">{a.role}</p>
+                      <div className="mt-auto h-0.5 w-full overflow-hidden rounded-full bg-black/5">
                         <div
                           data-scene5-agent-bar={i}
                           className={`h-full rounded-full ${a.status === "active" ? "bg-accent-green" : "bg-amber-300"}`}
@@ -1047,9 +1051,9 @@ function Scene5Experience({
               </div>
 
               {/* decisions + drafts columns */}
-              <div className="grid gap-4 lg:grid-cols-2">
+              <div className="grid items-stretch gap-4 lg:grid-cols-2">
                 {/* DECISIONS */}
-                <div className="flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm">
+                <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm">
                   <div className="flex items-center gap-2 border-b border-black/5 bg-[#fafafa] px-4 py-2.5">
                     <ListChecks className="h-3.5 w-3.5 text-accent-green" />
                     <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500">Decisions to approve</span>
@@ -1105,7 +1109,7 @@ function Scene5Experience({
                 </div>
 
                 {/* DRAFTS */}
-                <div className="flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm">
+                <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm">
                   <div className="flex items-center gap-2 border-b border-black/5 bg-[#fafafa] px-4 py-2.5">
                     <Mail className="h-3.5 w-3.5 text-accent-green" />
                     <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500">Drafts ready</span>
@@ -1375,7 +1379,7 @@ function Scene6Scale({
 
                     {/* department head card */}
                     <div
-                      className={`flex w-full flex-col items-center gap-2 rounded-xl border px-2 py-3 ${
+                      className={`flex w-full flex-col items-center gap-2 self-stretch rounded-xl border px-2 py-3 ${
                         dept.highlight
                           ? "border-accent-green/40 bg-accent-green/[0.04] shadow-[0_4px_16px_rgba(130,200,50,0.1)]"
                           : "border-black/[0.06] bg-[#fafafa]"
@@ -1406,13 +1410,16 @@ function Scene6Scale({
                         <span className="text-[9px] text-gray-500">{dept.role}</span>
                       </div>
 
-                      {/* pilot marker on Sales */}
-                      {dept.highlight && (
-                        <span className="flex items-center gap-1 rounded-full bg-accent-green/15 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.14em] text-accent-green">
-                          <span className="h-1 w-1 rounded-full bg-accent-green" />
-                          Pilot
-                        </span>
-                      )}
+                      {/* pilot marker on Sales (placeholder reserves space on other cards) */}
+                      <span
+                        aria-hidden={!dept.highlight}
+                        className={`mt-auto flex items-center gap-1 rounded-full bg-accent-green/15 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.14em] text-accent-green ${
+                          dept.highlight ? "" : "invisible"
+                        }`}
+                      >
+                        <span className="h-1 w-1 rounded-full bg-accent-green" />
+                        Pilot
+                      </span>
                     </div>
 
                     {/* mini trunk to sub-agents */}
@@ -1550,86 +1557,54 @@ const capabilityPositions = [
 
 function SalesAgentPilot({
   sceneRef,
-  orbitRef,
   block,
-  activeId,
-  onSelectCapability,
 }: {
   sceneRef: React.RefObject<HTMLElement | null>
-  orbitRef: React.RefObject<HTMLDivElement | null>
   block: Block
-  activeId: string
-  onSelectCapability: (id: string) => void
 }) {
   const StepIcon = block.stepIcon
+  const [activeId, setActiveId] = useState<string>("llm")
   const active = agentCapabilities.find((c) => c.id === activeId) ?? agentCapabilities[0]
   const ActiveIcon = active.icon
   const activeIndex = agentCapabilities.findIndex((c) => c.id === active.id)
-
-  const selectCapability = (id: string) => {
-    onSelectCapability(id)
-  }
 
   return (
     <section
       ref={sceneRef}
       id="scene-03"
-      className="relative overflow-hidden rounded-[2rem] border border-black/5 bg-[#f9f9f9] shadow-[0_20px_70px_rgba(0,0,0,0.06)]"
+      className="min-h-[75vh] rounded-[2rem] border border-black/5 bg-white p-6 shadow-[0_20px_70px_rgba(0,0,0,0.08)] md:p-10"
     >
-      {/* Dark charcoal header (matches Scene 4 / 5 / 6) */}
-      <div className="bg-charcoal p-6 md:p-8">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-green/15 text-accent-green">
-            <StepIcon className="h-5 w-5" />
+      <div className="grid gap-10 lg:min-h-[560px] lg:grid-cols-[1fr_0.95fr] lg:items-center">
+
+        {/* LEFT: title + bullets */}
+        <div className="max-w-2xl">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-green/10 text-accent-green">
+              <StepIcon className="h-5 w-5" />
+            </div>
+            <p className="text-sm uppercase tracking-[0.22em] text-accent-green">{block.label}</p>
           </div>
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-accent-green">
-            {block.label}
-          </span>
+          <h2 className="text-3xl font-bold leading-tight md:text-5xl">{block.title}</h2>
+          <p className="mt-6 max-w-xl text-lg text-gray-600">{block.summary}</p>
+          <div className="mt-8 grid gap-3">
+            {block.bullets.map(({ icon: BulletIcon, text }) => (
+              <div
+                key={text}
+                className="flex items-center gap-4 rounded-2xl border border-accent-green/10 bg-[#f7f7f7] px-5 py-4"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-green/10 text-accent-green">
+                  <BulletIcon className="h-4 w-4" />
+                </div>
+                <span className="text-base text-gray-700">{text}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <h2 className="mt-4 text-2xl font-bold leading-snug text-white md:text-3xl">{block.title}</h2>
-        <p className="mt-3 max-w-2xl text-base text-white/60">{block.summary}</p>
-      </div>
 
-      {/* Content (no left column — full width) */}
-      <div className="p-6 md:p-8">
+        {/* RIGHT: radial capability explorer */}
+        <div className="flex flex-col gap-5">
 
-        {/* Radial capability explorer (full width, matches Scene 4's Blueprint card) */}
-        <div ref={orbitRef} className="rounded-[1.5rem] border border-accent-green/15 bg-white p-5 shadow-[0_4px_30px_rgba(0,0,0,0.04)] md:p-6">
-
-          {/* Explorer header */}
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-black/5 pb-4">
-            <div className="flex items-center gap-3">
-              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-accent-green/40 bg-[#f4f4f4]">
-                <Image
-                  src="/building-process/agent-jorge.png"
-                  alt="Sales agent"
-                  fill
-                  sizes="44px"
-                  className="object-cover object-top"
-                />
-              </div>
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-accent-green">
-                  Pilot · Sales Agent
-                </div>
-                <div className="text-sm font-semibold text-charcoal">
-                  Inbound lead qualification & routing
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center gap-1.5 rounded-full border border-accent-green/30 bg-accent-green/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-accent-green">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-green opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-green" />
-              </span>
-              {agentCapabilities.length} capabilities
-            </div>
-          </div>
-
-          <div className="grid items-stretch gap-6 min-[900px]:grid-cols-2 min-[900px]:gap-8">
-
-          {/* LEFT BOX: radial scheme (equal width + equal height with the detail panel) */}
-          <div className="relative mx-auto aspect-square w-full max-w-[620px] self-center">
+          <div className="relative mx-auto aspect-square w-full max-w-[560px]">
 
             {/* soft radial background */}
             <div
@@ -1668,9 +1643,25 @@ function SalesAgentPilot({
               })}
             </svg>
 
+            {/* PILOT badge */}
+            <div className="absolute left-3 top-3 z-20 flex items-center gap-2 rounded-full border border-accent-green/30 bg-white/90 px-3 py-1.5 shadow-[0_4px_14px_rgba(0,0,0,0.06)] backdrop-blur">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-green opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-green" />
+              </span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-accent-green">
+                Pilot · Sales Agent
+              </span>
+            </div>
+
+            {/* agent count badge */}
+            <div className="absolute right-3 top-3 z-20 rounded-full border border-black/[0.08] bg-white px-2.5 py-1 text-[10px] font-semibold text-gray-500 shadow-sm">
+              {agentCapabilities.length} capabilities
+            </div>
+
             {/* CENTER: agent avatar */}
             <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
-              <div className="relative flex flex-col items-center">
+              <div data-sales-agent-avatar className="relative flex flex-col items-center">
                 <div className="pointer-events-none absolute top-[60px] h-40 w-40 -translate-y-1/2 rounded-full bg-accent-green/30 blur-2xl" />
                 <div className="relative h-32 w-32 overflow-hidden rounded-full border-[3px] border-accent-green bg-[#f7f7f7] shadow-[0_0_44px_rgba(130,200,50,0.4)]">
                   <Image
@@ -1700,7 +1691,7 @@ function SalesAgentPilot({
                 <button
                   key={c.id}
                   type="button"
-                  onClick={() => selectCapability(c.id)}
+                  onClick={() => setActiveId(c.id)}
                   aria-pressed={isActive}
                   aria-label={`Show details for ${c.name}`}
                   className="group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5 outline-none focus:outline-none"
@@ -1727,29 +1718,29 @@ function SalesAgentPilot({
             })}
           </div>
 
-          {/* RIGHT BOX: detail panel (matches the radial scheme height) */}
+          {/* DETAIL PANEL */}
           <div
             key={active.id}
-            className="flex h-full flex-col justify-center rounded-2xl border border-accent-green/20 bg-gradient-to-br from-accent-green/[0.08] via-white to-white px-6 py-7 shadow-[0_10px_30px_-15px_rgba(130,200,50,0.3)] md:px-8 md:py-8"
+            className="rounded-2xl border border-accent-green/20 bg-gradient-to-br from-accent-green/[0.08] via-white to-white px-5 py-5 shadow-[0_10px_30px_-15px_rgba(130,200,50,0.3)]"
             style={{ animation: "cap-fade 0.3s ease-out" }}
           >
-            <div className="flex items-start gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent-green text-charcoal shadow-[0_6px_16px_rgba(130,200,50,0.4)]">
-                <ActiveIcon className="h-7 w-7" />
+            <div className="flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-green text-charcoal shadow-[0_6px_16px_rgba(130,200,50,0.4)]">
+                <ActiveIcon className="h-5 w-5" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="text-2xl font-bold text-charcoal">{active.name}</h3>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent-green">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <h3 className="text-lg font-bold text-charcoal">{active.name}</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent-green">
                     {active.short}
                   </span>
                 </div>
-                <p className="mt-3 text-base leading-relaxed text-gray-600">{active.desc}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{active.desc}</p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
                   {active.examples.map((ex) => (
                     <span
                       key={ex}
-                      className="rounded-full border border-black/[0.08] bg-white px-3 py-1.5 text-xs font-medium text-gray-600"
+                      className="rounded-full border border-black/[0.08] bg-white px-2.5 py-1 text-[11px] font-medium text-gray-600"
                     >
                       {ex}
                     </span>
@@ -1759,9 +1750,7 @@ function SalesAgentPilot({
             </div>
           </div>
 
-          </div>
-
-          <p className="mt-5 flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
+          <p className="-mt-1 flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
             <Sparkles className="h-3 w-3 text-accent-green" />
             Click any capability to explore
           </p>
@@ -1787,14 +1776,7 @@ export default function BuildingProcessStory() {
   const scene04Ref   = useRef<HTMLElement>(null)
   const scene05Ref   = useRef<HTMLElement>(null)
   const scene06Ref   = useRef<HTMLElement>(null)
-  const scene03OrbitRef = useRef<HTMLDivElement>(null)
   const [activeStep, setActiveStep] = useState(0)
-  const [scene03ActiveId, setScene03ActiveId] = useState<string>("llm")
-  const scene03UserInteractedRef = useRef(false)
-  const handleScene03Select = (id: string) => {
-    scene03UserInteractedRef.current = true
-    setScene03ActiveId(id)
-  }
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -1991,54 +1973,417 @@ export default function BuildingProcessStory() {
       if (count) count.textContent = "42+"
     }
 
-    // Scene 3 — pin the orbit card while the user scrolls, and cycle the active
-    // capability in lockstep with scroll progress. Created LAST so all prior
-    // triggers are measured first; `ScrollTrigger.refresh()` reconciles layout
-    // afterwards so scenes 4/5/6 stay aligned with the new pinSpacing.
-    let scene3Trigger: ScrollTrigger | null = null
-    const scene3El = step03Ref.current
-    const isWideEnough = window.matchMedia("(min-width: 900px)").matches
-    if (scene3El && !prefersReducedMotion && isWideEnough) {
-      const n = agentCapabilities.length
-      let lastIdx = -1
-      scene3Trigger = ScrollTrigger.create({
-        trigger: scene3El,
-        // Pin when the whole card's top reaches the top of the viewport so the
-        // dark header, the left-column bullets, AND the orbit card all freeze
-        // together while the user scrolls through the capabilities.
-        start: "top top",
-        end: `+=${n * 240}`,
-        pin: scene3El,
-        pinSpacing: true,
-        scrub: 0.4,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          if (scene03UserInteractedRef.current) return
-          const raw = Math.floor(self.progress * n)
-          const idx = Math.min(n - 1, Math.max(0, raw))
-          if (idx !== lastIdx) {
-            lastIdx = idx
-            setScene03ActiveId(agentCapabilities[idx].id)
-          }
-        },
-        onEnter: () => {
-          scene03UserInteractedRef.current = false
-        },
-        onEnterBack: () => {
-          scene03UserInteractedRef.current = false
-        },
-        onLeave: () => {
-          scene03UserInteractedRef.current = false
-        },
-        onLeaveBack: () => {
-          scene03UserInteractedRef.current = false
-        },
-      })
+    // ── Travel rows: Topic 1/2 selected rows "stick" in viewport while
+    //    scrolling from Step 01 down into Step 02's FeasibilityAssessment ──
+    let travelTrigger: ScrollTrigger | null = null
+    let travelPortal: HTMLDivElement | null = null
+    let travelResizeHandler: (() => void) | null = null
+    const step02El = step02Ref.current
+    const feasibilityEl = step02El?.querySelector<HTMLElement>("[data-feasibility-assessment]")
 
-      // After pinSpacing injects extra scroll height, force all triggers to
-      // recompute their start/end positions against the new layout.
-      ScrollTrigger.refresh()
+    if (
+      step02El &&
+      feasibilityEl &&
+      hlRows.length > 0 &&
+      !prefersReducedMotion
+    ) {
+      const hlRowsArray = Array.from(hlRows)
+
+      // Floating portal at body level so clones can escape the table's overflow:hidden
+      travelPortal = document.createElement("div")
+      travelPortal.setAttribute("data-travel-portal", "")
+      travelPortal.style.cssText =
+        "position:fixed;inset:0;pointer-events:none;z-index:30;overflow:visible;"
+      document.body.appendChild(travelPortal)
+
+      let active = false
+      let clones: HTMLElement[] = []
+
+      const styleClone = (clone: HTMLElement) => {
+        clone.removeAttribute("data-row")
+        clone.removeAttribute("data-cursor-element-id")
+        clone.style.position = "absolute"
+        clone.style.opacity = "0"
+        clone.style.willChange = "transform, opacity"
+        clone.style.background = "#ffffff"
+        clone.style.borderRadius = "16px"
+        clone.style.boxShadow = "0 18px 48px rgba(0,0,0,0.14)"
+        clone.style.border = "1px solid rgba(130,200,50,0.35)"
+        clone.style.pointerEvents = "none"
+        clone.style.transition = "opacity 0.25s ease-out"
+        // Force any nested badges (data-selected-badge) to be fully visible
+        clone.querySelectorAll<HTMLElement>("[data-selected-badge]").forEach((b) => {
+          b.style.opacity = "1"
+          b.style.transform = "none"
+        })
+      }
+
+      const clearClones = () => {
+        clones.forEach((c) => c.remove())
+        clones = []
+      }
+
+      const buildClonesAtCurrentPositions = () => {
+        clearClones()
+        // Anchor below the fixed navbar. Matches the trigger's "top 20%" start
+        // so the clones land in the same spot whether the user is scrolling
+        // down (onEnter) or back up (onEnterBack), where the original rows may
+        // already be far above the viewport.
+        const frozenTop = Math.max(140, Math.round(window.innerHeight * 0.2))
+        const gap = 6
+        let cursorY = frozenTop
+        clones = hlRowsArray.map((row) => {
+          const clone = row.cloneNode(true) as HTMLElement
+          styleClone(clone)
+          const rect = row.getBoundingClientRect()
+          // If the original row is currently visible, use its real top so the
+          // hand-off is seamless. Otherwise, fall back to the stacked frozen
+          // layout starting at the trigger's start position.
+          const top = rect.top > 0 && rect.top < window.innerHeight
+            ? rect.top
+            : cursorY
+          clone.style.left = `${rect.left}px`
+          clone.style.top = `${top}px`
+          clone.style.width = `${rect.width}px`
+          clone.style.height = `${rect.height}px`
+          cursorY = top + rect.height + gap
+          travelPortal!.appendChild(clone)
+          return clone
+        })
+        // Force a reflow before flipping opacity so the transition runs
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        clones[0]?.offsetWidth
+        clones.forEach((c) => { c.style.opacity = "1" })
+      }
+
+      const activate = () => {
+        if (active) return
+        active = true
+        buildClonesAtCurrentPositions()
+        hlRowsArray.forEach((r) => {
+          r.style.visibility = "hidden"
+        })
+      }
+
+      const deactivate = () => {
+        if (!active) return
+        active = false
+        clones.forEach((c) => { c.style.opacity = "0" })
+        hlRowsArray.forEach((r) => {
+          r.style.visibility = ""
+        })
+        const toRemove = clones
+        clones = []
+        window.setTimeout(() => {
+          toRemove.forEach((c) => c.remove())
+        }, 350)
+      }
+
+      travelResizeHandler = () => {
+        if (active) {
+          // Rebuild on resize to keep widths/positions consistent
+          buildClonesAtCurrentPositions()
+        }
+      }
+      window.addEventListener("resize", travelResizeHandler)
+
+      travelTrigger = ScrollTrigger.create({
+        trigger: hlRows[0],
+        start: "top 20%",
+        endTrigger: feasibilityEl,
+        end: "top 55%",
+        onEnter: activate,
+        onEnterBack: activate,
+        onLeave: deactivate,
+        onLeaveBack: deactivate,
+      })
+    }
+
+    // ── Travel card: Topic 1 feasibility card "sticks" in viewport while
+    //    scrolling from Step 02 down into Step 03 ──
+    let travelCardTrigger: ScrollTrigger | null = null
+    let travelCardPortal: HTMLDivElement | null = null
+    let travelCardResizeHandler: (() => void) | null = null
+    const step03El = step03Ref.current
+    const topic1Card = step02El?.querySelector<HTMLElement>('[data-feasibility-card="0"]')
+
+    if (step03El && topic1Card && !prefersReducedMotion) {
+      travelCardPortal = document.createElement("div")
+      travelCardPortal.setAttribute("data-travel-card-portal", "")
+      travelCardPortal.style.cssText =
+        "position:fixed;inset:0;pointer-events:none;z-index:30;overflow:visible;"
+      document.body.appendChild(travelCardPortal)
+
+      let cardActive = false
+      let cardClone: HTMLElement | null = null
+
+      const styleCardClone = (clone: HTMLElement) => {
+        clone.removeAttribute("data-feasibility-card")
+        clone.removeAttribute("data-cursor-element-id")
+        clone.style.position = "absolute"
+        clone.style.opacity = "0"
+        clone.style.willChange = "transform, opacity"
+        clone.style.background = "#ffffff"
+        clone.style.borderRadius = "16px"
+        clone.style.boxShadow = "0 18px 48px rgba(0,0,0,0.14)"
+        clone.style.border = "1px solid rgba(130,200,50,0.35)"
+        clone.style.pointerEvents = "none"
+        clone.style.transition = "opacity 0.25s ease-out"
+      }
+
+      const clearCardClone = () => {
+        if (cardClone) {
+          cardClone.remove()
+          cardClone = null
+        }
+      }
+
+      const buildCardCloneAtCurrentPosition = () => {
+        clearCardClone()
+        const frozenTop = Math.max(140, Math.round(window.innerHeight * 0.2))
+        const rect = topic1Card.getBoundingClientRect()
+        const top = rect.top > 0 && rect.top < window.innerHeight
+          ? rect.top
+          : frozenTop
+        const clone = topic1Card.cloneNode(true) as HTMLElement
+        styleCardClone(clone)
+        clone.style.left = `${rect.left}px`
+        clone.style.top = `${top}px`
+        clone.style.width = `${rect.width}px`
+        clone.style.height = `${rect.height}px`
+        travelCardPortal!.appendChild(clone)
+        cardClone = clone
+        // Force a reflow before flipping opacity so the transition runs
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        clone.offsetWidth
+        clone.style.opacity = "1"
+      }
+
+      const activateCard = () => {
+        if (cardActive) return
+        cardActive = true
+        buildCardCloneAtCurrentPosition()
+        topic1Card.style.visibility = "hidden"
+      }
+
+      const deactivateCard = () => {
+        if (!cardActive) return
+        cardActive = false
+        if (cardClone) cardClone.style.opacity = "0"
+        topic1Card.style.visibility = ""
+        const toRemove = cardClone
+        cardClone = null
+        window.setTimeout(() => {
+          toRemove?.remove()
+        }, 350)
+      }
+
+      travelCardResizeHandler = () => {
+        if (cardActive) buildCardCloneAtCurrentPosition()
+      }
+      window.addEventListener("resize", travelCardResizeHandler)
+
+      travelCardTrigger = ScrollTrigger.create({
+        trigger: topic1Card,
+        start: "top 20%",
+        endTrigger: step03El,
+        end: "top 55%",
+        onEnter: activateCard,
+        onEnterBack: activateCard,
+        onLeave: deactivateCard,
+        onLeaveBack: deactivateCard,
+      })
+    }
+
+    // ── Travel agent: Sales Agent avatar "sticks" in viewport while scrolling
+    //    from Step 03 down into Step 04's Sales Agent Blueprint ──
+    let travelAgentTrigger: ScrollTrigger | null = null
+    let travelAgentPortal: HTMLDivElement | null = null
+    let travelAgentResizeHandler: (() => void) | null = null
+    const scene04El = scene04Ref.current
+    const salesAgentAvatar = step03El?.querySelector<HTMLElement>("[data-sales-agent-avatar]")
+
+    if (scene04El && salesAgentAvatar && !prefersReducedMotion) {
+      travelAgentPortal = document.createElement("div")
+      travelAgentPortal.setAttribute("data-travel-agent-portal", "")
+      travelAgentPortal.style.cssText =
+        "position:fixed;inset:0;pointer-events:none;z-index:30;overflow:visible;"
+      document.body.appendChild(travelAgentPortal)
+
+      let agentActive = false
+      let agentClone: HTMLElement | null = null
+
+      const styleAgentClone = (clone: HTMLElement) => {
+        clone.removeAttribute("data-sales-agent-avatar")
+        clone.removeAttribute("data-cursor-element-id")
+        clone.style.position = "absolute"
+        clone.style.opacity = "0"
+        clone.style.willChange = "transform, opacity"
+        clone.style.pointerEvents = "none"
+        clone.style.transition = "opacity 0.25s ease-out"
+      }
+
+      const clearAgentClone = () => {
+        if (agentClone) {
+          agentClone.remove()
+          agentClone = null
+        }
+      }
+
+      const buildAgentCloneAtCurrentPosition = () => {
+        clearAgentClone()
+        const frozenTop = Math.max(140, Math.round(window.innerHeight * 0.2))
+        const rect = salesAgentAvatar.getBoundingClientRect()
+        const top = rect.top > 0 && rect.top < window.innerHeight
+          ? rect.top
+          : frozenTop
+        const clone = salesAgentAvatar.cloneNode(true) as HTMLElement
+        styleAgentClone(clone)
+        clone.style.left = `${rect.left}px`
+        clone.style.top = `${top}px`
+        clone.style.width = `${rect.width}px`
+        clone.style.height = `${rect.height}px`
+        travelAgentPortal!.appendChild(clone)
+        agentClone = clone
+        // Force reflow so the opacity transition runs
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        clone.offsetWidth
+        clone.style.opacity = "1"
+      }
+
+      const activateAgent = () => {
+        if (agentActive) return
+        agentActive = true
+        buildAgentCloneAtCurrentPosition()
+        salesAgentAvatar.style.visibility = "hidden"
+      }
+
+      const deactivateAgent = () => {
+        if (!agentActive) return
+        agentActive = false
+        if (agentClone) agentClone.style.opacity = "0"
+        salesAgentAvatar.style.visibility = ""
+        const toRemove = agentClone
+        agentClone = null
+        window.setTimeout(() => {
+          toRemove?.remove()
+        }, 350)
+      }
+
+      travelAgentResizeHandler = () => {
+        if (agentActive) buildAgentCloneAtCurrentPosition()
+      }
+      window.addEventListener("resize", travelAgentResizeHandler)
+
+      travelAgentTrigger = ScrollTrigger.create({
+        trigger: salesAgentAvatar,
+        start: "top 20%",
+        endTrigger: scene04El,
+        end: "top 55%",
+        onEnter: activateAgent,
+        onEnterBack: activateAgent,
+        onLeave: deactivateAgent,
+        onLeaveBack: deactivateAgent,
+      })
+    }
+
+    // ── Travel agent panel: Scene 4's "Sales Agent" autonomous-agent panel
+    //    "sticks" in viewport while scrolling from Step 04 down into Step 05 ──
+    let travelPanelTrigger: ScrollTrigger | null = null
+    let travelPanelPortal: HTMLDivElement | null = null
+    let travelPanelResizeHandler: (() => void) | null = null
+    const scene05El = scene05Ref.current
+    const agentPanel = scene04El?.querySelector<HTMLElement>("[data-scene4-agent-panel]")
+
+    if (scene05El && agentPanel && !prefersReducedMotion) {
+      travelPanelPortal = document.createElement("div")
+      travelPanelPortal.setAttribute("data-travel-panel-portal", "")
+      travelPanelPortal.style.cssText =
+        "position:fixed;inset:0;pointer-events:none;z-index:30;overflow:visible;"
+      document.body.appendChild(travelPanelPortal)
+
+      let panelActive = false
+      let panelClone: HTMLElement | null = null
+
+      const stylePanelClone = (clone: HTMLElement) => {
+        clone.removeAttribute("data-scene4-agent-panel")
+        clone.removeAttribute("data-cursor-element-id")
+        clone.style.position = "absolute"
+        clone.style.opacity = "0"
+        clone.style.willChange = "transform, opacity"
+        clone.style.boxShadow = "0 18px 48px rgba(0,0,0,0.14)"
+        clone.style.pointerEvents = "none"
+        clone.style.transition = "opacity 0.25s ease-out"
+        // Force any nested elements that depend on Scene 4 timeline animations
+        // (avatar, workflow steps) to be fully visible in the clone.
+        clone.querySelectorAll<HTMLElement>("[data-scene4-avatar], [data-scene4-step]").forEach((el) => {
+          el.style.opacity = "1"
+          el.style.transform = "none"
+        })
+      }
+
+      const clearPanelClone = () => {
+        if (panelClone) {
+          panelClone.remove()
+          panelClone = null
+        }
+      }
+
+      const buildPanelCloneAtCurrentPosition = () => {
+        clearPanelClone()
+        const frozenTop = Math.max(140, Math.round(window.innerHeight * 0.2))
+        const rect = agentPanel.getBoundingClientRect()
+        const top = rect.top > 0 && rect.top < window.innerHeight
+          ? rect.top
+          : frozenTop
+        const clone = agentPanel.cloneNode(true) as HTMLElement
+        stylePanelClone(clone)
+        clone.style.left = `${rect.left}px`
+        clone.style.top = `${top}px`
+        clone.style.width = `${rect.width}px`
+        clone.style.height = `${rect.height}px`
+        travelPanelPortal!.appendChild(clone)
+        panelClone = clone
+        // Force reflow before flipping opacity so the transition runs
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        clone.offsetWidth
+        clone.style.opacity = "1"
+      }
+
+      const activatePanel = () => {
+        if (panelActive) return
+        panelActive = true
+        buildPanelCloneAtCurrentPosition()
+        agentPanel.style.visibility = "hidden"
+      }
+
+      const deactivatePanel = () => {
+        if (!panelActive) return
+        panelActive = false
+        if (panelClone) panelClone.style.opacity = "0"
+        agentPanel.style.visibility = ""
+        const toRemove = panelClone
+        panelClone = null
+        window.setTimeout(() => {
+          toRemove?.remove()
+        }, 350)
+      }
+
+      travelPanelResizeHandler = () => {
+        if (panelActive) buildPanelCloneAtCurrentPosition()
+      }
+      window.addEventListener("resize", travelPanelResizeHandler)
+
+      travelPanelTrigger = ScrollTrigger.create({
+        trigger: agentPanel,
+        start: "top 20%",
+        endTrigger: scene05El,
+        end: "top 55%",
+        onEnter: activatePanel,
+        onEnterBack: activatePanel,
+        onLeave: deactivatePanel,
+        onLeaveBack: deactivatePanel,
+      })
     }
 
     return () => {
@@ -2048,7 +2393,34 @@ export default function BuildingProcessStory() {
       scene4Tl?.kill()
       scene5Tl?.kill()
       scene6Tl?.kill()
-      scene3Trigger?.kill()
+      travelTrigger?.kill()
+      if (travelResizeHandler) {
+        window.removeEventListener("resize", travelResizeHandler)
+      }
+      if (travelPortal && travelPortal.parentNode) {
+        travelPortal.parentNode.removeChild(travelPortal)
+      }
+      travelCardTrigger?.kill()
+      if (travelCardResizeHandler) {
+        window.removeEventListener("resize", travelCardResizeHandler)
+      }
+      if (travelCardPortal && travelCardPortal.parentNode) {
+        travelCardPortal.parentNode.removeChild(travelCardPortal)
+      }
+      travelAgentTrigger?.kill()
+      if (travelAgentResizeHandler) {
+        window.removeEventListener("resize", travelAgentResizeHandler)
+      }
+      if (travelAgentPortal && travelAgentPortal.parentNode) {
+        travelAgentPortal.parentNode.removeChild(travelAgentPortal)
+      }
+      travelPanelTrigger?.kill()
+      if (travelPanelResizeHandler) {
+        window.removeEventListener("resize", travelPanelResizeHandler)
+      }
+      if (travelPanelPortal && travelPanelPortal.parentNode) {
+        travelPanelPortal.parentNode.removeChild(travelPanelPortal)
+      }
     }
   }, [])
 
@@ -2071,8 +2443,8 @@ export default function BuildingProcessStory() {
 
       <section className="relative overflow-hidden bg-charcoal text-white">
         <div className="absolute inset-0 point-cloud-bg opacity-20"></div>
-        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-4 py-24 md:px-8 md:py-32 2xl:px-12">
-          <div className="max-w-6xl">
+        <div className="relative z-10 container mx-auto px-4 py-24 md:py-32">
+          <div className="max-w-4xl">
             <p className="mb-5 text-sm uppercase tracking-[0.25em] text-accent-green">Building Process</p>
             <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               We don&rsquo;t sell{" "}
@@ -2085,7 +2457,7 @@ export default function BuildingProcessStory() {
               <span className="text-accent-green">the system</span>{" "}
               your business runs on.
             </h1>
-            <div className="mb-8 max-w-4xl space-y-5 text-lg text-white/80 md:text-xl">
+            <div className="mb-8 max-w-3xl space-y-5 text-lg text-white/80 md:text-xl">
               <p>
                 Aideology partners with enterprise teams to turn complex, manual processes into intelligent
                 agentic systems — designed around your data, your constraints, and your operating model.
@@ -2236,14 +2608,7 @@ export default function BuildingProcessStory() {
               }
 
               return block.featured ? (
-                <SalesAgentPilot
-                  key={block.id}
-                  sceneRef={step03Ref}
-                  orbitRef={scene03OrbitRef}
-                  block={block}
-                  activeId={scene03ActiveId}
-                  onSelectCapability={handleScene03Select}
-                />
+                <SalesAgentPilot key={block.id} sceneRef={step03Ref} block={block} />
               ) : null
             })}
           </div>
@@ -2267,7 +2632,7 @@ export default function BuildingProcessStory() {
             </div>
 
             {/* outcome cards */}
-            <div className="mt-14 grid gap-4 md:grid-cols-3">
+            <div className="mt-14 grid items-stretch gap-4 md:grid-cols-3">
               {[
                 {
                   icon: Rocket,
@@ -2287,7 +2652,7 @@ export default function BuildingProcessStory() {
               ].map(({ icon: OutIcon, title, desc }) => (
                 <div
                   key={title}
-                  className="group flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-accent-green/40 hover:bg-white/10"
+                  className="group flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-accent-green/40 hover:bg-white/10"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-green/15 text-accent-green transition-transform duration-300 group-hover:scale-110">
                     <OutIcon className="h-5 w-5" />
