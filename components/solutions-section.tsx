@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Server, Users, Zap } from "lucide-react"
+import { ArrowRight, Bot, Server, Users, Zap } from "lucide-react"
 
 export default function SolutionsSection() {
   const solutions = [
@@ -37,6 +37,22 @@ export default function SolutionsSection() {
       link: "/building-process",
     },
     {
+      title: "Humanoid Robotics Deployment",
+      description:
+        "Deploy production humanoid skills into real factory cells — designed and trained inside NVIDIA Omniverse, operated on NVIDIA AI Enterprise.",
+      highlights: [
+        "Floor-walk and cell feasibility assessment",
+        "Digital twin in NVIDIA Omniverse & Isaac Sim",
+        "Policy training with NVIDIA GR00T & Isaac Lab",
+        "Sim-to-real on Jetson Thor & Isaac ROS",
+        "Fleet management and continuous learning",
+      ],
+      icon: (
+        <Bot className="h-12 w-12 text-accent-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      ),
+      link: "/humanoid-robotics-process",
+    },
+    {
       title: "AI Architecture, Infrastructure & Sovereign Deployment",
       description:
         "Design, deploy, and secure the right AI stack — from compute and networking to sovereign and regulated environments.",
@@ -65,7 +81,7 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {solutions.map((solution, index) => (
             <Card
               key={index}
