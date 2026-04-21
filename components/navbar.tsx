@@ -172,6 +172,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     { href: "/", label: "Home", sectionId: "" },
     { href: { pathname: "/", hash: "#solutions" }, label: "Services", sectionId: "solutions" },
     { href: "/building-process", label: "Process", sectionId: "" },
+    { href: "/ai-readiness-scorecard", label: "Scorecard", sectionId: "" },
     { href: { pathname: "/", hash: "#partners" }, label: "Partners", sectionId: "partners" },
     { href: "/news", label: "News", sectionId: "" },
     // { href: "/customers", label: "Customers", sectionId: "" }, // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line and remove this comment when customers page is restored
