@@ -4,6 +4,7 @@ import {
   type Dimension,
   type MaturityStage,
   type MaturityThreshold,
+  type RecommendationDetail,
 } from "./scorecard-config"
 
 export interface LeadInfo {
@@ -21,18 +22,97 @@ export interface DimensionScore {
   normalized: number
 }
 
+export interface EnrichedRecommendation {
+  dimensionId: string
+  dimensionName: string
+  score: number
+  shortRecommendation: string
+  detail: RecommendationDetail
+}
+
+export interface BalanceDiagnosis {
+  spread: number
+  label: "balanced" | "uneven" | "highly uneven"
+  summary: string
+}
+
 export interface ScoreResult {
   perDimension: DimensionScore[]
   overall: number
   stage: MaturityStage
+  stageHeadline: string
   stageBlurb: string
+  executiveSummary: string
+  strategicFocus: string
+  ninetyDayPriorities: string[]
+  nextTwelveMonths: string
   strongest: DimensionScore[]
   weakest: DimensionScore[]
-  recommendations: { dimensionId: string; dimensionName: string; recommendation: string; score: number }[]
+  recommendations: EnrichedRecommendation[]
+  balance: BalanceDiagnosis
+  keyInsight: string
 }
 
 const STORAGE_KEY_ANSWERS = "ai-readiness-answers"
 const STORAGE_KEY_LEAD = "ai-readiness-lead"
+
+function standardDeviation(values: number[]): number {
+  if (values.length === 0) return 0
+  const mean = values.reduce((a, b) => a + b, 0) / values.length
+  const variance = values.reduce((a, b) => a + (b - mean) ** 2, 0) / values.length
+  return Math.sqrt(variance)
+}
+
+function describeBalance(values: number[]): BalanceDiagnosis {
+  const spread = standardDeviation(values)
+  if (spread < 10) {
+    return {
+      spread,
+      label: "balanced",
+      summary:
+        "Your scores are fairly even across dimensions. This means there is no single blocker — progress will come from lifting all dimensions together rather than rescuing one.",
+    }
+  }
+  if (spread < 18) {
+    return {
+      spread,
+      label: "uneven",
+      summary:
+        "Your scores are uneven across dimensions. A small number of weaker areas are dragging down the overall maturity and will become bottlenecks as AI scales.",
+    }
+  }
+  return {
+    spread,
+    label: "highly uneven",
+    summary:
+      "Your scores are highly uneven. A few advanced areas are masking real foundational gaps. Closing the weakest dimensions is likely the highest-leverage move available to you.",
+  }
+}
+
+function buildKeyInsight(
+  perDimension: DimensionScore[],
+  strongest: DimensionScore[],
+  weakest: DimensionScore[],
+  balance: BalanceDiagnosis,
+): string {
+  const top = strongest[0]
+  const bottom = weakest[0]
+  const lowCount = perDimension.filter((d) => d.normalized < 50).length
+  const highCount = perDimension.filter((d) => d.normalized >= 75).length
+
+  if (!top || !bottom) return ""
+
+  if (balance.label === "highly uneven") {
+    return `Your biggest opportunity is not to build on ${top.name} — it is to close the gap on ${bottom.name}. With ${lowCount} dimension${lowCount === 1 ? "" : "s"} still below 50/100, strengths like ${top.name} cannot compound until the foundations catch up.`
+  }
+  if (balance.label === "uneven") {
+    return `${top.name} is a genuine strength (${Math.round(top.normalized)}/100), but ${bottom.name} at ${Math.round(bottom.normalized)}/100 is a bottleneck. Closing the two weakest dimensions will unlock more value than adding a new AI use case.`
+  }
+  if (highCount >= 6) {
+    return `You score consistently well across dimensions. Your next advantage comes from depth and integration — making AI a portfolio-level capability, not a set of strong individual functions.`
+  }
+  return `Your scores are consistent across dimensions. Progress will come from lifting the whole organization together, with a focused 90-day plan on the two or three lowest areas.`
+}
 
 export function computeScores(
   answers: Record<string, number>,
@@ -63,27 +143,38 @@ export function computeScores(
   const strongest = sortedByScore.slice(0, 3)
   const weakest = [...sortedByScore].reverse().slice(0, 3)
 
-  const recommendations = weakest
+  const recommendations: EnrichedRecommendation[] = weakest
     .map((w) => {
       const dim = dims.find((d) => d.id === w.id)
       if (!dim) return null
       return {
         dimensionId: w.id,
         dimensionName: w.name,
-        recommendation: dim.lowScoreRecommendation,
         score: Math.round(w.normalized),
+        shortRecommendation: dim.lowScoreRecommendation,
+        detail: dim.recommendationDetail,
       }
     })
-    .filter((r): r is NonNullable<typeof r> => r !== null)
+    .filter((r): r is EnrichedRecommendation => r !== null)
+
+  const balance = describeBalance(perDimension.map((d) => d.normalized))
+  const keyInsight = buildKeyInsight(perDimension, strongest, weakest, balance)
 
   return {
     perDimension,
     overall,
     stage: threshold.stage,
+    stageHeadline: threshold.headline,
     stageBlurb: threshold.blurb,
+    executiveSummary: threshold.executiveSummary,
+    strategicFocus: threshold.strategicFocus,
+    ninetyDayPriorities: threshold.ninetyDayPriorities,
+    nextTwelveMonths: threshold.nextTwelveMonths,
     strongest,
     weakest,
     recommendations,
+    balance,
+    keyInsight,
   }
 }
 
@@ -144,7 +235,6 @@ export function saveLead(lead: LeadInfo) {
 }
 
 // ─── Placeholder integration hooks ──────────────────────────────────────────
-// These are stubs. Wire them up later to your CRM / webhook / analytics stack.
 
 export async function submitLeadToWebhook(
   lead: LeadInfo,
