@@ -17,9 +17,34 @@ import {
   type LeadInfo,
   type ScoreResult,
 } from "@/components/ai-readiness/scorecard-utils"
+import { buildScorecardPDFBase64 } from "@/components/ai-readiness/scorecard-pdf"
 import { dimensions } from "@/components/ai-readiness/scorecard-config"
 
 type Stage = "landing" | "assessment" | "lead" | "results"
+
+async function submitScorecardToApi(
+  lead: LeadInfo,
+  scores: ScoreResult,
+): Promise<void> {
+  try {
+    const { base64, fileName } = buildScorecardPDFBase64(scores, lead)
+    const res = await fetch("/api/scorecard-submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        lead,
+        scores,
+        pdfBase64: base64,
+        pdfFileName: fileName,
+      }),
+    })
+    if (!res.ok) {
+      console.warn("Scorecard email submit failed:", res.status, await res.text())
+    }
+  } catch (err) {
+    console.warn("Scorecard email submit threw:", err)
+  }
+}
 
 export default function AIReadinessScorecardPage() {
   const [stage, setStage] = useState<Stage>("landing")
@@ -68,6 +93,10 @@ export default function AIReadinessScorecardPage() {
     if (lead) {
       setStage("results")
       trackScorecardEvent("scorecard_results_viewed", { overall: result?.overall })
+      // Re-fire the submission when an existing lead retakes the assessment
+      if (result) {
+        void submitScorecardToApi(lead, result)
+      }
     } else {
       setStage("lead")
     }
@@ -83,7 +112,11 @@ export default function AIReadinessScorecardPage() {
       role: submitted.role,
     })
     try {
-      await submitLeadToWebhook(submitted, result)
+      // Fire both the legacy webhook (optional) and the new email API in parallel
+      await Promise.all([
+        submitLeadToWebhook(submitted, result),
+        submitScorecardToApi(submitted, result),
+      ])
     } finally {
       setSubmitting(false)
       setStage("results")
@@ -138,7 +171,6 @@ export default function AIReadinessScorecardPage() {
     return <ScorecardResults result={result} lead={lead} onRestart={handleRestart} />
   }
 
-  // Fallback: if somehow we reached results but no result, go back to assessment
   setStage("assessment")
   return <div className="min-h-dvh" />
 }

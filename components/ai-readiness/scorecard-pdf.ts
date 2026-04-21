@@ -60,7 +60,6 @@ function ensureSpace(ctx: PDFContext, needed: number) {
     drawFooter(ctx)
     ctx.doc.addPage()
     ctx.pageNumber += 1
-    // Headers are only on first page; interior pages keep it minimal
     ctx.doc.setFillColor(...LIGHT)
     ctx.doc.rect(0, 0, ctx.pageWidth, 28, "F")
     ctx.doc.setFont("helvetica", "bold")
@@ -118,7 +117,6 @@ function bulletList(ctx: PDFContext, items: string[], opts: { gapAfter?: number 
   for (const item of items) {
     const lines = ctx.doc.splitTextToSize(item, maxWidth) as string[]
     ensureSpace(ctx, LINE_HEIGHT * lines.length + 2)
-    // bullet
     ctx.doc.setFillColor(...ACCENT)
     ctx.doc.circle(MARGIN + 3, ctx.cursorY - 3, 1.6, "F")
     lines.forEach((l, idx) => {
@@ -145,13 +143,11 @@ function scoreBadge(ctx: PDFContext, overall: number, stage: string) {
   const x = pageWidth - MARGIN - boxW
   const y = ctx.cursorY - 48
 
-  // Card background
   doc.setFillColor(255, 255, 255)
   doc.setDrawColor(...BORDER)
   doc.setLineWidth(0.8)
   doc.roundedRect(x, y, boxW, boxH, 6, 6, "FD")
 
-  // Score big number
   doc.setFont("helvetica", "bold")
   doc.setFontSize(36)
   doc.setTextColor(...CHARCOAL)
@@ -161,7 +157,6 @@ function scoreBadge(ctx: PDFContext, overall: number, stage: string) {
   doc.setTextColor(...MUTED)
   doc.text("/ 100", x + 64, y + 44)
 
-  // Stage chip
   doc.setFillColor(...ACCENT)
   doc.roundedRect(x + 16, y + 56, boxW - 32, 22, 11, 11, "F")
   doc.setFont("helvetica", "bold")
@@ -170,11 +165,15 @@ function scoreBadge(ctx: PDFContext, overall: number, stage: string) {
   doc.text(stage.toUpperCase(), x + boxW / 2, y + 71, { align: "center" })
 }
 
-export async function generateScorecardPDF(
+export interface BuiltScorecardPDF {
+  doc: jsPDF
+  fileName: string
+}
+
+function buildScorecardPDF(
   result: ScoreResult,
   lead: LeadInfo | null,
-  radarSvgElement?: SVGSVGElement | null,
-) {
+): BuiltScorecardPDF {
   const doc = new jsPDF({ unit: "pt", format: "a4" })
   const ctx: PDFContext = {
     doc,
@@ -184,7 +183,6 @@ export async function generateScorecardPDF(
     pageNumber: 1,
   }
 
-  // ── COVER ─────────────────────────────────────────────────────────────
   drawHeader(ctx, lead, result)
 
   const today = new Date().toLocaleDateString(undefined, {
@@ -195,7 +193,6 @@ export async function generateScorecardPDF(
 
   eyebrow(ctx, "AI Readiness Report")
 
-  // Title
   doc.setFont("helvetica", "bold")
   doc.setFontSize(22)
   doc.setTextColor(...CHARCOAL)
@@ -214,7 +211,6 @@ export async function generateScorecardPDF(
   ctx.cursorY += 10
   paragraph(ctx, result.stageHeadline, { size: 12, color: MUTED, gapAfter: 8 })
 
-  // Meta line
   const metaLine = [
     lead?.fullName,
     lead?.company,
@@ -230,7 +226,6 @@ export async function generateScorecardPDF(
 
   divider(ctx)
 
-  // ── EXECUTIVE SUMMARY ────────────────────────────────────────────────
   eyebrow(ctx, "Executive Summary")
   paragraph(ctx, result.executiveSummary, { size: 11, gapAfter: 8 })
   paragraph(ctx, result.balance.summary, { size: 11, color: MUTED, gapAfter: 8 })
@@ -238,7 +233,6 @@ export async function generateScorecardPDF(
     paragraph(ctx, `Key insight — ${result.keyInsight}`, { size: 11, bold: true, gapAfter: 14 })
   }
 
-  // ── SCORECARD TABLE ──────────────────────────────────────────────────
   ensureSpace(ctx, 100)
   eyebrow(ctx, "Scorecard")
 
@@ -276,7 +270,6 @@ export async function generateScorecardPDF(
   // @ts-expect-error lastAutoTable is populated by jspdf-autotable at runtime
   ctx.cursorY = (doc.lastAutoTable?.finalY ?? ctx.cursorY) + 20
 
-  // ── STRENGTHS & WEAKNESSES ───────────────────────────────────────────
   ensureSpace(ctx, 120)
   eyebrow(ctx, "Strengths")
   paragraph(
@@ -303,7 +296,6 @@ export async function generateScorecardPDF(
     { gapAfter: 16 },
   )
 
-  // ── STRATEGIC FOCUS / 90-DAY / 12 MONTHS ─────────────────────────────
   doc.addPage()
   ctx.pageNumber += 1
   ctx.cursorY = 0
@@ -325,7 +317,6 @@ export async function generateScorecardPDF(
 
   divider(ctx)
 
-  // ── DETAILED RECOMMENDATIONS ─────────────────────────────────────────
   eyebrow(ctx, "Prioritized Recommendations")
   paragraph(
     ctx,
@@ -335,7 +326,6 @@ export async function generateScorecardPDF(
 
   result.recommendations.forEach((rec, idx) => {
     ensureSpace(ctx, 100)
-    // Card-ish title row
     doc.setFont("helvetica", "bold")
     doc.setFontSize(11)
     doc.setTextColor(...CHARCOAL)
@@ -364,7 +354,6 @@ export async function generateScorecardPDF(
     bulletList(ctx, rec.detail.firstSteps, { gapAfter: 16 })
   })
 
-  // ── HOW TO CONTINUE ──────────────────────────────────────────────────
   ensureSpace(ctx, 200)
   divider(ctx)
   eyebrow(ctx, "How to Continue")
@@ -415,7 +404,6 @@ export async function generateScorecardPDF(
   }
   ctx.cursorY += 80
 
-  // ── APPENDIX: METHODOLOGY ───────────────────────────────────────────
   doc.addPage()
   ctx.pageNumber += 1
   ctx.cursorY = 0
@@ -464,8 +452,6 @@ export async function generateScorecardPDF(
     { size: 10, color: MUTED, gapAfter: 20 },
   )
 
-  void radarSvgElement
-
   drawFooter(ctx)
 
   const safeCompany = (lead?.company ?? "organization")
@@ -473,7 +459,26 @@ export async function generateScorecardPDF(
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "")
   const fileName = `ai-readiness-scorecard-${safeCompany || "report"}-${result.stage.toLowerCase().replace(/\s+/g, "-")}.pdf`
+
+  return { doc, fileName }
+}
+
+export async function generateScorecardPDF(
+  result: ScoreResult,
+  lead: LeadInfo | null,
+) {
+  const { doc, fileName } = buildScorecardPDF(result, lead)
   doc.save(fileName)
+}
+
+export function buildScorecardPDFBase64(
+  result: ScoreResult,
+  lead: LeadInfo | null,
+): { base64: string; fileName: string } {
+  const { doc, fileName } = buildScorecardPDF(result, lead)
+  const dataUri = doc.output("datauristring")
+  const base64 = dataUri.split("base64,").pop() ?? ""
+  return { base64, fileName }
 }
 
 function barString(score: number): string {
