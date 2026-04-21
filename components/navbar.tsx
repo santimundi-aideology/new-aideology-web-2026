@@ -73,6 +73,7 @@ export default function Navbar({ forceDarkLogo = false }: NavbarProps) {
     forceDarkLogo ||
     pathname.startsWith("/services/") ||
     pathname.startsWith("/products/") ||
+    pathname.startsWith("/ai-readiness-scorecard") ||
     // pathname === "/customers" || // TODO: RESTORE CUSTOMERS PAGE - Uncomment this line when customers page is restored
     pathname === "/news"
 

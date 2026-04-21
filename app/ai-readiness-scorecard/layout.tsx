@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "AI Readiness Scorecard | AIdeology",
@@ -20,7 +19,6 @@ export default function ScorecardLayout({
 }) {
   return (
     <main className="min-h-dvh bg-[#f4f4f4] text-charcoal">
-      <Navbar forceDarkLogo />
       {children}
       <Footer />
     </main>
